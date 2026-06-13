@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pagination",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Pagination",
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "integer",
+      "description": "Limit",
+      "format": "int32",
+      "nullable": true
+    },
+    "offset": {
+      "type": "integer",
+      "description": "Offset",
+      "format": "int32",
+      "nullable": true
+    },
+    "totalCount": {
+      "type": "integer",
+      "description": "Total loads found",
+      "format": "int32"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Pagination information"
+}

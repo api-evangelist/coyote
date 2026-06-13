@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StopDetails",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.StopDetails",
+  "required": [
+    "commodities"
+  ],
+  "type": "object",
+  "properties": {
+    "commodities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadCommodity"
+      },
+      "description": "List of stop commodities"
+    },
+    "stopAttributes": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes"
+    },
+    "stopNotes": {
+      "type": "string",
+      "description": "Stop notes",
+      "nullable": true
+    },
+    "workType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.DriverWorkType"
+    },
+    "genericAttributes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GenericAttributeItem"
+      },
+      "description": "Generic Attributes",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load stop details"
+}

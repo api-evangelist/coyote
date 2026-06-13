@@ -1,0 +1,74 @@
+{
+  "description": "Response 200 example for Gets all load stop details",
+  "example": {
+    "proNumber": "PRONUMBER",
+    "loadStops": [
+      {
+        "milestone": {
+          "driverArrivalDateTimeUtc": "2026-06-13T18:38:48.5416537Z",
+          "trailerArriveDateTimeUtc": "2026-06-13T18:38:48.5416537Z",
+          "trailerLoadedDateTimeUtc": "2026-06-13T18:38:48.5416538Z",
+          "trailerEmptyDateTimeUtc": "2026-06-13T18:38:48.5416538Z",
+          "driverDepartureDateTimeUtc": "2026-06-13T18:38:48.5416538Z"
+        },
+        "sequence": 1,
+        "stopType": "Pickup",
+        "facility": {
+          "name": "Coyote Logistics",
+          "address": {
+            "line1": "2545 W Diversey Ave",
+            "line2": null,
+            "line3": null,
+            "postalCode": "60647",
+            "cityName": "Chicago",
+            "stateProvinceCode": "IL",
+            "countryCode": "USA"
+          },
+          "geoCoordinates": {
+            "latitude": 41.931674,
+            "longitude": -87.691939
+          }
+        },
+        "appointment": {
+          "facilityOpenDateTimeUtc": "2026-06-14T18:33:48.5416535Z",
+          "facilityCloseDateTimeUtc": "2026-06-14T18:33:48.5416534Z",
+          "appointmentStartDateTimeUtc": "2026-06-13T18:38:48.5416528Z",
+          "appointmentEndDateTimeUtc": "2026-06-13T19:13:48.5416534Z"
+        }
+      },
+      {
+        "milestone": {
+          "driverArrivalDateTimeUtc": "2026-06-14T18:33:48.5416548Z",
+          "trailerArriveDateTimeUtc": "2026-06-14T18:33:48.5416548Z",
+          "trailerLoadedDateTimeUtc": "2026-06-14T18:33:48.5416549Z",
+          "trailerEmptyDateTimeUtc": "2026-06-14T18:33:48.5416549Z",
+          "driverDepartureDateTimeUtc": "2026-06-14T18:33:48.5416548Z"
+        },
+        "sequence": 2,
+        "stopType": "Delivery",
+        "facility": {
+          "name": "Coyote Logistics",
+          "address": {
+            "line1": "1515 Wazee St",
+            "line2": null,
+            "line3": null,
+            "postalCode": "80202",
+            "cityName": "Denver",
+            "stateProvinceCode": "CO",
+            "countryCode": "USA"
+          },
+          "geoCoordinates": {
+            "latitude": 41.931674,
+            "longitude": -87.691939
+          }
+        },
+        "appointment": {
+          "facilityOpenDateTimeUtc": "2026-06-14T18:33:48.5416545Z",
+          "facilityCloseDateTimeUtc": "2026-06-14T18:33:48.5416545Z",
+          "appointmentStartDateTimeUtc": "2026-06-14T18:33:48.5416544Z",
+          "appointmentEndDateTimeUtc": "2026-06-14T18:33:48.5416544Z"
+        }
+      }
+    ]
+  }
+}

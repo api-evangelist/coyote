@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Temperature",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature",
+  "required": [
+    "unit",
+    "value"
+  ],
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Temperature value.",
+      "format": "double"
+    },
+    "unit": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Defines the temperature details"
+}

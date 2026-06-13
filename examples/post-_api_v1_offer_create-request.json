@@ -1,0 +1,9 @@
+{
+  "description": "Request example for Create new offer",
+  "example": {
+    "loadId": 28070711,
+    "amount": 5600.0,
+    "currency": "EUR",
+    "webHookAddress": "https://example.com/webhook"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "description": "Response 200 example for Search loads",
+  "example": [
+    {
+      "loadId": 19601171,
+      "loadDate": "2026-06-13T13:33:48.4824219-05:00",
+      "loadStops": [
+        {
+          "sequence": 1,
+          "stopType": "Pick Up",
+          "facility": {
+            "name": "Printers Distributing Co., LLC",
+            "address": {
+              "line1": "270 Middle Road",
+              "line2": "",
+              "line3": "",
+              "cityName": "Dallas",
+              "countryCode": "USA",
+              "postalCode": "75221",
+              "stateProvinceCode": "TX"
+            },
+            "geoCoordinates": {
+              "latitude": 32.783,
+              "longitude": -96.8
+            }
+          }
+        },
+        {
+          "sequence": 2,
+          "stopType": "Delivery",
+          "facility": {
+            "name": "Delivery Distributing Co., LLC",
+            "address": {
+              "line1": "3964 Shader Rd",
+              "line2": "",
+              "line3": "",
+              "cityName": "Orlando",
+              "countryCode": "USA",
+              "postalCode": "32808",
+              "stateProvinceCode": "FL"
+            },
+            "geoCoordinates": {
+              "latitude": 28.546,
+              "longitude": -81.378
+            }
+          }
+        }
+      ],
+      "trackingUrl": null
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "description": "Response 200 example for Gets all tracking updates for a given load",
+  "example": [
+    {
+      "loadId": 12345,
+      "address": {
+        "line1": "2545 W Diversey Ave",
+        "line2": null,
+        "city": "Chicago",
+        "postalCode": "60647",
+        "state": "IL",
+        "countryCode": "USA"
+      },
+      "geoCoordinates": {
+        "latitude": 41.9316,
+        "longitude": -87.6921
+      },
+      "timestamp": "2026-06-13T18:33:48.487995Z"
+    },
+    {
+      "loadId": 12345,
+      "address": {
+        "line1": "1515 Wazee St",
+        "line2": null,
+        "city": "Denver",
+        "postalCode": "80202",
+        "state": "CO",
+        "countryCode": "USA"
+      },
+      "geoCoordinates": {
+        "latitude": 39.734,
+        "longitude": -104.935
+      },
+      "timestamp": "2026-06-11T18:33:48.4879955Z"
+    }
+  ]
+}

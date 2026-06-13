@@ -1,0 +1,19 @@
+{
+  "description": "Response 200 example for Gets the latest tracking update for a given load",
+  "example": {
+    "loadId": 12345,
+    "address": {
+      "line1": "2545 W Diversey Ave",
+      "line2": null,
+      "city": "Chicago",
+      "postalCode": "60647",
+      "state": "IL",
+      "countryCode": "USA"
+    },
+    "geoCoordinates": {
+      "latitude": 41.9316,
+      "longitude": -87.6921
+    },
+    "timestamp": "2026-06-13T18:33:48.4892069Z"
+  }
+}

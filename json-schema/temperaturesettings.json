@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TemperatureSettings",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.TemperatureSettings",
+  "type": "object",
+  "properties": {
+    "preCoolTemperature": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature"
+    },
+    "maximumTemperature": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature"
+    },
+    "minimumTemperature": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Defines the temperature settings of load"
+}

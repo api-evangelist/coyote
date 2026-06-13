@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HazMatClass",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.HazMatClass",
+  "enum": [
+    "N3",
+    "N8",
+    "N9",
+    "NotApplicable",
+    "N2PT1",
+    "N2PT2",
+    "N4PT1",
+    "N4PT2",
+    "N5PT1",
+    "N6PT1P2",
+    "N6PT1P3",
+    "N1PT4",
+    "N1PT5",
+    "N1PT6"
+  ],
+  "type": "string",
+  "description": "Hazmat class"
+}

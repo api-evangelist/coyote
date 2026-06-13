@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadDetail",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadDetail",
+  "required": [
+    "commodities",
+    "equipmentLength",
+    "equipmentType",
+    "mode",
+    "stops"
+  ],
+  "type": "object",
+  "properties": {
+    "mode": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Mode"
+    },
+    "equipmentType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType"
+    },
+    "equipmentLength": {
+      "type": "integer",
+      "description": "Equipment length",
+      "format": "int32"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequirement"
+      },
+      "description": "Load requirements",
+      "nullable": true
+    },
+    "equipmentRequirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadEquipmentRequirement"
+      },
+      "description": "Load equipment requirements",
+      "nullable": true
+    },
+    "stops": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStop"
+      },
+      "description": "List of load stops"
+    },
+    "commodities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadCommodity"
+      },
+      "description": "List of commodities"
+    },
+    "spotQuoteId": {
+      "type": "string",
+      "description": "Spot Quote ID retrieved from Spot Quote requests API. For Truck Loads(TL) use the SpotQuoteId returned in TL Spot Quote request. For \r\nLess Than Truck Loads(LTL) use the CarrierQuoteId returned in LTL Spot Quote request.",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load Details"
+}

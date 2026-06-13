@@ -1,0 +1,41 @@
+{
+  "description": "Response 200 example for Gets a TL Spot Quote",
+  "example": {
+    "spotQuoteId": 342354,
+    "customerShipmentId": "CUST1234",
+    "origin": {
+      "cityName": "Chicago",
+      "stateCode": "IL",
+      "countryCode": "US",
+      "postalCode": "60647"
+    },
+    "destination": {
+      "cityName": "Madison",
+      "stateCode": "WI",
+      "countryCode": "US",
+      "postalCode": "50515"
+    },
+    "equipmentTypeId": 1,
+    "pickUpDateUTC": "2026-06-19T13:33:48.5084327-05:00",
+    "validUntilUtc": "2026-06-13T18:33:48.5084355-05:00",
+    "totalRate": 837.5,
+    "rateLineItems": [
+      {
+        "rateCode": "FR",
+        "description": "Flat Rate",
+        "unitRate": 650.0,
+        "units": 1.0,
+        "totalRate": 650.0,
+        "currency": "USD"
+      },
+      {
+        "rateCode": "405",
+        "description": "Fuel Surcharge",
+        "unitRate": 1.25,
+        "units": 150.0,
+        "totalRate": 187.5,
+        "currency": "USD"
+      }
+    ]
+  }
+}

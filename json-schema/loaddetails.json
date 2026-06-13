@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadDetails",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadDetails",
+  "required": [
+    "equipment",
+    "loadAttributes",
+    "loadDistance",
+    "mode",
+    "rate",
+    "temperatureSettings",
+    "weight"
+  ],
+  "type": "object",
+  "properties": {
+    "rate": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Rate"
+    },
+    "mode": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Mode"
+    },
+    "equipment": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentDetails"
+    },
+    "loadDistance": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Distance"
+    },
+    "weight": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Weight"
+    },
+    "temperatureSettings": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.TemperatureSettings"
+    },
+    "loadAttributes": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadAttributes"
+    },
+    "genericAttributes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GenericAttributeItem"
+      },
+      "description": "Collection of generic attributes",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load details"
+}

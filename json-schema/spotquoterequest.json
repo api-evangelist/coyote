@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpotQuoteRequest",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuoteRequest",
+  "required": [
+    "customerShipmentId",
+    "destination",
+    "equipmentTypeId",
+    "origin",
+    "pickUpDateUTC"
+  ],
+  "type": "object",
+  "properties": {
+    "equipmentTypeId": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType"
+    },
+    "origin": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData"
+    },
+    "destination": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData"
+    },
+    "pickUpDateUTC": {
+      "type": "string",
+      "description": "Load Pickup Date UTC",
+      "format": "date-time"
+    },
+    "minTemperature": {
+      "type": "number",
+      "description": "Minimum Temperature (required if Equipment Type = R)",
+      "format": "double",
+      "nullable": true
+    },
+    "maxTemperature": {
+      "type": "number",
+      "description": "Maximum Temperature (required if Equipment Type = R)",
+      "format": "double",
+      "nullable": true
+    },
+    "weight": {
+      "type": "number",
+      "description": "Weight",
+      "format": "double",
+      "nullable": true
+    },
+    "commodity": {
+      "type": "string",
+      "description": "Commodity",
+      "nullable": true
+    },
+    "equipmentLength": {
+      "type": "number",
+      "description": "Equipment Length",
+      "format": "double",
+      "nullable": true
+    },
+    "isHazmat": {
+      "type": "boolean",
+      "description": "Load is Hazmat __(currently unsupported)__",
+      "nullable": true
+    },
+    "isDropTrailer": {
+      "type": "boolean",
+      "description": "Load Requires Drop Trailer __(currently unsupported)__",
+      "nullable": true
+    },
+    "customerShipmentId": {
+      "type": "string",
+      "description": "Shipment ID"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Spot Quote Request"
+}

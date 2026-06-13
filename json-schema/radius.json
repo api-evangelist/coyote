@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Radius",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Radius",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "description": "Value",
+      "format": "int32",
+      "nullable": true
+    },
+    "unit": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Defines radius"
+}

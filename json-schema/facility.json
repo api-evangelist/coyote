@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Facility",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name",
+      "nullable": true
+    },
+    "address": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress"
+    },
+    "geoCoordinates": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Facility"
+}

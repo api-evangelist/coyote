@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enums_WeightUnitType",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightUnitType",
+  "enum": [
+    "Pounds"
+  ],
+  "type": "string",
+  "description": "Weight Units"
+}

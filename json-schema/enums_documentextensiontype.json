@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enums_DocumentExtensionType",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType",
+  "enum": [
+    "Undefined",
+    "Pdf",
+    "Txt",
+    "Tif",
+    "Tiff",
+    "Bmp",
+    "Dib",
+    "Gif",
+    "Jpeg",
+    "Jpg",
+    "Jpe",
+    "Jfif",
+    "Png",
+    "Doc",
+    "Docx",
+    "Rtf",
+    "Mht",
+    "Htm",
+    "Html",
+    "Xml",
+    "Zip"
+  ],
+  "type": "string",
+  "description": "Document Extension Type"
+}

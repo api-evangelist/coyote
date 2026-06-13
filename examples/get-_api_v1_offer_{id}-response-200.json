@@ -1,0 +1,10 @@
+{
+  "description": "Response 200 example for Get existing offer details",
+  "example": {
+    "id": "602268460a1a33708429b165",
+    "loadId": 28075798,
+    "amount": 6000.0,
+    "currency": "PLN",
+    "status": "Accepted"
+  }
+}

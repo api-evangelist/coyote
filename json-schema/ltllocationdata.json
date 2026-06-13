@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LtlLocationData",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData",
+  "required": [
+    "cityName",
+    "countryCode",
+    "postalCode",
+    "stateCode"
+  ],
+  "type": "object",
+  "properties": {
+    "cityName": {
+      "type": "string",
+      "description": "City"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "State"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Country"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal Code"
+    }
+  },
+  "additionalProperties": false,
+  "description": "City, State and Postal Code required"
+}

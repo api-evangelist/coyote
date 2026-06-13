@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CurrencyType",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType",
+  "enum": [
+    "Undefined",
+    "USD",
+    "CAD",
+    "MXN",
+    "EUR",
+    "GBP",
+    "PLN"
+  ],
+  "type": "string",
+  "description": "Currency Type"
+}

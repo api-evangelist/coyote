@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StopType",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.StopType",
+  "enum": [
+    "Pickup",
+    "Delivery"
+  ],
+  "type": "string",
+  "description": "Stop Types"
+}

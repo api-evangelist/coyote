@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DestinationRequirements",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements",
+  "type": "object",
+  "properties": {
+    "appointmentRequired": {
+      "type": "boolean",
+      "description": "Appointment Required"
+    },
+    "carrierNotifyBeforeArrival": {
+      "type": "boolean",
+      "description": "Carrier Notify Before Arrival"
+    },
+    "insideStop": {
+      "type": "boolean",
+      "description": "Stop requires Inside Pickup or Delivery"
+    },
+    "residentialStop": {
+      "type": "boolean",
+      "description": "Residential Stop"
+    },
+    "tradeshowStop": {
+      "type": "boolean",
+      "description": "Trade show Stop"
+    },
+    "liftGateStop": {
+      "type": "boolean",
+      "description": "Stop requires Lift Gate"
+    },
+    "sortSegregate": {
+      "type": "boolean",
+      "description": "Stop requires Sort and Segregate"
+    },
+    "limitedAccessType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Destination stop requirements"
+}

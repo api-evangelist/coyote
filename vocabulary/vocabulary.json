@@ -1,0 +1,1001 @@
+{
+  "name": "CoyoteGO API Vocabulary",
+  "description": "Terms, operations, and data concepts from the CoyoteGO API for freight logistics",
+  "source": "https://api.coyote.com/swagger/v1/swagger.json",
+  "operations": [
+    {
+      "term": "Gets a TL Spot Quote",
+      "description": "Allows Shippers to retrieve a Truckload quote. Given a set of shipment attributes as input, Coyote will send back a \r\nquote with a spot quote ID (\u201cspotQuoteId\u201d). This quote includes fuel, unless other"
+    },
+    {
+      "term": "Gets an LTL Spot Quote",
+      "description": "Allows Shippers to retrieve a Less-Than-Truckload quote. Given a set of shipment attributes as input, Coyote will \r\nsend back an LTL quote with an LTL spot quote ID (\u201cltlSpotQuoteId\u201d). This quote incl"
+    },
+    {
+      "term": "Submit a load request",
+      "description": "Allows Shippers to submit load build requests with relevant load information, including a Spot Quote ID. \\\r\n*Note: Including a Spot Quote ID is currently unsupported in Europe.*"
+    },
+    {
+      "term": "Get load build status",
+      "description": "Allows Shippers to retrieve the current load build status for a previously submitted request."
+    },
+    {
+      "term": "Cancel a load",
+      "description": "Allows Shippers to cancel a load that was previously submitted."
+    },
+    {
+      "term": "Search loads",
+      "description": "Based on a given search term, Coyote will return a list of all loads that match on any of the below reference number types associated to your loads.\r\n```\r\nReferenceNumberType: \r\n    - \"PRONumber\"\r\n   "
+    },
+    {
+      "term": "Gets all load stop details",
+      "description": "Allows Shippers to retrieve all load stop details for a given load, including facility information, \r\nas well as appointments, and tracking milestones."
+    },
+    {
+      "term": "Gets load tracking summary",
+      "description": "Allows Shippers to retrieve a tracking summary view for a given load, including the latest location update, \r\nnext stop details, and estimated arrival."
+    },
+    {
+      "term": "Gets all tracking updates for a given load",
+      "description": "Allows Shippers to retrieve all location updates for a given load."
+    },
+    {
+      "term": "Gets the latest tracking update for a given load",
+      "description": "Allows Shippers to retrieve the most recent location updates for a given load."
+    },
+    {
+      "term": "Gets available load details",
+      "description": "Allows Carriers to retrieve all the current details for a given load, assuming the provided load is still available."
+    },
+    {
+      "term": "Search available loads",
+      "description": "Allows Carriers to search for available loads with a set of query inputs. Coyote will return the list of all available loads that match the inputs provided in the request."
+    },
+    {
+      "term": "Submit a booking request",
+      "description": "Allows Carriers to submit a booking request with relevant load information."
+    },
+    {
+      "term": "Get booking request status",
+      "description": "Allows Carriers to retrieve the current booking status for a previously submitted booking request."
+    },
+    {
+      "term": "Get existing offer details",
+      "description": "Allows Coyote's Carrier to retrieve an existing offer details."
+    },
+    {
+      "term": "Remove offer",
+      "description": "Allows Coyote's Carrier to remove pending offer."
+    },
+    {
+      "term": "Create new offer",
+      "description": "Allows Coyote's Carrier to create new offer."
+    },
+    {
+      "term": "Book an offer",
+      "description": "Allows Coyote's Carrier book an offer."
+    },
+    {
+      "term": "Decline offer",
+      "description": "Allows Coyote's Carrier to decline countered offer."
+    },
+    {
+      "term": "Submit a document to be associated with a load",
+      "description": "Allows Carriers and Shippers to submit one or more documents that will be saved to a given load they are associated to. Only files up to 20 MB and with specific extensions are allowed. Zips are curren"
+    },
+    {
+      "term": "Get associated entities",
+      "description": "Allows Coyote's Carrier and Shipper partners to retrieve all associated entities to their account that can be transacted on behalf of via our API."
+    },
+    {
+      "term": "Gets an associated document with a load",
+      "description": "Allows Carriers and Shippers to retrieve one or more PDF documents in a zipped format for a given load they are associated to."
+    }
+  ],
+  "schemas": {
+    "AssociatedEntity": {
+      "description": "Associated Entity response",
+      "properties": [
+        "id",
+        "name"
+      ]
+    },
+    "Enums_CurrencyType": {
+      "description": "Currency Type",
+      "properties": []
+    },
+    "Rate": {
+      "description": "Defines the load rate",
+      "properties": [
+        "value",
+        "currencyType"
+      ]
+    },
+    "Mode": {
+      "description": "Load Modes",
+      "properties": []
+    },
+    "Enums_DimensionUnit": {
+      "description": "Dimension Units",
+      "properties": []
+    },
+    "Dimension": {
+      "description": "Defines the Dimension",
+      "properties": [
+        "value",
+        "unit"
+      ]
+    },
+    "EquipmentAttributes": {
+      "description": "Equipment attributes",
+      "properties": [
+        "foodGrade",
+        "paperGrade",
+        "preCoolRequired",
+        "liftGate",
+        "palletJack",
+        "airRide",
+        "trailerXYearsOrNewer",
+        "xLoadLocks",
+        "xLoadBars",
+        "xLoadStraps",
+        "xSideboards",
+        "eTrack",
+        "chains",
+        "noRollDoor",
+        "rollDoorAllowed",
+        "noReefer",
+        "noLiftGate",
+        "doubleTrailer",
+        "tripleTrailer",
+        "loadOutTrailer",
+        "towAway",
+        "lightweightEquipment",
+        "scaleUpToXPounds",
+        "scaleUpToXKilograms",
+        "tandemSlide",
+        "downloadableReefer",
+        "spaceSaverReefer",
+        "translucentTop",
+        "duraplate",
+        "ventedVan",
+        "functionalAirChute",
+        "trailerMustHaveAllWoodFloors",
+        "xlCode"
+      ]
+    },
+    "GenericAttributeItem": {
+      "description": "Generic Attribute",
+      "properties": [
+        "key",
+        "displayText"
+      ]
+    },
+    "EquipmentDetails": {
+      "description": "Equipment details",
+      "properties": [
+        "equipmentHeight",
+        "equipmentLength",
+        "equipmentType",
+        "equipmentWidth",
+        "equipmentAttributes",
+        "genericAttributes"
+      ]
+    },
+    "Enums_DistanceUnit": {
+      "description": "Distance Unit",
+      "properties": []
+    },
+    "Distance": {
+      "description": "Distance to Next Stop",
+      "properties": [
+        "value",
+        "unit"
+      ]
+    },
+    "Enums_WeightType": {
+      "description": "Weight Units",
+      "properties": []
+    },
+    "Weight": {
+      "description": "Defines the weight",
+      "properties": [
+        "value",
+        "unit"
+      ]
+    },
+    "TemperatureUnit": {
+      "description": "Temperature Units",
+      "properties": []
+    },
+    "Temperature": {
+      "description": "Defines the temperature details",
+      "properties": [
+        "value",
+        "unit"
+      ]
+    },
+    "TemperatureSettings": {
+      "description": "Defines the temperature settings of load",
+      "properties": [
+        "preCoolTemperature",
+        "maximumTemperature",
+        "minimumTemperature"
+      ]
+    },
+    "LoadAttributes": {
+      "description": "Load attributes",
+      "properties": [
+        "airRide",
+        "blind",
+        "bondedCarrier",
+        "borderCrossingByCoyote",
+        "borderCrossingByCustomer",
+        "coyoteGo",
+        "crossBorderMexico",
+        "ctpat",
+        "disasterRelief",
+        "doubleBlind",
+        "doubleTrailer",
+        "drayage",
+        "duraplate",
+        "englishSpeaking",
+        "exitPass",
+        "fast",
+        "fdaClearanceRequired",
+        "floodRelief",
+        "govt",
+        "guaranteed",
+        "haccp",
+        "hazmatEndorsement",
+        "hvhr",
+        "hvhrPlus",
+        "intraMexico",
+        "liquor",
+        "neec",
+        "noCameraPhonePhotosOfPaperwork",
+        "overDimension",
+        "palletJack",
+        "partialLoad",
+        "pipOrPep",
+        "powerOnly",
+        "ppe",
+        "protectFromFreeze",
+        "repairReceiptRequiredForBreakdowns",
+        "seal",
+        "secondaryBorderInspection",
+        "tankerEndorsement",
+        "tcr",
+        "team",
+        "techTrackingRequired",
+        "tradeShow",
+        "trailerControl",
+        "transloadByCoyote",
+        "transloadByCustomer",
+        "tripleTrailer",
+        "twic",
+        "uiia"
+      ]
+    },
+    "LoadDetails": {
+      "description": "Load details",
+      "properties": [
+        "rate",
+        "mode",
+        "equipment",
+        "loadDistance",
+        "weight",
+        "temperatureSettings",
+        "loadAttributes",
+        "genericAttributes"
+      ]
+    },
+    "StopType": {
+      "description": "Stop Types",
+      "properties": []
+    },
+    "TrackingAddress": {
+      "description": "Address",
+      "properties": [
+        "line1",
+        "line2",
+        "line3",
+        "postalCode",
+        "cityName",
+        "stateProvinceCode",
+        "countryCode"
+      ]
+    },
+    "GeoCoordinates": {
+      "description": "GeoCoordinates",
+      "properties": [
+        "latitude",
+        "longitude"
+      ]
+    },
+    "TimeSpan": {
+      "description": "",
+      "properties": [
+        "ticks",
+        "days",
+        "hours",
+        "milliseconds",
+        "minutes",
+        "seconds",
+        "totalDays",
+        "totalHours",
+        "totalMilliseconds",
+        "totalMinutes",
+        "totalSeconds"
+      ]
+    },
+    "Facility": {
+      "description": "Facility",
+      "properties": [
+        "name",
+        "address",
+        "geoCoordinates"
+      ]
+    },
+    "Appointment": {
+      "description": "Appointment",
+      "properties": [
+        "facilityOpenDateTimeUtc",
+        "facilityCloseDateTimeUtc",
+        "appointmentStartDateTimeUtc",
+        "appointmentEndDateTimeUtc"
+      ]
+    },
+    "LoadCommodity": {
+      "description": "Commodity",
+      "properties": [
+        "description",
+        "poNumber",
+        "packagingType",
+        "quantity",
+        "palletCount",
+        "weightUnit",
+        "weight",
+        "lengthUnit",
+        "length",
+        "height",
+        "width",
+        "freightClass",
+        "nmfcNumber",
+        "nmfcSubNumber",
+        "cargoValue",
+        "stackable",
+        "temperatureUnit",
+        "temperatureSetting",
+        "preCoolTemperature",
+        "minimumTemperature",
+        "maximumTemperature",
+        "pickUpStopNumber",
+        "deliveryStopNumber",
+        "hazMatProperties"
+      ]
+    },
+    "LoadStopAttributes": {
+      "description": "Defines the Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes.",
+      "properties": [
+        "blind",
+        "closedToeShoes",
+        "detentionAuthFormRequired",
+        "driverAssist",
+        "dropAndHook",
+        "dropTrailerAllowXHoursToUnload",
+        "dropTrailerRequired",
+        "earPlugs",
+        "englishSpeaking",
+        "escortOrTwicRequired",
+        "exitPass",
+        "government",
+        "hardHat",
+        "inOutTimesWSignature",
+        "insideDelivery",
+        "insidePickup",
+        "legalScaleOnSite",
+        "liftgateDelivery",
+        "liftgatePickup",
+        "limitedAccessDeliveryAirport",
+        "limitedAccessDeliveryChurch",
+        "limitedAccessDeliveryConstructionSite",
+        "limitedAccessDeliveryFarm",
+        "limitedAccessDeliveryMilitaryBase",
+        "limitedAccessDeliveryMineSite",
+        "limitedAccessDeliveryMiniStorage",
+        "limitedAccessDeliveryOther",
+        "limitedAccessDeliveryPrison",
+        "limitedAccessDeliveryRemoteGovt",
+        "limitedAccessDeliverySchool",
+        "limitedAccessPickupAirport",
+        "limitedAccessPickupChurch",
+        "limitedAccessPickupConstructionSite",
+        "limitedAccessPickupFarm",
+        "limitedAccessPickupMilitaryBase",
+        "limitedAccessPickupMineSite",
+        "limitedAccessPickupMiniStorage",
+        "limitedAccessPickupOther",
+        "limitedAccessPickupPrison",
+        "limitedAccessPickupRemoteGovt",
+        "limitedAccessPickupSchool",
+        "liquorPermit",
+        "loadedToLegalWeight",
+        "longPants",
+        "longSleeves",
+        "lumperReceiptRequired",
+        "mustCheckInAsCoyote",
+        "mustProvideAndApplySeal",
+        "mustSecureLoad",
+        "needCoyoteApprovalToUseLumperService",
+        "noAnimals",
+        "noDetention",
+        "noEarlyDeliveries",
+        "noLoadLocksOrStraps",
+        "noSameDayReschedules",
+        "notAllowedOnDock",
+        "noTankTops",
+        "noTrailerDetentionOrLayover",
+        "noWorkIns",
+        "onSiteParkingAvailable",
+        "overnightParkingAvailable",
+        "payLumperWCashTCheck",
+        "preLoadDropTrailerXHoursInAdvance",
+        "prePaidLumperService",
+        "residentialDelivery",
+        "residentialPickup",
+        "safetyGlasses",
+        "safetyVest",
+        "scaleEmpty",
+        "scaleHeavy",
+        "secureYard",
+        "sortAndSegregateDelivery",
+        "sortAndSegregatePickup",
+        "spanishSpeaking",
+        "steelToeShoes",
+        "strictAppt",
+        "tradeshowDelivery",
+        "tradeshowPickup",
+        "trailerInspectionFormRequired",
+        "twic",
+        "twicRequiredNoEscorts",
+        "uiia",
+        "unpackDetrash",
+        "usCitizen",
+        "validUSCommercialDriversLicenseHardcopy",
+        "xTankOfFuelAtShipper"
+      ]
+    },
+    "DriverWorkType": {
+      "description": "Driver work type",
+      "properties": []
+    },
+    "StopDetails": {
+      "description": "Load stop details",
+      "properties": [
+        "commodities",
+        "stopAttributes",
+        "stopNotes",
+        "workType",
+        "genericAttributes"
+      ]
+    },
+    "LoadStop": {
+      "description": "Load Stop",
+      "properties": [
+        "sequence",
+        "stopType",
+        "facility",
+        "appointment"
+      ]
+    },
+    "AvailableLoad": {
+      "description": "Available load information",
+      "properties": [
+        "loadId",
+        "orderNumber",
+        "loadDetails",
+        "stops"
+      ]
+    },
+    "GeoLocation": {
+      "description": "Geo location",
+      "properties": [
+        "latitude",
+        "longitude"
+      ]
+    },
+    "Unit": {
+      "description": "Distance Unit",
+      "properties": []
+    },
+    "Radius": {
+      "description": "Defines radius",
+      "properties": [
+        "value",
+        "unit"
+      ]
+    },
+    "AppointmentDate": {
+      "description": "Appointment date of stop",
+      "properties": [
+        "appointmentStartDateTime",
+        "appointmentEndDateTime"
+      ]
+    },
+    "LoadStopLocationInfo": {
+      "description": "Defines the load stop location details for request",
+      "properties": [
+        "location",
+        "deadheadRadius",
+        "appointment"
+      ]
+    },
+    "EquipmentType": {
+      "description": "Equipment Type",
+      "properties": []
+    },
+    "AvailableLoadsFilterMode": {
+      "description": "",
+      "properties": []
+    },
+    "AvailableLoadsRequest": {
+      "description": "Request object to fetch available loads",
+      "properties": [
+        "origin",
+        "destination",
+        "equipmentType",
+        "mode"
+      ]
+    },
+    "Pagination": {
+      "description": "Pagination information",
+      "properties": [
+        "limit",
+        "offset",
+        "totalCount"
+      ]
+    },
+    "PagedAvailableLoads": {
+      "description": "Defines the paged available loads",
+      "properties": [
+        "loads",
+        "pagination"
+      ]
+    },
+    "BookingRequest": {
+      "description": "Booking Request",
+      "properties": [
+        "carrierId",
+        "load"
+      ]
+    },
+    "BookingConflict": {
+      "description": "Booking request conflict response",
+      "properties": [
+        "description",
+        "bookingValue",
+        "currentValue",
+        "sequence"
+      ]
+    },
+    "BookingStatus": {
+      "description": "Load booking status",
+      "properties": []
+    },
+    "BookingRequestStatus": {
+      "description": "Booking request status response",
+      "properties": [
+        "loadId",
+        "carrierId",
+        "status",
+        "validationMessages"
+      ]
+    },
+    "Enums_DocumentType": {
+      "description": "Document Type",
+      "properties": []
+    },
+    "Enums_DocumentExtensionType": {
+      "description": "Document Extension Type",
+      "properties": []
+    },
+    "DocumentRequest": {
+      "description": "Document Request",
+      "properties": [
+        "loadId",
+        "document",
+        "documentType",
+        "extensionType"
+      ]
+    },
+    "Enums_MultipleNumberType": {
+      "description": "Multiple number types",
+      "properties": []
+    },
+    "ReferenceNumber": {
+      "description": "Reference Numbers",
+      "properties": [
+        "referenceNumberType",
+        "referenceNumberValue"
+      ]
+    },
+    "Customer": {
+      "description": "Customer information",
+      "properties": [
+        "referenceNumbers",
+        "customerId"
+      ]
+    },
+    "Enums_EquipmentType": {
+      "description": "Equipment Type",
+      "properties": []
+    },
+    "LoadRequirementType": {
+      "description": "Load requirement type",
+      "properties": []
+    },
+    "LoadRequirement": {
+      "description": "",
+      "properties": [
+        "requirementType",
+        "requirementValue"
+      ]
+    },
+    "LoadEquipmentRequirementType": {
+      "description": "Load Equipment requirement types",
+      "properties": []
+    },
+    "LoadEquipmentRequirement": {
+      "description": "Load equipment requirement",
+      "properties": [
+        "requirementType",
+        "requirementValue"
+      ]
+    },
+    "Contact": {
+      "description": "Contact details",
+      "properties": [
+        "name",
+        "phoneNumberCountryCode",
+        "phoneNumber",
+        "phoneNumberExtension",
+        "email"
+      ]
+    },
+    "LoadStopRequirementType": {
+      "description": "Load stop requirements",
+      "properties": []
+    },
+    "LoadStopRequirement": {
+      "description": "Load stop requirement",
+      "properties": [
+        "requirementType",
+        "requirementValue"
+      ]
+    },
+    "PackagingType": {
+      "description": "Packaging types",
+      "properties": []
+    },
+    "Enums_WeightUnitType": {
+      "description": "Weight Units",
+      "properties": []
+    },
+    "Enums_LengthUnitType": {
+      "description": "Length Units",
+      "properties": []
+    },
+    "Enums_FreightClass": {
+      "description": "FreightClass",
+      "properties": []
+    },
+    "TemperatureSettingType": {
+      "description": "Temperature settings",
+      "properties": []
+    },
+    "HazMatClass": {
+      "description": "Hazmat class",
+      "properties": []
+    },
+    "HazMatProperties": {
+      "description": "HazMat Properties",
+      "properties": [
+        "hazMat",
+        "hazMatClass",
+        "phoneNumber"
+      ]
+    },
+    "LoadDetail": {
+      "description": "Load Details",
+      "properties": [
+        "mode",
+        "equipmentType",
+        "equipmentLength",
+        "requirements",
+        "equipmentRequirements",
+        "stops",
+        "commodities",
+        "spotQuoteId"
+      ]
+    },
+    "Load": {
+      "description": "Load information",
+      "properties": [
+        "customer",
+        "loadDetail"
+      ]
+    },
+    "LoadBuildStatus": {
+      "description": "Load build status",
+      "properties": []
+    },
+    "LoadRequestStatus": {
+      "description": "Load status response",
+      "properties": [
+        "loadId",
+        "status",
+        "message",
+        "trackingUri"
+      ]
+    },
+    "Address": {
+      "description": "Address",
+      "properties": [
+        "line1",
+        "line2",
+        "city",
+        "postalCode",
+        "state",
+        "countryCode"
+      ]
+    },
+    "LoadSearchResult": {
+      "description": "Load search response",
+      "properties": [
+        "loadId",
+        "loadDate",
+        "loadStops",
+        "trackingUrl"
+      ]
+    },
+    "LocationStatus": {
+      "description": "Location Status",
+      "properties": [
+        "loadId",
+        "address",
+        "geoCoordinates",
+        "timestamp"
+      ]
+    },
+    "CurrencyType": {
+      "description": "Currency Type",
+      "properties": []
+    },
+    "OfferStatus": {
+      "description": "Offer status",
+      "properties": []
+    },
+    "OfferDetails": {
+      "description": "Offer details",
+      "properties": [
+        "id",
+        "loadId",
+        "amount",
+        "currency",
+        "status"
+      ]
+    },
+    "OfferRequest": {
+      "description": "Offer request",
+      "properties": [
+        "loadId",
+        "amount",
+        "currency",
+        "webHookAddress"
+      ]
+    },
+    "LocationData": {
+      "description": "City, State and Postal Code required",
+      "properties": [
+        "cityName",
+        "stateCode",
+        "countryCode",
+        "postalCode"
+      ]
+    },
+    "SpotQuoteRequest": {
+      "description": "Spot Quote Request",
+      "properties": [
+        "equipmentTypeId",
+        "origin",
+        "destination",
+        "pickUpDateUTC",
+        "minTemperature",
+        "maxTemperature",
+        "weight",
+        "commodity",
+        "equipmentLength",
+        "isHazmat",
+        "isDropTrailer",
+        "customerShipmentId"
+      ]
+    },
+    "RateCode": {
+      "description": "Charge codes: FR = FlatRate, 405 = FuelSurCharge, PM = PerMile",
+      "properties": []
+    },
+    "Enums_Currency": {
+      "description": "Currency types",
+      "properties": []
+    },
+    "RateItem": {
+      "description": "Rate line item that make up the quote",
+      "properties": [
+        "rateCode",
+        "description",
+        "unitRate",
+        "units",
+        "totalRate",
+        "currency"
+      ]
+    },
+    "SpotQuote": {
+      "description": "SpotQuote",
+      "properties": [
+        "spotQuoteId",
+        "customerShipmentId",
+        "origin",
+        "destination",
+        "equipmentTypeId",
+        "pickUpDateUTC",
+        "validUntilUtc",
+        "totalRate",
+        "rateLineItems"
+      ]
+    },
+    "LtlLocationData": {
+      "description": "City, State and Postal Code required",
+      "properties": [
+        "cityName",
+        "stateCode",
+        "countryCode",
+        "postalCode"
+      ]
+    },
+    "Enums_LimitedAccessType": {
+      "description": "LTLLimitedAccessType",
+      "properties": []
+    },
+    "OriginRequirements": {
+      "description": "Origin stop requirements",
+      "properties": [
+        "insideStop",
+        "residentialStop",
+        "tradeshowStop",
+        "liftGateStop",
+        "sortSegregate",
+        "limitedAccessType"
+      ]
+    },
+    "DestinationRequirements": {
+      "description": "Destination stop requirements",
+      "properties": [
+        "appointmentRequired",
+        "carrierNotifyBeforeArrival",
+        "insideStop",
+        "residentialStop",
+        "tradeshowStop",
+        "liftGateStop",
+        "sortSegregate",
+        "limitedAccessType"
+      ]
+    },
+    "Commodity": {
+      "description": "Commodity",
+      "properties": [
+        "description",
+        "palletCount",
+        "freightClass",
+        "weight",
+        "length",
+        "height",
+        "width",
+        "isHazmat",
+        "nmfcNumber",
+        "nmfcSubNumber",
+        "isStackable"
+      ]
+    },
+    "LTLSpotQuoteRequest": {
+      "description": "LTL Rate Request",
+      "properties": [
+        "origin",
+        "pickupDate",
+        "originRequirements",
+        "destination",
+        "destinationRequirements",
+        "equipmentType",
+        "commodities",
+        "guaranteedShipment",
+        "protectFromFreeze"
+      ]
+    },
+    "Accessorial": {
+      "description": "Accessorial",
+      "properties": [
+        "chargeDescription",
+        "amount"
+      ]
+    },
+    "CarrierQuote": {
+      "description": "Carrier Quote",
+      "properties": [
+        "quoteID",
+        "carrierName",
+        "scac",
+        "currencyType",
+        "transitTime",
+        "interline",
+        "deliveryDate",
+        "totalRate",
+        "freightCharge",
+        "fuelSurcharge",
+        "accessorialCharges",
+        "accessorials"
+      ]
+    },
+    "LTLSpotQuote": {
+      "description": "LTL Rate Response",
+      "properties": [
+        "ltlSpotQuoteId",
+        "carrierQuotes"
+      ]
+    },
+    "Milestone": {
+      "description": "Milestone",
+      "properties": [
+        "driverArrivalDateTimeUtc",
+        "trailerArriveDateTimeUtc",
+        "trailerLoadedDateTimeUtc",
+        "trailerEmptyDateTimeUtc",
+        "driverDepartureDateTimeUtc"
+      ]
+    },
+    "LoadStopProgress": {
+      "description": "Load Stop",
+      "properties": [
+        "milestone",
+        "sequence",
+        "stopType",
+        "facility",
+        "appointment"
+      ]
+    },
+    "StopDetail": {
+      "description": "Stop Detail",
+      "properties": [
+        "proNumber",
+        "loadStops"
+      ]
+    },
+    "Location": {
+      "description": "Location",
+      "properties": [
+        "address",
+        "timestampUtc",
+        "geoCoordinates"
+      ]
+    },
+    "Summary": {
+      "description": "Summary",
+      "properties": [
+        "proNumber",
+        "latestLocationStatus",
+        "nextStop",
+        "estimatedArrivalDateTimeUtc",
+        "nextStopDistance"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Response 200 example for Get load build status",
+  "example": {
+    "loadId": 123456,
+    "status": "Completed",
+    "message": "Load built successfully",
+    "trackingUri": "https://tracking.coyote.com?id=M6W8E9rVIDRZrGXTyObKpd3XHfMrfADfgH0OF3CXyhM%3D"
+  }
+}

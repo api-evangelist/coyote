@@ -1,0 +1,272 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "freight": "https://coyote.com/vocab/",
+    "coyote": "https://api.coyote.com/vocab/"
+  },
+  "@type": "WebAPI",
+  "@id": "https://api.coyote.com",
+  "name": "CoyoteGO API",
+  "description": "# Introduction\r",
+  "version": "v0.1.1.2549",
+  "url": "https://coyote.com/",
+  "documentation": "https://api.coyote.com/docs/index.html",
+  "termsOfService": "https://www.coyote.com/terms-privacy/#api",
+  "contact": {
+    "@type": "ContactPoint",
+    "email": "apimanagement@coyote.com"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Coyote Logistics",
+    "url": "https://coyote.com/"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "CoyoteGO API Endpoints",
+    "itemListElement": [
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/SpotQuotes",
+        "name": "Gets a TL Spot Quote",
+        "description": "Allows Shippers to retrieve a Truckload quote. Given a set of shipment attributes as input, Coyote will send back a \r\nquote with a spot quote ID (\u201cspotQuoteId\u201d). This quote includes fuel, unless otherwise specified at the time of integration, \r\nand will be valid for 5 hours. If you want to proceed w",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/SpotQuotes",
+        "tags": [
+          "Shipper - Quoting APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/LTLSpotQuotes",
+        "name": "Gets an LTL Spot Quote",
+        "description": "Allows Shippers to retrieve a Less-Than-Truckload quote. Given a set of shipment attributes as input, Coyote will \r\nsend back an LTL quote with an LTL spot quote ID (\u201cltlSpotQuoteId\u201d). This quote includes the list of carriers and \r\ntheir respective quotes and is valid for 7 days. If you want to proc",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/LTLSpotQuotes",
+        "tags": [
+          "Shipper - Quoting APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Loads",
+        "name": "Submit a load request",
+        "description": "Allows Shippers to submit load build requests with relevant load information, including a Spot Quote ID. \\\r\n*Note: Including a Spot Quote ID is currently unsupported in Europe.*",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/Loads",
+        "tags": [
+          "Shipper - Shipment APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Loads/{loadRequestId}/buildstatus",
+        "name": "Get load build status",
+        "description": "Allows Shippers to retrieve the current load build status for a previously submitted request.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Loads/{loadRequestId}/buildstatus",
+        "tags": [
+          "Shipper - Shipment APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Loads/{loadId}",
+        "name": "Cancel a load",
+        "description": "Allows Shippers to cancel a load that was previously submitted.",
+        "httpMethod": "DELETE",
+        "urlTemplate": "https://api.coyote.com/api/v1/Loads/{loadId}",
+        "tags": [
+          "Shipper - Shipment APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Loads/search",
+        "name": "Search loads",
+        "description": "Based on a given search term, Coyote will return a list of all loads that match on any of the below reference number types associated to your loads.\r\n```\r\nReferenceNumberType: \r\n    - \"PRONumber\"\r\n    - \"DeliveryNumber\"\r\n    - \"AppointmentConfirmation\"\r\n    - \"ProofOfDelivery\"\r\n    - \"Reference\"\r\n  ",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Loads/search",
+        "tags": [
+          "Shipper - Shipment APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Trackings/{loadId}/stopdetails",
+        "name": "Gets all load stop details",
+        "description": "Allows Shippers to retrieve all load stop details for a given load, including facility information, \r\nas well as appointments, and tracking milestones.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Trackings/{loadId}/stopdetails",
+        "tags": [
+          "Shipper - Tracking APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Trackings/{loadId}/summaries",
+        "name": "Gets load tracking summary",
+        "description": "Allows Shippers to retrieve a tracking summary view for a given load, including the latest location update, \r\nnext stop details, and estimated arrival.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Trackings/{loadId}/summaries",
+        "tags": [
+          "Shipper - Tracking APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/LocationStatuses/{loadId}",
+        "name": "Gets all tracking updates for a given load",
+        "description": "Allows Shippers to retrieve all location updates for a given load.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/LocationStatuses/{loadId}",
+        "tags": [
+          "Shipper - Tracking APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/LocationStatuses/{loadId}/latest",
+        "name": "Gets the latest tracking update for a given load",
+        "description": "Allows Shippers to retrieve the most recent location updates for a given load.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/LocationStatuses/{loadId}/latest",
+        "tags": [
+          "Shipper - Tracking APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/AvailableLoads/{loadId}",
+        "name": "Gets available load details",
+        "description": "Allows Carriers to retrieve all the current details for a given load, assuming the provided load is still available.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/AvailableLoads/{loadId}",
+        "tags": [
+          "Carrier - Available Load APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/AvailableLoads/search",
+        "name": "Search available loads",
+        "description": "Allows Carriers to search for available loads with a set of query inputs. Coyote will return the list of all available loads that match the inputs provided in the request.",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/AvailableLoads/search",
+        "tags": [
+          "Carrier - Available Load APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Booking",
+        "name": "Submit a booking request",
+        "description": "Allows Carriers to submit a booking request with relevant load information.",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/Booking",
+        "tags": [
+          "Carrier - Booking APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Booking/{bookingRequestId}/status",
+        "name": "Get booking request status",
+        "description": "Allows Carriers to retrieve the current booking status for a previously submitted booking request.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Booking/{bookingRequestId}/status",
+        "tags": [
+          "Carrier - Booking APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Offer/{id}",
+        "name": "Get existing offer details",
+        "description": "Allows Coyote's Carrier to retrieve an existing offer details.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Offer/{id}",
+        "tags": [
+          "Carrier - Offer APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Offer/{id}",
+        "name": "Remove offer",
+        "description": "Allows Coyote's Carrier to remove pending offer.",
+        "httpMethod": "DELETE",
+        "urlTemplate": "https://api.coyote.com/api/v1/Offer/{id}",
+        "tags": [
+          "Carrier - Offer APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Offer/create",
+        "name": "Create new offer",
+        "description": "Allows Coyote's Carrier to create new offer.",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/Offer/create",
+        "tags": [
+          "Carrier - Offer APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Offer/{id}/book",
+        "name": "Book an offer",
+        "description": "Allows Coyote's Carrier book an offer.",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/Offer/{id}/book",
+        "tags": [
+          "Carrier - Offer APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Offer/{id}/decline",
+        "name": "Decline offer",
+        "description": "Allows Coyote's Carrier to decline countered offer.",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/Offer/{id}/decline",
+        "tags": [
+          "Carrier - Offer APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Documents",
+        "name": "Submit a document to be associated with a load",
+        "description": "Allows Carriers and Shippers to submit one or more documents that will be saved to a given load they are associated to. Only files up to 20 MB and with specific extensions are allowed. Zips are currently not supported.",
+        "httpMethod": "POST",
+        "urlTemplate": "https://api.coyote.com/api/v1/Documents",
+        "tags": [
+          "Document APIs"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/AssociatedEntities",
+        "name": "Get associated entities",
+        "description": "Allows Coyote's Carrier and Shipper partners to retrieve all associated entities to their account that can be transacted on behalf of via our API.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/AssociatedEntities",
+        "tags": [
+          "Associated Entities API"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://api.coyote.com/api/v1/Documents/{loadId}/{documentType}",
+        "name": "Gets an associated document with a load",
+        "description": "Allows Carriers and Shippers to retrieve one or more PDF documents in a zipped format for a given load they are associated to.",
+        "httpMethod": "GET",
+        "urlTemplate": "https://api.coyote.com/api/v1/Documents/{loadId}/{documentType}",
+        "tags": [
+          "Document APIs"
+        ]
+      }
+    ]
+  }
+}

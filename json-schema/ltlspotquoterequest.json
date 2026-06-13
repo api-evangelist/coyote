@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LTLSpotQuoteRequest",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuoteRequest",
+  "required": [
+    "commodities",
+    "destination",
+    "equipmentType",
+    "origin",
+    "pickupDate"
+  ],
+  "type": "object",
+  "properties": {
+    "origin": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData"
+    },
+    "pickupDate": {
+      "type": "string",
+      "description": "Shipment Pickup Date",
+      "format": "date-time"
+    },
+    "originRequirements": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements"
+    },
+    "destination": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData"
+    },
+    "destinationRequirements": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements"
+    },
+    "equipmentType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType"
+    },
+    "commodities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.Commodity"
+      },
+      "description": "Commodities"
+    },
+    "guaranteedShipment": {
+      "type": "boolean",
+      "description": "Guaranteed Shipment"
+    },
+    "protectFromFreeze": {
+      "type": "boolean",
+      "description": "Protect From Freeze"
+    }
+  },
+  "additionalProperties": false,
+  "description": "LTL Rate Request"
+}

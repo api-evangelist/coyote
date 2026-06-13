@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contact",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Contact",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Contact Name (It must be 50 characters or less.)",
+      "nullable": true
+    },
+    "phoneNumberCountryCode": {
+      "type": "string",
+      "description": "Phone number country code",
+      "nullable": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "description": "Phone number",
+      "nullable": true
+    },
+    "phoneNumberExtension": {
+      "type": "string",
+      "description": "Phone number extension",
+      "nullable": true
+    },
+    "email": {
+      "type": "string",
+      "description": "Contact email address",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Contact details"
+}

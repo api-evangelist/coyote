@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CarrierQuote",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.CarrierQuote",
+  "type": "object",
+  "properties": {
+    "quoteID": {
+      "type": "string",
+      "description": "Unique identifier to the quote based on carrier. Specify this ID as the LoadDetail.SpotQuoteId to build a load using the loads endpoint.",
+      "nullable": true
+    },
+    "carrierName": {
+      "type": "string",
+      "description": "Name of the carrier",
+      "nullable": true
+    },
+    "scac": {
+      "type": "string",
+      "description": "Standard Carrier Alpha Code",
+      "nullable": true
+    },
+    "currencyType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType"
+    },
+    "transitTime": {
+      "type": "integer",
+      "description": "Expected days of transit according to specific carrier",
+      "format": "int32"
+    },
+    "interline": {
+      "type": "string",
+      "description": "If lane serviced by carrier is Direct or Indirect",
+      "nullable": true
+    },
+    "deliveryDate": {
+      "type": "string",
+      "description": "Expected delivery date for shipment\r\nWeekends and holidays are excluded",
+      "format": "date-time"
+    },
+    "totalRate": {
+      "type": "number",
+      "description": "Total rate includes fuel and accessorial services",
+      "format": "double"
+    },
+    "freightCharge": {
+      "type": "number",
+      "description": "Freight Charge",
+      "format": "double"
+    },
+    "fuelSurcharge": {
+      "type": "number",
+      "description": "Fuel Surcharge",
+      "format": "double"
+    },
+    "accessorialCharges": {
+      "type": "number",
+      "description": "Total of accessorial charges",
+      "format": "double"
+    },
+    "accessorials": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.Accessorial"
+      },
+      "description": "Accessorials",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Carrier Quote"
+}

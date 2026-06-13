@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enums_EquipmentType",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType",
+  "enum": [
+    "V",
+    "R"
+  ],
+  "type": "string",
+  "description": "Equipment Type"
+}

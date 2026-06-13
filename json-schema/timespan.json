@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TimeSpan",
+  "x-source-schema": "System.TimeSpan",
+  "type": "object",
+  "properties": {
+    "ticks": {
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "days": {
+      "type": "integer",
+      "format": "int32",
+      "readOnly": true
+    },
+    "hours": {
+      "type": "integer",
+      "format": "int32",
+      "readOnly": true
+    },
+    "milliseconds": {
+      "type": "integer",
+      "format": "int32",
+      "readOnly": true
+    },
+    "minutes": {
+      "type": "integer",
+      "format": "int32",
+      "readOnly": true
+    },
+    "seconds": {
+      "type": "integer",
+      "format": "int32",
+      "readOnly": true
+    },
+    "totalDays": {
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "totalHours": {
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "totalMilliseconds": {
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "totalMinutes": {
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    },
+    "totalSeconds": {
+      "type": "number",
+      "format": "double",
+      "readOnly": true
+    }
+  },
+  "additionalProperties": false
+}

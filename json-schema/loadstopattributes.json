@@ -1,0 +1,357 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadStopAttributes",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes",
+  "type": "object",
+  "properties": {
+    "blind": {
+      "type": "boolean",
+      "description": "Is blind"
+    },
+    "closedToeShoes": {
+      "type": "boolean",
+      "description": "Is closed toe shoes"
+    },
+    "detentionAuthFormRequired": {
+      "type": "boolean",
+      "description": "Is detention auth form required"
+    },
+    "driverAssist": {
+      "type": "boolean",
+      "description": "Whether driver assist"
+    },
+    "dropAndHook": {
+      "type": "boolean",
+      "description": "Is drop and hook"
+    },
+    "dropTrailerAllowXHoursToUnload": {
+      "type": "integer",
+      "description": "Allow hours to unload",
+      "format": "int32"
+    },
+    "dropTrailerRequired": {
+      "type": "boolean",
+      "description": "Is drop trailer required"
+    },
+    "earPlugs": {
+      "type": "boolean",
+      "description": "Ear plugs"
+    },
+    "englishSpeaking": {
+      "type": "boolean",
+      "description": "Is English speaking"
+    },
+    "escortOrTwicRequired": {
+      "type": "boolean",
+      "description": "Whether escort or twic Required"
+    },
+    "exitPass": {
+      "type": "boolean",
+      "description": "Exit pass"
+    },
+    "government": {
+      "type": "boolean",
+      "description": "Is government"
+    },
+    "hardHat": {
+      "type": "boolean",
+      "description": "Is hard hat"
+    },
+    "inOutTimesWSignature": {
+      "type": "boolean",
+      "description": "Are in out times with signature"
+    },
+    "insideDelivery": {
+      "type": "boolean",
+      "description": "Is inside delivery"
+    },
+    "insidePickup": {
+      "type": "boolean",
+      "description": "Is inside pickup"
+    },
+    "legalScaleOnSite": {
+      "type": "boolean",
+      "description": "Is legal scale on site"
+    },
+    "liftgateDelivery": {
+      "type": "boolean",
+      "description": "Is liftgate delivery"
+    },
+    "liftgatePickup": {
+      "type": "boolean",
+      "description": "Is liftgate pickup"
+    },
+    "limitedAccessDeliveryAirport": {
+      "type": "boolean",
+      "description": "Is limited access delivery airport"
+    },
+    "limitedAccessDeliveryChurch": {
+      "type": "boolean",
+      "description": "Is limited access delivery church"
+    },
+    "limitedAccessDeliveryConstructionSite": {
+      "type": "boolean",
+      "description": "Is limited access delivery construction site"
+    },
+    "limitedAccessDeliveryFarm": {
+      "type": "boolean",
+      "description": "Is limited access delivery farm"
+    },
+    "limitedAccessDeliveryMilitaryBase": {
+      "type": "boolean",
+      "description": "Is limited access delivery military base"
+    },
+    "limitedAccessDeliveryMineSite": {
+      "type": "boolean",
+      "description": "Is limited access delivery mine site"
+    },
+    "limitedAccessDeliveryMiniStorage": {
+      "type": "boolean",
+      "description": "Is limited access delivery mini storage"
+    },
+    "limitedAccessDeliveryOther": {
+      "type": "boolean",
+      "description": "Is limited access delivery other"
+    },
+    "limitedAccessDeliveryPrison": {
+      "type": "boolean",
+      "description": "Is limited access delivery prison"
+    },
+    "limitedAccessDeliveryRemoteGovt": {
+      "type": "boolean",
+      "description": "Is limited access delivery remote govt"
+    },
+    "limitedAccessDeliverySchool": {
+      "type": "boolean",
+      "description": "Is limited access delivery school"
+    },
+    "limitedAccessPickupAirport": {
+      "type": "boolean",
+      "description": "Is limited access pickup airport"
+    },
+    "limitedAccessPickupChurch": {
+      "type": "boolean",
+      "description": "Is limited access pickup church"
+    },
+    "limitedAccessPickupConstructionSite": {
+      "type": "boolean",
+      "description": "Is limited access pickup construction site"
+    },
+    "limitedAccessPickupFarm": {
+      "type": "boolean",
+      "description": "Is limited access pickup farm"
+    },
+    "limitedAccessPickupMilitaryBase": {
+      "type": "boolean",
+      "description": "Is limited access pickup military base"
+    },
+    "limitedAccessPickupMineSite": {
+      "type": "boolean",
+      "description": "Is limited access pickup mine site"
+    },
+    "limitedAccessPickupMiniStorage": {
+      "type": "boolean",
+      "description": "Is limited access pickup mini storage"
+    },
+    "limitedAccessPickupOther": {
+      "type": "boolean",
+      "description": "Is limited access pickup other"
+    },
+    "limitedAccessPickupPrison": {
+      "type": "boolean",
+      "description": "Is limited access pickup prison"
+    },
+    "limitedAccessPickupRemoteGovt": {
+      "type": "boolean",
+      "description": "Is limited access pickup remote govt"
+    },
+    "limitedAccessPickupSchool": {
+      "type": "boolean",
+      "description": "Is limited access pickup school"
+    },
+    "liquorPermit": {
+      "type": "boolean",
+      "description": "Is liquor permit"
+    },
+    "loadedToLegalWeight": {
+      "type": "boolean",
+      "description": "Is loaded to legal weight"
+    },
+    "longPants": {
+      "type": "boolean",
+      "description": "Is long pants"
+    },
+    "longSleeves": {
+      "type": "boolean",
+      "description": "Is long sleeves"
+    },
+    "lumperReceiptRequired": {
+      "type": "boolean",
+      "description": "Whether lumper receipt required"
+    },
+    "mustCheckInAsCoyote": {
+      "type": "boolean",
+      "description": "Must check in as Coyote"
+    },
+    "mustProvideAndApplySeal": {
+      "type": "boolean",
+      "description": "Whether must provide and apply seal"
+    },
+    "mustSecureLoad": {
+      "type": "boolean",
+      "description": "Whether must secure load"
+    },
+    "needCoyoteApprovalToUseLumperService": {
+      "type": "boolean",
+      "description": "Is Coyote approval needed to use lumper service"
+    },
+    "noAnimals": {
+      "type": "boolean",
+      "description": "Is no animals"
+    },
+    "noDetention": {
+      "type": "boolean",
+      "description": "Is no detention"
+    },
+    "noEarlyDeliveries": {
+      "type": "boolean",
+      "description": "Whether no early deliveries"
+    },
+    "noLoadLocksOrStraps": {
+      "type": "boolean",
+      "description": "Is no load locks or straps"
+    },
+    "noSameDayReschedules": {
+      "type": "boolean",
+      "description": "Is no same day reschedules"
+    },
+    "notAllowedOnDock": {
+      "type": "boolean",
+      "description": "Is not allowed on dock"
+    },
+    "noTankTops": {
+      "type": "boolean",
+      "description": "Is no tank tops"
+    },
+    "noTrailerDetentionOrLayover": {
+      "type": "boolean",
+      "description": "Is no trailer detention or layover"
+    },
+    "noWorkIns": {
+      "type": "boolean",
+      "description": "Is no work ins"
+    },
+    "onSiteParkingAvailable": {
+      "type": "boolean",
+      "description": "Whether on site parking available"
+    },
+    "overnightParkingAvailable": {
+      "type": "boolean",
+      "description": "Is overnight parking available"
+    },
+    "payLumperWCashTCheck": {
+      "type": "boolean",
+      "description": "PayLumperWCashTCheck"
+    },
+    "preLoadDropTrailerXHoursInAdvance": {
+      "type": "integer",
+      "description": "Pre load drop trailer in advance",
+      "format": "int32"
+    },
+    "prePaidLumperService": {
+      "type": "boolean",
+      "description": "Is prepaid lumper service"
+    },
+    "residentialDelivery": {
+      "type": "boolean",
+      "description": "Is residential delivery"
+    },
+    "residentialPickup": {
+      "type": "boolean",
+      "description": "Is residential pickup"
+    },
+    "safetyGlasses": {
+      "type": "boolean",
+      "description": "Is safety glasses"
+    },
+    "safetyVest": {
+      "type": "boolean",
+      "description": "Is safety vest"
+    },
+    "scaleEmpty": {
+      "type": "boolean",
+      "description": "Is scale empty"
+    },
+    "scaleHeavy": {
+      "type": "boolean",
+      "description": "Is scale heavy"
+    },
+    "secureYard": {
+      "type": "boolean",
+      "description": "Is secure yard"
+    },
+    "sortAndSegregateDelivery": {
+      "type": "boolean",
+      "description": "Whether to sort and segregate delivery"
+    },
+    "sortAndSegregatePickup": {
+      "type": "boolean",
+      "description": "Whether to sort and segregate pickup"
+    },
+    "spanishSpeaking": {
+      "type": "boolean",
+      "description": "Is Spanish speaking"
+    },
+    "steelToeShoes": {
+      "type": "boolean",
+      "description": "Is steel toe shoes"
+    },
+    "strictAppt": {
+      "type": "boolean",
+      "description": "Is strict appt"
+    },
+    "tradeshowDelivery": {
+      "type": "boolean",
+      "description": "Is trade show delivery"
+    },
+    "tradeshowPickup": {
+      "type": "boolean",
+      "description": "Is trade show pickup"
+    },
+    "trailerInspectionFormRequired": {
+      "type": "boolean",
+      "description": "Whether trailer inspection form required"
+    },
+    "twic": {
+      "type": "boolean",
+      "description": "Is TWIC"
+    },
+    "twicRequiredNoEscorts": {
+      "type": "boolean",
+      "description": "Is TWIC required no escorts"
+    },
+    "uiia": {
+      "type": "boolean",
+      "description": "Is UIIA"
+    },
+    "unpackDetrash": {
+      "type": "boolean",
+      "description": "Is unpack detrash"
+    },
+    "usCitizen": {
+      "type": "boolean",
+      "description": "Is US citizen"
+    },
+    "validUSCommercialDriversLicenseHardcopy": {
+      "type": "boolean",
+      "description": "Is valid US commercial drivers license hardcopy"
+    },
+    "xTankOfFuelAtShipper": {
+      "type": "integer",
+      "description": "Number of tank of fuel at shipper",
+      "format": "int32"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Defines the Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes."
+}

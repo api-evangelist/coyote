@@ -1,0 +1,54 @@
+{
+  "description": "Request example for Gets an LTL Spot Quote",
+  "example": {
+    "origin": {
+      "cityName": "Chicago",
+      "stateCode": "IL",
+      "countryCode": "US",
+      "postalCode": "60647"
+    },
+    "pickupDate": "2026-06-14T13:33:48.5306447-05:00",
+    "originRequirements": {
+      "insideStop": false,
+      "residentialStop": false,
+      "tradeshowStop": false,
+      "liftGateStop": false,
+      "sortSegregate": false,
+      "limitedAccessType": "Undefined"
+    },
+    "destination": {
+      "cityName": "Madison",
+      "stateCode": "WI",
+      "countryCode": "US",
+      "postalCode": "50515"
+    },
+    "destinationRequirements": {
+      "appointmentRequired": false,
+      "carrierNotifyBeforeArrival": false,
+      "insideStop": false,
+      "residentialStop": false,
+      "tradeshowStop": false,
+      "liftGateStop": false,
+      "sortSegregate": false,
+      "limitedAccessType": "Undefined"
+    },
+    "equipmentType": "V",
+    "commodities": [
+      {
+        "description": "Sample Commodity",
+        "palletCount": 5,
+        "freightClass": 9,
+        "weight": 100.0,
+        "length": 75.0,
+        "height": 50.0,
+        "width": 50.0,
+        "isHazmat": false,
+        "nmfcNumber": null,
+        "nmfcSubNumber": null,
+        "isStackable": false
+      }
+    ],
+    "guaranteedShipment": false,
+    "protectFromFreeze": false
+  }
+}

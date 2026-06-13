@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadCommodity",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadCommodity",
+  "required": [
+    "cargoValue",
+    "description",
+    "packagingType",
+    "quantity",
+    "weight"
+  ],
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Item Description (Description must be 100 characters or less.)"
+    },
+    "poNumber": {
+      "type": "string",
+      "description": "PO Number",
+      "nullable": true
+    },
+    "packagingType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.PackagingType"
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "Number of units",
+      "format": "int32"
+    },
+    "palletCount": {
+      "type": "integer",
+      "description": "Number of pallets relevant to commodity item\r\n\r\n**Required for LTL**",
+      "format": "int32"
+    },
+    "weightUnit": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightUnitType"
+    },
+    "weight": {
+      "type": "number",
+      "description": "Pallet weight in lbs(default) if not specified\r\n\r\n**Required for LTL**",
+      "format": "double"
+    },
+    "lengthUnit": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LengthUnitType"
+    },
+    "length": {
+      "type": "number",
+      "description": "Pallet length in inches\r\n\r\n**Required for LTL**",
+      "format": "double"
+    },
+    "height": {
+      "type": "number",
+      "description": "Pallet height in inches\r\n\r\n**Required for LTL**",
+      "format": "double"
+    },
+    "width": {
+      "type": "number",
+      "description": "Pallet width in inches\r\n\r\n**Required for LTL**",
+      "format": "double"
+    },
+    "freightClass": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass"
+    },
+    "nmfcNumber": {
+      "type": "integer",
+      "description": "NMFC Number",
+      "format": "int32",
+      "nullable": true
+    },
+    "nmfcSubNumber": {
+      "type": "integer",
+      "description": "NMFC Sub number",
+      "format": "int32",
+      "nullable": true
+    },
+    "cargoValue": {
+      "type": "number",
+      "description": "Cargo value",
+      "format": "double"
+    },
+    "stackable": {
+      "type": "boolean",
+      "description": "Stackable"
+    },
+    "temperatureUnit": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit"
+    },
+    "temperatureSetting": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureSettingType"
+    },
+    "preCoolTemperature": {
+      "type": "number",
+      "description": "PreCool temperature if required",
+      "format": "double",
+      "nullable": true
+    },
+    "minimumTemperature": {
+      "type": "number",
+      "description": "Minimum temperature setting",
+      "format": "double",
+      "nullable": true
+    },
+    "maximumTemperature": {
+      "type": "number",
+      "description": "Maximum temperature setting",
+      "format": "double",
+      "nullable": true
+    },
+    "pickUpStopNumber": {
+      "type": "integer",
+      "description": "Pick up stop number for commodity",
+      "format": "int32"
+    },
+    "deliveryStopNumber": {
+      "type": "integer",
+      "description": "Delivery stop number for commodity",
+      "format": "int32"
+    },
+    "hazMatProperties": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.HazMatProperties"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Commodity"
+}

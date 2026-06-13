@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadBuildStatus",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadBuildStatus",
+  "enum": [
+    "InProgress",
+    "Completed",
+    "Failed"
+  ],
+  "type": "string",
+  "description": "Load build status"
+}

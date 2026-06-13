@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AvailableLoad",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoad",
+  "required": [
+    "loadDetails",
+    "loadId",
+    "stops"
+  ],
+  "type": "object",
+  "properties": {
+    "loadId": {
+      "type": "integer",
+      "description": "Available load ID",
+      "format": "int32"
+    },
+    "orderNumber": {
+      "type": "string",
+      "description": "Order number",
+      "nullable": true
+    },
+    "loadDetails": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadDetails"
+    },
+    "stops": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStop"
+      },
+      "description": "Load stops information"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Available load information"
+}

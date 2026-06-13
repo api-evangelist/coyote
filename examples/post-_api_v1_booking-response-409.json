@@ -1,0 +1,113 @@
+{
+  "description": "Response 409 example for Submit a booking request",
+  "example": [
+    {
+      "description": "Eligible",
+      "bookingValue": "",
+      "currentValue": "False",
+      "sequence": 0
+    },
+    {
+      "description": "TotalWeight",
+      "bookingValue": 2500,
+      "currentValue": 2700,
+      "sequence": 0
+    },
+    {
+      "description": "MinimumTemperature",
+      "bookingValue": -100,
+      "currentValue": -99,
+      "sequence": 0
+    },
+    {
+      "description": "MaximumTemperature",
+      "bookingValue": 100,
+      "currentValue": 99,
+      "sequence": 0
+    },
+    {
+      "description": "EquipmentType",
+      "bookingValue": "V",
+      "currentValue": "R",
+      "sequence": 0
+    },
+    {
+      "description": "EquipmentHeight",
+      "bookingValue": 50,
+      "currentValue": 60,
+      "sequence": 0
+    },
+    {
+      "description": "EquipmentWidth",
+      "bookingValue": 50,
+      "currentValue": 60,
+      "sequence": 0
+    },
+    {
+      "description": "EquipmentLength",
+      "bookingValue": 50,
+      "currentValue": 60,
+      "sequence": 0
+    },
+    {
+      "description": "Rate",
+      "bookingValue": 1000,
+      "currentValue": 1000,
+      "sequence": 0
+    },
+    {
+      "description": "Mode",
+      "bookingValue": 2,
+      "currentValue": 3,
+      "sequence": 0
+    },
+    {
+      "description": "Stops.Count",
+      "bookingValue": 2,
+      "currentValue": 3,
+      "sequence": 0
+    },
+    {
+      "description": "Stop.Sequence",
+      "bookingValue": null,
+      "currentValue": 1,
+      "sequence": 1
+    },
+    {
+      "description": "Stop.StateCode",
+      "bookingValue": "MI",
+      "currentValue": "IL",
+      "sequence": 2
+    },
+    {
+      "description": "Stop.CityName",
+      "bookingValue": "Detroit",
+      "currentValue": "Chicago",
+      "sequence": 2
+    },
+    {
+      "description": "Stop.AppointmentStartDateTimeUtc",
+      "bookingValue": "1753-01-01T00:00:00",
+      "currentValue": "2020-05-18T00:00:00",
+      "sequence": 1
+    },
+    {
+      "description": "Stop.FacilityOpenDateTimeUtc",
+      "bookingValue": "1753-01-01T00:00:00",
+      "currentValue": "2020-05-18T00:00:00",
+      "sequence": 1
+    },
+    {
+      "description": "Stop.AppointmentEndDateTimeUtc",
+      "bookingValue": "1753-01-01T00:00:00",
+      "currentValue": "2020-05-18T00:00:00",
+      "sequence": 1
+    },
+    {
+      "description": "Stop.FacilityCloseDateTimeUtc",
+      "bookingValue": "1753-01-01T00:00:00",
+      "currentValue": "2020-05-18T00:00:00",
+      "sequence": 1
+    }
+  ]
+}

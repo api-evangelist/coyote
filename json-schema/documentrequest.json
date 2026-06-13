@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocumentRequest",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Documents.DocumentRequest",
+  "required": [
+    "document",
+    "documentType",
+    "extensionType",
+    "loadId"
+  ],
+  "type": "object",
+  "properties": {
+    "loadId": {
+      "type": "integer",
+      "description": "The requested load ID.",
+      "format": "int32"
+    },
+    "document": {
+      "type": "string",
+      "description": "Document byte array",
+      "format": "byte"
+    },
+    "documentType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentType"
+    },
+    "extensionType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Document Request"
+}

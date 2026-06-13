@@ -1,0 +1,53 @@
+{
+  "description": "Response 200 example for Gets load tracking summary",
+  "example": {
+    "proNumber": "PRONUMBER",
+    "latestLocationStatus": {
+      "address": {
+        "line1": "2545 W Diversey Ave",
+        "line2": null,
+        "line3": null,
+        "postalCode": "60647",
+        "cityName": "Chicago",
+        "stateProvinceCode": "IL",
+        "countryCode": "USA"
+      },
+      "timestampUtc": "2026-06-13T18:33:48.5456031Z",
+      "geoCoordinates": {
+        "latitude": 41.931674,
+        "longitude": -87.691939
+      }
+    },
+    "nextStop": {
+      "sequence": 2,
+      "stopType": "Delivery",
+      "facility": {
+        "name": "Coyote Logistics",
+        "address": {
+          "line1": "2545 W Diversey Ave",
+          "line2": null,
+          "line3": null,
+          "postalCode": "60647",
+          "cityName": "Chicago",
+          "stateProvinceCode": "IL",
+          "countryCode": "USA"
+        },
+        "geoCoordinates": {
+          "latitude": 41.931674,
+          "longitude": -87.691939
+        }
+      },
+      "appointment": {
+        "facilityOpenDateTimeUtc": "2026-06-14T18:33:48.5456037Z",
+        "facilityCloseDateTimeUtc": "2026-06-14T18:33:48.5456036Z",
+        "appointmentStartDateTimeUtc": "2026-06-13T18:38:48.5456034Z",
+        "appointmentEndDateTimeUtc": "2026-06-13T19:13:48.5456036Z"
+      }
+    },
+    "estimatedArrivalDateTimeUtc": "2026-06-13T18:43:48.5456018Z",
+    "nextStopDistance": {
+      "value": 10.0,
+      "unit": "Miles"
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "description": "Request example for Submit a load request",
+  "example": {
+    "customer": {
+      "referenceNumbers": [
+        {
+          "referenceNumberType": "ShipmentNumber",
+          "referenceNumberValue": "123456"
+        }
+      ],
+      "customerId": 0
+    },
+    "loadDetail": {
+      "mode": "TL",
+      "equipmentType": "V",
+      "equipmentLength": 53,
+      "requirements": [
+        {
+          "requirementType": "Guaranteed",
+          "requirementValue": "true"
+        }
+      ],
+      "equipmentRequirements": [
+        {
+          "requirementType": "LiftGate",
+          "requirementValue": "true"
+        },
+        {
+          "requirementType": "XLoadBars",
+          "requirementValue": "6"
+        }
+      ],
+      "stops": [
+        {
+          "sequence": 1,
+          "stopType": "Pickup",
+          "facility": {
+            "name": "Pick Up Facility",
+            "address": {
+              "line1": "123 Main St.",
+              "line2": null,
+              "line3": null,
+              "postalCode": "60647",
+              "cityName": "Chicago",
+              "stateProvinceCode": "IL",
+              "countryCode": "US"
+            },
+            "geoCoordinates": null,
+            "facilityContact": {
+              "name": "PickUp Contact",
+              "phoneNumberCountryCode": null,
+              "phoneNumber": "(123)456-7890",
+              "phoneNumberExtension": null,
+              "email": "pickup.contact@email.com"
+            }
+          },
+          "stopRequirements": [
+            {
+              "requirementType": "DropTrailerAllowXHoursToUnload",
+              "requirementValue": "5"
+            },
+            {
+              "requirementType": "Inside",
+              "requirementValue": "true"
+            }
+          ],
+          "openDateTimeUtc": "2026-06-13T08:00:00Z",
+          "closeDateTimeUtc": "2026-06-13T18:00:00Z",
+          "appointmentStartDateTimeUtc": "2026-06-13T10:00:00Z",
+          "appointmentEndDateTimeUtc": "2026-06-13T12:00:00Z",
+          "referenceNumbers": [
+            "ABC1234",
+            "123467",
+            "ABCXYZ"
+          ],
+          "stopNotes": "Sample instructions"
+        },
+        {
+          "sequence": 2,
+          "stopType": "Delivery",
+          "facility": {
+            "name": "Drop Off Facility",
+            "address": {
+              "line1": "123 Downers St.",
+              "line2": null,
+              "line3": null,
+              "postalCode": "50313",
+              "cityName": "Madison",
+              "stateProvinceCode": "WI",
+              "countryCode": "US"
+            },
+            "geoCoordinates": null,
+            "facilityContact": {
+              "name": "Dropoff Contact",
+              "phoneNumberCountryCode": null,
+              "phoneNumber": "(123)456-7890",
+              "phoneNumberExtension": null,
+              "email": "dropoff.contact@email.com"
+            }
+          },
+          "stopRequirements": [
+            {
+              "requirementType": "DropTrailerAllowXHoursToUnload",
+              "requirementValue": "5"
+            },
+            {
+              "requirementType": "Inside",
+              "requirementValue": "true"
+            }
+          ],
+          "openDateTimeUtc": "2026-06-15T08:00:00Z",
+          "closeDateTimeUtc": "2026-06-15T18:00:00Z",
+          "appointmentStartDateTimeUtc": "2026-06-15T10:00:00Z",
+          "appointmentEndDateTimeUtc": "2026-06-15T12:00:00Z",
+          "referenceNumbers": null,
+          "stopNotes": null
+        }
+      ],
+      "commodities": [
+        {
+          "description": "Packages",
+          "poNumber": null,
+          "packagingType": "Pallet",
+          "quantity": 100,
+          "palletCount": 5,
+          "weightUnit": "Pounds",
+          "weight": 500.0,
+          "lengthUnit": "Inches",
+          "length": 100.0,
+          "height": 50.0,
+          "width": 100.0,
+          "freightClass": null,
+          "nmfcNumber": null,
+          "nmfcSubNumber": null,
+          "cargoValue": 1000.0,
+          "stackable": false,
+          "temperatureUnit": null,
+          "temperatureSetting": null,
+          "preCoolTemperature": null,
+          "minimumTemperature": null,
+          "maximumTemperature": null,
+          "pickUpStopNumber": 1,
+          "deliveryStopNumber": 2,
+          "hazMatProperties": {
+            "hazMat": true,
+            "hazMatClass": 3,
+            "phoneNumber": "(123)456-7890"
+          }
+        }
+      ],
+      "spotQuoteId": null
+    }
+  }
+}

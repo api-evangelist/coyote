@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OfferRequest",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest",
+  "required": [
+    "amount",
+    "loadId"
+  ],
+  "type": "object",
+  "properties": {
+    "loadId": {
+      "type": "integer",
+      "description": "Available load Id",
+      "format": "int32"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Offer amount",
+      "format": "double"
+    },
+    "currency": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType"
+    },
+    "webHookAddress": {
+      "type": "string",
+      "description": "Web hook url address",
+      "format": "uri",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Offer request"
+}

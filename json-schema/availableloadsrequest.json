@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AvailableLoadsRequest",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest",
+  "required": [
+    "equipmentType",
+    "mode",
+    "origin"
+  ],
+  "type": "object",
+  "properties": {
+    "origin": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopLocationInfo"
+    },
+    "destination": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopLocationInfo"
+    },
+    "equipmentType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentType"
+    },
+    "mode": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsFilterMode"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Request object to fetch available loads"
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Commodity",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.Commodity",
+  "required": [
+    "freightClass",
+    "height",
+    "length",
+    "palletCount",
+    "weight",
+    "width"
+  ],
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Item Description",
+      "nullable": true
+    },
+    "palletCount": {
+      "type": "integer",
+      "description": "Number of pallets relevant to commodity item",
+      "format": "int32"
+    },
+    "freightClass": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass"
+    },
+    "weight": {
+      "type": "number",
+      "description": "Pallet weight in lbs",
+      "format": "double"
+    },
+    "length": {
+      "type": "number",
+      "description": "Pallet length in inches",
+      "format": "double"
+    },
+    "height": {
+      "type": "number",
+      "description": "Pallet height in inches",
+      "format": "double"
+    },
+    "width": {
+      "type": "number",
+      "description": "Pallet width in inches",
+      "format": "double"
+    },
+    "isHazmat": {
+      "type": "boolean",
+      "description": "Is Hazmat Commodity"
+    },
+    "nmfcNumber": {
+      "type": "integer",
+      "description": "NMFC Number",
+      "format": "int32",
+      "nullable": true
+    },
+    "nmfcSubNumber": {
+      "type": "integer",
+      "description": "NMFC Sub",
+      "format": "int32",
+      "nullable": true
+    },
+    "isStackable": {
+      "type": "boolean",
+      "description": "Is the commodity stackable"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Commodity"
+}

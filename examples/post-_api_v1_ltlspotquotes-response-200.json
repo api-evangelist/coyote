@@ -1,0 +1,54 @@
+{
+  "description": "Response 200 example for Gets an LTL Spot Quote",
+  "example": {
+    "ltlSpotQuoteId": "efb53ca3-7c59-4981-b8fb-27a418e2f5b2",
+    "carrierQuotes": [
+      {
+        "quoteID": "CAR12334",
+        "carrierName": "Carrier XYZ",
+        "scac": "ASDF",
+        "currencyType": "USD",
+        "transitTime": 1,
+        "interline": "Direct",
+        "deliveryDate": "2026-06-15T13:33:48.5307417-05:00",
+        "totalRate": 150.0,
+        "freightCharge": 75.0,
+        "fuelSurcharge": 25.0,
+        "accessorialCharges": 50.0,
+        "accessorials": [
+          {
+            "chargeDescription": "Inside Stop Charge",
+            "amount": 25.0
+          },
+          {
+            "chargeDescription": "Guaranteed Delivery Fee",
+            "amount": 25.0
+          }
+        ]
+      },
+      {
+        "quoteID": "CAR34556",
+        "carrierName": "Carrier ABC",
+        "scac": "QWER",
+        "currencyType": "USD",
+        "transitTime": 2,
+        "interline": "Indirect",
+        "deliveryDate": "2026-06-16T13:33:48.5307433-05:00",
+        "totalRate": 220.0,
+        "freightCharge": 75.0,
+        "fuelSurcharge": 25.0,
+        "accessorialCharges": 120.0,
+        "accessorials": [
+          {
+            "chargeDescription": "Inside Stop Charge",
+            "amount": 40.0
+          },
+          {
+            "chargeDescription": "Guaranteed Delivery Fee",
+            "amount": 80.0
+          }
+        ]
+      }
+    ]
+  }
+}

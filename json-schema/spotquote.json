@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpotQuote",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuote",
+  "type": "object",
+  "properties": {
+    "spotQuoteId": {
+      "type": "integer",
+      "description": "SpotQuoteId - Specify this ID as the LoadDetail.SpotQuoteId to build a load using the loads endpoint.",
+      "format": "int32"
+    },
+    "customerShipmentId": {
+      "type": "string",
+      "description": "CustomerShipmentId",
+      "nullable": true
+    },
+    "origin": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData"
+    },
+    "destination": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData"
+    },
+    "equipmentTypeId": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType"
+    },
+    "pickUpDateUTC": {
+      "type": "string",
+      "description": "PickupDateUTC",
+      "format": "date-time"
+    },
+    "validUntilUtc": {
+      "type": "string",
+      "description": "ValidUntilUtc",
+      "format": "date-time"
+    },
+    "totalRate": {
+      "type": "number",
+      "description": "TotalRate\r\n__Total rate includes fuel__",
+      "format": "double"
+    },
+    "rateLineItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem"
+      },
+      "description": "List of rate items that make up the total rate for this quote",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "SpotQuote"
+}

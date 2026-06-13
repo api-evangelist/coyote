@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadStopRequirement",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStopRequirement",
+  "type": "object",
+  "properties": {
+    "requirementType": {
+      "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadStopRequirementType"
+    },
+    "requirementValue": {
+      "type": "string",
+      "description": "Stop requirement value",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load stop requirement"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AvailableLoadsFilterMode",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsFilterMode",
+  "enum": [
+    "TL_LTL",
+    "TL",
+    "LTL"
+  ],
+  "type": "string",
+  "description": ""
+}

@@ -1,0 +1,410 @@
+{
+  "description": "Response 200 example for Gets available load details",
+  "example": {
+    "loadId": 194536334,
+    "orderNumber": null,
+    "loadDetails": {
+      "rate": {
+        "value": 654.0,
+        "currencyType": "USD"
+      },
+      "mode": "TL",
+      "equipment": {
+        "equipmentHeight": {
+          "value": 0.0,
+          "unit": "Feet"
+        },
+        "equipmentLength": {
+          "value": 53.0,
+          "unit": "Feet"
+        },
+        "equipmentType": "V",
+        "equipmentWidth": {
+          "value": 20.0,
+          "unit": "Feet"
+        },
+        "equipmentAttributes": {
+          "foodGrade": true,
+          "paperGrade": false,
+          "preCoolRequired": false,
+          "liftGate": false,
+          "palletJack": false,
+          "airRide": false,
+          "trailerXYearsOrNewer": 0,
+          "xLoadLocks": 0,
+          "xLoadBars": 0,
+          "xLoadStraps": 0,
+          "xSideboards": 0,
+          "eTrack": false,
+          "chains": false,
+          "noRollDoor": false,
+          "rollDoorAllowed": false,
+          "noReefer": false,
+          "noLiftGate": false,
+          "doubleTrailer": false,
+          "tripleTrailer": false,
+          "loadOutTrailer": false,
+          "towAway": false,
+          "lightweightEquipment": false,
+          "scaleUpToXPounds": 0,
+          "scaleUpToXKilograms": 0,
+          "tandemSlide": false,
+          "downloadableReefer": false,
+          "spaceSaverReefer": false,
+          "translucentTop": false,
+          "duraplate": false,
+          "ventedVan": false,
+          "functionalAirChute": false,
+          "trailerMustHaveAllWoodFloors": false,
+          "xlCode": false
+        },
+        "genericAttributes": null
+      },
+      "loadDistance": {
+        "value": 1500.0,
+        "unit": "Miles"
+      },
+      "weight": {
+        "value": 1800.0,
+        "unit": "Pounds"
+      },
+      "temperatureSettings": {
+        "preCoolTemperature": null,
+        "maximumTemperature": {
+          "value": 12.0,
+          "unit": "Fahrenheit"
+        },
+        "minimumTemperature": {
+          "value": 20.0,
+          "unit": "Fahrenheit"
+        }
+      },
+      "loadAttributes": {
+        "airRide": false,
+        "blind": false,
+        "bondedCarrier": false,
+        "borderCrossingByCoyote": false,
+        "borderCrossingByCustomer": false,
+        "coyoteGo": false,
+        "crossBorderMexico": false,
+        "ctpat": false,
+        "disasterRelief": false,
+        "doubleBlind": false,
+        "doubleTrailer": false,
+        "drayage": false,
+        "duraplate": false,
+        "englishSpeaking": false,
+        "exitPass": false,
+        "fast": false,
+        "fdaClearanceRequired": false,
+        "floodRelief": false,
+        "govt": false,
+        "guaranteed": false,
+        "haccp": false,
+        "hazmatEndorsement": false,
+        "hvhr": false,
+        "hvhrPlus": false,
+        "intraMexico": false,
+        "liquor": false,
+        "neec": false,
+        "noCameraPhonePhotosOfPaperwork": false,
+        "overDimension": false,
+        "palletJack": false,
+        "partialLoad": false,
+        "pipOrPep": false,
+        "powerOnly": false,
+        "ppe": false,
+        "protectFromFreeze": false,
+        "repairReceiptRequiredForBreakdowns": false,
+        "seal": true,
+        "secondaryBorderInspection": false,
+        "tankerEndorsement": false,
+        "tcr": false,
+        "team": false,
+        "techTrackingRequired": false,
+        "tradeShow": false,
+        "trailerControl": false,
+        "transloadByCoyote": false,
+        "transloadByCustomer": false,
+        "tripleTrailer": false,
+        "twic": false,
+        "uiia": false
+      },
+      "genericAttributes": null
+    },
+    "stops": [
+      {
+        "sequence": 1,
+        "stopType": "Pickup",
+        "facility": {
+          "name": null,
+          "address": {
+            "line1": "16005 WAHRMAN ST",
+            "line2": null,
+            "line3": null,
+            "postalCode": "48174-9725",
+            "cityName": "Romulus",
+            "stateProvinceCode": "OH",
+            "countryCode": "US"
+          },
+          "geoCoordinates": {
+            "latitude": 40.246281,
+            "longitude": -82.868742
+          },
+          "timeZoneOffset": "-04:00:00"
+        },
+        "appointment": {
+          "facilityOpenDateTimeUtc": null,
+          "facilityCloseDateTimeUtc": null,
+          "appointmentStartDateTimeUtc": "2026-06-14T18:33:48.4280298Z",
+          "appointmentEndDateTimeUtc": "2026-06-14T18:33:48.4280305Z"
+        },
+        "stopDetails": {
+          "commodities": [
+            {
+              "description": "Cans",
+              "weight": {
+                "value": 123.0,
+                "unit": "Pounds"
+              }
+            },
+            {
+              "description": "Bottles",
+              "weight": {
+                "value": 100.0,
+                "unit": "Pounds"
+              }
+            }
+          ],
+          "stopAttributes": {
+            "blind": false,
+            "closedToeShoes": false,
+            "detentionAuthFormRequired": false,
+            "driverAssist": false,
+            "dropAndHook": true,
+            "dropTrailerAllowXHoursToUnload": 0,
+            "dropTrailerRequired": false,
+            "earPlugs": false,
+            "englishSpeaking": false,
+            "escortOrTwicRequired": false,
+            "exitPass": false,
+            "government": false,
+            "hardHat": false,
+            "inOutTimesWSignature": false,
+            "insideDelivery": false,
+            "insidePickup": false,
+            "legalScaleOnSite": false,
+            "liftgateDelivery": false,
+            "liftgatePickup": false,
+            "limitedAccessDeliveryAirport": false,
+            "limitedAccessDeliveryChurch": false,
+            "limitedAccessDeliveryConstructionSite": false,
+            "limitedAccessDeliveryFarm": false,
+            "limitedAccessDeliveryMilitaryBase": false,
+            "limitedAccessDeliveryMineSite": false,
+            "limitedAccessDeliveryMiniStorage": false,
+            "limitedAccessDeliveryOther": false,
+            "limitedAccessDeliveryPrison": false,
+            "limitedAccessDeliveryRemoteGovt": false,
+            "limitedAccessDeliverySchool": false,
+            "limitedAccessPickupAirport": false,
+            "limitedAccessPickupChurch": false,
+            "limitedAccessPickupConstructionSite": false,
+            "limitedAccessPickupFarm": false,
+            "limitedAccessPickupMilitaryBase": false,
+            "limitedAccessPickupMineSite": false,
+            "limitedAccessPickupMiniStorage": false,
+            "limitedAccessPickupOther": false,
+            "limitedAccessPickupPrison": false,
+            "limitedAccessPickupRemoteGovt": false,
+            "limitedAccessPickupSchool": false,
+            "liquorPermit": false,
+            "loadedToLegalWeight": false,
+            "longPants": false,
+            "longSleeves": false,
+            "lumperReceiptRequired": false,
+            "mustCheckInAsCoyote": false,
+            "mustProvideAndApplySeal": false,
+            "mustSecureLoad": false,
+            "needCoyoteApprovalToUseLumperService": false,
+            "noAnimals": false,
+            "noDetention": false,
+            "noEarlyDeliveries": false,
+            "noLoadLocksOrStraps": false,
+            "noSameDayReschedules": false,
+            "notAllowedOnDock": false,
+            "noTankTops": false,
+            "noTrailerDetentionOrLayover": false,
+            "noWorkIns": false,
+            "onSiteParkingAvailable": false,
+            "overnightParkingAvailable": false,
+            "payLumperWCashTCheck": false,
+            "preLoadDropTrailerXHoursInAdvance": 0,
+            "prePaidLumperService": false,
+            "residentialDelivery": false,
+            "residentialPickup": false,
+            "safetyGlasses": false,
+            "safetyVest": false,
+            "scaleEmpty": false,
+            "scaleHeavy": false,
+            "secureYard": false,
+            "sortAndSegregateDelivery": false,
+            "sortAndSegregatePickup": false,
+            "spanishSpeaking": false,
+            "steelToeShoes": false,
+            "strictAppt": false,
+            "tradeshowDelivery": false,
+            "tradeshowPickup": false,
+            "trailerInspectionFormRequired": false,
+            "twic": false,
+            "twicRequiredNoEscorts": false,
+            "uiia": false,
+            "unpackDetrash": false,
+            "usCitizen": false,
+            "validUSCommercialDriversLicenseHardcopy": false,
+            "xTankOfFuelAtShipper": 0
+          },
+          "stopNotes": "This is the sample stop note",
+          "workType": "AssistCheck",
+          "genericAttributes": null
+        }
+      },
+      {
+        "sequence": 2,
+        "stopType": "Delivery",
+        "facility": {
+          "name": null,
+          "address": {
+            "line1": "131 State Route 3",
+            "line2": null,
+            "line3": null,
+            "postalCode": "43074",
+            "cityName": "Sunbury",
+            "stateProvinceCode": "OH",
+            "countryCode": "US"
+          },
+          "geoCoordinates": {
+            "latitude": 41.246281,
+            "longitude": -81.868742
+          },
+          "timeZoneOffset": "-05:00:00"
+        },
+        "appointment": {
+          "facilityOpenDateTimeUtc": null,
+          "facilityCloseDateTimeUtc": null,
+          "appointmentStartDateTimeUtc": "2026-06-14T18:33:48.4280338Z",
+          "appointmentEndDateTimeUtc": "2026-06-14T18:33:48.4280338Z"
+        },
+        "stopDetails": {
+          "commodities": [
+            {
+              "description": "Cans",
+              "weight": {
+                "value": 133.0,
+                "unit": "Pounds"
+              }
+            },
+            {
+              "description": "Bottles",
+              "weight": {
+                "value": 100.0,
+                "unit": "Pounds"
+              }
+            }
+          ],
+          "stopAttributes": {
+            "blind": false,
+            "closedToeShoes": false,
+            "detentionAuthFormRequired": false,
+            "driverAssist": false,
+            "dropAndHook": true,
+            "dropTrailerAllowXHoursToUnload": 0,
+            "dropTrailerRequired": false,
+            "earPlugs": false,
+            "englishSpeaking": false,
+            "escortOrTwicRequired": false,
+            "exitPass": false,
+            "government": false,
+            "hardHat": false,
+            "inOutTimesWSignature": false,
+            "insideDelivery": false,
+            "insidePickup": false,
+            "legalScaleOnSite": false,
+            "liftgateDelivery": false,
+            "liftgatePickup": false,
+            "limitedAccessDeliveryAirport": false,
+            "limitedAccessDeliveryChurch": false,
+            "limitedAccessDeliveryConstructionSite": false,
+            "limitedAccessDeliveryFarm": false,
+            "limitedAccessDeliveryMilitaryBase": false,
+            "limitedAccessDeliveryMineSite": false,
+            "limitedAccessDeliveryMiniStorage": false,
+            "limitedAccessDeliveryOther": false,
+            "limitedAccessDeliveryPrison": false,
+            "limitedAccessDeliveryRemoteGovt": false,
+            "limitedAccessDeliverySchool": false,
+            "limitedAccessPickupAirport": false,
+            "limitedAccessPickupChurch": false,
+            "limitedAccessPickupConstructionSite": false,
+            "limitedAccessPickupFarm": false,
+            "limitedAccessPickupMilitaryBase": false,
+            "limitedAccessPickupMineSite": false,
+            "limitedAccessPickupMiniStorage": false,
+            "limitedAccessPickupOther": false,
+            "limitedAccessPickupPrison": false,
+            "limitedAccessPickupRemoteGovt": false,
+            "limitedAccessPickupSchool": false,
+            "liquorPermit": false,
+            "loadedToLegalWeight": false,
+            "longPants": false,
+            "longSleeves": false,
+            "lumperReceiptRequired": false,
+            "mustCheckInAsCoyote": false,
+            "mustProvideAndApplySeal": false,
+            "mustSecureLoad": false,
+            "needCoyoteApprovalToUseLumperService": false,
+            "noAnimals": false,
+            "noDetention": false,
+            "noEarlyDeliveries": false,
+            "noLoadLocksOrStraps": false,
+            "noSameDayReschedules": false,
+            "notAllowedOnDock": false,
+            "noTankTops": false,
+            "noTrailerDetentionOrLayover": false,
+            "noWorkIns": false,
+            "onSiteParkingAvailable": false,
+            "overnightParkingAvailable": false,
+            "payLumperWCashTCheck": false,
+            "preLoadDropTrailerXHoursInAdvance": 0,
+            "prePaidLumperService": false,
+            "residentialDelivery": false,
+            "residentialPickup": false,
+            "safetyGlasses": false,
+            "safetyVest": false,
+            "scaleEmpty": false,
+            "scaleHeavy": false,
+            "secureYard": false,
+            "sortAndSegregateDelivery": false,
+            "sortAndSegregatePickup": false,
+            "spanishSpeaking": false,
+            "steelToeShoes": false,
+            "strictAppt": false,
+            "tradeshowDelivery": false,
+            "tradeshowPickup": false,
+            "trailerInspectionFormRequired": false,
+            "twic": false,
+            "twicRequiredNoEscorts": false,
+            "uiia": false,
+            "unpackDetrash": false,
+            "usCitizen": false,
+            "validUSCommercialDriversLicenseHardcopy": false,
+            "xTankOfFuelAtShipper": 0
+          },
+          "stopNotes": "This is the sample stop note",
+          "workType": "NoTouch",
+          "genericAttributes": null
+        }
+      }
+    ]
+  }
+}

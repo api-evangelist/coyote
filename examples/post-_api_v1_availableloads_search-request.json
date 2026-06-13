@@ -1,0 +1,35 @@
+{
+  "description": "Request example for Search available loads",
+  "example": {
+    "origin": {
+      "location": {
+        "latitude": 41.9316,
+        "longitude": -87.6921
+      },
+      "deadheadRadius": {
+        "value": 120,
+        "unit": "Miles"
+      },
+      "appointment": {
+        "appointmentStartDateTime": "2026-06-12T14:00:00-05:00",
+        "appointmentEndDateTime": "2026-06-13T12:00:00-05:00"
+      }
+    },
+    "destination": {
+      "location": {
+        "latitude": 42.9316,
+        "longitude": -88.6921
+      },
+      "deadheadRadius": {
+        "value": 120,
+        "unit": "Miles"
+      },
+      "appointment": {
+        "appointmentStartDateTime": "2026-06-12T18:00:00-05:00",
+        "appointmentEndDateTime": "2026-06-13T12:00:00-05:00"
+      }
+    },
+    "equipmentType": "V",
+    "mode": "TL_LTL"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EquipmentAttributes",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentAttributes",
+  "type": "object",
+  "properties": {
+    "foodGrade": {
+      "type": "boolean",
+      "description": "Is food grade"
+    },
+    "paperGrade": {
+      "type": "boolean",
+      "description": "Is paper grade"
+    },
+    "preCoolRequired": {
+      "type": "boolean",
+      "description": "Is pre-cool required"
+    },
+    "liftGate": {
+      "type": "boolean",
+      "description": "Is lift gate"
+    },
+    "palletJack": {
+      "type": "boolean",
+      "description": "Is pallet jack"
+    },
+    "airRide": {
+      "type": "boolean",
+      "description": "Is air ride"
+    },
+    "trailerXYearsOrNewer": {
+      "type": "integer",
+      "description": "Trailer X years or newer",
+      "format": "int32"
+    },
+    "xLoadLocks": {
+      "type": "integer",
+      "description": "X load locks",
+      "format": "int32"
+    },
+    "xLoadBars": {
+      "type": "integer",
+      "description": "X load bars",
+      "format": "int32"
+    },
+    "xLoadStraps": {
+      "type": "integer",
+      "description": "X load straps",
+      "format": "int32"
+    },
+    "xSideboards": {
+      "type": "integer",
+      "description": "X sideboards",
+      "format": "int32"
+    },
+    "eTrack": {
+      "type": "boolean",
+      "description": "Is ETrack"
+    },
+    "chains": {
+      "type": "boolean",
+      "description": "Is chains"
+    },
+    "noRollDoor": {
+      "type": "boolean",
+      "description": "Is no roll door"
+    },
+    "rollDoorAllowed": {
+      "type": "boolean",
+      "description": "Is roll door allowed"
+    },
+    "noReefer": {
+      "type": "boolean",
+      "description": "Is no reefer"
+    },
+    "noLiftGate": {
+      "type": "boolean",
+      "description": "Is no lift gate"
+    },
+    "doubleTrailer": {
+      "type": "boolean",
+      "description": "Is double trailer"
+    },
+    "tripleTrailer": {
+      "type": "boolean",
+      "description": "Is triple trailer"
+    },
+    "loadOutTrailer": {
+      "type": "boolean",
+      "description": "Is load out trailer"
+    },
+    "towAway": {
+      "type": "boolean",
+      "description": "Is tow away"
+    },
+    "lightweightEquipment": {
+      "type": "boolean",
+      "description": "Is lightweight equipment"
+    },
+    "scaleUpToXPounds": {
+      "type": "integer",
+      "description": "Scale up to X pounds",
+      "format": "int32"
+    },
+    "scaleUpToXKilograms": {
+      "type": "integer",
+      "description": "Scale up to X kilograms",
+      "format": "int32"
+    },
+    "tandemSlide": {
+      "type": "boolean",
+      "description": "Is tandem slide"
+    },
+    "downloadableReefer": {
+      "type": "boolean",
+      "description": "Is downloadable reefer"
+    },
+    "spaceSaverReefer": {
+      "type": "boolean",
+      "description": "Is space saver reefer"
+    },
+    "translucentTop": {
+      "type": "boolean",
+      "description": "Is translucent top"
+    },
+    "duraplate": {
+      "type": "boolean",
+      "description": "Is duraplate"
+    },
+    "ventedVan": {
+      "type": "boolean",
+      "description": "Is vented van"
+    },
+    "functionalAirChute": {
+      "type": "boolean",
+      "description": "Is functional air chute"
+    },
+    "trailerMustHaveAllWoodFloors": {
+      "type": "boolean",
+      "description": "Is trailer must have allWood floors"
+    },
+    "xlCode": {
+      "type": "boolean",
+      "description": "Is Xl code"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Equipment attributes"
+}

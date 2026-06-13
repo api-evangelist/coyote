@@ -1,0 +1,13 @@
+{
+  "description": "Response 200 example for Get associated entities",
+  "example": [
+    {
+      "id": 52042,
+      "name": "ABC Company"
+    },
+    {
+      "id": 52043,
+      "name": "XYZ Company"
+    }
+  ]
+}

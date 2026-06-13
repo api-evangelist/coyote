@@ -1,0 +1,257 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadAttributes",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadAttributes",
+  "required": [
+    "airRide",
+    "blind",
+    "bondedCarrier",
+    "borderCrossingByCoyote",
+    "borderCrossingByCustomer",
+    "coyoteGo",
+    "crossBorderMexico",
+    "ctpat",
+    "disasterRelief",
+    "doubleBlind",
+    "doubleTrailer",
+    "drayage",
+    "duraplate",
+    "englishSpeaking",
+    "exitPass",
+    "fast",
+    "fdaClearanceRequired",
+    "floodRelief",
+    "govt",
+    "guaranteed",
+    "haccp",
+    "hazmatEndorsement",
+    "hvhr",
+    "hvhrPlus",
+    "intraMexico",
+    "liquor",
+    "neec",
+    "noCameraPhonePhotosOfPaperwork",
+    "overDimension",
+    "palletJack",
+    "partialLoad",
+    "pipOrPep",
+    "powerOnly",
+    "ppe",
+    "protectFromFreeze",
+    "repairReceiptRequiredForBreakdowns",
+    "seal",
+    "secondaryBorderInspection",
+    "tankerEndorsement",
+    "tcr",
+    "team",
+    "techTrackingRequired",
+    "tradeShow",
+    "trailerControl",
+    "transloadByCoyote",
+    "transloadByCustomer",
+    "tripleTrailer",
+    "twic",
+    "uiia"
+  ],
+  "type": "object",
+  "properties": {
+    "airRide": {
+      "type": "boolean",
+      "description": "Is load airride"
+    },
+    "blind": {
+      "type": "boolean",
+      "description": "Is load blind"
+    },
+    "bondedCarrier": {
+      "type": "boolean",
+      "description": "Is bonded carrier"
+    },
+    "borderCrossingByCoyote": {
+      "type": "boolean",
+      "description": "Is border crossing by coyote"
+    },
+    "borderCrossingByCustomer": {
+      "type": "boolean",
+      "description": "Is border crossing by customer"
+    },
+    "coyoteGo": {
+      "type": "boolean",
+      "description": "Is CoyoteGo"
+    },
+    "crossBorderMexico": {
+      "type": "boolean",
+      "description": "Is cross border Mexico"
+    },
+    "ctpat": {
+      "type": "boolean",
+      "description": "Is CTPAT"
+    },
+    "disasterRelief": {
+      "type": "boolean",
+      "description": "Is disaster relief"
+    },
+    "doubleBlind": {
+      "type": "boolean",
+      "description": "Is double blind"
+    },
+    "doubleTrailer": {
+      "type": "boolean",
+      "description": "Is double trailer load"
+    },
+    "drayage": {
+      "type": "boolean",
+      "description": "Is drayage"
+    },
+    "duraplate": {
+      "type": "boolean",
+      "description": "Is duraplate"
+    },
+    "englishSpeaking": {
+      "type": "boolean",
+      "description": "Is English speaking"
+    },
+    "exitPass": {
+      "type": "boolean",
+      "description": "Is exit pass"
+    },
+    "fast": {
+      "type": "boolean",
+      "description": "Fast"
+    },
+    "fdaClearanceRequired": {
+      "type": "boolean",
+      "description": "Is FDA clearance required"
+    },
+    "floodRelief": {
+      "type": "boolean",
+      "description": "Is flood relief"
+    },
+    "govt": {
+      "type": "boolean",
+      "description": "Govt"
+    },
+    "guaranteed": {
+      "type": "boolean",
+      "description": "Guaranteed"
+    },
+    "haccp": {
+      "type": "boolean",
+      "description": "HACCP"
+    },
+    "hazmatEndorsement": {
+      "type": "boolean",
+      "description": "Hazmat Endorsement"
+    },
+    "hvhr": {
+      "type": "boolean",
+      "description": "Is HVHR"
+    },
+    "hvhrPlus": {
+      "type": "boolean",
+      "description": "HVHR plus"
+    },
+    "intraMexico": {
+      "type": "boolean",
+      "description": "Is Intra Mexico"
+    },
+    "liquor": {
+      "type": "boolean",
+      "description": "Is liquor"
+    },
+    "neec": {
+      "type": "boolean",
+      "description": "Is NEEC"
+    },
+    "noCameraPhonePhotosOfPaperwork": {
+      "type": "boolean",
+      "description": "No camera phone photos of paperwork"
+    },
+    "overDimension": {
+      "type": "boolean",
+      "description": "Is over dimension"
+    },
+    "palletJack": {
+      "type": "boolean",
+      "description": "Is pallet jack"
+    },
+    "partialLoad": {
+      "type": "boolean",
+      "description": "Is partial Load"
+    },
+    "pipOrPep": {
+      "type": "boolean",
+      "description": "Is PIP or PEP"
+    },
+    "powerOnly": {
+      "type": "boolean",
+      "description": "Is power only load"
+    },
+    "ppe": {
+      "type": "boolean",
+      "description": "Is PPE"
+    },
+    "protectFromFreeze": {
+      "type": "boolean",
+      "description": "Whether protect from freeze"
+    },
+    "repairReceiptRequiredForBreakdowns": {
+      "type": "boolean",
+      "description": "Whether repair receipt required for breakdowns"
+    },
+    "seal": {
+      "type": "boolean",
+      "description": "Is seal"
+    },
+    "secondaryBorderInspection": {
+      "type": "boolean",
+      "description": "Is secondary border inspection"
+    },
+    "tankerEndorsement": {
+      "type": "boolean",
+      "description": "Is tanker endorsement"
+    },
+    "tcr": {
+      "type": "boolean",
+      "description": "Is TCR"
+    },
+    "team": {
+      "type": "boolean",
+      "description": "Is team"
+    },
+    "techTrackingRequired": {
+      "type": "boolean",
+      "description": "Whether tech tracking required"
+    },
+    "tradeShow": {
+      "type": "boolean",
+      "description": "Is trade show"
+    },
+    "trailerControl": {
+      "type": "boolean",
+      "description": "Is trailer control"
+    },
+    "transloadByCoyote": {
+      "type": "boolean",
+      "description": "Is transload by coyote"
+    },
+    "transloadByCustomer": {
+      "type": "boolean",
+      "description": "Is transload by customer"
+    },
+    "tripleTrailer": {
+      "type": "boolean",
+      "description": "Is triple trailer"
+    },
+    "twic": {
+      "type": "boolean",
+      "description": "Is TWIC"
+    },
+    "uiia": {
+      "type": "boolean",
+      "description": "Is UIIA"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load attributes"
+}

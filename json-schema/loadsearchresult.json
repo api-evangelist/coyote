@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoadSearchResult",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadSearchResult",
+  "type": "object",
+  "properties": {
+    "loadId": {
+      "type": "integer",
+      "description": "Coyote load Id",
+      "format": "int32"
+    },
+    "loadDate": {
+      "type": "string",
+      "description": "Load date",
+      "format": "date-time"
+    },
+    "loadStops": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadStop"
+      },
+      "description": "Load stops",
+      "nullable": true
+    },
+    "trackingUrl": {
+      "type": "string",
+      "description": "Tracking Url",
+      "format": "uri",
+      "nullable": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Load search response"
+}

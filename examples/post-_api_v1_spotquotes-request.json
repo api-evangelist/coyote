@@ -1,0 +1,27 @@
+{
+  "description": "Request example for Gets a TL Spot Quote",
+  "example": {
+    "equipmentTypeId": "V",
+    "origin": {
+      "cityName": "Chicago",
+      "stateCode": "IL",
+      "countryCode": "US",
+      "postalCode": "60647"
+    },
+    "destination": {
+      "cityName": "Madison",
+      "stateCode": "WI",
+      "countryCode": "US",
+      "postalCode": "53703"
+    },
+    "pickUpDateUTC": "2026-06-18T18:33:48.5083739Z",
+    "minTemperature": null,
+    "maxTemperature": null,
+    "weight": 100.0,
+    "commodity": "Sample Commodity",
+    "equipmentLength": 53.0,
+    "isHazmat": false,
+    "isDropTrailer": false,
+    "customerShipmentId": "CUST1234"
+  }
+}

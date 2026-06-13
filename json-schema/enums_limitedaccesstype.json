@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enums_LimitedAccessType",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType",
+  "enum": [
+    "Undefined",
+    "Church",
+    "ConstructionSite",
+    "MilitaryBase",
+    "MineSite",
+    "MiniStorage",
+    "RemoteGovtDelivery",
+    "School",
+    "Other"
+  ],
+  "type": "string",
+  "description": "LTLLimitedAccessType"
+}

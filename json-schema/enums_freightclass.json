@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enums_FreightClass",
+  "x-source-schema": "Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass",
+  "enum": [
+    "Undefined",
+    "N50",
+    "N55",
+    "N60",
+    "N65",
+    "N70",
+    "N77PT5",
+    "N85",
+    "N92PT5",
+    "N100",
+    "N110",
+    "N125",
+    "N150",
+    "N175",
+    "N200",
+    "N250",
+    "N300",
+    "N400",
+    "N500"
+  ],
+  "type": "string",
+  "description": "FreightClass"
+}
