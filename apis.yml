@@ -1,0 +1,108 @@
+aid: coyote
+name: Coyote Logistics
+description: >
+  Coyote Logistics is a global third-party logistics (3PL) provider and freight brokerage
+  platform, now part of RXO, offering REST APIs for truckload capacity, less-than-truckload
+  (LTL) shipping, freight quoting, shipment tracking, load management, customs brokerage,
+  and supply chain visibility. Originally founded in 2006 and acquired by UPS in 2015, Coyote
+  was subsequently acquired by RXO in 2024. The CoyoteGO API platform serves both shippers
+  and carriers, providing real-time freight quotes, live tracking updates, and load booking
+  capabilities. The API uses OAuth 2.0 client credentials flow and is backed by a network
+  of 100,000 carriers serving 15,000 customers. Integration is available at no additional
+  cost for shippers and carriers working with Coyote, with native connectors to leading
+  TMS, WMS, and ERP systems.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - freight brokerage
+  - logistics
+  - truckload
+  - LTL
+  - less-than-truckload
+  - shipping
+  - supply chain
+  - freight quotes
+  - shipment tracking
+  - load management
+  - 3PL
+  - customs brokerage
+  - carrier API
+  - shipper API
+url: https://raw.githubusercontent.com/api-evangelist/coyote/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+
+apis:
+
+  - aid: coyote:coyotego-api
+    name: CoyoteGO API
+    description: >
+      The primary REST API for Coyote Logistics enabling shippers and carriers to integrate
+      freight operations directly into their TMS, WMS, ERP, or accounting systems. Provides
+      real-time freight quotes for truckload and LTL shipments, live shipment tracking updates,
+      load search and booking for carriers, shipment data management, bill of lading generation,
+      billing and invoice retrieval, and document submission. Authentication uses OAuth 2.0
+      client credentials flow; credentials are provisioned by a Coyote sales representative
+      or the integrations team. A sandbox environment is available at api-sandbox.coyote.com
+      for testing before going live.
+    humanURL: https://api2-dev.coyote.com/
+    baseURL: https://api.coyote.com
+    tags:
+      - freight quotes
+      - truckload
+      - LTL
+      - shipment tracking
+      - load management
+      - carriers
+      - shippers
+      - OAuth 2.0
+      - REST
+    properties:
+      - type: Documentation
+        url: https://api2-dev.coyote.com/
+      - type: Documentation
+        url: https://api.coyote.com/docs/index.html
+      - type: Authentication
+        url: https://api2-dev.coyote.com/
+      - type: Sandbox
+        url: https://api-sandbox.coyote.com
+
+common:
+
+  - type: Website
+    url: https://coyote.com/
+
+  - type: Documentation
+    url: https://api2-dev.coyote.com/
+
+  - type: GitHubOrganization
+    url: https://github.com/coyote-team
+
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/coyote-logistics
+
+  - type: Blog
+    url: https://coyote.com/resources/
+
+  - type: Pricing
+    url: https://coyote.com/technology/
+
+  - type: StatusPage
+    url: https://tracking.coyote.com/
+
+  - type: X
+    url: https://x.com/CoyoteLogistics
+
+  - type: Plans
+    url: plans/coyote-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/coyote-rate-limits.yml
+
+  - type: FinOps
+    url: finops/coyote-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

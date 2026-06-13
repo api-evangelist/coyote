@@ -1,0 +1,103 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+provider: Coyote Logistics
+providerId: coyote
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+type: partner
+
+plans:
+
+  - name: Shipper Integration
+    description: >
+      Free API access for shippers integrating with Coyote Logistics to obtain freight
+      quotes, build loads, and retrieve live tracking information. Access is provisioned
+      by a Coyote sales representative upon establishing a shipping relationship. Includes
+      real-time truckload and LTL pricing, load tender submission, document retrieval
+      (BOL, invoices), and live tracking updates. Compatible with TMS, WMS, and ERP systems.
+    type: free
+    cost: 0
+    currency: USD
+    billingPeriod: none
+    quotas:
+      - metric: freight_quotes
+        limit: 2500
+        timeFrame: daily
+        type: quota
+        notes: Approximately 2,500 daily freight quotes as documented on the developer portal
+      - metric: tracking_updates
+        limit: 12000
+        timeFrame: daily
+        type: quota
+        notes: Approximately 12,000 daily tracking updates as documented on the developer portal
+    features:
+      - Real-time truckload freight quotes
+      - Real-time LTL freight quotes
+      - Load building and tendering
+      - Live shipment tracking updates
+      - Bill of lading retrieval
+      - Invoice and billing document access
+      - Sandbox environment for testing
+      - Native TMS/WMS/ERP integrations
+
+  - name: Carrier Integration
+    description: >
+      Free API access for carriers to search available loads, book freight, submit
+      shipment documents, and manage load assignments on the Coyote network. Access
+      is provisioned by a Coyote carrier representative. Supports load search, booking,
+      document submission, and status updates. Approximately 35,000 daily load searches
+      available on the platform.
+    type: free
+    cost: 0
+    currency: USD
+    billingPeriod: none
+    quotas:
+      - metric: load_searches
+        limit: 35000
+        timeFrame: daily
+        type: quota
+        notes: Approximately 35,000 daily load searches as documented on the developer portal
+    features:
+      - Load search and discovery
+      - Load booking and assignment
+      - Document submission (POD, BOL)
+      - Status and location updates
+      - Sandbox environment for testing
+
+  - name: Enterprise
+    description: >
+      Custom integration arrangements for large-scale shippers and carriers requiring
+      elevated quotas, dedicated integration support, SLA commitments, and custom
+      data exchange agreements. Pricing and terms negotiated directly with Coyote
+      Logistics (now RXO) account management teams.
+    type: enterprise
+    cost: custom
+    currency: USD
+    billingPeriod: custom
+    quotas:
+      - metric: freight_quotes
+        limit: unlimited
+        type: boolean
+      - metric: tracking_updates
+        limit: unlimited
+        type: boolean
+      - metric: load_searches
+        limit: unlimited
+        type: boolean
+    features:
+      - All shipper and carrier integration features
+      - Elevated or unlimited API quotas
+      - Dedicated integration engineering support
+      - Custom SLA and uptime commitments
+      - EDI integration as alternative or complement to REST API
+      - Invoice billing and custom data agreements
+
+notes: >
+  Coyote Logistics API access is offered at no direct cost to shippers and carriers
+  as part of the service relationship with Coyote/RXO. Credentials are provisioned
+  through the sales or carrier representative process rather than self-service signup.
+  Quota figures (2,500 daily quotes, 12,000 daily tracking updates, 35,000 daily load
+  searches) are approximate operational figures cited on the developer portal homepage
+  as of 2026-06-13. Contact 877-6-COYOTE or the integrations team for access.
+  Source: https://api2-dev.coyote.com/ reviewed 2026-06-13.

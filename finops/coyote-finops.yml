@@ -1,0 +1,110 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+provider: Coyote Logistics
+providerId: coyote
+created: '2026-06-13'
+modified: '2026-06-13'
+
+billingModel: partner-no-cost
+description: >
+  Coyote Logistics (now part of RXO) provides API access at no direct cost to shippers
+  and carriers as part of the freight brokerage service relationship. There are no API
+  subscription fees, per-call charges, or usage-based billing for the CoyoteGO REST API.
+  The economic model is embedded in the freight brokerage relationship: Coyote earns margin
+  on freight transactions brokered through the platform. API integration is offered as a
+  value-added digital tool to facilitate quoting, tendering, tracking, and document
+  exchange within established customer and carrier relationships.
+
+focusColumns:
+  - ChargeCategory: Usage
+  - BillingCurrency: USD
+  - BillingPeriod: None
+  - ServiceName: Coyote Logistics CoyoteGO API
+  - SkuName: Freight Brokerage API Access
+  - ConsumedUnit: request
+  - ConsumedQuantity: requests_per_day
+
+meters:
+
+  - name: freight_quotes
+    description: >
+      Count of freight quote requests made to the CoyoteGO API covering truckload
+      and LTL pricing. No direct charge per quote; quota is approximately 2,500 per day.
+    unit: quote_request
+    billingModel: no_direct_cost
+    tiers:
+      - tier: Standard
+        included: 2500
+        timeFrame: daily
+        overageRate: 0
+        overageCurrency: USD
+        notes: Contact integrations team if higher daily quote volumes are needed.
+
+  - name: tracking_updates
+    description: >
+      Count of shipment tracking status requests per day. No direct charge per request;
+      quota is approximately 12,000 per day.
+    unit: tracking_request
+    billingModel: no_direct_cost
+    tiers:
+      - tier: Standard
+        included: 12000
+        timeFrame: daily
+        overageRate: 0
+        overageCurrency: USD
+
+  - name: load_searches
+    description: >
+      Count of load search requests per day for carrier accounts. No direct charge;
+      quota is approximately 35,000 per day.
+    unit: search_request
+    billingModel: no_direct_cost
+    tiers:
+      - tier: Standard
+        included: 35000
+        timeFrame: daily
+        overageRate: 0
+        overageCurrency: USD
+
+principles:
+
+  - name: Visibility
+    description: >
+      API usage visibility is provided through the Azure API Management developer
+      portal at api2-dev.coyote.com. Shippers and carriers can monitor their integration
+      status and shipment activity through the CoyoteGO platform and their TMS/WMS/ERP
+      systems. Direct API usage metrics dashboards are not publicly documented; contact
+      the Coyote integrations team for account-level monitoring capabilities.
+    controls:
+      - type: DeveloperPortal
+        url: https://api2-dev.coyote.com/
+      - type: ShipmentTracking
+        url: https://tracking.coyote.com/
+
+  - name: Optimization
+    recommendations:
+      - description: >
+          Use the sandbox environment (api-sandbox.coyote.com) for all development and
+          testing to avoid consuming production API quotas during integration work.
+      - description: >
+          Cache freight quote responses where appropriate to reduce redundant API calls
+          within quote validity windows, staying within the daily quote quota.
+      - description: >
+          Use polling intervals appropriate to shipment status cadence for tracking
+          updates rather than continuous polling, to preserve daily tracking quota.
+      - description: >
+          Consider native TMS/WMS/ERP integrations offered by Coyote to reduce custom
+          integration development effort; native connectors handle authentication and
+          quota management automatically.
+      - description: >
+          Evaluate EDI as a complementary channel for high-volume document exchange
+          (BOL, invoices) if REST API throughput becomes a constraint for large operations.
+
+  - name: Cost_Allocation
+    description: >
+      Since the API has no direct usage cost, FinOps focus is on maximizing the operational
+      value of the freight brokerage relationship and minimizing internal engineering costs
+      associated with integration maintenance. Track freight transaction volume and routing
+      efficiency as the primary value metrics rather than API spend.
+
+source: https://api2-dev.coyote.com/ reviewed 2026-06-13.

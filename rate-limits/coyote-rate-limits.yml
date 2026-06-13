@@ -1,0 +1,78 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Coyote Logistics
+providerId: coyote
+created: '2026-06-13'
+modified: '2026-06-13'
+
+throttledStatusCode: 429
+throttledMessage: "Request rate limit exceeded."
+
+limits:
+
+  - scope: account
+    api: CoyoteGO API
+    metric: freight_quotes
+    limit: 2500
+    timeFrame: 1
+    timeFrameUnit: days
+    notes: >
+      Approximately 2,500 freight quotes per day per account as cited on the CoyoteGO
+      developer portal. Covers both truckload and LTL quote requests. Exact enforcement
+      thresholds are not publicly documented; contact the Coyote integrations team for
+      confirmed per-account limits.
+
+  - scope: account
+    api: CoyoteGO API
+    metric: tracking_updates
+    limit: 12000
+    timeFrame: 1
+    timeFrameUnit: days
+    notes: >
+      Approximately 12,000 shipment tracking update requests per day per account as
+      cited on the CoyoteGO developer portal. Covers real-time status polling for
+      active shipments. Exact enforcement thresholds may vary by account tier.
+
+  - scope: account
+    api: CoyoteGO API
+    metric: load_searches
+    limit: 35000
+    timeFrame: 1
+    timeFrameUnit: days
+    notes: >
+      Approximately 35,000 load search requests per day per carrier account as cited
+      on the CoyoteGO developer portal. Applies to carriers searching available loads
+      on the Coyote network.
+
+authentication:
+  type: OAuth 2.0
+  flow: client_credentials
+  tokenEndpoint: https://api.coyote.com/connect/token
+  requiredParameters:
+    - client_id
+    - client_secret
+    - scope
+    - grant_type
+  scopeValue: ExternalApi
+  grantTypeValue: client_credentials
+  tokenUsage: Bearer token in Authorization header
+  sandboxTokenEndpoint: https://api-sandbox.coyote.com/connect/token
+  notes: >
+    Credentials (client_id and client_secret) are provisioned by a Coyote sales
+    representative or the integrations team. Token requests must use
+    application/x-www-form-urlencoded encoding. All API requests must use SSL/TLS.
+
+sandboxEnvironment:
+  baseURL: https://api-sandbox.coyote.com
+  notes: >
+    A separate sandbox environment is available for integration testing before
+    connecting to the production API. Sandbox credentials are distinct from
+    production credentials and must be requested separately.
+
+enterpriseNote: >
+  Rate limits and daily quotas may be adjusted for enterprise or large-volume
+  accounts by negotiation with Coyote Logistics (RXO) account management.
+  EDI integration is also available as an alternative channel for high-volume
+  data exchange.
+
+source: https://api2-dev.coyote.com/ reviewed 2026-06-13.
