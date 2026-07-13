@@ -2,19 +2,14 @@
   "repo": "coyote",
   "feeds": [
     {
-      "source": "https://coyote.com/resources/",
-      "feed_url": "",
-      "saved": 0,
-      "method": "agent-scrape",
-      "note": "coyote.com/resources/ 301-redirects to rxo.com/resources/ (RXO acquisition); no posts dated 2026-06-20..27"
-    },
-    {
       "source": "https://www.linkedin.com/company/coyote-logistics",
+      "feed_url": "https://www.linkedin.com/company/coyote-logistics",
+      "title": "",
       "saved": 0,
-      "error": "HTTPError"
+      "method": "none"
     }
   ],
   "post_count": 5,
-  "fetched": "2026-06-27T12:34:29Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "agent_pulled": "2026-06-27"
 }
