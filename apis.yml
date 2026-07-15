@@ -70,6 +70,8 @@ apis:
 
 common:
 
+  - type: AgenticAccess
+    url: agentic-access/coyote-agentic-access.yml
   - type: DomainSecurity
     url: security/coyote-domain-security.yml
   - type: Website
