@@ -1,0 +1,562 @@
+openapi: 3.0.1
+info:
+  title: CoyoteGO Associated Entities API Shipper - Tracking APIs API
+  description: "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n"
+  contact:
+    name: API Management
+    email: apimanagement@coyote.com
+  version: v0.1.1.2549
+  x-logo:
+    url: https://coyote.com/wp-content/uploads/2020/02/APILogo-transparent.png
+    altText: Coyote
+servers:
+- url: https://api.demo.coyote.com
+  description: Demo
+- url: https://api.coyote.com
+  description: Production
+- url: https://api-sandbox.coyote.com
+  description: Sandbox
+tags:
+- name: Shipper - Tracking APIs
+paths:
+  /api/v1/Trackings/{loadId}/stopdetails:
+    get:
+      tags:
+      - Shipper - Tracking APIs
+      summary: Gets all load stop details
+      description: "Allows Shippers to retrieve all load stop details for a given load, including facility information, \r\nas well as appointments, and tracking milestones."
+      parameters:
+      - name: loadId
+        in: path
+        description: The requested load Id.
+        required: true
+        schema:
+          type: integer
+          description: The requested load Id.
+          format: int32
+      responses:
+        '200':
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.StopDetail'
+              example:
+                proNumber: PRONUMBER
+                loadStops:
+                - milestone:
+                    driverArrivalDateTimeUtc: '2026-06-13T18:38:48.5416537Z'
+                    trailerArriveDateTimeUtc: '2026-06-13T18:38:48.5416537Z'
+                    trailerLoadedDateTimeUtc: '2026-06-13T18:38:48.5416538Z'
+                    trailerEmptyDateTimeUtc: '2026-06-13T18:38:48.5416538Z'
+                    driverDepartureDateTimeUtc: '2026-06-13T18:38:48.5416538Z'
+                  sequence: 1
+                  stopType: Pickup
+                  facility:
+                    name: Coyote Logistics
+                    address:
+                      line1: 2545 W Diversey Ave
+                      line2: null
+                      line3: null
+                      postalCode: '60647'
+                      cityName: Chicago
+                      stateProvinceCode: IL
+                      countryCode: USA
+                    geoCoordinates:
+                      latitude: 41.931674
+                      longitude: -87.691939
+                  appointment:
+                    facilityOpenDateTimeUtc: '2026-06-14T18:33:48.5416535Z'
+                    facilityCloseDateTimeUtc: '2026-06-14T18:33:48.5416534Z'
+                    appointmentStartDateTimeUtc: '2026-06-13T18:38:48.5416528Z'
+                    appointmentEndDateTimeUtc: '2026-06-13T19:13:48.5416534Z'
+                - milestone:
+                    driverArrivalDateTimeUtc: '2026-06-14T18:33:48.5416548Z'
+                    trailerArriveDateTimeUtc: '2026-06-14T18:33:48.5416548Z'
+                    trailerLoadedDateTimeUtc: '2026-06-14T18:33:48.5416549Z'
+                    trailerEmptyDateTimeUtc: '2026-06-14T18:33:48.5416549Z'
+                    driverDepartureDateTimeUtc: '2026-06-14T18:33:48.5416548Z'
+                  sequence: 2
+                  stopType: Delivery
+                  facility:
+                    name: Coyote Logistics
+                    address:
+                      line1: 1515 Wazee St
+                      line2: null
+                      line3: null
+                      postalCode: '80202'
+                      cityName: Denver
+                      stateProvinceCode: CO
+                      countryCode: USA
+                    geoCoordinates:
+                      latitude: 41.931674
+                      longitude: -87.691939
+                  appointment:
+                    facilityOpenDateTimeUtc: '2026-06-14T18:33:48.5416545Z'
+                    facilityCloseDateTimeUtc: '2026-06-14T18:33:48.5416545Z'
+                    appointmentStartDateTimeUtc: '2026-06-14T18:33:48.5416544Z'
+                    appointmentEndDateTimeUtc: '2026-06-14T18:33:48.5416544Z'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '503':
+          description: Temporarily unavailable
+  /api/v1/Trackings/{loadId}/summaries:
+    get:
+      tags:
+      - Shipper - Tracking APIs
+      summary: Gets load tracking summary
+      description: "Allows Shippers to retrieve a tracking summary view for a given load, including the latest location update, \r\nnext stop details, and estimated arrival."
+      parameters:
+      - name: loadId
+        in: path
+        description: The requested load Id.
+        required: true
+        schema:
+          type: integer
+          description: The requested load Id.
+          format: int32
+      responses:
+        '200':
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Summary'
+              example:
+                proNumber: PRONUMBER
+                latestLocationStatus:
+                  address:
+                    line1: 2545 W Diversey Ave
+                    line2: null
+                    line3: null
+                    postalCode: '60647'
+                    cityName: Chicago
+                    stateProvinceCode: IL
+                    countryCode: USA
+                  timestampUtc: '2026-06-13T18:33:48.5456031Z'
+                  geoCoordinates:
+                    latitude: 41.931674
+                    longitude: -87.691939
+                nextStop:
+                  sequence: 2
+                  stopType: Delivery
+                  facility:
+                    name: Coyote Logistics
+                    address:
+                      line1: 2545 W Diversey Ave
+                      line2: null
+                      line3: null
+                      postalCode: '60647'
+                      cityName: Chicago
+                      stateProvinceCode: IL
+                      countryCode: USA
+                    geoCoordinates:
+                      latitude: 41.931674
+                      longitude: -87.691939
+                  appointment:
+                    facilityOpenDateTimeUtc: '2026-06-14T18:33:48.5456037Z'
+                    facilityCloseDateTimeUtc: '2026-06-14T18:33:48.5456036Z'
+                    appointmentStartDateTimeUtc: '2026-06-13T18:38:48.5456034Z'
+                    appointmentEndDateTimeUtc: '2026-06-13T19:13:48.5456036Z'
+                estimatedArrivalDateTimeUtc: '2026-06-13T18:43:48.5456018Z'
+                nextStopDistance:
+                  value: 10.0
+                  unit: Miles
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+        '503':
+          description: Temporarily unavailable
+  /api/v1/LocationStatuses/{loadId}:
+    x-code-samples:
+    - lang: Java
+      source: "HttpResponse response = Unirest.post(\"https://api-sandbox.coyote.com/api/v1/LocationStatuses/{loadId}\")\r\n.header(\"content-type\", \"application/json\")\r\n.header(\"Authorization\", \"Bearer TOKEN\")\r\n.asString();"
+    - lang: C#
+      source: "var client = new RestClient(\"https://api-sandbox.coyote.com/api/v1/LocationStatuses/{loadId}\");\r\nvar request = new RestRequest(Method.GET);\r\nrequest.AddHeader(\"Authorization\", \"Bearer TOKEN\");\r\nrequest.AddHeader(\"content-type\", \"application/json\");\r\nIRestResponse response = client.Execute(request);"
+    - lang: curl
+      source: "curl -X GET \\\r\nhttps://api-sandbox.coyote.com/api/v1/LocationStatuses/{loadId} \\\r\n-H 'Authorization: Bearer TOKEN' \\ \r\n-H 'Content-Type: application/json'"
+    get:
+      tags:
+      - Shipper - Tracking APIs
+      summary: Gets all tracking updates for a given load
+      description: Allows Shippers to retrieve all location updates for a given load.
+      parameters:
+      - name: loadId
+        in: path
+        description: The requested load ID.
+        required: true
+        schema:
+          type: integer
+          description: The requested load ID.
+          format: int32
+      responses:
+        '200':
+          description: The tracking updates were successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LocationStatus'
+              example:
+              - loadId: 12345
+                address:
+                  line1: 2545 W Diversey Ave
+                  line2: null
+                  city: Chicago
+                  postalCode: '60647'
+                  state: IL
+                  countryCode: USA
+                geoCoordinates:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                timestamp: '2026-06-13T18:33:48.487995Z'
+              - loadId: 12345
+                address:
+                  line1: 1515 Wazee St
+                  line2: null
+                  city: Denver
+                  postalCode: '80202'
+                  state: CO
+                  countryCode: USA
+                geoCoordinates:
+                  latitude: 39.734
+                  longitude: -104.935
+                timestamp: '2026-06-11T18:33:48.4879955Z'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The tracking updates do not exist
+  /api/v1/LocationStatuses/{loadId}/latest:
+    x-code-samples:
+    - lang: Java
+      source: "HttpResponse response = Unirest.post(\"https://api-sandbox.coyote.com/api/v1/LocationStatuses/{loadId}/latest\")\r\n.header(\"content-type\", \"application/json\")\r\n.header(\"Authorization\", \"Bearer TOKEN\")\r\n.asString();"
+    - lang: C#
+      source: "var client = new RestClient(\"https://api-sandbox.coyote.com/api/v1/LocationStatuses/{loadId}/latest\");\r\nvar request = new RestRequest(Method.GET);\r\nrequest.AddHeader(\"Authorization\", \"Bearer TOKEN\");\r\nrequest.AddHeader(\"content-type\", \"application/json\");\r\nIRestResponse response = client.Execute(request);"
+    - lang: curl
+      source: "curl -X GET \\\r\nhttps://api-sandbox.coyote.com/api/v1/LocationStatuses/{loadId}/latest \\\r\n-H 'Authorization: Bearer TOKEN' \\ \r\n-H 'Content-Type: application/json'"
+    get:
+      tags:
+      - Shipper - Tracking APIs
+      summary: Gets the latest tracking update for a given load
+      description: Allows Shippers to retrieve the most recent location updates for a given load.
+      parameters:
+      - name: loadId
+        in: path
+        description: The requested load ID.
+        required: true
+        schema:
+          type: integer
+          description: The requested load ID.
+          format: int32
+      responses:
+        '200':
+          description: The tracking update was successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LocationStatus'
+              example:
+                loadId: 12345
+                address:
+                  line1: 2545 W Diversey Ave
+                  line2: null
+                  city: Chicago
+                  postalCode: '60647'
+                  state: IL
+                  countryCode: USA
+                geoCoordinates:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                timestamp: '2026-06-13T18:33:48.4892069Z'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The tracking update does not exist
+components:
+  schemas:
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStop:
+      type: object
+      properties:
+        sequence:
+          type: integer
+          description: Sequence
+          format: int32
+        stopType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
+        facility:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility'
+        appointment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment'
+      additionalProperties: false
+      description: Load Stop
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+          nullable: true
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress'
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
+      additionalProperties: false
+      description: Facility
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: Latitude
+          format: double
+        longitude:
+          type: number
+          description: Longitude
+          format: double
+      additionalProperties: false
+      description: GeoCoordinates
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment:
+      type: object
+      properties:
+        facilityOpenDateTimeUtc:
+          type: string
+          description: Facility Open DateTime in Utc
+          format: date-time
+          nullable: true
+        facilityCloseDateTimeUtc:
+          type: string
+          description: Facility Close DateTime in Utc
+          format: date-time
+          nullable: true
+        appointmentStartDateTimeUtc:
+          type: string
+          description: Appointment Start DateTime in Utc
+          format: date-time
+          nullable: true
+        appointmentEndDateTimeUtc:
+          type: string
+          description: Appointment End DateTime in Utc
+          format: date-time
+          nullable: true
+      additionalProperties: false
+      description: Appointment
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LocationStatus:
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: Load
+          format: int32
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Address'
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
+        timestamp:
+          type: string
+          description: Timestamp
+          format: date-time
+      additionalProperties: false
+      description: Location Status
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Summary:
+      type: object
+      properties:
+        proNumber:
+          type: string
+          description: ProNumber (LTL)
+          nullable: true
+        latestLocationStatus:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Location'
+        nextStop:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStop'
+        estimatedArrivalDateTimeUtc:
+          type: string
+          description: ETA DateTime in Utc
+          format: date-time
+          nullable: true
+        nextStopDistance:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Distance'
+      additionalProperties: false
+      description: Summary
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Address:
+      type: object
+      properties:
+        line1:
+          type: string
+          description: Line1
+          nullable: true
+        line2:
+          type: string
+          description: Line2
+          nullable: true
+        city:
+          type: string
+          description: City
+          nullable: true
+        postalCode:
+          type: string
+          description: Postal Code
+          nullable: true
+        state:
+          type: string
+          description: State
+          nullable: true
+        countryCode:
+          type: string
+          description: Country Code
+          nullable: true
+      additionalProperties: false
+      description: Address
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Milestone:
+      type: object
+      properties:
+        driverArrivalDateTimeUtc:
+          type: string
+          description: Driver Arrival DateTime in Utc
+          format: date-time
+          nullable: true
+        trailerArriveDateTimeUtc:
+          type: string
+          description: Trailer Arrive DateTime in Utc
+          format: date-time
+          nullable: true
+        trailerLoadedDateTimeUtc:
+          type: string
+          description: Trailer Loaded DateTime in Utc
+          format: date-time
+          nullable: true
+        trailerEmptyDateTimeUtc:
+          type: string
+          description: Trailer Empty DateTime in Utc
+          format: date-time
+          nullable: true
+        driverDepartureDateTimeUtc:
+          type: string
+          description: Driver Departure DateTime in Utc
+          format: date-time
+          nullable: true
+      additionalProperties: false
+      description: Milestone
+    Coyote.Systems.ExternalApi.Contracts.Models.StopType:
+      enum:
+      - None
+      - Pickup
+      - Delivery
+      - ContainerDepotOrigin
+      - ContainerDepotTermination
+      - OriginRamp
+      - DestinationRamp
+      - OriginPort
+      - DestinationPort
+      - OriginAirport
+      - DestinationAirport
+      - CrossDock
+      type: string
+      description: Stop Types
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit:
+      enum:
+      - Miles
+      - Kilometers
+      type: string
+      description: Distance Unit
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Location:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress'
+        timestampUtc:
+          type: string
+          description: Timestamp in Utc
+          format: date-time
+          nullable: true
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
+      additionalProperties: false
+      description: Location
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.StopDetail:
+      type: object
+      properties:
+        proNumber:
+          type: string
+          description: ProNumber (LTL)
+          nullable: true
+        loadStops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStopProgress'
+          description: Load Stops
+          nullable: true
+      additionalProperties: false
+      description: Stop Detail
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStopProgress:
+      type: object
+      properties:
+        milestone:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Milestone'
+        sequence:
+          type: integer
+          description: Sequence
+          format: int32
+        stopType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
+        facility:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility'
+        appointment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment'
+      additionalProperties: false
+      description: Load Stop
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress:
+      type: object
+      properties:
+        line1:
+          type: string
+          description: Line 1
+          nullable: true
+        line2:
+          type: string
+          description: Line 2
+          nullable: true
+        line3:
+          type: string
+          description: Line 3
+          nullable: true
+        postalCode:
+          type: string
+          description: Postal Code
+          nullable: true
+        cityName:
+          type: string
+          description: City Name
+          nullable: true
+        stateProvinceCode:
+          type: string
+          description: State or Province Code
+          nullable: true
+        countryCode:
+          type: string
+          description: Country Code
+          nullable: true
+      additionalProperties: false
+      description: Address
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Distance:
+      type: object
+      properties:
+        value:
+          type: number
+          description: Value
+          format: double
+        unit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit'
+      additionalProperties: false
+      description: Distance to Next Stop

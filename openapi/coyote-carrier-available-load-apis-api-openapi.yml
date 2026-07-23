@@ -1,0 +1,1989 @@
+openapi: 3.0.1
+info:
+  title: CoyoteGO Associated Entities API Carrier - Available Load APIs API
+  description: "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n"
+  contact:
+    name: API Management
+    email: apimanagement@coyote.com
+  version: v0.1.1.2549
+  x-logo:
+    url: https://coyote.com/wp-content/uploads/2020/02/APILogo-transparent.png
+    altText: Coyote
+servers:
+- url: https://api.demo.coyote.com
+  description: Demo
+- url: https://api.coyote.com
+  description: Production
+- url: https://api-sandbox.coyote.com
+  description: Sandbox
+tags:
+- name: Carrier - Available Load APIs
+paths:
+  /api/v1/AvailableLoads/{loadId}:
+    get:
+      tags:
+      - Carrier - Available Load APIs
+      summary: Gets available load details
+      description: Allows Carriers to retrieve all the current details for a given load, assuming the provided load is still available.
+      parameters:
+      - name: loadId
+        in: path
+        description: The requested load id
+        required: true
+        schema:
+          type: integer
+          description: The requested load id
+          format: int32
+      responses:
+        '200':
+          description: Load successfully retrieved and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoad'
+              example:
+                loadId: 194536334
+                orderNumber: null
+                loadDetails:
+                  rate:
+                    value: 654.0
+                    currencyType: USD
+                  mode: TL
+                  equipment:
+                    equipmentHeight:
+                      value: 0.0
+                      unit: Feet
+                    equipmentLength:
+                      value: 53.0
+                      unit: Feet
+                    equipmentType: V
+                    equipmentWidth:
+                      value: 20.0
+                      unit: Feet
+                    equipmentAttributes:
+                      foodGrade: true
+                      paperGrade: false
+                      preCoolRequired: false
+                      liftGate: false
+                      palletJack: false
+                      airRide: false
+                      trailerXYearsOrNewer: 0
+                      xLoadLocks: 0
+                      xLoadBars: 0
+                      xLoadStraps: 0
+                      xSideboards: 0
+                      eTrack: false
+                      chains: false
+                      noRollDoor: false
+                      rollDoorAllowed: false
+                      noReefer: false
+                      noLiftGate: false
+                      doubleTrailer: false
+                      tripleTrailer: false
+                      loadOutTrailer: false
+                      towAway: false
+                      lightweightEquipment: false
+                      scaleUpToXPounds: 0
+                      scaleUpToXKilograms: 0
+                      tandemSlide: false
+                      downloadableReefer: false
+                      spaceSaverReefer: false
+                      translucentTop: false
+                      duraplate: false
+                      ventedVan: false
+                      functionalAirChute: false
+                      trailerMustHaveAllWoodFloors: false
+                      xlCode: false
+                    genericAttributes: null
+                  loadDistance:
+                    value: 1500.0
+                    unit: Miles
+                  weight:
+                    value: 1800.0
+                    unit: Pounds
+                  temperatureSettings:
+                    preCoolTemperature: null
+                    maximumTemperature:
+                      value: 12.0
+                      unit: Fahrenheit
+                    minimumTemperature:
+                      value: 20.0
+                      unit: Fahrenheit
+                  loadAttributes:
+                    airRide: false
+                    blind: false
+                    bondedCarrier: false
+                    borderCrossingByCoyote: false
+                    borderCrossingByCustomer: false
+                    coyoteGo: false
+                    crossBorderMexico: false
+                    ctpat: false
+                    disasterRelief: false
+                    doubleBlind: false
+                    doubleTrailer: false
+                    drayage: false
+                    duraplate: false
+                    englishSpeaking: false
+                    exitPass: false
+                    fast: false
+                    fdaClearanceRequired: false
+                    floodRelief: false
+                    govt: false
+                    guaranteed: false
+                    haccp: false
+                    hazmatEndorsement: false
+                    hvhr: false
+                    hvhrPlus: false
+                    intraMexico: false
+                    liquor: false
+                    neec: false
+                    noCameraPhonePhotosOfPaperwork: false
+                    overDimension: false
+                    palletJack: false
+                    partialLoad: false
+                    pipOrPep: false
+                    powerOnly: false
+                    ppe: false
+                    protectFromFreeze: false
+                    repairReceiptRequiredForBreakdowns: false
+                    seal: true
+                    secondaryBorderInspection: false
+                    tankerEndorsement: false
+                    tcr: false
+                    team: false
+                    techTrackingRequired: false
+                    tradeShow: false
+                    trailerControl: false
+                    transloadByCoyote: false
+                    transloadByCustomer: false
+                    tripleTrailer: false
+                    twic: false
+                    uiia: false
+                  genericAttributes: null
+                stops:
+                - sequence: 1
+                  stopType: Pickup
+                  facility:
+                    name: null
+                    address:
+                      line1: 16005 WAHRMAN ST
+                      line2: null
+                      line3: null
+                      postalCode: 48174-9725
+                      cityName: Romulus
+                      stateProvinceCode: OH
+                      countryCode: US
+                    geoCoordinates:
+                      latitude: 40.246281
+                      longitude: -82.868742
+                    timeZoneOffset: -04:00:00
+                  appointment:
+                    facilityOpenDateTimeUtc: null
+                    facilityCloseDateTimeUtc: null
+                    appointmentStartDateTimeUtc: '2026-06-14T18:33:48.4280298Z'
+                    appointmentEndDateTimeUtc: '2026-06-14T18:33:48.4280305Z'
+                  stopDetails:
+                    commodities:
+                    - description: Cans
+                      weight:
+                        value: 123.0
+                        unit: Pounds
+                    - description: Bottles
+                      weight:
+                        value: 100.0
+                        unit: Pounds
+                    stopAttributes:
+                      blind: false
+                      closedToeShoes: false
+                      detentionAuthFormRequired: false
+                      driverAssist: false
+                      dropAndHook: true
+                      dropTrailerAllowXHoursToUnload: 0
+                      dropTrailerRequired: false
+                      earPlugs: false
+                      englishSpeaking: false
+                      escortOrTwicRequired: false
+                      exitPass: false
+                      government: false
+                      hardHat: false
+                      inOutTimesWSignature: false
+                      insideDelivery: false
+                      insidePickup: false
+                      legalScaleOnSite: false
+                      liftgateDelivery: false
+                      liftgatePickup: false
+                      limitedAccessDeliveryAirport: false
+                      limitedAccessDeliveryChurch: false
+                      limitedAccessDeliveryConstructionSite: false
+                      limitedAccessDeliveryFarm: false
+                      limitedAccessDeliveryMilitaryBase: false
+                      limitedAccessDeliveryMineSite: false
+                      limitedAccessDeliveryMiniStorage: false
+                      limitedAccessDeliveryOther: false
+                      limitedAccessDeliveryPrison: false
+                      limitedAccessDeliveryRemoteGovt: false
+                      limitedAccessDeliverySchool: false
+                      limitedAccessPickupAirport: false
+                      limitedAccessPickupChurch: false
+                      limitedAccessPickupConstructionSite: false
+                      limitedAccessPickupFarm: false
+                      limitedAccessPickupMilitaryBase: false
+                      limitedAccessPickupMineSite: false
+                      limitedAccessPickupMiniStorage: false
+                      limitedAccessPickupOther: false
+                      limitedAccessPickupPrison: false
+                      limitedAccessPickupRemoteGovt: false
+                      limitedAccessPickupSchool: false
+                      liquorPermit: false
+                      loadedToLegalWeight: false
+                      longPants: false
+                      longSleeves: false
+                      lumperReceiptRequired: false
+                      mustCheckInAsCoyote: false
+                      mustProvideAndApplySeal: false
+                      mustSecureLoad: false
+                      needCoyoteApprovalToUseLumperService: false
+                      noAnimals: false
+                      noDetention: false
+                      noEarlyDeliveries: false
+                      noLoadLocksOrStraps: false
+                      noSameDayReschedules: false
+                      notAllowedOnDock: false
+                      noTankTops: false
+                      noTrailerDetentionOrLayover: false
+                      noWorkIns: false
+                      onSiteParkingAvailable: false
+                      overnightParkingAvailable: false
+                      payLumperWCashTCheck: false
+                      preLoadDropTrailerXHoursInAdvance: 0
+                      prePaidLumperService: false
+                      residentialDelivery: false
+                      residentialPickup: false
+                      safetyGlasses: false
+                      safetyVest: false
+                      scaleEmpty: false
+                      scaleHeavy: false
+                      secureYard: false
+                      sortAndSegregateDelivery: false
+                      sortAndSegregatePickup: false
+                      spanishSpeaking: false
+                      steelToeShoes: false
+                      strictAppt: false
+                      tradeshowDelivery: false
+                      tradeshowPickup: false
+                      trailerInspectionFormRequired: false
+                      twic: false
+                      twicRequiredNoEscorts: false
+                      uiia: false
+                      unpackDetrash: false
+                      usCitizen: false
+                      validUSCommercialDriversLicenseHardcopy: false
+                      xTankOfFuelAtShipper: 0
+                    stopNotes: This is the sample stop note
+                    workType: AssistCheck
+                    genericAttributes: null
+                - sequence: 2
+                  stopType: Delivery
+                  facility:
+                    name: null
+                    address:
+                      line1: 131 State Route 3
+                      line2: null
+                      line3: null
+                      postalCode: '43074'
+                      cityName: Sunbury
+                      stateProvinceCode: OH
+                      countryCode: US
+                    geoCoordinates:
+                      latitude: 41.246281
+                      longitude: -81.868742
+                    timeZoneOffset: -05:00:00
+                  appointment:
+                    facilityOpenDateTimeUtc: null
+                    facilityCloseDateTimeUtc: null
+                    appointmentStartDateTimeUtc: '2026-06-14T18:33:48.4280338Z'
+                    appointmentEndDateTimeUtc: '2026-06-14T18:33:48.4280338Z'
+                  stopDetails:
+                    commodities:
+                    - description: Cans
+                      weight:
+                        value: 133.0
+                        unit: Pounds
+                    - description: Bottles
+                      weight:
+                        value: 100.0
+                        unit: Pounds
+                    stopAttributes:
+                      blind: false
+                      closedToeShoes: false
+                      detentionAuthFormRequired: false
+                      driverAssist: false
+                      dropAndHook: true
+                      dropTrailerAllowXHoursToUnload: 0
+                      dropTrailerRequired: false
+                      earPlugs: false
+                      englishSpeaking: false
+                      escortOrTwicRequired: false
+                      exitPass: false
+                      government: false
+                      hardHat: false
+                      inOutTimesWSignature: false
+                      insideDelivery: false
+                      insidePickup: false
+                      legalScaleOnSite: false
+                      liftgateDelivery: false
+                      liftgatePickup: false
+                      limitedAccessDeliveryAirport: false
+                      limitedAccessDeliveryChurch: false
+                      limitedAccessDeliveryConstructionSite: false
+                      limitedAccessDeliveryFarm: false
+                      limitedAccessDeliveryMilitaryBase: false
+                      limitedAccessDeliveryMineSite: false
+                      limitedAccessDeliveryMiniStorage: false
+                      limitedAccessDeliveryOther: false
+                      limitedAccessDeliveryPrison: false
+                      limitedAccessDeliveryRemoteGovt: false
+                      limitedAccessDeliverySchool: false
+                      limitedAccessPickupAirport: false
+                      limitedAccessPickupChurch: false
+                      limitedAccessPickupConstructionSite: false
+                      limitedAccessPickupFarm: false
+                      limitedAccessPickupMilitaryBase: false
+                      limitedAccessPickupMineSite: false
+                      limitedAccessPickupMiniStorage: false
+                      limitedAccessPickupOther: false
+                      limitedAccessPickupPrison: false
+                      limitedAccessPickupRemoteGovt: false
+                      limitedAccessPickupSchool: false
+                      liquorPermit: false
+                      loadedToLegalWeight: false
+                      longPants: false
+                      longSleeves: false
+                      lumperReceiptRequired: false
+                      mustCheckInAsCoyote: false
+                      mustProvideAndApplySeal: false
+                      mustSecureLoad: false
+                      needCoyoteApprovalToUseLumperService: false
+                      noAnimals: false
+                      noDetention: false
+                      noEarlyDeliveries: false
+                      noLoadLocksOrStraps: false
+                      noSameDayReschedules: false
+                      notAllowedOnDock: false
+                      noTankTops: false
+                      noTrailerDetentionOrLayover: false
+                      noWorkIns: false
+                      onSiteParkingAvailable: false
+                      overnightParkingAvailable: false
+                      payLumperWCashTCheck: false
+                      preLoadDropTrailerXHoursInAdvance: 0
+                      prePaidLumperService: false
+                      residentialDelivery: false
+                      residentialPickup: false
+                      safetyGlasses: false
+                      safetyVest: false
+                      scaleEmpty: false
+                      scaleHeavy: false
+                      secureYard: false
+                      sortAndSegregateDelivery: false
+                      sortAndSegregatePickup: false
+                      spanishSpeaking: false
+                      steelToeShoes: false
+                      strictAppt: false
+                      tradeshowDelivery: false
+                      tradeshowPickup: false
+                      trailerInspectionFormRequired: false
+                      twic: false
+                      twicRequiredNoEscorts: false
+                      uiia: false
+                      unpackDetrash: false
+                      usCitizen: false
+                      validUSCommercialDriversLicenseHardcopy: false
+                      xTankOfFuelAtShipper: 0
+                    stopNotes: This is the sample stop note
+                    workType: NoTouch
+                    genericAttributes: null
+        '204':
+          description: Load does not exist or is not available anymore
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v1/AvailableLoads/search:
+    post:
+      tags:
+      - Carrier - Available Load APIs
+      summary: Search available loads
+      description: Allows Carriers to search for available loads with a set of query inputs. Coyote will return the list of all available loads that match the inputs provided in the request.
+      parameters:
+      - name: page
+        in: query
+        description: Requested page
+        schema:
+          type: integer
+          description: Requested page
+          format: int32
+      - name: pageSize
+        in: query
+        description: Requested page size
+        schema:
+          type: integer
+          description: Requested page size
+          format: int32
+      requestBody:
+        description: Load request query object
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest'
+            example:
+              origin:
+                location:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T14:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              destination:
+                location:
+                  latitude: 42.9316
+                  longitude: -88.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T18:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              equipmentType: V
+              mode: TL_LTL
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest'
+            example:
+              origin:
+                location:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T14:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              destination:
+                location:
+                  latitude: 42.9316
+                  longitude: -88.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T18:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              equipmentType: V
+              mode: TL_LTL
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest'
+            example:
+              origin:
+                location:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T14:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              destination:
+                location:
+                  latitude: 42.9316
+                  longitude: -88.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T18:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              equipmentType: V
+              mode: TL_LTL
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest'
+            example:
+              origin:
+                location:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T14:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              destination:
+                location:
+                  latitude: 42.9316
+                  longitude: -88.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T18:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              equipmentType: V
+              mode: TL_LTL
+          application/bson:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest'
+            example:
+              origin:
+                location:
+                  latitude: 41.9316
+                  longitude: -87.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T14:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              destination:
+                location:
+                  latitude: 42.9316
+                  longitude: -88.6921
+                deadheadRadius:
+                  value: 120
+                  unit: Miles
+                appointment:
+                  appointmentStartDateTime: '2026-06-12T18:00:00-05:00'
+                  appointmentEndDateTime: '2026-06-13T12:00:00-05:00'
+              equipmentType: V
+              mode: TL_LTL
+      responses:
+        '200':
+          description: Loads successfully retrieved and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.PagedAvailableLoads'
+              example:
+                loads:
+                - loadId: 194536334
+                  orderNumber: null
+                  loadDetails:
+                    rate:
+                      value: 654.0
+                      currencyType: USD
+                    mode: TL
+                    equipment:
+                      equipmentHeight:
+                        value: 0.0
+                        unit: Feet
+                      equipmentLength:
+                        value: 53.0
+                        unit: Feet
+                      equipmentType: V
+                      equipmentWidth:
+                        value: 20.0
+                        unit: Feet
+                      equipmentAttributes:
+                        foodGrade: true
+                        paperGrade: false
+                        preCoolRequired: false
+                        liftGate: false
+                        palletJack: false
+                        airRide: false
+                        trailerXYearsOrNewer: 0
+                        xLoadLocks: 0
+                        xLoadBars: 0
+                        xLoadStraps: 0
+                        xSideboards: 0
+                        eTrack: false
+                        chains: false
+                        noRollDoor: false
+                        rollDoorAllowed: false
+                        noReefer: false
+                        noLiftGate: false
+                        doubleTrailer: false
+                        tripleTrailer: false
+                        loadOutTrailer: false
+                        towAway: false
+                        lightweightEquipment: false
+                        scaleUpToXPounds: 0
+                        scaleUpToXKilograms: 0
+                        tandemSlide: false
+                        downloadableReefer: false
+                        spaceSaverReefer: false
+                        translucentTop: false
+                        duraplate: false
+                        ventedVan: false
+                        functionalAirChute: false
+                        trailerMustHaveAllWoodFloors: false
+                        xlCode: false
+                      genericAttributes: null
+                    loadDistance:
+                      value: 1500.0
+                      unit: Miles
+                    weight:
+                      value: 1800.0
+                      unit: Pounds
+                    temperatureSettings:
+                      preCoolTemperature: null
+                      maximumTemperature:
+                        value: 12.0
+                        unit: Fahrenheit
+                      minimumTemperature:
+                        value: 20.0
+                        unit: Fahrenheit
+                    loadAttributes:
+                      airRide: false
+                      blind: false
+                      bondedCarrier: false
+                      borderCrossingByCoyote: false
+                      borderCrossingByCustomer: false
+                      coyoteGo: false
+                      crossBorderMexico: false
+                      ctpat: false
+                      disasterRelief: false
+                      doubleBlind: false
+                      doubleTrailer: false
+                      drayage: false
+                      duraplate: false
+                      englishSpeaking: false
+                      exitPass: false
+                      fast: false
+                      fdaClearanceRequired: false
+                      floodRelief: false
+                      govt: false
+                      guaranteed: false
+                      haccp: false
+                      hazmatEndorsement: false
+                      hvhr: false
+                      hvhrPlus: false
+                      intraMexico: false
+                      liquor: false
+                      neec: false
+                      noCameraPhonePhotosOfPaperwork: false
+                      overDimension: false
+                      palletJack: false
+                      partialLoad: false
+                      pipOrPep: false
+                      powerOnly: false
+                      ppe: false
+                      protectFromFreeze: false
+                      repairReceiptRequiredForBreakdowns: false
+                      seal: true
+                      secondaryBorderInspection: false
+                      tankerEndorsement: false
+                      tcr: false
+                      team: false
+                      techTrackingRequired: false
+                      tradeShow: false
+                      trailerControl: false
+                      transloadByCoyote: false
+                      transloadByCustomer: false
+                      tripleTrailer: false
+                      twic: false
+                      uiia: false
+                    genericAttributes: null
+                  stops:
+                  - sequence: 1
+                    stopType: Pickup
+                    facility:
+                      name: null
+                      address:
+                        line1: 16005 WAHRMAN ST
+                        line2: null
+                        line3: null
+                        postalCode: 48174-9725
+                        cityName: Romulus
+                        stateProvinceCode: OH
+                        countryCode: US
+                      geoCoordinates:
+                        latitude: 40.246281
+                        longitude: -82.868742
+                      timeZoneOffset: -04:00:00
+                    appointment:
+                      facilityOpenDateTimeUtc: null
+                      facilityCloseDateTimeUtc: null
+                      appointmentStartDateTimeUtc: '2026-06-14T18:33:48.4337724Z'
+                      appointmentEndDateTimeUtc: '2026-06-14T18:33:48.4337725Z'
+                    stopDetails: null
+                  - sequence: 2
+                    stopType: Delivery
+                    facility:
+                      name: null
+                      address:
+                        line1: 131 State Route 3
+                        line2: null
+                        line3: null
+                        postalCode: '43074'
+                        cityName: Sunbury
+                        stateProvinceCode: OH
+                        countryCode: US
+                      geoCoordinates:
+                        latitude: 41.246281
+                        longitude: -81.868742
+                      timeZoneOffset: -05:00:00
+                    appointment:
+                      facilityOpenDateTimeUtc: null
+                      facilityCloseDateTimeUtc: null
+                      appointmentStartDateTimeUtc: '2026-06-14T18:33:48.433773Z'
+                      appointmentEndDateTimeUtc: '2026-06-14T18:33:48.433773Z'
+                    stopDetails: null
+                pagination:
+                  limit: 1
+                  offset: 1
+                  totalCount: 1
+        '204':
+          description: Loads do not exist or are not available anymore
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.TemperatureSettings:
+      type: object
+      properties:
+        preCoolTemperature:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature'
+        maximumTemperature:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature'
+        minimumTemperature:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature'
+      additionalProperties: false
+      description: Defines the temperature settings of load
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.TrackingAddress:
+      required:
+      - cityName
+      - countryCode
+      - line1
+      - postalCode
+      - stateProvinceCode
+      type: object
+      properties:
+        line1:
+          type: string
+          description: Line 1
+        line2:
+          type: string
+          description: Line 2
+          nullable: true
+        line3:
+          type: string
+          description: Line 3
+          nullable: true
+        postalCode:
+          type: string
+          description: Postal Code
+        cityName:
+          type: string
+          description: City Name
+        stateProvinceCode:
+          type: string
+          description: State or Province Code
+        countryCode:
+          type: string
+          description: Country Code
+      additionalProperties: false
+      description: Address
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GeoCoordinates:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: Latitude
+          format: double
+        longitude:
+          type: number
+          description: Longitude
+          format: double
+      additionalProperties: false
+      description: GeoCoordinates
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes:
+      type: object
+      properties:
+        blind:
+          type: boolean
+          description: Is blind
+        closedToeShoes:
+          type: boolean
+          description: Is closed toe shoes
+        detentionAuthFormRequired:
+          type: boolean
+          description: Is detention auth form required
+        driverAssist:
+          type: boolean
+          description: Whether driver assist
+        dropAndHook:
+          type: boolean
+          description: Is drop and hook
+        dropTrailerAllowXHoursToUnload:
+          type: integer
+          description: Allow hours to unload
+          format: int32
+        dropTrailerRequired:
+          type: boolean
+          description: Is drop trailer required
+        earPlugs:
+          type: boolean
+          description: Ear plugs
+        englishSpeaking:
+          type: boolean
+          description: Is English speaking
+        escortOrTwicRequired:
+          type: boolean
+          description: Whether escort or twic Required
+        exitPass:
+          type: boolean
+          description: Exit pass
+        government:
+          type: boolean
+          description: Is government
+        hardHat:
+          type: boolean
+          description: Is hard hat
+        inOutTimesWSignature:
+          type: boolean
+          description: Are in out times with signature
+        insideDelivery:
+          type: boolean
+          description: Is inside delivery
+        insidePickup:
+          type: boolean
+          description: Is inside pickup
+        legalScaleOnSite:
+          type: boolean
+          description: Is legal scale on site
+        liftgateDelivery:
+          type: boolean
+          description: Is liftgate delivery
+        liftgatePickup:
+          type: boolean
+          description: Is liftgate pickup
+        limitedAccessDeliveryAirport:
+          type: boolean
+          description: Is limited access delivery airport
+        limitedAccessDeliveryChurch:
+          type: boolean
+          description: Is limited access delivery church
+        limitedAccessDeliveryConstructionSite:
+          type: boolean
+          description: Is limited access delivery construction site
+        limitedAccessDeliveryFarm:
+          type: boolean
+          description: Is limited access delivery farm
+        limitedAccessDeliveryMilitaryBase:
+          type: boolean
+          description: Is limited access delivery military base
+        limitedAccessDeliveryMineSite:
+          type: boolean
+          description: Is limited access delivery mine site
+        limitedAccessDeliveryMiniStorage:
+          type: boolean
+          description: Is limited access delivery mini storage
+        limitedAccessDeliveryOther:
+          type: boolean
+          description: Is limited access delivery other
+        limitedAccessDeliveryPrison:
+          type: boolean
+          description: Is limited access delivery prison
+        limitedAccessDeliveryRemoteGovt:
+          type: boolean
+          description: Is limited access delivery remote govt
+        limitedAccessDeliverySchool:
+          type: boolean
+          description: Is limited access delivery school
+        limitedAccessPickupAirport:
+          type: boolean
+          description: Is limited access pickup airport
+        limitedAccessPickupChurch:
+          type: boolean
+          description: Is limited access pickup church
+        limitedAccessPickupConstructionSite:
+          type: boolean
+          description: Is limited access pickup construction site
+        limitedAccessPickupFarm:
+          type: boolean
+          description: Is limited access pickup farm
+        limitedAccessPickupMilitaryBase:
+          type: boolean
+          description: Is limited access pickup military base
+        limitedAccessPickupMineSite:
+          type: boolean
+          description: Is limited access pickup mine site
+        limitedAccessPickupMiniStorage:
+          type: boolean
+          description: Is limited access pickup mini storage
+        limitedAccessPickupOther:
+          type: boolean
+          description: Is limited access pickup other
+        limitedAccessPickupPrison:
+          type: boolean
+          description: Is limited access pickup prison
+        limitedAccessPickupRemoteGovt:
+          type: boolean
+          description: Is limited access pickup remote govt
+        limitedAccessPickupSchool:
+          type: boolean
+          description: Is limited access pickup school
+        liquorPermit:
+          type: boolean
+          description: Is liquor permit
+        loadedToLegalWeight:
+          type: boolean
+          description: Is loaded to legal weight
+        longPants:
+          type: boolean
+          description: Is long pants
+        longSleeves:
+          type: boolean
+          description: Is long sleeves
+        lumperReceiptRequired:
+          type: boolean
+          description: Whether lumper receipt required
+        mustCheckInAsCoyote:
+          type: boolean
+          description: Must check in as Coyote
+        mustProvideAndApplySeal:
+          type: boolean
+          description: Whether must provide and apply seal
+        mustSecureLoad:
+          type: boolean
+          description: Whether must secure load
+        needCoyoteApprovalToUseLumperService:
+          type: boolean
+          description: Is Coyote approval needed to use lumper service
+        noAnimals:
+          type: boolean
+          description: Is no animals
+        noDetention:
+          type: boolean
+          description: Is no detention
+        noEarlyDeliveries:
+          type: boolean
+          description: Whether no early deliveries
+        noLoadLocksOrStraps:
+          type: boolean
+          description: Is no load locks or straps
+        noSameDayReschedules:
+          type: boolean
+          description: Is no same day reschedules
+        notAllowedOnDock:
+          type: boolean
+          description: Is not allowed on dock
+        noTankTops:
+          type: boolean
+          description: Is no tank tops
+        noTrailerDetentionOrLayover:
+          type: boolean
+          description: Is no trailer detention or layover
+        noWorkIns:
+          type: boolean
+          description: Is no work ins
+        onSiteParkingAvailable:
+          type: boolean
+          description: Whether on site parking available
+        overnightParkingAvailable:
+          type: boolean
+          description: Is overnight parking available
+        payLumperWCashTCheck:
+          type: boolean
+          description: PayLumperWCashTCheck
+        preLoadDropTrailerXHoursInAdvance:
+          type: integer
+          description: Pre load drop trailer in advance
+          format: int32
+        prePaidLumperService:
+          type: boolean
+          description: Is prepaid lumper service
+        residentialDelivery:
+          type: boolean
+          description: Is residential delivery
+        residentialPickup:
+          type: boolean
+          description: Is residential pickup
+        safetyGlasses:
+          type: boolean
+          description: Is safety glasses
+        safetyVest:
+          type: boolean
+          description: Is safety vest
+        scaleEmpty:
+          type: boolean
+          description: Is scale empty
+        scaleHeavy:
+          type: boolean
+          description: Is scale heavy
+        secureYard:
+          type: boolean
+          description: Is secure yard
+        sortAndSegregateDelivery:
+          type: boolean
+          description: Whether to sort and segregate delivery
+        sortAndSegregatePickup:
+          type: boolean
+          description: Whether to sort and segregate pickup
+        spanishSpeaking:
+          type: boolean
+          description: Is Spanish speaking
+        steelToeShoes:
+          type: boolean
+          description: Is steel toe shoes
+        strictAppt:
+          type: boolean
+          description: Is strict appt
+        tradeshowDelivery:
+          type: boolean
+          description: Is trade show delivery
+        tradeshowPickup:
+          type: boolean
+          description: Is trade show pickup
+        trailerInspectionFormRequired:
+          type: boolean
+          description: Whether trailer inspection form required
+        twic:
+          type: boolean
+          description: Is TWIC
+        twicRequiredNoEscorts:
+          type: boolean
+          description: Is TWIC required no escorts
+        uiia:
+          type: boolean
+          description: Is UIIA
+        unpackDetrash:
+          type: boolean
+          description: Is unpack detrash
+        usCitizen:
+          type: boolean
+          description: Is US citizen
+        validUSCommercialDriversLicenseHardcopy:
+          type: boolean
+          description: Is valid US commercial drivers license hardcopy
+        xTankOfFuelAtShipper:
+          type: integer
+          description: Number of tank of fuel at shipper
+          format: int32
+      additionalProperties: false
+      description: Defines the Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes.
+    Coyote.Systems.ExternalApi.Contracts.Models.StopType:
+      enum:
+      - None
+      - Pickup
+      - Delivery
+      - ContainerDepotOrigin
+      - ContainerDepotTermination
+      - OriginRamp
+      - DestinationRamp
+      - OriginPort
+      - DestinationPort
+      - OriginAirport
+      - DestinationAirport
+      - CrossDock
+      type: string
+      description: Stop Types
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit:
+      enum:
+      - Miles
+      - Kilometers
+      type: string
+      description: Distance Unit
+    Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit:
+      enum:
+      - Fahrenheit
+      - Celsius
+      type: string
+      description: Temperature Units
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Radius:
+      type: object
+      properties:
+        value:
+          type: integer
+          description: Value
+          format: int32
+          nullable: true
+        unit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit'
+      additionalProperties: false
+      description: Defines radius
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.PagedAvailableLoads:
+      type: object
+      properties:
+        loads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoad'
+          description: List of available loads
+          nullable: true
+        pagination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Pagination'
+      additionalProperties: false
+      description: Defines the paged available loads
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentDetails:
+      required:
+      - equipmentAttributes
+      - equipmentHeight
+      - equipmentLength
+      - equipmentType
+      - equipmentWidth
+      type: object
+      properties:
+        equipmentHeight:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Dimension'
+        equipmentLength:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Dimension'
+        equipmentType:
+          type: string
+          description: Equipment type
+        equipmentWidth:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Dimension'
+        equipmentAttributes:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentAttributes'
+        genericAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GenericAttributeItem'
+          description: Collection of generic attributes
+          nullable: true
+      additionalProperties: false
+      description: Equipment details
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Appointment:
+      type: object
+      properties:
+        facilityOpenDateTimeUtc:
+          type: string
+          description: Facility Open DateTime in Utc
+          format: date-time
+          nullable: true
+        facilityCloseDateTimeUtc:
+          type: string
+          description: Facility Close DateTime in Utc
+          format: date-time
+          nullable: true
+        appointmentStartDateTimeUtc:
+          type: string
+          description: Appointment Start DateTime in Utc
+          format: date-time
+          nullable: true
+        appointmentEndDateTimeUtc:
+          type: string
+          description: Appointment End DateTime in Utc
+          format: date-time
+          nullable: true
+      additionalProperties: false
+      description: Appointment
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadCommodity:
+      required:
+      - description
+      - weight
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of load commodity
+        weight:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Weight'
+      additionalProperties: false
+      description: Defines the load commodity
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Facility:
+      required:
+      - address
+      - geoCoordinates
+      - name
+      - timeZoneOffset
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.TrackingAddress'
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GeoCoordinates'
+        timeZoneOffset:
+          $ref: '#/components/schemas/System.TimeSpan'
+      additionalProperties: false
+      description: Facility
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoad:
+      required:
+      - loadDetails
+      - loadId
+      - stops
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: Available load ID
+          format: int32
+        orderNumber:
+          type: string
+          description: Order number
+          nullable: true
+        loadDetails:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadDetails'
+        stops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStop'
+          description: Load stops information
+      additionalProperties: false
+      description: Available load information
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadDetails:
+      required:
+      - equipment
+      - loadAttributes
+      - loadDistance
+      - mode
+      - rate
+      - temperatureSettings
+      - weight
+      type: object
+      properties:
+        rate:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Rate'
+        mode:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Mode'
+        equipment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentDetails'
+        loadDistance:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Distance'
+        weight:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Weight'
+        temperatureSettings:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.TemperatureSettings'
+        loadAttributes:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadAttributes'
+        genericAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GenericAttributeItem'
+          description: Collection of generic attributes
+          nullable: true
+      additionalProperties: false
+      description: Load details
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: Limit
+          format: int32
+          nullable: true
+        offset:
+          type: integer
+          description: Offset
+          format: int32
+          nullable: true
+        totalCount:
+          type: integer
+          description: Total loads found
+          format: int32
+      additionalProperties: false
+      description: Pagination information
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStop:
+      required:
+      - appointment
+      - facility
+      - sequence
+      - stopDetails
+      - stopType
+      type: object
+      properties:
+        sequence:
+          type: integer
+          description: Stop sequence
+          format: int32
+        stopType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
+        facility:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Facility'
+        appointment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Appointment'
+        stopDetails:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.StopDetails'
+      additionalProperties: false
+      description: Defines the load stop
+    Coyote.Systems.ExternalApi.Contracts.Models.Mode:
+      enum:
+      - TL
+      - LTL
+      - IMDL
+      type: string
+      description: Load Modes
+    Coyote.Systems.ExternalApi.Contracts.Models.DriverWorkType:
+      enum:
+      - Undefined
+      - NoTouch
+      - DriverLoad
+      - DriverCount
+      - Lumper
+      - AssistCheck
+      type: string
+      description: Driver work type
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightType:
+      enum:
+      - Undefined
+      - Pounds
+      - Kilograms
+      - Tons
+      - MetricTons
+      type: string
+      description: Weight Units
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Weight:
+      required:
+      - unit
+      - value
+      type: object
+      properties:
+        value:
+          type: number
+          description: Weight value
+          format: double
+        unit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightType'
+      additionalProperties: false
+      description: Defines the weight
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentAttributes:
+      type: object
+      properties:
+        foodGrade:
+          type: boolean
+          description: Is food grade
+        paperGrade:
+          type: boolean
+          description: Is paper grade
+        preCoolRequired:
+          type: boolean
+          description: Is pre-cool required
+        liftGate:
+          type: boolean
+          description: Is lift gate
+        palletJack:
+          type: boolean
+          description: Is pallet jack
+        airRide:
+          type: boolean
+          description: Is air ride
+        trailerXYearsOrNewer:
+          type: integer
+          description: Trailer X years or newer
+          format: int32
+        xLoadLocks:
+          type: integer
+          description: X load locks
+          format: int32
+        xLoadBars:
+          type: integer
+          description: X load bars
+          format: int32
+        xLoadStraps:
+          type: integer
+          description: X load straps
+          format: int32
+        xSideboards:
+          type: integer
+          description: X sideboards
+          format: int32
+        eTrack:
+          type: boolean
+          description: Is ETrack
+        chains:
+          type: boolean
+          description: Is chains
+        noRollDoor:
+          type: boolean
+          description: Is no roll door
+        rollDoorAllowed:
+          type: boolean
+          description: Is roll door allowed
+        noReefer:
+          type: boolean
+          description: Is no reefer
+        noLiftGate:
+          type: boolean
+          description: Is no lift gate
+        doubleTrailer:
+          type: boolean
+          description: Is double trailer
+        tripleTrailer:
+          type: boolean
+          description: Is triple trailer
+        loadOutTrailer:
+          type: boolean
+          description: Is load out trailer
+        towAway:
+          type: boolean
+          description: Is tow away
+        lightweightEquipment:
+          type: boolean
+          description: Is lightweight equipment
+        scaleUpToXPounds:
+          type: integer
+          description: Scale up to X pounds
+          format: int32
+        scaleUpToXKilograms:
+          type: integer
+          description: Scale up to X kilograms
+          format: int32
+        tandemSlide:
+          type: boolean
+          description: Is tandem slide
+        downloadableReefer:
+          type: boolean
+          description: Is downloadable reefer
+        spaceSaverReefer:
+          type: boolean
+          description: Is space saver reefer
+        translucentTop:
+          type: boolean
+          description: Is translucent top
+        duraplate:
+          type: boolean
+          description: Is duraplate
+        ventedVan:
+          type: boolean
+          description: Is vented van
+        functionalAirChute:
+          type: boolean
+          description: Is functional air chute
+        trailerMustHaveAllWoodFloors:
+          type: boolean
+          description: Is trailer must have allWood floors
+        xlCode:
+          type: boolean
+          description: Is Xl code
+      additionalProperties: false
+      description: Equipment attributes
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_DistanceUnit:
+      enum:
+      - Miles
+      - Kilometers
+      type: string
+      description: Distance Unit
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsFilterMode:
+      enum:
+      - TL_LTL
+      - TL
+      - LTL
+      type: string
+      description: ''
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadAttributes:
+      required:
+      - airRide
+      - blind
+      - bondedCarrier
+      - borderCrossingByCoyote
+      - borderCrossingByCustomer
+      - coyoteGo
+      - crossBorderMexico
+      - ctpat
+      - disasterRelief
+      - doubleBlind
+      - doubleTrailer
+      - drayage
+      - duraplate
+      - englishSpeaking
+      - exitPass
+      - fast
+      - fdaClearanceRequired
+      - floodRelief
+      - govt
+      - guaranteed
+      - haccp
+      - hazmatEndorsement
+      - hvhr
+      - hvhrPlus
+      - intraMexico
+      - liquor
+      - neec
+      - noCameraPhonePhotosOfPaperwork
+      - overDimension
+      - palletJack
+      - partialLoad
+      - pipOrPep
+      - powerOnly
+      - ppe
+      - protectFromFreeze
+      - repairReceiptRequiredForBreakdowns
+      - seal
+      - secondaryBorderInspection
+      - tankerEndorsement
+      - tcr
+      - team
+      - techTrackingRequired
+      - tradeShow
+      - trailerControl
+      - transloadByCoyote
+      - transloadByCustomer
+      - tripleTrailer
+      - twic
+      - uiia
+      type: object
+      properties:
+        airRide:
+          type: boolean
+          description: Is load airride
+        blind:
+          type: boolean
+          description: Is load blind
+        bondedCarrier:
+          type: boolean
+          description: Is bonded carrier
+        borderCrossingByCoyote:
+          type: boolean
+          description: Is border crossing by coyote
+        borderCrossingByCustomer:
+          type: boolean
+          description: Is border crossing by customer
+        coyoteGo:
+          type: boolean
+          description: Is CoyoteGo
+        crossBorderMexico:
+          type: boolean
+          description: Is cross border Mexico
+        ctpat:
+          type: boolean
+          description: Is CTPAT
+        disasterRelief:
+          type: boolean
+          description: Is disaster relief
+        doubleBlind:
+          type: boolean
+          description: Is double blind
+        doubleTrailer:
+          type: boolean
+          description: Is double trailer load
+        drayage:
+          type: boolean
+          description: Is drayage
+        duraplate:
+          type: boolean
+          description: Is duraplate
+        englishSpeaking:
+          type: boolean
+          description: Is English speaking
+        exitPass:
+          type: boolean
+          description: Is exit pass
+        fast:
+          type: boolean
+          description: Fast
+        fdaClearanceRequired:
+          type: boolean
+          description: Is FDA clearance required
+        floodRelief:
+          type: boolean
+          description: Is flood relief
+        govt:
+          type: boolean
+          description: Govt
+        guaranteed:
+          type: boolean
+          description: Guaranteed
+        haccp:
+          type: boolean
+          description: HACCP
+        hazmatEndorsement:
+          type: boolean
+          description: Hazmat Endorsement
+        hvhr:
+          type: boolean
+          description: Is HVHR
+        hvhrPlus:
+          type: boolean
+          description: HVHR plus
+        intraMexico:
+          type: boolean
+          description: Is Intra Mexico
+        liquor:
+          type: boolean
+          description: Is liquor
+        neec:
+          type: boolean
+          description: Is NEEC
+        noCameraPhonePhotosOfPaperwork:
+          type: boolean
+          description: No camera phone photos of paperwork
+        overDimension:
+          type: boolean
+          description: Is over dimension
+        palletJack:
+          type: boolean
+          description: Is pallet jack
+        partialLoad:
+          type: boolean
+          description: Is partial Load
+        pipOrPep:
+          type: boolean
+          description: Is PIP or PEP
+        powerOnly:
+          type: boolean
+          description: Is power only load
+        ppe:
+          type: boolean
+          description: Is PPE
+        protectFromFreeze:
+          type: boolean
+          description: Whether protect from freeze
+        repairReceiptRequiredForBreakdowns:
+          type: boolean
+          description: Whether repair receipt required for breakdowns
+        seal:
+          type: boolean
+          description: Is seal
+        secondaryBorderInspection:
+          type: boolean
+          description: Is secondary border inspection
+        tankerEndorsement:
+          type: boolean
+          description: Is tanker endorsement
+        tcr:
+          type: boolean
+          description: Is TCR
+        team:
+          type: boolean
+          description: Is team
+        techTrackingRequired:
+          type: boolean
+          description: Whether tech tracking required
+        tradeShow:
+          type: boolean
+          description: Is trade show
+        trailerControl:
+          type: boolean
+          description: Is trailer control
+        transloadByCoyote:
+          type: boolean
+          description: Is transload by coyote
+        transloadByCustomer:
+          type: boolean
+          description: Is transload by customer
+        tripleTrailer:
+          type: boolean
+          description: Is triple trailer
+        twic:
+          type: boolean
+          description: Is TWIC
+        uiia:
+          type: boolean
+          description: Is UIIA
+      additionalProperties: false
+      description: Load attributes
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType:
+      enum:
+      - Undefined
+      - USD
+      - CAD
+      - MXN
+      - ARS
+      - BRL
+      - CLP
+      - COP
+      - VEF
+      - EUR
+      - GBP
+      - HUF
+      - PLN
+      type: string
+      description: Currency Type
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Rate:
+      required:
+      - currencyType
+      - value
+      type: object
+      properties:
+        value:
+          type: number
+          description: Load rate
+          format: double
+        currencyType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType'
+      additionalProperties: false
+      description: Defines the load rate
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentType:
+      enum:
+      - V
+      - R
+      - F
+      - VR
+      - C
+      - SD
+      - DF
+      - DD
+      - SS
+      - FT
+      - E
+      - T
+      - B
+      - Z
+      - M
+      - Q
+      - P
+      - CNRU
+      - CPPU
+      - CSXU
+      - EMHU
+      - EMPU
+      - EMWU
+      - EPTY
+      - PACU
+      - W
+      - G
+      - K
+      - DR
+      - H
+      - FWS
+      - BT
+      - ZS
+      - XM
+      - MV
+      - MF
+      - FM
+      - DV
+      - LALL
+      - SDL
+      - A
+      - BL
+      - RC
+      - HS
+      - GM
+      - GS
+      - FS
+      - SDS
+      - RTC
+      - RTB
+      - WFB
+      - PO
+      - DDT
+      - DDB
+      - DDF
+      - SFB
+      - SFC
+      - RBC
+      - FB
+      - FBT
+      - FBX
+      - SKC
+      - LL
+      - LLS
+      - LLX
+      - TKC
+      - TKF
+      - IM
+      - IMF
+      type: string
+      description: Equipment Type
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Distance:
+      required:
+      - unit
+      - value
+      type: object
+      properties:
+        value:
+          type: number
+          description: Value
+          format: double
+        unit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DistanceUnit'
+      additionalProperties: false
+      description: Distance to Next Stop
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AppointmentDate:
+      type: object
+      properties:
+        appointmentStartDateTime:
+          type: string
+          description: Appointment start date and time
+          format: date-time
+          nullable: true
+        appointmentEndDateTime:
+          type: string
+          description: Appointment end date and time
+          format: date-time
+          nullable: true
+      additionalProperties: false
+      description: Appointment date of stop
+    System.TimeSpan:
+      type: object
+      properties:
+        ticks:
+          type: integer
+          format: int64
+          readOnly: true
+        days:
+          type: integer
+          format: int32
+          readOnly: true
+        hours:
+          type: integer
+          format: int32
+          readOnly: true
+        milliseconds:
+          type: integer
+          format: int32
+          readOnly: true
+        minutes:
+          type: integer
+          format: int32
+          readOnly: true
+        seconds:
+          type: integer
+          format: int32
+          readOnly: true
+        totalDays:
+          type: number
+          format: double
+          readOnly: true
+        totalHours:
+          type: number
+          format: double
+          readOnly: true
+        totalMilliseconds:
+          type: number
+          format: double
+          readOnly: true
+        totalMinutes:
+          type: number
+          format: double
+          readOnly: true
+        totalSeconds:
+          type: number
+          format: double
+          readOnly: true
+      additionalProperties: false
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GenericAttributeItem:
+      required:
+      - displayText
+      - key
+      type: object
+      properties:
+        key:
+          type: string
+          description: Unique name
+        displayText:
+          type: string
+          description: Display name
+      additionalProperties: false
+      description: Generic Attribute
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Temperature:
+      required:
+      - unit
+      - value
+      type: object
+      properties:
+        value:
+          type: number
+          description: Temperature value.
+          format: double
+        unit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit'
+      additionalProperties: false
+      description: Defines the temperature details
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopLocationInfo:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GeoLocation'
+        deadheadRadius:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Radius'
+        appointment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AppointmentDate'
+      additionalProperties: false
+      description: Defines the load stop location details for request
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GeoLocation:
+      type: object
+      properties:
+        latitude:
+          maximum: 90
+          minimum: -90
+          type: number
+          description: Latitude
+          format: double
+          nullable: true
+        longitude:
+          maximum: 180
+          minimum: -180
+          type: number
+          description: Longitude
+          format: double
+          nullable: true
+      additionalProperties: false
+      description: Geo location
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_DimensionUnit:
+      enum:
+      - Undefined
+      - Inches
+      - Meters
+      - Centimeters
+      - Millimeters
+      - Feet
+      type: string
+      description: Dimension Units
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.Dimension:
+      required:
+      - unit
+      - value
+      type: object
+      properties:
+        value:
+          type: number
+          description: Dimension value
+          format: double
+        unit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DimensionUnit'
+      additionalProperties: false
+      description: Defines the Dimension
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.StopDetails:
+      required:
+      - commodities
+      type: object
+      properties:
+        commodities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadCommodity'
+          description: List of stop commodities
+        stopAttributes:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopAttributes'
+        stopNotes:
+          type: string
+          description: Stop notes
+          nullable: true
+        workType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.DriverWorkType'
+        genericAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.GenericAttributeItem'
+          description: Generic Attributes
+          nullable: true
+      additionalProperties: false
+      description: Load stop details
+    Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsRequest:
+      required:
+      - equipmentType
+      - mode
+      - origin
+      type: object
+      properties:
+        origin:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopLocationInfo'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.LoadStopLocationInfo'
+        equipmentType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.EquipmentType'
+        mode:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AvailableLoads.AvailableLoadsFilterMode'
+      additionalProperties: false
+      description: Request object to fetch available loads

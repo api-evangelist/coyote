@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: CoyoteGO Associated Entities API API
+  description: "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n"
+  contact:
+    name: API Management
+    email: apimanagement@coyote.com
+  version: v0.1.1.2549
+  x-logo:
+    url: https://coyote.com/wp-content/uploads/2020/02/APILogo-transparent.png
+    altText: Coyote
+servers:
+- url: https://api.demo.coyote.com
+  description: Demo
+- url: https://api.coyote.com
+  description: Production
+- url: https://api-sandbox.coyote.com
+  description: Sandbox
+tags:
+- name: Associated Entities API
+paths:
+  /api/v1/AssociatedEntities:
+    get:
+      tags:
+      - Associated Entities API
+      summary: Get associated entities
+      description: Allows Coyote's Carrier and Shipper partners to retrieve all associated entities to their account that can be transacted on behalf of via our API.
+      responses:
+        '200':
+          description: Associated entities retrieved and returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.AssociatedEntities.AssociatedEntity'
+              example:
+              - id: 52042
+                name: ABC Company
+              - id: 52043
+                name: XYZ Company
+        '204':
+          description: Associated entities do not exist for the requested entity
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    Coyote.Systems.ExternalApi.Contracts.Models.AssociatedEntities.AssociatedEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Coyote entity Id
+          format: int32
+        name:
+          type: string
+          description: Coyote entity name
+          nullable: true
+      additionalProperties: false
+      description: Associated Entity response

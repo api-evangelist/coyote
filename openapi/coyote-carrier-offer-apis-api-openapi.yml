@@ -1,0 +1,283 @@
+openapi: 3.0.1
+info:
+  title: CoyoteGO Associated Entities API Carrier - Offer APIs API
+  description: "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n"
+  contact:
+    name: API Management
+    email: apimanagement@coyote.com
+  version: v0.1.1.2549
+  x-logo:
+    url: https://coyote.com/wp-content/uploads/2020/02/APILogo-transparent.png
+    altText: Coyote
+servers:
+- url: https://api.demo.coyote.com
+  description: Demo
+- url: https://api.coyote.com
+  description: Production
+- url: https://api-sandbox.coyote.com
+  description: Sandbox
+tags:
+- name: Carrier - Offer APIs
+paths:
+  /api/v1/Offer/{id}:
+    get:
+      tags:
+      - Carrier - Offer APIs
+      summary: Get existing offer details
+      description: Allows Coyote's Carrier to retrieve an existing offer details.
+      parameters:
+      - name: id
+        in: path
+        description: Offer id
+        required: true
+        schema:
+          type: string
+          description: Offer id
+      responses:
+        '200':
+          description: Offer was found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails'
+              example:
+                id: 602268460a1a33708429b165
+                loadId: 28075798
+                amount: 6000.0
+                currency: PLN
+                status: Accepted
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails'
+              example:
+                id: 602268460a1a33708429b165
+                loadId: 28075798
+                amount: 6000.0
+                currency: PLN
+                status: Accepted
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails'
+              example:
+                id: 602268460a1a33708429b165
+                loadId: 28075798
+                amount: 6000.0
+                currency: PLN
+                status: Accepted
+            application/bson:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails'
+              example:
+                id: 602268460a1a33708429b165
+                loadId: 28075798
+                amount: 6000.0
+                currency: PLN
+                status: Accepted
+        '404':
+          description: Offer not found
+    delete:
+      tags:
+      - Carrier - Offer APIs
+      summary: Remove offer
+      description: Allows Coyote's Carrier to remove pending offer.
+      parameters:
+      - name: id
+        in: path
+        description: Offer id
+        required: true
+        schema:
+          type: string
+          description: Offer id
+      responses:
+        '200':
+          description: Offer was successfully removed
+        '400':
+          description: Invalid request
+        '404':
+          description: Offer not found
+  /api/v1/Offer/create:
+    post:
+      tags:
+      - Carrier - Offer APIs
+      summary: Create new offer
+      description: Allows Coyote's Carrier to create new offer.
+      requestBody:
+        description: New offer request
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest'
+            example:
+              loadId: 28070711
+              amount: 5600.0
+              currency: EUR
+              webHookAddress: https://example.com/webhook
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest'
+            example:
+              loadId: 28070711
+              amount: 5600.0
+              currency: EUR
+              webHookAddress: https://example.com/webhook
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest'
+            example:
+              loadId: 28070711
+              amount: 5600.0
+              currency: EUR
+              webHookAddress: https://example.com/webhook
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest'
+            example:
+              loadId: 28070711
+              amount: 5600.0
+              currency: EUR
+              webHookAddress: https://example.com/webhook
+          application/bson:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest'
+            example:
+              loadId: 28070711
+              amount: 5600.0
+              currency: EUR
+              webHookAddress: https://example.com/webhook
+      responses:
+        '200':
+          description: Offer was successfully created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 5f98845e46b1fb0a748827ee
+            application/json:
+              schema:
+                type: string
+              example: 5f98845e46b1fb0a748827ee
+            text/json:
+              schema:
+                type: string
+              example: 5f98845e46b1fb0a748827ee
+            application/bson:
+              schema:
+                type: string
+              example: 5f98845e46b1fb0a748827ee
+        '400':
+          description: Invalid request
+        '409':
+          description: Load is already inactive or booked
+  /api/v1/Offer/{id}/book:
+    post:
+      tags:
+      - Carrier - Offer APIs
+      summary: Book an offer
+      description: Allows Coyote's Carrier book an offer.
+      parameters:
+      - name: id
+        in: path
+        description: Offer id
+        required: true
+        schema:
+          type: string
+          description: Offer id
+      responses:
+        '200':
+          description: Your Booking request was submitted. We will email a rate confirmation if your booking request is successful
+        '400':
+          description: Invalid request
+        '404':
+          description: Offer not found
+  /api/v1/Offer/{id}/decline:
+    post:
+      tags:
+      - Carrier - Offer APIs
+      summary: Decline offer
+      description: Allows Coyote's Carrier to decline countered offer.
+      parameters:
+      - name: id
+        in: path
+        description: Offer id
+        required: true
+        schema:
+          type: string
+          description: Offer id
+      responses:
+        '200':
+          description: Offer was successfully declined
+        '400':
+          description: Invalid request
+        '404':
+          description: Offer not found
+components:
+  schemas:
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType:
+      enum:
+      - Undefined
+      - USD
+      - CAD
+      - MXN
+      - EUR
+      - GBP
+      - PLN
+      type: string
+      description: Currency Type
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus:
+      enum:
+      - Unknown
+      - Pending
+      - Accepted
+      - Countered
+      - Confirmed
+      - Canceled
+      - Removed
+      - Declined
+      - Invalid
+      type: string
+      description: Offer status
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest:
+      required:
+      - amount
+      - loadId
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: Available load Id
+          format: int32
+        amount:
+          type: number
+          description: Offer amount
+          format: double
+        currency:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType'
+        webHookAddress:
+          type: string
+          description: Web hook url address
+          format: uri
+          nullable: true
+      additionalProperties: false
+      description: Offer request
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Offer id
+        loadId:
+          type: integer
+          description: Available load Id
+          format: int32
+        amount:
+          type: number
+          description: Offer amount
+          format: double
+        currency:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType'
+        status:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus'
+      additionalProperties: false
+      description: Offer details

@@ -1,0 +1,666 @@
+openapi: 3.0.1
+info:
+  title: CoyoteGO Associated Entities API Shipper - Quoting APIs API
+  description: "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n"
+  contact:
+    name: API Management
+    email: apimanagement@coyote.com
+  version: v0.1.1.2549
+  x-logo:
+    url: https://coyote.com/wp-content/uploads/2020/02/APILogo-transparent.png
+    altText: Coyote
+servers:
+- url: https://api.demo.coyote.com
+  description: Demo
+- url: https://api.coyote.com
+  description: Production
+- url: https://api-sandbox.coyote.com
+  description: Sandbox
+tags:
+- name: Shipper - Quoting APIs
+paths:
+  /api/v1/SpotQuotes:
+    x-code-samples:
+    - lang: Java
+      source: "HttpResponse response = Unirest.post(\"https://api-sandbox.coyote.com/api/v1/SpotQuotes\")\r\n.header(\"content-type\", \"application/json\")\r\n.header(\"Authorization\", \"Bearer TOKEN\")\r\n.body(\"{\r\n  \"EquipmentTypeId\": \"V\",\r\n  \"Origin\": {\r\n    \"CityName\": \"Chicago\",\r\n    \"StateCode\": \"IL\",\r\n    \"CountryCode\": \"US\",\r\n    \"PostalCode\": \"60647\"\r\n  },\r\n  \"Destination\": {\r\n    \"CityName\": \"Madison\",\r\n    \"StateCode\": \"WI\",\r\n    \"CountryCode\": \"US\",\r\n    \"PostalCode\": \"53703\"\r\n  },\r\n  \"PickUpDateUTC\": \"2026-06-18T18:33:48.5457728Z\",\r\n  \"MinTemperature\": null,\r\n  \"MaxTemperature\": null,\r\n  \"Weight\": 100.0,\r\n  \"Commodity\": \"Sample Commodity\",\r\n  \"EquipmentLength\": 53.0,\r\n  \"IsHazmat\": false,\r\n  \"IsDropTrailer\": false,\r\n  \"CustomerShipmentId\": \"CUST1234\"\r\n}\")\r\n.asString();"
+    - lang: C#
+      source: "var client = new RestClient(\"https://api-sandbox.coyote.com/api/v1/SpotQuotes\");var request = new RestRequest(Method.POST);\r\nrequest.AddHeader(\"Authorization\", \"Bearer TOKEN\");\r\nrequest.AddHeader(\"content-type\", \"application/json\");\r\nrequest.AddParameter(\"application/json\", @\"{\r\n  \"EquipmentTypeId\": \"V\",\r\n  \"Origin\": {\r\n    \"CityName\": \"Chicago\",\r\n    \"StateCode\": \"IL\",\r\n    \"CountryCode\": \"US\",\r\n    \"PostalCode\": \"60647\"\r\n  },\r\n  \"Destination\": {\r\n    \"CityName\": \"Madison\",\r\n    \"StateCode\": \"WI\",\r\n    \"CountryCode\": \"US\",\r\n    \"PostalCode\": \"53703\"\r\n  },\r\n  \"PickUpDateUTC\": \"2026-06-18T18:33:48.5457728Z\",\r\n  \"MinTemperature\": null,\r\n  \"MaxTemperature\": null,\r\n  \"Weight\": 100.0,\r\n  \"Commodity\": \"Sample Commodity\",\r\n  \"EquipmentLength\": 53.0,\r\n  \"IsHazmat\": false,\r\n  \"IsDropTrailer\": false,\r\n  \"CustomerShipmentId\": \"CUST1234\"\r\n}\", ParameterType.RequestBody);\r\nIRestResponse response = client.Execute(request);"
+    - lang: curl
+      source: "curl -k -H 'Content-Type: application/json'\\\r\n-H 'Authorization: Bearer TOKEN'\\\r\n-X POST -d '{\r\n  \"EquipmentTypeId\": \"V\",\r\n  \"Origin\": {\r\n    \"CityName\": \"Chicago\",\r\n    \"StateCode\": \"IL\",\r\n    \"CountryCode\": \"US\",\r\n    \"PostalCode\": \"60647\"\r\n  },\r\n  \"Destination\": {\r\n    \"CityName\": \"Madison\",\r\n    \"StateCode\": \"WI\",\r\n    \"CountryCode\": \"US\",\r\n    \"PostalCode\": \"53703\"\r\n  },\r\n  \"PickUpDateUTC\": \"2026-06-18T18:33:48.5457728Z\",\r\n  \"MinTemperature\": null,\r\n  \"MaxTemperature\": null,\r\n  \"Weight\": 100.0,\r\n  \"Commodity\": \"Sample Commodity\",\r\n  \"EquipmentLength\": 53.0,\r\n  \"IsHazmat\": false,\r\n  \"IsDropTrailer\": false,\r\n  \"CustomerShipmentId\": \"CUST1234\"\r\n}' 'https://api-sandbox.coyote.com/api/v1/SpotQuotes'"
+    post:
+      tags:
+      - Shipper - Quoting APIs
+      summary: Gets a TL Spot Quote
+      description: "Allows Shippers to retrieve a Truckload quote. Given a set of shipment attributes as input, Coyote will send back a \r\nquote with a spot quote ID (“spotQuoteId”). This quote includes fuel, unless otherwise specified at the time of integration, \r\nand will be valid for 5 hours. If you want to proceed with the quote and book a shipment, use our load build request endpoint.\\\r\n*Note: Truckload spot quotes are currently unsupported in Europe.*"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuoteRequest'
+            example:
+              equipmentTypeId: V
+              origin:
+                cityName: Chicago
+                stateCode: IL
+                countryCode: US
+                postalCode: '60647'
+              destination:
+                cityName: Madison
+                stateCode: WI
+                countryCode: US
+                postalCode: '53703'
+              pickUpDateUTC: '2026-06-18T18:33:48.5083739Z'
+              minTemperature: null
+              maxTemperature: null
+              weight: 100.0
+              commodity: Sample Commodity
+              equipmentLength: 53.0
+              isHazmat: false
+              isDropTrailer: false
+              customerShipmentId: CUST1234
+      responses:
+        '200':
+          description: The spot quote was successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuote'
+              example:
+                spotQuoteId: 342354
+                customerShipmentId: CUST1234
+                origin:
+                  cityName: Chicago
+                  stateCode: IL
+                  countryCode: US
+                  postalCode: '60647'
+                destination:
+                  cityName: Madison
+                  stateCode: WI
+                  countryCode: US
+                  postalCode: '50515'
+                equipmentTypeId: 1
+                pickUpDateUTC: '2026-06-19T13:33:48.5084327-05:00'
+                validUntilUtc: '2026-06-13T18:33:48.5084355-05:00'
+                totalRate: 837.5
+                rateLineItems:
+                - rateCode: FR
+                  description: Flat Rate
+                  unitRate: 650.0
+                  units: 1.0
+                  totalRate: 650.0
+                  currency: USD
+                - rateCode: '405'
+                  description: Fuel Surcharge
+                  unitRate: 1.25
+                  units: 150.0
+                  totalRate: 187.5
+                  currency: USD
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v1/LTLSpotQuotes:
+    post:
+      tags:
+      - Shipper - Quoting APIs
+      summary: Gets an LTL Spot Quote
+      description: "Allows Shippers to retrieve a Less-Than-Truckload quote. Given a set of shipment attributes as input, Coyote will \r\nsend back an LTL quote with an LTL spot quote ID (“ltlSpotQuoteId”). This quote includes the list of carriers and \r\ntheir respective quotes and is valid for 7 days. If you want to proceed with the quote and book a shipment, \r\nuse our load build request endpoint and specify the Carrier Quote ID.\\\r\n*Note: Less-than-Truckload spot quotes are currently unsupported in Europe.\\\r\nSame day rate requests will be returned, however pickups may not be accommodated until next day pending carrier availability.*"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuoteRequest'
+            example:
+              origin:
+                cityName: Chicago
+                stateCode: IL
+                countryCode: US
+                postalCode: '60647'
+              pickupDate: '2026-06-14T13:33:48.5306447-05:00'
+              originRequirements:
+                insideStop: false
+                residentialStop: false
+                tradeshowStop: false
+                liftGateStop: false
+                sortSegregate: false
+                limitedAccessType: Undefined
+              destination:
+                cityName: Madison
+                stateCode: WI
+                countryCode: US
+                postalCode: '50515'
+              destinationRequirements:
+                appointmentRequired: false
+                carrierNotifyBeforeArrival: false
+                insideStop: false
+                residentialStop: false
+                tradeshowStop: false
+                liftGateStop: false
+                sortSegregate: false
+                limitedAccessType: Undefined
+              equipmentType: V
+              commodities:
+              - description: Sample Commodity
+                palletCount: 5
+                freightClass: 9
+                weight: 100.0
+                length: 75.0
+                height: 50.0
+                width: 50.0
+                isHazmat: false
+                nmfcNumber: null
+                nmfcSubNumber: null
+                isStackable: false
+              guaranteedShipment: false
+              protectFromFreeze: false
+      responses:
+        '200':
+          description: Successfully retrieved LTL Rates
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuote'
+              example:
+                ltlSpotQuoteId: efb53ca3-7c59-4981-b8fb-27a418e2f5b2
+                carrierQuotes:
+                - quoteID: CAR12334
+                  carrierName: Carrier XYZ
+                  scac: ASDF
+                  currencyType: USD
+                  transitTime: 1
+                  interline: Direct
+                  deliveryDate: '2026-06-15T13:33:48.5307417-05:00'
+                  totalRate: 150.0
+                  freightCharge: 75.0
+                  fuelSurcharge: 25.0
+                  accessorialCharges: 50.0
+                  accessorials:
+                  - chargeDescription: Inside Stop Charge
+                    amount: 25.0
+                  - chargeDescription: Guaranteed Delivery Fee
+                    amount: 25.0
+                - quoteID: CAR34556
+                  carrierName: Carrier ABC
+                  scac: QWER
+                  currencyType: USD
+                  transitTime: 2
+                  interline: Indirect
+                  deliveryDate: '2026-06-16T13:33:48.5307433-05:00'
+                  totalRate: 220.0
+                  freightCharge: 75.0
+                  fuelSurcharge: 25.0
+                  accessorialCharges: 120.0
+                  accessorials:
+                  - chargeDescription: Inside Stop Charge
+                    amount: 40.0
+                  - chargeDescription: Guaranteed Delivery Fee
+                    amount: 80.0
+        '204':
+          description: No rates found for the origin and destination
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements:
+      type: object
+      properties:
+        appointmentRequired:
+          type: boolean
+          description: Appointment Required
+        carrierNotifyBeforeArrival:
+          type: boolean
+          description: Carrier Notify Before Arrival
+        insideStop:
+          type: boolean
+          description: Stop requires Inside Pickup or Delivery
+        residentialStop:
+          type: boolean
+          description: Residential Stop
+        tradeshowStop:
+          type: boolean
+          description: Trade show Stop
+        liftGateStop:
+          type: boolean
+          description: Stop requires Lift Gate
+        sortSegregate:
+          type: boolean
+          description: Stop requires Sort and Segregate
+        limitedAccessType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType'
+      additionalProperties: false
+      description: Destination stop requirements
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType:
+      enum:
+      - V
+      - R
+      type: string
+      description: Equipment Type
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.CarrierQuote:
+      type: object
+      properties:
+        quoteID:
+          type: string
+          description: Unique identifier to the quote based on carrier. Specify this ID as the LoadDetail.SpotQuoteId to build a load using the loads endpoint.
+          nullable: true
+        carrierName:
+          type: string
+          description: Name of the carrier
+          nullable: true
+        scac:
+          type: string
+          description: Standard Carrier Alpha Code
+          nullable: true
+        currencyType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType'
+        transitTime:
+          type: integer
+          description: Expected days of transit according to specific carrier
+          format: int32
+        interline:
+          type: string
+          description: If lane serviced by carrier is Direct or Indirect
+          nullable: true
+        deliveryDate:
+          type: string
+          description: "Expected delivery date for shipment\r\nWeekends and holidays are excluded"
+          format: date-time
+        totalRate:
+          type: number
+          description: Total rate includes fuel and accessorial services
+          format: double
+        freightCharge:
+          type: number
+          description: Freight Charge
+          format: double
+        fuelSurcharge:
+          type: number
+          description: Fuel Surcharge
+          format: double
+        accessorialCharges:
+          type: number
+          description: Total of accessorial charges
+          format: double
+        accessorials:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.Accessorial'
+          description: Accessorials
+          nullable: true
+      additionalProperties: false
+      description: Carrier Quote
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType:
+      enum:
+      - Undefined
+      - USD
+      - CAD
+      - MXN
+      - ARS
+      - BRL
+      - CLP
+      - COP
+      - VEF
+      - EUR
+      - GBP
+      - HUF
+      - PLN
+      type: string
+      description: Currency Type
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem:
+      type: object
+      properties:
+        rateCode:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.RateCode'
+        description:
+          type: string
+          description: Rate code description
+          nullable: true
+        unitRate:
+          type: number
+          description: Unit amount of the rate line item.
+          format: double
+        units:
+          type: number
+          description: Number of Units
+          format: double
+        totalRate:
+          type: number
+          description: Total amount of the rate line item.
+          format: double
+        currency:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_Currency'
+      additionalProperties: false
+      description: Rate line item that make up the quote
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_Currency:
+      enum:
+      - USD
+      - CAD
+      type: string
+      description: Currency types
+    Coyote.Systems.ExternalApi.Contracts.Models.RateCode:
+      enum:
+      - Unknown
+      - FlatRate
+      - FuelSurcharge
+      type: string
+      description: 'Charge codes: FR = FlatRate, 405 = FuelSurCharge, PM = PerMile'
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuoteRequest:
+      required:
+      - customerShipmentId
+      - destination
+      - equipmentTypeId
+      - origin
+      - pickUpDateUTC
+      type: object
+      properties:
+        equipmentTypeId:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
+        origin:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        pickUpDateUTC:
+          type: string
+          description: Load Pickup Date UTC
+          format: date-time
+        minTemperature:
+          type: number
+          description: Minimum Temperature (required if Equipment Type = R)
+          format: double
+          nullable: true
+        maxTemperature:
+          type: number
+          description: Maximum Temperature (required if Equipment Type = R)
+          format: double
+          nullable: true
+        weight:
+          type: number
+          description: Weight
+          format: double
+          nullable: true
+        commodity:
+          type: string
+          description: Commodity
+          nullable: true
+        equipmentLength:
+          type: number
+          description: Equipment Length
+          format: double
+          nullable: true
+        isHazmat:
+          type: boolean
+          description: Load is Hazmat __(currently unsupported)__
+          nullable: true
+        isDropTrailer:
+          type: boolean
+          description: Load Requires Drop Trailer __(currently unsupported)__
+          nullable: true
+        customerShipmentId:
+          type: string
+          description: Shipment ID
+      additionalProperties: false
+      description: Spot Quote Request
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements:
+      type: object
+      properties:
+        insideStop:
+          type: boolean
+          description: Stop requires Inside Pickup or Delivery
+        residentialStop:
+          type: boolean
+          description: Residential Stop
+        tradeshowStop:
+          type: boolean
+          description: Trade show Stop
+        liftGateStop:
+          type: boolean
+          description: Stop requires Lift Gate
+        sortSegregate:
+          type: boolean
+          description: Stop requires Sort and Segregate
+        limitedAccessType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType'
+      additionalProperties: false
+      description: Origin stop requirements
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuote:
+      type: object
+      properties:
+        spotQuoteId:
+          type: integer
+          description: SpotQuoteId - Specify this ID as the LoadDetail.SpotQuoteId to build a load using the loads endpoint.
+          format: int32
+        customerShipmentId:
+          type: string
+          description: CustomerShipmentId
+          nullable: true
+        origin:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        equipmentTypeId:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
+        pickUpDateUTC:
+          type: string
+          description: PickupDateUTC
+          format: date-time
+        validUntilUtc:
+          type: string
+          description: ValidUntilUtc
+          format: date-time
+        totalRate:
+          type: number
+          description: "TotalRate\r\n__Total rate includes fuel__"
+          format: double
+        rateLineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem'
+          description: List of rate items that make up the total rate for this quote
+          nullable: true
+      additionalProperties: false
+      description: SpotQuote
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuoteRequest:
+      required:
+      - commodities
+      - destination
+      - equipmentType
+      - origin
+      - pickupDate
+      type: object
+      properties:
+        origin:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData'
+        pickupDate:
+          type: string
+          description: Shipment Pickup Date
+          format: date-time
+        originRequirements:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData'
+        destinationRequirements:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements'
+        equipmentType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
+        commodities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.Commodity'
+          description: Commodities
+        guaranteedShipment:
+          type: boolean
+          description: Guaranteed Shipment
+        protectFromFreeze:
+          type: boolean
+          description: Protect From Freeze
+      additionalProperties: false
+      description: LTL Rate Request
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.Commodity:
+      required:
+      - freightClass
+      - height
+      - length
+      - palletCount
+      - weight
+      - width
+      type: object
+      properties:
+        description:
+          type: string
+          description: Item Description
+          nullable: true
+        palletCount:
+          type: integer
+          description: Number of pallets relevant to commodity item
+          format: int32
+        freightClass:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass'
+        weight:
+          type: number
+          description: Pallet weight in lbs
+          format: double
+        length:
+          type: number
+          description: Pallet length in inches
+          format: double
+        height:
+          type: number
+          description: Pallet height in inches
+          format: double
+        width:
+          type: number
+          description: Pallet width in inches
+          format: double
+        isHazmat:
+          type: boolean
+          description: Is Hazmat Commodity
+        nmfcNumber:
+          type: integer
+          description: NMFC Number
+          format: int32
+          nullable: true
+        nmfcSubNumber:
+          type: integer
+          description: NMFC Sub
+          format: int32
+          nullable: true
+        isStackable:
+          type: boolean
+          description: Is the commodity stackable
+      additionalProperties: false
+      description: Commodity
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuote:
+      type: object
+      properties:
+        ltlSpotQuoteId:
+          type: string
+          description: LTL Spot Quote request Id
+          nullable: true
+        carrierQuotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.CarrierQuote'
+          description: Carrier Quotes
+          nullable: true
+      additionalProperties: false
+      description: LTL Rate Response
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass:
+      enum:
+      - Undefined
+      - N50
+      - N55
+      - N60
+      - N65
+      - N70
+      - N77PT5
+      - N85
+      - N92PT5
+      - N100
+      - N110
+      - N125
+      - N150
+      - N175
+      - N200
+      - N250
+      - N300
+      - N400
+      - N500
+      type: string
+      description: FreightClass
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.Accessorial:
+      type: object
+      properties:
+        chargeDescription:
+          type: string
+          description: Accessorial charge description
+          nullable: true
+        amount:
+          type: number
+          description: Accessorial charge amount
+          format: double
+      additionalProperties: false
+      description: Accessorial
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType:
+      enum:
+      - Undefined
+      - Church
+      - ConstructionSite
+      - MilitaryBase
+      - MineSite
+      - MiniStorage
+      - RemoteGovtDelivery
+      - School
+      - Other
+      type: string
+      description: LTLLimitedAccessType
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData:
+      required:
+      - cityName
+      - postalCode
+      - stateCode
+      type: object
+      properties:
+        cityName:
+          type: string
+          description: City
+        stateCode:
+          type: string
+          description: State
+        countryCode:
+          type: string
+          description: Country (optional)
+          nullable: true
+        postalCode:
+          type: string
+          description: Postal Code
+      additionalProperties: false
+      description: City, State and Postal Code required
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData:
+      required:
+      - cityName
+      - countryCode
+      - postalCode
+      - stateCode
+      type: object
+      properties:
+        cityName:
+          type: string
+          description: City
+        stateCode:
+          type: string
+          description: State
+        countryCode:
+          type: string
+          description: Country
+        postalCode:
+          type: string
+          description: Postal Code
+      additionalProperties: false
+      description: City, State and Postal Code required
