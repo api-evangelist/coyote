@@ -12,7 +12,19 @@ description: >
   cost for shippers and carriers working with Coyote, with native connectors to leading
   TMS, WMS, and ERP systems.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/coyote.png
 tags:
   - freight brokerage
   - logistics
@@ -34,40 +46,125 @@ modified: '2026-06-13'
 specificationVersion: '0.19'
 
 apis:
-
-  - aid: coyote:coyotego-api
-    name: CoyoteGO API
-    description: >
-      The primary REST API for Coyote Logistics enabling shippers and carriers to integrate
-      freight operations directly into their TMS, WMS, ERP, or accounting systems. Provides
-      real-time freight quotes for truckload and LTL shipments, live shipment tracking updates,
-      load search and booking for carriers, shipment data management, bill of lading generation,
-      billing and invoice retrieval, and document submission. Authentication uses OAuth 2.0
-      client credentials flow; credentials are provisioned by a Coyote sales representative
-      or the integrations team. A sandbox environment is available at api-sandbox.coyote.com
-      for testing before going live.
-    humanURL: https://api2-dev.coyote.com/
-    baseURL: https://api.coyote.com
-    tags:
-      - freight quotes
-      - truckload
-      - LTL
-      - shipment tracking
-      - load management
-      - carriers
-      - shippers
-      - OAuth 2.0
-      - REST
-    properties:
-      - type: Documentation
-        url: https://api2-dev.coyote.com/
-      - type: Documentation
-        url: https://api.coyote.com/docs/index.html
-      - type: Authentication
-        url: https://api2-dev.coyote.com/
-      - type: Sandbox
-        url: https://api-sandbox.coyote.com
-
+- aid: coyote:coyotego-api
+  name: CoyoteGO API
+  description: >
+    The primary REST API for Coyote Logistics enabling shippers and carriers to integrate freight operations
+    directly into their TMS, WMS, ERP, or accounting systems. Provides real-time freight quotes for truckload
+    and LTL shipments, live shipment tracking updates, load search and booking for carriers, shipment
+    data management, bill of lading generation, billing and invoice retrieval, and document submission.
+    Authentication uses OAuth 2.0 client credentials flow; credentials are provisioned by a Coyote sales
+    representative or the integrations team. A sandbox environment is available at api-sandbox.coyote.com
+    for testing before going live.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - freight quotes
+  - truckload
+  - LTL
+  - shipment tracking
+  - load management
+  - carriers
+  - shippers
+  - OAuth 2.0
+  - REST
+  properties:
+  - type: Documentation
+    url: https://api2-dev.coyote.com/
+  - type: Documentation
+    url: https://api.coyote.com/docs/index.html
+  - type: Authentication
+    url: https://api2-dev.coyote.com/
+  - type: Sandbox
+    url: https://api-sandbox.coyote.com
+- aid: coyote:coyote-associated-entities-api-api
+  name: Coyote Logistics Associated Entities API API
+  description: >-
+    The Associated Entities API API from Coyote Logistics — 1 operation(s) for associated entities api.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Associated Entities API
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-associated-entities-api-api-openapi.yml
+- aid: coyote:coyote-carrier-available-load-apis-api
+  name: Coyote Logistics Carrier - Available Load APIs API
+  description: >-
+    The Carrier - Available Load APIs API from Coyote Logistics — 2 operation(s) for carrier - available
+    load apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Carrier - Available Load APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-carrier-available-load-apis-api-openapi.yml
+- aid: coyote:coyote-carrier-booking-apis-api
+  name: Coyote Logistics Carrier - Booking APIs API
+  description: >-
+    The Carrier - Booking APIs API from Coyote Logistics — 2 operation(s) for carrier - booking apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Carrier - Booking APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-carrier-booking-apis-api-openapi.yml
+- aid: coyote:coyote-carrier-offer-apis-api
+  name: Coyote Logistics Carrier - Offer APIs API
+  description: >-
+    The Carrier - Offer APIs API from Coyote Logistics — 4 operation(s) for carrier - offer apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Carrier - Offer APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-carrier-offer-apis-api-openapi.yml
+- aid: coyote:coyote-document-apis-api
+  name: Coyote Logistics Document APIs API
+  description: The Document APIs API from Coyote Logistics — 2 operation(s) for document apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Document APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-document-apis-api-openapi.yml
+- aid: coyote:coyote-shipper-quoting-apis-api
+  name: Coyote Logistics Shipper - Quoting APIs API
+  description: >-
+    The Shipper - Quoting APIs API from Coyote Logistics — 2 operation(s) for shipper - quoting apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Shipper - Quoting APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-shipper-quoting-apis-api-openapi.yml
+- aid: coyote:coyote-shipper-shipment-apis-api
+  name: Coyote Logistics Shipper - Shipment APIs API
+  description: >-
+    The Shipper - Shipment APIs API from Coyote Logistics — 4 operation(s) for shipper - shipment apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Shipper - Shipment APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-shipper-shipment-apis-api-openapi.yml
+- aid: coyote:coyote-shipper-tracking-apis-api
+  name: Coyote Logistics Shipper - Tracking APIs API
+  description: >-
+    The Shipper - Tracking APIs API from Coyote Logistics — 4 operation(s) for shipper - tracking apis.
+  humanURL: https://api2-dev.coyote.com/
+  baseURL: https://api.coyote.com
+  tags:
+  - Shipper - Tracking APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/coyote-shipper-tracking-apis-api-openapi.yml
 common:
 
   - type: AgenticAccess
