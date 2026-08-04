@@ -1,0 +1,28 @@
+{
+  "provider": "coyote",
+  "sources": [
+    "coyote-associated-entities-api-api-openapi.yml",
+    "coyote-carrier-available-load-apis-api-openapi.yml",
+    "coyote-carrier-booking-apis-api-openapi.yml",
+    "coyote-carrier-offer-apis-api-openapi.yml",
+    "coyote-document-apis-api-openapi.yml",
+    "coyote-shipper-quoting-apis-api-openapi.yml",
+    "coyote-shipper-shipment-apis-api-openapi.yml",
+    "coyote-shipper-tracking-apis-api-openapi.yml"
+  ],
+  "outputs": [
+    "coyote-associated-entities-api-api-openapi.yml",
+    "coyote-carrier-available-load-apis-api-openapi.yml",
+    "coyote-carrier-booking-apis-api-openapi.yml",
+    "coyote-carrier-offer-apis-api-openapi.yml",
+    "coyote-document-apis-api-openapi.yml",
+    "coyote-shipper-quoting-apis-api-openapi.yml",
+    "coyote-shipper-shipment-apis-api-openapi.yml",
+    "coyote-shipper-tracking-apis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
