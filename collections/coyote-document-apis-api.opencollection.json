@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Document APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a document to be associated with a load",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/Documents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Carriers and Shippers to submit one or more documents that will be saved to a given load they are associated to. Only files up to 20 MB and with specific extensions are allowed. Zips are currently not supported."
+        },
+        {
+          "info": {
+            "name": "Gets an associated document with a load",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Documents/:loadId/:documentType",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path",
+                "description": "The requested load ID"
+              },
+              {
+                "name": "documentType",
+                "value": "",
+                "type": "path",
+                "description": "The document type requested"
+              }
+            ]
+          },
+          "docs": "Allows Carriers and Shippers to retrieve one or more PDF documents in a zipped format for a given load they are associated to."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,534 @@
+{
+  "item": [
+    {
+      "id": "f5c753e0-97f1-4c87-8bbe-e1f3a3942672",
+      "name": "Shipper - Quoting APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88c555a5-0d00-45f3-a134-dd37c106f4a3",
+          "name": "Gets a TL Spot Quote",
+          "request": {
+            "name": "Gets a TL Spot Quote",
+            "description": {
+              "content": "Allows Shippers to retrieve a Truckload quote. Given a set of shipment attributes as input, Coyote will send back a \r\nquote with a spot quote ID (“spotQuoteId”). This quote includes fuel, unless otherwise specified at the time of integration, \r\nand will be valid for 5 hours. If you want to proceed with the quote and book a shipment, use our load build request endpoint.\\\r\n*Note: Truckload spot quotes are currently unsupported in Europe.*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "SpotQuotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerShipmentId\": \"<string>\",\n  \"destination\": {\n    \"cityName\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"stateCode\": \"<string>\",\n    \"countryCode\": \"<string>\"\n  },\n  \"equipmentTypeId\": \"<string>\",\n  \"origin\": {\n    \"cityName\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"stateCode\": \"<string>\",\n    \"countryCode\": \"<string>\"\n  },\n  \"pickUpDateUTC\": \"<dateTime>\",\n  \"minTemperature\": \"<double>\",\n  \"maxTemperature\": \"<double>\",\n  \"weight\": \"<double>\",\n  \"commodity\": \"<string>\",\n  \"equipmentLength\": \"<double>\",\n  \"isHazmat\": \"<boolean>\",\n  \"isDropTrailer\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3b916d8-5848-4f5f-b51e-8b3577a8d5aa",
+              "name": "The spot quote was successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "SpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentTypeId\": \"V\",\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"53703\"\n  },\n  \"pickUpDateUTC\": \"2026-06-18T18:33:48.5083739Z\",\n  \"minTemperature\": null,\n  \"maxTemperature\": null,\n  \"weight\": 100,\n  \"commodity\": \"Sample Commodity\",\n  \"equipmentLength\": 53,\n  \"isHazmat\": false,\n  \"isDropTrailer\": false,\n  \"customerShipmentId\": \"CUST1234\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"spotQuoteId\": 342354,\n  \"customerShipmentId\": \"CUST1234\",\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"equipmentTypeId\": 1,\n  \"pickUpDateUTC\": \"2026-06-19T13:33:48.5084327-05:00\",\n  \"validUntilUtc\": \"2026-06-13T18:33:48.5084355-05:00\",\n  \"totalRate\": 837.5,\n  \"rateLineItems\": [\n    {\n      \"rateCode\": \"FR\",\n      \"description\": \"Flat Rate\",\n      \"unitRate\": 650,\n      \"units\": 1,\n      \"totalRate\": 650,\n      \"currency\": \"USD\"\n    },\n    {\n      \"rateCode\": \"405\",\n      \"description\": \"Fuel Surcharge\",\n      \"unitRate\": 1.25,\n      \"units\": 150,\n      \"totalRate\": 187.5,\n      \"currency\": \"USD\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b99bffb-0c7b-4569-98f9-11746a10c8a6",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "SpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentTypeId\": \"V\",\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"53703\"\n  },\n  \"pickUpDateUTC\": \"2026-06-18T18:33:48.5083739Z\",\n  \"minTemperature\": null,\n  \"maxTemperature\": null,\n  \"weight\": 100,\n  \"commodity\": \"Sample Commodity\",\n  \"equipmentLength\": 53,\n  \"isHazmat\": false,\n  \"isDropTrailer\": false,\n  \"customerShipmentId\": \"CUST1234\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a519bffe-c746-4717-a4eb-984ca0bcfc8a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "SpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentTypeId\": \"V\",\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"53703\"\n  },\n  \"pickUpDateUTC\": \"2026-06-18T18:33:48.5083739Z\",\n  \"minTemperature\": null,\n  \"maxTemperature\": null,\n  \"weight\": 100,\n  \"commodity\": \"Sample Commodity\",\n  \"equipmentLength\": 53,\n  \"isHazmat\": false,\n  \"isDropTrailer\": false,\n  \"customerShipmentId\": \"CUST1234\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6d78e73-425f-4a98-a323-8827bcc74b11",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "SpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentTypeId\": \"V\",\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"53703\"\n  },\n  \"pickUpDateUTC\": \"2026-06-18T18:33:48.5083739Z\",\n  \"minTemperature\": null,\n  \"maxTemperature\": null,\n  \"weight\": 100,\n  \"commodity\": \"Sample Commodity\",\n  \"equipmentLength\": 53,\n  \"isHazmat\": false,\n  \"isDropTrailer\": false,\n  \"customerShipmentId\": \"CUST1234\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15191b42-015c-4508-896e-22cc9683ba2e",
+          "name": "Gets an LTL Spot Quote",
+          "request": {
+            "name": "Gets an LTL Spot Quote",
+            "description": {
+              "content": "Allows Shippers to retrieve a Less-Than-Truckload quote. Given a set of shipment attributes as input, Coyote will \r\nsend back an LTL quote with an LTL spot quote ID (“ltlSpotQuoteId”). This quote includes the list of carriers and \r\ntheir respective quotes and is valid for 7 days. If you want to proceed with the quote and book a shipment, \r\nuse our load build request endpoint and specify the Carrier Quote ID.\\\r\n*Note: Less-than-Truckload spot quotes are currently unsupported in Europe.\\\r\nSame day rate requests will be returned, however pickups may not be accommodated until next day pending carrier availability.*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "LTLSpotQuotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commodities\": [\n    {\n      \"freightClass\": \"<string>\",\n      \"height\": \"<double>\",\n      \"length\": \"<double>\",\n      \"palletCount\": \"<integer>\",\n      \"weight\": \"<double>\",\n      \"width\": \"<double>\",\n      \"description\": \"<string>\",\n      \"isHazmat\": \"<boolean>\",\n      \"nmfcNumber\": \"<integer>\",\n      \"nmfcSubNumber\": \"<integer>\",\n      \"isStackable\": \"<boolean>\"\n    },\n    {\n      \"freightClass\": \"<string>\",\n      \"height\": \"<double>\",\n      \"length\": \"<double>\",\n      \"palletCount\": \"<integer>\",\n      \"weight\": \"<double>\",\n      \"width\": \"<double>\",\n      \"description\": \"<string>\",\n      \"isHazmat\": \"<boolean>\",\n      \"nmfcNumber\": \"<integer>\",\n      \"nmfcSubNumber\": \"<integer>\",\n      \"isStackable\": \"<boolean>\"\n    }\n  ],\n  \"destination\": {\n    \"cityName\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"stateCode\": \"<string>\"\n  },\n  \"equipmentType\": \"<string>\",\n  \"origin\": {\n    \"cityName\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"stateCode\": \"<string>\"\n  },\n  \"pickupDate\": \"<dateTime>\",\n  \"originRequirements\": {\n    \"insideStop\": \"<boolean>\",\n    \"residentialStop\": \"<boolean>\",\n    \"tradeshowStop\": \"<boolean>\",\n    \"liftGateStop\": \"<boolean>\",\n    \"sortSegregate\": \"<boolean>\",\n    \"limitedAccessType\": \"<string>\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": \"<boolean>\",\n    \"carrierNotifyBeforeArrival\": \"<boolean>\",\n    \"insideStop\": \"<boolean>\",\n    \"residentialStop\": \"<boolean>\",\n    \"tradeshowStop\": \"<boolean>\",\n    \"liftGateStop\": \"<boolean>\",\n    \"sortSegregate\": \"<boolean>\",\n    \"limitedAccessType\": \"<string>\"\n  },\n  \"guaranteedShipment\": \"<boolean>\",\n  \"protectFromFreeze\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0db60976-2c9d-4c10-bfb5-02ef0e3d08d3",
+              "name": "Successfully retrieved LTL Rates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LTLSpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"pickupDate\": \"2026-06-14T13:33:48.5306447-05:00\",\n  \"originRequirements\": {\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": false,\n    \"carrierNotifyBeforeArrival\": false,\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"equipmentType\": \"V\",\n  \"commodities\": [\n    {\n      \"description\": \"Sample Commodity\",\n      \"palletCount\": 5,\n      \"freightClass\": 9,\n      \"weight\": 100,\n      \"length\": 75,\n      \"height\": 50,\n      \"width\": 50,\n      \"isHazmat\": false,\n      \"nmfcNumber\": null,\n      \"nmfcSubNumber\": null,\n      \"isStackable\": false\n    }\n  ],\n  \"guaranteedShipment\": false,\n  \"protectFromFreeze\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ltlSpotQuoteId\": \"efb53ca3-7c59-4981-b8fb-27a418e2f5b2\",\n  \"carrierQuotes\": [\n    {\n      \"quoteID\": \"CAR12334\",\n      \"carrierName\": \"Carrier XYZ\",\n      \"scac\": \"ASDF\",\n      \"currencyType\": \"USD\",\n      \"transitTime\": 1,\n      \"interline\": \"Direct\",\n      \"deliveryDate\": \"2026-06-15T13:33:48.5307417-05:00\",\n      \"totalRate\": 150,\n      \"freightCharge\": 75,\n      \"fuelSurcharge\": 25,\n      \"accessorialCharges\": 50,\n      \"accessorials\": [\n        {\n          \"chargeDescription\": \"Inside Stop Charge\",\n          \"amount\": 25\n        },\n        {\n          \"chargeDescription\": \"Guaranteed Delivery Fee\",\n          \"amount\": 25\n        }\n      ]\n    },\n    {\n      \"quoteID\": \"CAR34556\",\n      \"carrierName\": \"Carrier ABC\",\n      \"scac\": \"QWER\",\n      \"currencyType\": \"USD\",\n      \"transitTime\": 2,\n      \"interline\": \"Indirect\",\n      \"deliveryDate\": \"2026-06-16T13:33:48.5307433-05:00\",\n      \"totalRate\": 220,\n      \"freightCharge\": 75,\n      \"fuelSurcharge\": 25,\n      \"accessorialCharges\": 120,\n      \"accessorials\": [\n        {\n          \"chargeDescription\": \"Inside Stop Charge\",\n          \"amount\": 40\n        },\n        {\n          \"chargeDescription\": \"Guaranteed Delivery Fee\",\n          \"amount\": 80\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "970c1756-a4ad-456d-a7da-d1bb35f7d68a",
+              "name": "No rates found for the origin and destination",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LTLSpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"pickupDate\": \"2026-06-14T13:33:48.5306447-05:00\",\n  \"originRequirements\": {\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": false,\n    \"carrierNotifyBeforeArrival\": false,\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"equipmentType\": \"V\",\n  \"commodities\": [\n    {\n      \"description\": \"Sample Commodity\",\n      \"palletCount\": 5,\n      \"freightClass\": 9,\n      \"weight\": 100,\n      \"length\": 75,\n      \"height\": 50,\n      \"width\": 50,\n      \"isHazmat\": false,\n      \"nmfcNumber\": null,\n      \"nmfcSubNumber\": null,\n      \"isStackable\": false\n    }\n  ],\n  \"guaranteedShipment\": false,\n  \"protectFromFreeze\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a62c5ca4-b986-4397-b1c2-39955b542002",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LTLSpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"pickupDate\": \"2026-06-14T13:33:48.5306447-05:00\",\n  \"originRequirements\": {\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": false,\n    \"carrierNotifyBeforeArrival\": false,\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"equipmentType\": \"V\",\n  \"commodities\": [\n    {\n      \"description\": \"Sample Commodity\",\n      \"palletCount\": 5,\n      \"freightClass\": 9,\n      \"weight\": 100,\n      \"length\": 75,\n      \"height\": 50,\n      \"width\": 50,\n      \"isHazmat\": false,\n      \"nmfcNumber\": null,\n      \"nmfcSubNumber\": null,\n      \"isStackable\": false\n    }\n  ],\n  \"guaranteedShipment\": false,\n  \"protectFromFreeze\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d56a97d7-0ee8-4666-bb27-24a1725bfbcf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LTLSpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"pickupDate\": \"2026-06-14T13:33:48.5306447-05:00\",\n  \"originRequirements\": {\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": false,\n    \"carrierNotifyBeforeArrival\": false,\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"equipmentType\": \"V\",\n  \"commodities\": [\n    {\n      \"description\": \"Sample Commodity\",\n      \"palletCount\": 5,\n      \"freightClass\": 9,\n      \"weight\": 100,\n      \"length\": 75,\n      \"height\": 50,\n      \"width\": 50,\n      \"isHazmat\": false,\n      \"nmfcNumber\": null,\n      \"nmfcSubNumber\": null,\n      \"isStackable\": false\n    }\n  ],\n  \"guaranteedShipment\": false,\n  \"protectFromFreeze\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26661690-ab40-4147-aa12-c37949eea0f1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LTLSpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"pickupDate\": \"2026-06-14T13:33:48.5306447-05:00\",\n  \"originRequirements\": {\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": false,\n    \"carrierNotifyBeforeArrival\": false,\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"equipmentType\": \"V\",\n  \"commodities\": [\n    {\n      \"description\": \"Sample Commodity\",\n      \"palletCount\": 5,\n      \"freightClass\": 9,\n      \"weight\": 100,\n      \"length\": 75,\n      \"height\": 50,\n      \"width\": 50,\n      \"isHazmat\": false,\n      \"nmfcNumber\": null,\n      \"nmfcSubNumber\": null,\n      \"isStackable\": false\n    }\n  ],\n  \"guaranteedShipment\": false,\n  \"protectFromFreeze\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e725944f-4f2a-4f35-86db-90b69a78908c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LTLSpotQuotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"cityName\": \"Chicago\",\n    \"stateCode\": \"IL\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"60647\"\n  },\n  \"pickupDate\": \"2026-06-14T13:33:48.5306447-05:00\",\n  \"originRequirements\": {\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"destination\": {\n    \"cityName\": \"Madison\",\n    \"stateCode\": \"WI\",\n    \"countryCode\": \"US\",\n    \"postalCode\": \"50515\"\n  },\n  \"destinationRequirements\": {\n    \"appointmentRequired\": false,\n    \"carrierNotifyBeforeArrival\": false,\n    \"insideStop\": false,\n    \"residentialStop\": false,\n    \"tradeshowStop\": false,\n    \"liftGateStop\": false,\n    \"sortSegregate\": false,\n    \"limitedAccessType\": \"Undefined\"\n  },\n  \"equipmentType\": \"V\",\n  \"commodities\": [\n    {\n      \"description\": \"Sample Commodity\",\n      \"palletCount\": 5,\n      \"freightClass\": 9,\n      \"weight\": 100,\n      \"length\": 75,\n      \"height\": 50,\n      \"width\": 50,\n      \"isHazmat\": false,\n      \"nmfcNumber\": null,\n      \"nmfcSubNumber\": null,\n      \"isStackable\": false\n    }\n  ],\n  \"guaranteedShipment\": false,\n  \"protectFromFreeze\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demo.coyote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5398559e-081d-4de1-ad78-c0438eb44a57",
+    "name": "CoyoteGO Associated Entities API Shipper - Quoting APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n\n\nContact Support:\n Name: API Management\n Email: apimanagement@coyote.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Carrier - Available Load APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carrier - Available Load APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets available load details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/AvailableLoads/:loadId",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path",
+                "description": "The requested load id"
+              }
+            ]
+          },
+          "docs": "Allows Carriers to retrieve all the current details for a given load, assuming the provided load is still available."
+        },
+        {
+          "info": {
+            "name": "Search available loads",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/AvailableLoads/search",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Requested page"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Requested page size"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Carriers to search for available loads with a set of query inputs. Coyote will return the list of all available loads that match the inputs provided in the request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

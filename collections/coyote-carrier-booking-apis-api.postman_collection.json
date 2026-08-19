@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "ba20b89c-bc2d-494a-ba15-f0a435a9be1c",
+      "name": "Carrier - Booking APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51d0b81a-6373-4cd5-8a40-0b0f1012be89",
+          "name": "Submit a booking request",
+          "request": {
+            "name": "Submit a booking request",
+            "description": {
+              "content": "Allows Carriers to submit a booking request with relevant load information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Booking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"load\": {\n    \"loadDetails\": {\n      \"equipment\": {\n        \"equipmentAttributes\": {\n          \"foodGrade\": \"<boolean>\",\n          \"paperGrade\": \"<boolean>\",\n          \"preCoolRequired\": \"<boolean>\",\n          \"liftGate\": \"<boolean>\",\n          \"palletJack\": \"<boolean>\",\n          \"airRide\": \"<boolean>\",\n          \"trailerXYearsOrNewer\": \"<integer>\",\n          \"xLoadLocks\": \"<integer>\",\n          \"xLoadBars\": \"<integer>\",\n          \"xLoadStraps\": \"<integer>\",\n          \"xSideboards\": \"<integer>\",\n          \"eTrack\": \"<boolean>\",\n          \"chains\": \"<boolean>\",\n          \"noRollDoor\": \"<boolean>\",\n          \"rollDoorAllowed\": \"<boolean>\",\n          \"noReefer\": \"<boolean>\",\n          \"noLiftGate\": \"<boolean>\",\n          \"doubleTrailer\": \"<boolean>\",\n          \"tripleTrailer\": \"<boolean>\",\n          \"loadOutTrailer\": \"<boolean>\",\n          \"towAway\": \"<boolean>\",\n          \"lightweightEquipment\": \"<boolean>\",\n          \"scaleUpToXPounds\": \"<integer>\",\n          \"scaleUpToXKilograms\": \"<integer>\",\n          \"tandemSlide\": \"<boolean>\",\n          \"downloadableReefer\": \"<boolean>\",\n          \"spaceSaverReefer\": \"<boolean>\",\n          \"translucentTop\": \"<boolean>\",\n          \"duraplate\": \"<boolean>\",\n          \"ventedVan\": \"<boolean>\",\n          \"functionalAirChute\": \"<boolean>\",\n          \"trailerMustHaveAllWoodFloors\": \"<boolean>\",\n          \"xlCode\": \"<boolean>\"\n        },\n        \"equipmentHeight\": {\n          \"unit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<double>\"\n        },\n        \"equipmentLength\": {\n          \"unit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<double>\"\n        },\n        \"equipmentType\": \"<string>\",\n        \"equipmentWidth\": {\n          \"unit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<double>\"\n        },\n        \"genericAttributes\": [\n          {\n            \"displayText\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"displayText\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"loadAttributes\": {\n        \"airRide\": \"<boolean>\",\n        \"blind\": \"<boolean>\",\n        \"bondedCarrier\": \"<boolean>\",\n        \"borderCrossingByCoyote\": \"<boolean>\",\n        \"borderCrossingByCustomer\": \"<boolean>\",\n        \"coyoteGo\": \"<boolean>\",\n        \"crossBorderMexico\": \"<boolean>\",\n        \"ctpat\": \"<boolean>\",\n        \"disasterRelief\": \"<boolean>\",\n        \"doubleBlind\": \"<boolean>\",\n        \"doubleTrailer\": \"<boolean>\",\n        \"drayage\": \"<boolean>\",\n        \"duraplate\": \"<boolean>\",\n        \"englishSpeaking\": \"<boolean>\",\n        \"exitPass\": \"<boolean>\",\n        \"fast\": \"<boolean>\",\n        \"fdaClearanceRequired\": \"<boolean>\",\n        \"floodRelief\": \"<boolean>\",\n        \"govt\": \"<boolean>\",\n        \"guaranteed\": \"<boolean>\",\n        \"haccp\": \"<boolean>\",\n        \"hazmatEndorsement\": \"<boolean>\",\n        \"hvhr\": \"<boolean>\",\n        \"hvhrPlus\": \"<boolean>\",\n        \"intraMexico\": \"<boolean>\",\n        \"liquor\": \"<boolean>\",\n        \"neec\": \"<boolean>\",\n        \"noCameraPhonePhotosOfPaperwork\": \"<boolean>\",\n        \"overDimension\": \"<boolean>\",\n        \"palletJack\": \"<boolean>\",\n        \"partialLoad\": \"<boolean>\",\n        \"pipOrPep\": \"<boolean>\",\n        \"powerOnly\": \"<boolean>\",\n        \"ppe\": \"<boolean>\",\n        \"protectFromFreeze\": \"<boolean>\",\n        \"repairReceiptRequiredForBreakdowns\": \"<boolean>\",\n        \"seal\": \"<boolean>\",\n        \"secondaryBorderInspection\": \"<boolean>\",\n        \"tankerEndorsement\": \"<boolean>\",\n        \"tcr\": \"<boolean>\",\n        \"team\": \"<boolean>\",\n        \"techTrackingRequired\": \"<boolean>\",\n        \"tradeShow\": \"<boolean>\",\n        \"trailerControl\": \"<boolean>\",\n        \"transloadByCoyote\": \"<boolean>\",\n        \"transloadByCustomer\": \"<boolean>\",\n        \"tripleTrailer\": \"<boolean>\",\n        \"twic\": \"<boolean>\",\n        \"uiia\": \"<boolean>\"\n      },\n      \"loadDistance\": {\n        \"unit\": \"<string>\",\n        \"value\": \"<double>\"\n      },\n      \"mode\": \"<string>\",\n      \"rate\": {\n        \"currencyType\": \"<string>\",\n        \"value\": \"<double>\"\n      },\n      \"temperatureSettings\": {\n        \"preCoolTemperature\": {\n          \"unit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<double>\"\n        },\n        \"maximumTemperature\": {\n          \"unit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<double>\"\n        },\n        \"minimumTemperature\": {\n          \"unit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<double>\"\n        }\n      },\n      \"weight\": {\n        \"unit\": \"<string>\",\n        \"value\": \"<double>\"\n      },\n      \"genericAttributes\": [\n        {\n          \"displayText\": \"<string>\",\n          \"key\": \"<string>\"\n        },\n        {\n          \"displayText\": \"<string>\",\n          \"key\": \"<string>\"\n        }\n      ]\n    },\n    \"loadId\": \"<integer>\",\n    \"stops\": [\n      {\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": \"<dateTime>\",\n          \"facilityCloseDateTimeUtc\": \"<dateTime>\",\n          \"appointmentStartDateTimeUtc\": \"<dateTime>\",\n          \"appointmentEndDateTimeUtc\": \"<dateTime>\"\n        },\n        \"facility\": {\n          \"address\": {\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stateProvinceCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"geoCoordinates\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"<string>\",\n          \"timeZoneOffset\": {}\n        },\n        \"sequence\": \"<integer>\",\n        \"stopDetails\": {\n          \"commodities\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"stopAttributes\": {\n            \"blind\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"closedToeShoes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"detentionAuthFormRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"driverAssist\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dropAndHook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dropTrailerAllowXHoursToUnload\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dropTrailerRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"earPlugs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"englishSpeaking\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"escortOrTwicRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"exitPass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"government\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardHat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"inOutTimesWSignature\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"insideDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"insidePickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"legalScaleOnSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liftgateDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liftgatePickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryAirport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryChurch\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryConstructionSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryFarm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryMilitaryBase\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryMineSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryMiniStorage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryOther\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryPrison\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryRemoteGovt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliverySchool\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupAirport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupChurch\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupConstructionSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupFarm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupMilitaryBase\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupMineSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupMiniStorage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupOther\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupPrison\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupRemoteGovt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupSchool\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liquorPermit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"loadedToLegalWeight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longPants\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longSleeves\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lumperReceiptRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustCheckInAsCoyote\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustProvideAndApplySeal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustSecureLoad\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"needCoyoteApprovalToUseLumperService\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noAnimals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noDetention\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noEarlyDeliveries\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noLoadLocksOrStraps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noSameDayReschedules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notAllowedOnDock\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noTankTops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noTrailerDetentionOrLayover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noWorkIns\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"onSiteParkingAvailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overnightParkingAvailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payLumperWCashTCheck\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"preLoadDropTrailerXHoursInAdvance\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prePaidLumperService\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"residentialDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"residentialPickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safetyGlasses\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safetyVest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scaleEmpty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scaleHeavy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secureYard\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sortAndSegregateDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sortAndSegregatePickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"spanishSpeaking\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"steelToeShoes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"strictAppt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tradeshowDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tradeshowPickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"trailerInspectionFormRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"twic\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"twicRequiredNoEscorts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiia\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unpackDetrash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usCitizen\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"validUSCommercialDriversLicenseHardcopy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xTankOfFuelAtShipper\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"stopNotes\": \"<string>\",\n          \"workType\": \"<string>\",\n          \"genericAttributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"stopType\": \"<string>\"\n      },\n      {\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": \"<dateTime>\",\n          \"facilityCloseDateTimeUtc\": \"<dateTime>\",\n          \"appointmentStartDateTimeUtc\": \"<dateTime>\",\n          \"appointmentEndDateTimeUtc\": \"<dateTime>\"\n        },\n        \"facility\": {\n          \"address\": {\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stateProvinceCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"geoCoordinates\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"<string>\",\n          \"timeZoneOffset\": {}\n        },\n        \"sequence\": \"<integer>\",\n        \"stopDetails\": {\n          \"commodities\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"stopAttributes\": {\n            \"blind\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"closedToeShoes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"detentionAuthFormRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"driverAssist\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dropAndHook\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dropTrailerAllowXHoursToUnload\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dropTrailerRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"earPlugs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"englishSpeaking\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"escortOrTwicRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"exitPass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"government\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardHat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"inOutTimesWSignature\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"insideDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"insidePickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"legalScaleOnSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liftgateDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liftgatePickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryAirport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryChurch\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryConstructionSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryFarm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryMilitaryBase\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryMineSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryMiniStorage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryOther\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryPrison\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliveryRemoteGovt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessDeliverySchool\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupAirport\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupChurch\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupConstructionSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupFarm\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupMilitaryBase\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupMineSite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupMiniStorage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupOther\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupPrison\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupRemoteGovt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limitedAccessPickupSchool\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"liquorPermit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"loadedToLegalWeight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longPants\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longSleeves\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lumperReceiptRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustCheckInAsCoyote\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustProvideAndApplySeal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustSecureLoad\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"needCoyoteApprovalToUseLumperService\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noAnimals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noDetention\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noEarlyDeliveries\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noLoadLocksOrStraps\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noSameDayReschedules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notAllowedOnDock\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noTankTops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noTrailerDetentionOrLayover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"noWorkIns\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"onSiteParkingAvailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overnightParkingAvailable\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payLumperWCashTCheck\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"preLoadDropTrailerXHoursInAdvance\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"prePaidLumperService\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"residentialDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"residentialPickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safetyGlasses\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"safetyVest\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scaleEmpty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scaleHeavy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"secureYard\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sortAndSegregateDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sortAndSegregatePickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"spanishSpeaking\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"steelToeShoes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"strictAppt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tradeshowDelivery\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tradeshowPickup\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"trailerInspectionFormRequired\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"twic\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"twicRequiredNoEscorts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uiia\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unpackDetrash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"usCitizen\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"validUSCommercialDriversLicenseHardcopy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xTankOfFuelAtShipper\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"stopNotes\": \"<string>\",\n          \"workType\": \"<string>\",\n          \"genericAttributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"stopType\": \"<string>\"\n      }\n    ],\n    \"orderNumber\": \"<string>\"\n  },\n  \"carrierId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bca65247-0075-411c-9483-dfa4c6b302ad",
+              "name": "Booking request was accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierId\": 194536367,\n  \"load\": {\n    \"loadId\": 194536334,\n    \"orderNumber\": null,\n    \"loadDetails\": {\n      \"rate\": {\n        \"value\": 654,\n        \"currencyType\": \"USD\"\n      },\n      \"mode\": \"TL\",\n      \"equipment\": {\n        \"equipmentHeight\": {\n          \"value\": 0,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentLength\": {\n          \"value\": 53,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentType\": \"V\",\n        \"equipmentWidth\": {\n          \"value\": 20,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentAttributes\": {\n          \"foodGrade\": true,\n          \"paperGrade\": false,\n          \"preCoolRequired\": false,\n          \"liftGate\": false,\n          \"palletJack\": false,\n          \"airRide\": false,\n          \"trailerXYearsOrNewer\": 0,\n          \"xLoadLocks\": 0,\n          \"xLoadBars\": 0,\n          \"xLoadStraps\": 0,\n          \"xSideboards\": 0,\n          \"eTrack\": false,\n          \"chains\": false,\n          \"noRollDoor\": false,\n          \"rollDoorAllowed\": false,\n          \"noReefer\": false,\n          \"noLiftGate\": false,\n          \"doubleTrailer\": false,\n          \"tripleTrailer\": false,\n          \"loadOutTrailer\": false,\n          \"towAway\": false,\n          \"lightweightEquipment\": false,\n          \"scaleUpToXPounds\": 0,\n          \"scaleUpToXKilograms\": 0,\n          \"tandemSlide\": false,\n          \"downloadableReefer\": false,\n          \"spaceSaverReefer\": false,\n          \"translucentTop\": false,\n          \"duraplate\": false,\n          \"ventedVan\": false,\n          \"functionalAirChute\": false,\n          \"trailerMustHaveAllWoodFloors\": false,\n          \"xlCode\": false\n        },\n        \"genericAttributes\": null\n      },\n      \"loadDistance\": {\n        \"value\": 1500,\n        \"unit\": \"Miles\"\n      },\n      \"weight\": {\n        \"value\": 1800,\n        \"unit\": \"Pounds\"\n      },\n      \"temperatureSettings\": {\n        \"preCoolTemperature\": null,\n        \"maximumTemperature\": {\n          \"value\": 12,\n          \"unit\": \"Fahrenheit\"\n        },\n        \"minimumTemperature\": {\n          \"value\": 20,\n          \"unit\": \"Fahrenheit\"\n        }\n      },\n      \"loadAttributes\": {\n        \"airRide\": false,\n        \"blind\": false,\n        \"bondedCarrier\": false,\n        \"borderCrossingByCoyote\": false,\n        \"borderCrossingByCustomer\": false,\n        \"coyoteGo\": false,\n        \"crossBorderMexico\": false,\n        \"ctpat\": false,\n        \"disasterRelief\": false,\n        \"doubleBlind\": false,\n        \"doubleTrailer\": false,\n        \"drayage\": false,\n        \"duraplate\": false,\n        \"englishSpeaking\": false,\n        \"exitPass\": false,\n        \"fast\": false,\n        \"fdaClearanceRequired\": false,\n        \"floodRelief\": false,\n        \"govt\": false,\n        \"guaranteed\": false,\n        \"haccp\": false,\n        \"hazmatEndorsement\": false,\n        \"hvhr\": false,\n        \"hvhrPlus\": false,\n        \"intraMexico\": false,\n        \"liquor\": false,\n        \"neec\": false,\n        \"noCameraPhonePhotosOfPaperwork\": false,\n        \"overDimension\": false,\n        \"palletJack\": false,\n        \"partialLoad\": false,\n        \"pipOrPep\": false,\n        \"powerOnly\": false,\n        \"ppe\": false,\n        \"protectFromFreeze\": false,\n        \"repairReceiptRequiredForBreakdowns\": false,\n        \"seal\": true,\n        \"secondaryBorderInspection\": false,\n        \"tankerEndorsement\": false,\n        \"tcr\": false,\n        \"team\": false,\n        \"techTrackingRequired\": false,\n        \"tradeShow\": false,\n        \"trailerControl\": false,\n        \"transloadByCoyote\": false,\n        \"transloadByCustomer\": false,\n        \"tripleTrailer\": false,\n        \"twic\": false,\n        \"uiia\": false\n      },\n      \"genericAttributes\": null\n    },\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"16005 WAHRMAN ST\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"48174-9725\",\n            \"cityName\": \"Romulus\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 40.246281,\n            \"longitude\": -82.868742\n          },\n          \"timeZoneOffset\": \"-04:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370238Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.437024Z\"\n        },\n        \"stopDetails\": null\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"131 State Route 3\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"43074\",\n            \"cityName\": \"Sunbury\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 41.246281,\n            \"longitude\": -81.868742\n          },\n          \"timeZoneOffset\": \"-05:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370244Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4370245Z\"\n        },\n        \"stopDetails\": null\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"94c34c2c-cf92-402a-a02b-48df9af5e649\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29ffe1e6-95d4-4d44-bfef-14ada553d0c4",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierId\": 194536367,\n  \"load\": {\n    \"loadId\": 194536334,\n    \"orderNumber\": null,\n    \"loadDetails\": {\n      \"rate\": {\n        \"value\": 654,\n        \"currencyType\": \"USD\"\n      },\n      \"mode\": \"TL\",\n      \"equipment\": {\n        \"equipmentHeight\": {\n          \"value\": 0,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentLength\": {\n          \"value\": 53,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentType\": \"V\",\n        \"equipmentWidth\": {\n          \"value\": 20,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentAttributes\": {\n          \"foodGrade\": true,\n          \"paperGrade\": false,\n          \"preCoolRequired\": false,\n          \"liftGate\": false,\n          \"palletJack\": false,\n          \"airRide\": false,\n          \"trailerXYearsOrNewer\": 0,\n          \"xLoadLocks\": 0,\n          \"xLoadBars\": 0,\n          \"xLoadStraps\": 0,\n          \"xSideboards\": 0,\n          \"eTrack\": false,\n          \"chains\": false,\n          \"noRollDoor\": false,\n          \"rollDoorAllowed\": false,\n          \"noReefer\": false,\n          \"noLiftGate\": false,\n          \"doubleTrailer\": false,\n          \"tripleTrailer\": false,\n          \"loadOutTrailer\": false,\n          \"towAway\": false,\n          \"lightweightEquipment\": false,\n          \"scaleUpToXPounds\": 0,\n          \"scaleUpToXKilograms\": 0,\n          \"tandemSlide\": false,\n          \"downloadableReefer\": false,\n          \"spaceSaverReefer\": false,\n          \"translucentTop\": false,\n          \"duraplate\": false,\n          \"ventedVan\": false,\n          \"functionalAirChute\": false,\n          \"trailerMustHaveAllWoodFloors\": false,\n          \"xlCode\": false\n        },\n        \"genericAttributes\": null\n      },\n      \"loadDistance\": {\n        \"value\": 1500,\n        \"unit\": \"Miles\"\n      },\n      \"weight\": {\n        \"value\": 1800,\n        \"unit\": \"Pounds\"\n      },\n      \"temperatureSettings\": {\n        \"preCoolTemperature\": null,\n        \"maximumTemperature\": {\n          \"value\": 12,\n          \"unit\": \"Fahrenheit\"\n        },\n        \"minimumTemperature\": {\n          \"value\": 20,\n          \"unit\": \"Fahrenheit\"\n        }\n      },\n      \"loadAttributes\": {\n        \"airRide\": false,\n        \"blind\": false,\n        \"bondedCarrier\": false,\n        \"borderCrossingByCoyote\": false,\n        \"borderCrossingByCustomer\": false,\n        \"coyoteGo\": false,\n        \"crossBorderMexico\": false,\n        \"ctpat\": false,\n        \"disasterRelief\": false,\n        \"doubleBlind\": false,\n        \"doubleTrailer\": false,\n        \"drayage\": false,\n        \"duraplate\": false,\n        \"englishSpeaking\": false,\n        \"exitPass\": false,\n        \"fast\": false,\n        \"fdaClearanceRequired\": false,\n        \"floodRelief\": false,\n        \"govt\": false,\n        \"guaranteed\": false,\n        \"haccp\": false,\n        \"hazmatEndorsement\": false,\n        \"hvhr\": false,\n        \"hvhrPlus\": false,\n        \"intraMexico\": false,\n        \"liquor\": false,\n        \"neec\": false,\n        \"noCameraPhonePhotosOfPaperwork\": false,\n        \"overDimension\": false,\n        \"palletJack\": false,\n        \"partialLoad\": false,\n        \"pipOrPep\": false,\n        \"powerOnly\": false,\n        \"ppe\": false,\n        \"protectFromFreeze\": false,\n        \"repairReceiptRequiredForBreakdowns\": false,\n        \"seal\": true,\n        \"secondaryBorderInspection\": false,\n        \"tankerEndorsement\": false,\n        \"tcr\": false,\n        \"team\": false,\n        \"techTrackingRequired\": false,\n        \"tradeShow\": false,\n        \"trailerControl\": false,\n        \"transloadByCoyote\": false,\n        \"transloadByCustomer\": false,\n        \"tripleTrailer\": false,\n        \"twic\": false,\n        \"uiia\": false\n      },\n      \"genericAttributes\": null\n    },\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"16005 WAHRMAN ST\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"48174-9725\",\n            \"cityName\": \"Romulus\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 40.246281,\n            \"longitude\": -82.868742\n          },\n          \"timeZoneOffset\": \"-04:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370238Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.437024Z\"\n        },\n        \"stopDetails\": null\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"131 State Route 3\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"43074\",\n            \"cityName\": \"Sunbury\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 41.246281,\n            \"longitude\": -81.868742\n          },\n          \"timeZoneOffset\": \"-05:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370244Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4370245Z\"\n        },\n        \"stopDetails\": null\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e32f7fa6-1bf2-4ac0-a023-4090b295f21e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierId\": 194536367,\n  \"load\": {\n    \"loadId\": 194536334,\n    \"orderNumber\": null,\n    \"loadDetails\": {\n      \"rate\": {\n        \"value\": 654,\n        \"currencyType\": \"USD\"\n      },\n      \"mode\": \"TL\",\n      \"equipment\": {\n        \"equipmentHeight\": {\n          \"value\": 0,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentLength\": {\n          \"value\": 53,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentType\": \"V\",\n        \"equipmentWidth\": {\n          \"value\": 20,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentAttributes\": {\n          \"foodGrade\": true,\n          \"paperGrade\": false,\n          \"preCoolRequired\": false,\n          \"liftGate\": false,\n          \"palletJack\": false,\n          \"airRide\": false,\n          \"trailerXYearsOrNewer\": 0,\n          \"xLoadLocks\": 0,\n          \"xLoadBars\": 0,\n          \"xLoadStraps\": 0,\n          \"xSideboards\": 0,\n          \"eTrack\": false,\n          \"chains\": false,\n          \"noRollDoor\": false,\n          \"rollDoorAllowed\": false,\n          \"noReefer\": false,\n          \"noLiftGate\": false,\n          \"doubleTrailer\": false,\n          \"tripleTrailer\": false,\n          \"loadOutTrailer\": false,\n          \"towAway\": false,\n          \"lightweightEquipment\": false,\n          \"scaleUpToXPounds\": 0,\n          \"scaleUpToXKilograms\": 0,\n          \"tandemSlide\": false,\n          \"downloadableReefer\": false,\n          \"spaceSaverReefer\": false,\n          \"translucentTop\": false,\n          \"duraplate\": false,\n          \"ventedVan\": false,\n          \"functionalAirChute\": false,\n          \"trailerMustHaveAllWoodFloors\": false,\n          \"xlCode\": false\n        },\n        \"genericAttributes\": null\n      },\n      \"loadDistance\": {\n        \"value\": 1500,\n        \"unit\": \"Miles\"\n      },\n      \"weight\": {\n        \"value\": 1800,\n        \"unit\": \"Pounds\"\n      },\n      \"temperatureSettings\": {\n        \"preCoolTemperature\": null,\n        \"maximumTemperature\": {\n          \"value\": 12,\n          \"unit\": \"Fahrenheit\"\n        },\n        \"minimumTemperature\": {\n          \"value\": 20,\n          \"unit\": \"Fahrenheit\"\n        }\n      },\n      \"loadAttributes\": {\n        \"airRide\": false,\n        \"blind\": false,\n        \"bondedCarrier\": false,\n        \"borderCrossingByCoyote\": false,\n        \"borderCrossingByCustomer\": false,\n        \"coyoteGo\": false,\n        \"crossBorderMexico\": false,\n        \"ctpat\": false,\n        \"disasterRelief\": false,\n        \"doubleBlind\": false,\n        \"doubleTrailer\": false,\n        \"drayage\": false,\n        \"duraplate\": false,\n        \"englishSpeaking\": false,\n        \"exitPass\": false,\n        \"fast\": false,\n        \"fdaClearanceRequired\": false,\n        \"floodRelief\": false,\n        \"govt\": false,\n        \"guaranteed\": false,\n        \"haccp\": false,\n        \"hazmatEndorsement\": false,\n        \"hvhr\": false,\n        \"hvhrPlus\": false,\n        \"intraMexico\": false,\n        \"liquor\": false,\n        \"neec\": false,\n        \"noCameraPhonePhotosOfPaperwork\": false,\n        \"overDimension\": false,\n        \"palletJack\": false,\n        \"partialLoad\": false,\n        \"pipOrPep\": false,\n        \"powerOnly\": false,\n        \"ppe\": false,\n        \"protectFromFreeze\": false,\n        \"repairReceiptRequiredForBreakdowns\": false,\n        \"seal\": true,\n        \"secondaryBorderInspection\": false,\n        \"tankerEndorsement\": false,\n        \"tcr\": false,\n        \"team\": false,\n        \"techTrackingRequired\": false,\n        \"tradeShow\": false,\n        \"trailerControl\": false,\n        \"transloadByCoyote\": false,\n        \"transloadByCustomer\": false,\n        \"tripleTrailer\": false,\n        \"twic\": false,\n        \"uiia\": false\n      },\n      \"genericAttributes\": null\n    },\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"16005 WAHRMAN ST\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"48174-9725\",\n            \"cityName\": \"Romulus\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 40.246281,\n            \"longitude\": -82.868742\n          },\n          \"timeZoneOffset\": \"-04:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370238Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.437024Z\"\n        },\n        \"stopDetails\": null\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"131 State Route 3\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"43074\",\n            \"cityName\": \"Sunbury\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 41.246281,\n            \"longitude\": -81.868742\n          },\n          \"timeZoneOffset\": \"-05:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370244Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4370245Z\"\n        },\n        \"stopDetails\": null\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fcf2088a-49ad-46d6-b187-2af1e5ecb790",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierId\": 194536367,\n  \"load\": {\n    \"loadId\": 194536334,\n    \"orderNumber\": null,\n    \"loadDetails\": {\n      \"rate\": {\n        \"value\": 654,\n        \"currencyType\": \"USD\"\n      },\n      \"mode\": \"TL\",\n      \"equipment\": {\n        \"equipmentHeight\": {\n          \"value\": 0,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentLength\": {\n          \"value\": 53,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentType\": \"V\",\n        \"equipmentWidth\": {\n          \"value\": 20,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentAttributes\": {\n          \"foodGrade\": true,\n          \"paperGrade\": false,\n          \"preCoolRequired\": false,\n          \"liftGate\": false,\n          \"palletJack\": false,\n          \"airRide\": false,\n          \"trailerXYearsOrNewer\": 0,\n          \"xLoadLocks\": 0,\n          \"xLoadBars\": 0,\n          \"xLoadStraps\": 0,\n          \"xSideboards\": 0,\n          \"eTrack\": false,\n          \"chains\": false,\n          \"noRollDoor\": false,\n          \"rollDoorAllowed\": false,\n          \"noReefer\": false,\n          \"noLiftGate\": false,\n          \"doubleTrailer\": false,\n          \"tripleTrailer\": false,\n          \"loadOutTrailer\": false,\n          \"towAway\": false,\n          \"lightweightEquipment\": false,\n          \"scaleUpToXPounds\": 0,\n          \"scaleUpToXKilograms\": 0,\n          \"tandemSlide\": false,\n          \"downloadableReefer\": false,\n          \"spaceSaverReefer\": false,\n          \"translucentTop\": false,\n          \"duraplate\": false,\n          \"ventedVan\": false,\n          \"functionalAirChute\": false,\n          \"trailerMustHaveAllWoodFloors\": false,\n          \"xlCode\": false\n        },\n        \"genericAttributes\": null\n      },\n      \"loadDistance\": {\n        \"value\": 1500,\n        \"unit\": \"Miles\"\n      },\n      \"weight\": {\n        \"value\": 1800,\n        \"unit\": \"Pounds\"\n      },\n      \"temperatureSettings\": {\n        \"preCoolTemperature\": null,\n        \"maximumTemperature\": {\n          \"value\": 12,\n          \"unit\": \"Fahrenheit\"\n        },\n        \"minimumTemperature\": {\n          \"value\": 20,\n          \"unit\": \"Fahrenheit\"\n        }\n      },\n      \"loadAttributes\": {\n        \"airRide\": false,\n        \"blind\": false,\n        \"bondedCarrier\": false,\n        \"borderCrossingByCoyote\": false,\n        \"borderCrossingByCustomer\": false,\n        \"coyoteGo\": false,\n        \"crossBorderMexico\": false,\n        \"ctpat\": false,\n        \"disasterRelief\": false,\n        \"doubleBlind\": false,\n        \"doubleTrailer\": false,\n        \"drayage\": false,\n        \"duraplate\": false,\n        \"englishSpeaking\": false,\n        \"exitPass\": false,\n        \"fast\": false,\n        \"fdaClearanceRequired\": false,\n        \"floodRelief\": false,\n        \"govt\": false,\n        \"guaranteed\": false,\n        \"haccp\": false,\n        \"hazmatEndorsement\": false,\n        \"hvhr\": false,\n        \"hvhrPlus\": false,\n        \"intraMexico\": false,\n        \"liquor\": false,\n        \"neec\": false,\n        \"noCameraPhonePhotosOfPaperwork\": false,\n        \"overDimension\": false,\n        \"palletJack\": false,\n        \"partialLoad\": false,\n        \"pipOrPep\": false,\n        \"powerOnly\": false,\n        \"ppe\": false,\n        \"protectFromFreeze\": false,\n        \"repairReceiptRequiredForBreakdowns\": false,\n        \"seal\": true,\n        \"secondaryBorderInspection\": false,\n        \"tankerEndorsement\": false,\n        \"tcr\": false,\n        \"team\": false,\n        \"techTrackingRequired\": false,\n        \"tradeShow\": false,\n        \"trailerControl\": false,\n        \"transloadByCoyote\": false,\n        \"transloadByCustomer\": false,\n        \"tripleTrailer\": false,\n        \"twic\": false,\n        \"uiia\": false\n      },\n      \"genericAttributes\": null\n    },\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"16005 WAHRMAN ST\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"48174-9725\",\n            \"cityName\": \"Romulus\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 40.246281,\n            \"longitude\": -82.868742\n          },\n          \"timeZoneOffset\": \"-04:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370238Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.437024Z\"\n        },\n        \"stopDetails\": null\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"131 State Route 3\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"43074\",\n            \"cityName\": \"Sunbury\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 41.246281,\n            \"longitude\": -81.868742\n          },\n          \"timeZoneOffset\": \"-05:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370244Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4370245Z\"\n        },\n        \"stopDetails\": null\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d793b012-6af0-4c69-8d02-237d1383c632",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrierId\": 194536367,\n  \"load\": {\n    \"loadId\": 194536334,\n    \"orderNumber\": null,\n    \"loadDetails\": {\n      \"rate\": {\n        \"value\": 654,\n        \"currencyType\": \"USD\"\n      },\n      \"mode\": \"TL\",\n      \"equipment\": {\n        \"equipmentHeight\": {\n          \"value\": 0,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentLength\": {\n          \"value\": 53,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentType\": \"V\",\n        \"equipmentWidth\": {\n          \"value\": 20,\n          \"unit\": \"Feet\"\n        },\n        \"equipmentAttributes\": {\n          \"foodGrade\": true,\n          \"paperGrade\": false,\n          \"preCoolRequired\": false,\n          \"liftGate\": false,\n          \"palletJack\": false,\n          \"airRide\": false,\n          \"trailerXYearsOrNewer\": 0,\n          \"xLoadLocks\": 0,\n          \"xLoadBars\": 0,\n          \"xLoadStraps\": 0,\n          \"xSideboards\": 0,\n          \"eTrack\": false,\n          \"chains\": false,\n          \"noRollDoor\": false,\n          \"rollDoorAllowed\": false,\n          \"noReefer\": false,\n          \"noLiftGate\": false,\n          \"doubleTrailer\": false,\n          \"tripleTrailer\": false,\n          \"loadOutTrailer\": false,\n          \"towAway\": false,\n          \"lightweightEquipment\": false,\n          \"scaleUpToXPounds\": 0,\n          \"scaleUpToXKilograms\": 0,\n          \"tandemSlide\": false,\n          \"downloadableReefer\": false,\n          \"spaceSaverReefer\": false,\n          \"translucentTop\": false,\n          \"duraplate\": false,\n          \"ventedVan\": false,\n          \"functionalAirChute\": false,\n          \"trailerMustHaveAllWoodFloors\": false,\n          \"xlCode\": false\n        },\n        \"genericAttributes\": null\n      },\n      \"loadDistance\": {\n        \"value\": 1500,\n        \"unit\": \"Miles\"\n      },\n      \"weight\": {\n        \"value\": 1800,\n        \"unit\": \"Pounds\"\n      },\n      \"temperatureSettings\": {\n        \"preCoolTemperature\": null,\n        \"maximumTemperature\": {\n          \"value\": 12,\n          \"unit\": \"Fahrenheit\"\n        },\n        \"minimumTemperature\": {\n          \"value\": 20,\n          \"unit\": \"Fahrenheit\"\n        }\n      },\n      \"loadAttributes\": {\n        \"airRide\": false,\n        \"blind\": false,\n        \"bondedCarrier\": false,\n        \"borderCrossingByCoyote\": false,\n        \"borderCrossingByCustomer\": false,\n        \"coyoteGo\": false,\n        \"crossBorderMexico\": false,\n        \"ctpat\": false,\n        \"disasterRelief\": false,\n        \"doubleBlind\": false,\n        \"doubleTrailer\": false,\n        \"drayage\": false,\n        \"duraplate\": false,\n        \"englishSpeaking\": false,\n        \"exitPass\": false,\n        \"fast\": false,\n        \"fdaClearanceRequired\": false,\n        \"floodRelief\": false,\n        \"govt\": false,\n        \"guaranteed\": false,\n        \"haccp\": false,\n        \"hazmatEndorsement\": false,\n        \"hvhr\": false,\n        \"hvhrPlus\": false,\n        \"intraMexico\": false,\n        \"liquor\": false,\n        \"neec\": false,\n        \"noCameraPhonePhotosOfPaperwork\": false,\n        \"overDimension\": false,\n        \"palletJack\": false,\n        \"partialLoad\": false,\n        \"pipOrPep\": false,\n        \"powerOnly\": false,\n        \"ppe\": false,\n        \"protectFromFreeze\": false,\n        \"repairReceiptRequiredForBreakdowns\": false,\n        \"seal\": true,\n        \"secondaryBorderInspection\": false,\n        \"tankerEndorsement\": false,\n        \"tcr\": false,\n        \"team\": false,\n        \"techTrackingRequired\": false,\n        \"tradeShow\": false,\n        \"trailerControl\": false,\n        \"transloadByCoyote\": false,\n        \"transloadByCustomer\": false,\n        \"tripleTrailer\": false,\n        \"twic\": false,\n        \"uiia\": false\n      },\n      \"genericAttributes\": null\n    },\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"16005 WAHRMAN ST\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"48174-9725\",\n            \"cityName\": \"Romulus\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 40.246281,\n            \"longitude\": -82.868742\n          },\n          \"timeZoneOffset\": \"-04:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370238Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.437024Z\"\n        },\n        \"stopDetails\": null\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": null,\n          \"address\": {\n            \"line1\": \"131 State Route 3\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"43074\",\n            \"cityName\": \"Sunbury\",\n            \"stateProvinceCode\": \"OH\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 41.246281,\n            \"longitude\": -81.868742\n          },\n          \"timeZoneOffset\": \"-05:00:00\"\n        },\n        \"appointment\": {\n          \"facilityOpenDateTimeUtc\": null,\n          \"facilityCloseDateTimeUtc\": null,\n          \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4370244Z\",\n          \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4370245Z\"\n        },\n        \"stopDetails\": null\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"description\": \"Eligible\",\n    \"bookingValue\": \"\",\n    \"currentValue\": \"False\",\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"TotalWeight\",\n    \"bookingValue\": 2500,\n    \"currentValue\": 2700,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"MinimumTemperature\",\n    \"bookingValue\": -100,\n    \"currentValue\": -99,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"MaximumTemperature\",\n    \"bookingValue\": 100,\n    \"currentValue\": 99,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"EquipmentType\",\n    \"bookingValue\": \"V\",\n    \"currentValue\": \"R\",\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"EquipmentHeight\",\n    \"bookingValue\": 50,\n    \"currentValue\": 60,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"EquipmentWidth\",\n    \"bookingValue\": 50,\n    \"currentValue\": 60,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"EquipmentLength\",\n    \"bookingValue\": 50,\n    \"currentValue\": 60,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"Rate\",\n    \"bookingValue\": 1000,\n    \"currentValue\": 1000,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"Mode\",\n    \"bookingValue\": 2,\n    \"currentValue\": 3,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"Stops.Count\",\n    \"bookingValue\": 2,\n    \"currentValue\": 3,\n    \"sequence\": 0\n  },\n  {\n    \"description\": \"Stop.Sequence\",\n    \"bookingValue\": null,\n    \"currentValue\": 1,\n    \"sequence\": 1\n  },\n  {\n    \"description\": \"Stop.StateCode\",\n    \"bookingValue\": \"MI\",\n    \"currentValue\": \"IL\",\n    \"sequence\": 2\n  },\n  {\n    \"description\": \"Stop.CityName\",\n    \"bookingValue\": \"Detroit\",\n    \"currentValue\": \"Chicago\",\n    \"sequence\": 2\n  },\n  {\n    \"description\": \"Stop.AppointmentStartDateTimeUtc\",\n    \"bookingValue\": \"1753-01-01T00:00:00\",\n    \"currentValue\": \"2020-05-18T00:00:00\",\n    \"sequence\": 1\n  },\n  {\n    \"description\": \"Stop.FacilityOpenDateTimeUtc\",\n    \"bookingValue\": \"1753-01-01T00:00:00\",\n    \"currentValue\": \"2020-05-18T00:00:00\",\n    \"sequence\": 1\n  },\n  {\n    \"description\": \"Stop.AppointmentEndDateTimeUtc\",\n    \"bookingValue\": \"1753-01-01T00:00:00\",\n    \"currentValue\": \"2020-05-18T00:00:00\",\n    \"sequence\": 1\n  },\n  {\n    \"description\": \"Stop.FacilityCloseDateTimeUtc\",\n    \"bookingValue\": \"1753-01-01T00:00:00\",\n    \"currentValue\": \"2020-05-18T00:00:00\",\n    \"sequence\": 1\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23dcd749-e6d9-4edd-9b3e-559fda4fb379",
+          "name": "Get booking request status",
+          "request": {
+            "name": "Get booking request status",
+            "description": {
+              "content": "Allows Carriers to retrieve the current booking status for a previously submitted booking request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Booking",
+                ":bookingRequestId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bookingRequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54b732dc-72f1-4000-a11c-1522e4bbd003",
+              "name": "The booking request status successfully retrieved and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking",
+                    ":bookingRequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loadId\": 3367,\n  \"carrierId\": 9676,\n  \"status\": \"Failed\",\n  \"validationMessages\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "580a21fc-ec8e-4c82-9197-c844e8dada3a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking",
+                    ":bookingRequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cae55673-956c-4830-9cc5-f021ec83a2a1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking",
+                    ":bookingRequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2ec3322-ff5f-42b3-8126-49bfeb08e7fc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking",
+                    ":bookingRequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8cb37e84-fb8a-4f4e-a780-341eb4557816",
+              "name": "The booking request does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Booking",
+                    ":bookingRequestId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bookingRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demo.coyote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "414225fb-988f-4ee0-ba61-ff2a10e6dee5",
+    "name": "CoyoteGO Associated Entities API Carrier - Booking APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n\n\nContact Support:\n Name: API Management\n Email: apimanagement@coyote.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Carrier - Offer APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carrier - Offer APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get existing offer details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Offer/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Offer id"
+              }
+            ]
+          },
+          "docs": "Allows Coyote's Carrier to retrieve an existing offer details."
+        },
+        {
+          "info": {
+            "name": "Remove offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.demo.coyote.com/api/v1/Offer/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Offer id"
+              }
+            ]
+          },
+          "docs": "Allows Coyote's Carrier to remove pending offer."
+        },
+        {
+          "info": {
+            "name": "Create new offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/Offer/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Coyote's Carrier to create new offer."
+        },
+        {
+          "info": {
+            "name": "Book an offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/Offer/:id/book",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Offer id"
+              }
+            ]
+          },
+          "docs": "Allows Coyote's Carrier book an offer."
+        },
+        {
+          "info": {
+            "name": "Decline offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/Offer/:id/decline",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Offer id"
+              }
+            ]
+          },
+          "docs": "Allows Coyote's Carrier to decline countered offer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

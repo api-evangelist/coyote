@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Shipper - Tracking APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipper - Tracking APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all load stop details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Trackings/:loadId/stopdetails",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path",
+                "description": "The requested load Id."
+              }
+            ]
+          },
+          "docs": "Allows Shippers to retrieve all load stop details for a given load, including facility information, \r\nas well as appointments, and tracking milestones."
+        },
+        {
+          "info": {
+            "name": "Gets load tracking summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Trackings/:loadId/summaries",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path",
+                "description": "The requested load Id."
+              }
+            ]
+          },
+          "docs": "Allows Shippers to retrieve a tracking summary view for a given load, including the latest location update, \r\nnext stop details, and estimated arrival."
+        },
+        {
+          "info": {
+            "name": "Gets all tracking updates for a given load",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/LocationStatuses/:loadId",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path",
+                "description": "The requested load ID."
+              }
+            ]
+          },
+          "docs": "Allows Shippers to retrieve all location updates for a given load."
+        },
+        {
+          "info": {
+            "name": "Gets the latest tracking update for a given load",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/LocationStatuses/:loadId/latest",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path",
+                "description": "The requested load ID."
+              }
+            ]
+          },
+          "docs": "Allows Shippers to retrieve the most recent location updates for a given load."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

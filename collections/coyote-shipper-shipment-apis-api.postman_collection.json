@@ -1,0 +1,860 @@
+{
+  "item": [
+    {
+      "id": "9974fbf3-a8ce-4c99-b273-901e0a87afda",
+      "name": "Shipper - Shipment APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5321c1d3-eaee-404c-96f9-ff2c6b35f847",
+          "name": "Submit a load request",
+          "request": {
+            "name": "Submit a load request",
+            "description": {
+              "content": "Allows Shippers to submit load build requests with relevant load information, including a Spot Quote ID. \\\r\n*Note: Including a Spot Quote ID is currently unsupported in Europe.*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Loads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loadDetail\": {\n    \"commodities\": [\n      {\n        \"cargoValue\": \"<double>\",\n        \"description\": \"<string>\",\n        \"packagingType\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"weight\": \"<double>\",\n        \"poNumber\": \"<string>\",\n        \"palletCount\": \"<integer>\",\n        \"weightUnit\": \"<string>\",\n        \"lengthUnit\": \"<string>\",\n        \"length\": \"<double>\",\n        \"height\": \"<double>\",\n        \"width\": \"<double>\",\n        \"freightClass\": \"<string>\",\n        \"nmfcNumber\": \"<integer>\",\n        \"nmfcSubNumber\": \"<integer>\",\n        \"stackable\": \"<boolean>\",\n        \"temperatureUnit\": \"<string>\",\n        \"temperatureSetting\": \"<string>\",\n        \"preCoolTemperature\": \"<double>\",\n        \"minimumTemperature\": \"<double>\",\n        \"maximumTemperature\": \"<double>\",\n        \"pickUpStopNumber\": \"<integer>\",\n        \"deliveryStopNumber\": \"<integer>\",\n        \"hazMatProperties\": {\n          \"hazMat\": \"<boolean>\",\n          \"hazMatClass\": \"<string>\",\n          \"phoneNumber\": \"<string>\"\n        }\n      },\n      {\n        \"cargoValue\": \"<double>\",\n        \"description\": \"<string>\",\n        \"packagingType\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"weight\": \"<double>\",\n        \"poNumber\": \"<string>\",\n        \"palletCount\": \"<integer>\",\n        \"weightUnit\": \"<string>\",\n        \"lengthUnit\": \"<string>\",\n        \"length\": \"<double>\",\n        \"height\": \"<double>\",\n        \"width\": \"<double>\",\n        \"freightClass\": \"<string>\",\n        \"nmfcNumber\": \"<integer>\",\n        \"nmfcSubNumber\": \"<integer>\",\n        \"stackable\": \"<boolean>\",\n        \"temperatureUnit\": \"<string>\",\n        \"temperatureSetting\": \"<string>\",\n        \"preCoolTemperature\": \"<double>\",\n        \"minimumTemperature\": \"<double>\",\n        \"maximumTemperature\": \"<double>\",\n        \"pickUpStopNumber\": \"<integer>\",\n        \"deliveryStopNumber\": \"<integer>\",\n        \"hazMatProperties\": {\n          \"hazMat\": \"<boolean>\",\n          \"hazMatClass\": \"<string>\",\n          \"phoneNumber\": \"<string>\"\n        }\n      }\n    ],\n    \"equipmentLength\": \"<integer>\",\n    \"equipmentType\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"stops\": [\n      {\n        \"facility\": {\n          \"address\": {\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stateProvinceCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"<string>\",\n          \"geoCoordinates\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"facilityContact\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumberCountryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumberExtension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sequence\": \"<integer>\",\n        \"stopType\": \"<string>\",\n        \"stopRequirements\": [\n          {\n            \"requirementType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requirementValue\": \"<string>\"\n          },\n          {\n            \"requirementType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requirementValue\": \"<string>\"\n          }\n        ],\n        \"openDateTimeUtc\": \"<dateTime>\",\n        \"closeDateTimeUtc\": \"<dateTime>\",\n        \"appointmentStartDateTimeUtc\": \"<dateTime>\",\n        \"appointmentEndDateTimeUtc\": \"<dateTime>\",\n        \"referenceNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"stopNotes\": \"<string>\"\n      },\n      {\n        \"facility\": {\n          \"address\": {\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postalCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stateProvinceCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"<string>\",\n          \"geoCoordinates\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"facilityContact\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumberCountryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phoneNumberExtension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"sequence\": \"<integer>\",\n        \"stopType\": \"<string>\",\n        \"stopRequirements\": [\n          {\n            \"requirementType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requirementValue\": \"<string>\"\n          },\n          {\n            \"requirementType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"requirementValue\": \"<string>\"\n          }\n        ],\n        \"openDateTimeUtc\": \"<dateTime>\",\n        \"closeDateTimeUtc\": \"<dateTime>\",\n        \"appointmentStartDateTimeUtc\": \"<dateTime>\",\n        \"appointmentEndDateTimeUtc\": \"<dateTime>\",\n        \"referenceNumbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"stopNotes\": \"<string>\"\n      }\n    ],\n    \"requirements\": [\n      {\n        \"requirementType\": \"<string>\",\n        \"requirementValue\": \"<string>\"\n      },\n      {\n        \"requirementType\": \"<string>\",\n        \"requirementValue\": \"<string>\"\n      }\n    ],\n    \"equipmentRequirements\": [\n      {\n        \"requirementType\": \"<string>\",\n        \"requirementValue\": \"<string>\"\n      },\n      {\n        \"requirementType\": \"<string>\",\n        \"requirementValue\": \"<string>\"\n      }\n    ],\n    \"spotQuoteId\": \"<string>\"\n  },\n  \"customer\": {\n    \"referenceNumbers\": [\n      {\n        \"referenceNumberType\": \"<string>\",\n        \"referenceNumberValue\": \"<string>\"\n      },\n      {\n        \"referenceNumberType\": \"<string>\",\n        \"referenceNumberValue\": \"<string>\"\n      }\n    ],\n    \"customerId\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75c01138-ea7e-4d0e-9759-c81f4440fb57",
+              "name": "Load request sent successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"referenceNumbers\": [\n      {\n        \"referenceNumberType\": \"ShipmentNumber\",\n        \"referenceNumberValue\": \"123456\"\n      }\n    ],\n    \"customerId\": 0\n  },\n  \"loadDetail\": {\n    \"mode\": \"TL\",\n    \"equipmentType\": \"V\",\n    \"equipmentLength\": 53,\n    \"requirements\": [\n      {\n        \"requirementType\": \"Guaranteed\",\n        \"requirementValue\": \"true\"\n      }\n    ],\n    \"equipmentRequirements\": [\n      {\n        \"requirementType\": \"LiftGate\",\n        \"requirementValue\": \"true\"\n      },\n      {\n        \"requirementType\": \"XLoadBars\",\n        \"requirementValue\": \"6\"\n      }\n    ],\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": \"Pick Up Facility\",\n          \"address\": {\n            \"line1\": \"123 Main St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"60647\",\n            \"cityName\": \"Chicago\",\n            \"stateProvinceCode\": \"IL\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"PickUp Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"pickup.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-13T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-13T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-13T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-13T12:00:00Z\",\n        \"referenceNumbers\": [\n          \"ABC1234\",\n          \"123467\",\n          \"ABCXYZ\"\n        ],\n        \"stopNotes\": \"Sample instructions\"\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": \"Drop Off Facility\",\n          \"address\": {\n            \"line1\": \"123 Downers St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"50313\",\n            \"cityName\": \"Madison\",\n            \"stateProvinceCode\": \"WI\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"Dropoff Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"dropoff.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-15T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-15T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-15T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-15T12:00:00Z\",\n        \"referenceNumbers\": null,\n        \"stopNotes\": null\n      }\n    ],\n    \"commodities\": [\n      {\n        \"description\": \"Packages\",\n        \"poNumber\": null,\n        \"packagingType\": \"Pallet\",\n        \"quantity\": 100,\n        \"palletCount\": 5,\n        \"weightUnit\": \"Pounds\",\n        \"weight\": 500,\n        \"lengthUnit\": \"Inches\",\n        \"length\": 100,\n        \"height\": 50,\n        \"width\": 100,\n        \"freightClass\": null,\n        \"nmfcNumber\": null,\n        \"nmfcSubNumber\": null,\n        \"cargoValue\": 1000,\n        \"stackable\": false,\n        \"temperatureUnit\": null,\n        \"temperatureSetting\": null,\n        \"preCoolTemperature\": null,\n        \"minimumTemperature\": null,\n        \"maximumTemperature\": null,\n        \"pickUpStopNumber\": 1,\n        \"deliveryStopNumber\": 2,\n        \"hazMatProperties\": {\n          \"hazMat\": true,\n          \"hazMatClass\": 3,\n          \"phoneNumber\": \"(123)456-7890\"\n        }\n      }\n    ],\n    \"spotQuoteId\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "5f98845e46b1fb0a748827ee",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2cc6c144-690d-46f2-9fe2-bd49c3fc077b",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"referenceNumbers\": [\n      {\n        \"referenceNumberType\": \"ShipmentNumber\",\n        \"referenceNumberValue\": \"123456\"\n      }\n    ],\n    \"customerId\": 0\n  },\n  \"loadDetail\": {\n    \"mode\": \"TL\",\n    \"equipmentType\": \"V\",\n    \"equipmentLength\": 53,\n    \"requirements\": [\n      {\n        \"requirementType\": \"Guaranteed\",\n        \"requirementValue\": \"true\"\n      }\n    ],\n    \"equipmentRequirements\": [\n      {\n        \"requirementType\": \"LiftGate\",\n        \"requirementValue\": \"true\"\n      },\n      {\n        \"requirementType\": \"XLoadBars\",\n        \"requirementValue\": \"6\"\n      }\n    ],\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": \"Pick Up Facility\",\n          \"address\": {\n            \"line1\": \"123 Main St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"60647\",\n            \"cityName\": \"Chicago\",\n            \"stateProvinceCode\": \"IL\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"PickUp Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"pickup.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-13T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-13T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-13T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-13T12:00:00Z\",\n        \"referenceNumbers\": [\n          \"ABC1234\",\n          \"123467\",\n          \"ABCXYZ\"\n        ],\n        \"stopNotes\": \"Sample instructions\"\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": \"Drop Off Facility\",\n          \"address\": {\n            \"line1\": \"123 Downers St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"50313\",\n            \"cityName\": \"Madison\",\n            \"stateProvinceCode\": \"WI\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"Dropoff Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"dropoff.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-15T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-15T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-15T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-15T12:00:00Z\",\n        \"referenceNumbers\": null,\n        \"stopNotes\": null\n      }\n    ],\n    \"commodities\": [\n      {\n        \"description\": \"Packages\",\n        \"poNumber\": null,\n        \"packagingType\": \"Pallet\",\n        \"quantity\": 100,\n        \"palletCount\": 5,\n        \"weightUnit\": \"Pounds\",\n        \"weight\": 500,\n        \"lengthUnit\": \"Inches\",\n        \"length\": 100,\n        \"height\": 50,\n        \"width\": 100,\n        \"freightClass\": null,\n        \"nmfcNumber\": null,\n        \"nmfcSubNumber\": null,\n        \"cargoValue\": 1000,\n        \"stackable\": false,\n        \"temperatureUnit\": null,\n        \"temperatureSetting\": null,\n        \"preCoolTemperature\": null,\n        \"minimumTemperature\": null,\n        \"maximumTemperature\": null,\n        \"pickUpStopNumber\": 1,\n        \"deliveryStopNumber\": 2,\n        \"hazMatProperties\": {\n          \"hazMat\": true,\n          \"hazMatClass\": 3,\n          \"phoneNumber\": \"(123)456-7890\"\n        }\n      }\n    ],\n    \"spotQuoteId\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69dd4a04-f937-4b8b-9871-8463dea5f8f3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"referenceNumbers\": [\n      {\n        \"referenceNumberType\": \"ShipmentNumber\",\n        \"referenceNumberValue\": \"123456\"\n      }\n    ],\n    \"customerId\": 0\n  },\n  \"loadDetail\": {\n    \"mode\": \"TL\",\n    \"equipmentType\": \"V\",\n    \"equipmentLength\": 53,\n    \"requirements\": [\n      {\n        \"requirementType\": \"Guaranteed\",\n        \"requirementValue\": \"true\"\n      }\n    ],\n    \"equipmentRequirements\": [\n      {\n        \"requirementType\": \"LiftGate\",\n        \"requirementValue\": \"true\"\n      },\n      {\n        \"requirementType\": \"XLoadBars\",\n        \"requirementValue\": \"6\"\n      }\n    ],\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": \"Pick Up Facility\",\n          \"address\": {\n            \"line1\": \"123 Main St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"60647\",\n            \"cityName\": \"Chicago\",\n            \"stateProvinceCode\": \"IL\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"PickUp Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"pickup.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-13T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-13T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-13T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-13T12:00:00Z\",\n        \"referenceNumbers\": [\n          \"ABC1234\",\n          \"123467\",\n          \"ABCXYZ\"\n        ],\n        \"stopNotes\": \"Sample instructions\"\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": \"Drop Off Facility\",\n          \"address\": {\n            \"line1\": \"123 Downers St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"50313\",\n            \"cityName\": \"Madison\",\n            \"stateProvinceCode\": \"WI\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"Dropoff Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"dropoff.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-15T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-15T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-15T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-15T12:00:00Z\",\n        \"referenceNumbers\": null,\n        \"stopNotes\": null\n      }\n    ],\n    \"commodities\": [\n      {\n        \"description\": \"Packages\",\n        \"poNumber\": null,\n        \"packagingType\": \"Pallet\",\n        \"quantity\": 100,\n        \"palletCount\": 5,\n        \"weightUnit\": \"Pounds\",\n        \"weight\": 500,\n        \"lengthUnit\": \"Inches\",\n        \"length\": 100,\n        \"height\": 50,\n        \"width\": 100,\n        \"freightClass\": null,\n        \"nmfcNumber\": null,\n        \"nmfcSubNumber\": null,\n        \"cargoValue\": 1000,\n        \"stackable\": false,\n        \"temperatureUnit\": null,\n        \"temperatureSetting\": null,\n        \"preCoolTemperature\": null,\n        \"minimumTemperature\": null,\n        \"maximumTemperature\": null,\n        \"pickUpStopNumber\": 1,\n        \"deliveryStopNumber\": 2,\n        \"hazMatProperties\": {\n          \"hazMat\": true,\n          \"hazMatClass\": 3,\n          \"phoneNumber\": \"(123)456-7890\"\n        }\n      }\n    ],\n    \"spotQuoteId\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72c0ed82-e04c-4abe-b45e-125b2c17d83e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"referenceNumbers\": [\n      {\n        \"referenceNumberType\": \"ShipmentNumber\",\n        \"referenceNumberValue\": \"123456\"\n      }\n    ],\n    \"customerId\": 0\n  },\n  \"loadDetail\": {\n    \"mode\": \"TL\",\n    \"equipmentType\": \"V\",\n    \"equipmentLength\": 53,\n    \"requirements\": [\n      {\n        \"requirementType\": \"Guaranteed\",\n        \"requirementValue\": \"true\"\n      }\n    ],\n    \"equipmentRequirements\": [\n      {\n        \"requirementType\": \"LiftGate\",\n        \"requirementValue\": \"true\"\n      },\n      {\n        \"requirementType\": \"XLoadBars\",\n        \"requirementValue\": \"6\"\n      }\n    ],\n    \"stops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pickup\",\n        \"facility\": {\n          \"name\": \"Pick Up Facility\",\n          \"address\": {\n            \"line1\": \"123 Main St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"60647\",\n            \"cityName\": \"Chicago\",\n            \"stateProvinceCode\": \"IL\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"PickUp Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"pickup.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-13T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-13T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-13T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-13T12:00:00Z\",\n        \"referenceNumbers\": [\n          \"ABC1234\",\n          \"123467\",\n          \"ABCXYZ\"\n        ],\n        \"stopNotes\": \"Sample instructions\"\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": \"Drop Off Facility\",\n          \"address\": {\n            \"line1\": \"123 Downers St.\",\n            \"line2\": null,\n            \"line3\": null,\n            \"postalCode\": \"50313\",\n            \"cityName\": \"Madison\",\n            \"stateProvinceCode\": \"WI\",\n            \"countryCode\": \"US\"\n          },\n          \"geoCoordinates\": null,\n          \"facilityContact\": {\n            \"name\": \"Dropoff Contact\",\n            \"phoneNumberCountryCode\": null,\n            \"phoneNumber\": \"(123)456-7890\",\n            \"phoneNumberExtension\": null,\n            \"email\": \"dropoff.contact@email.com\"\n          }\n        },\n        \"stopRequirements\": [\n          {\n            \"requirementType\": \"DropTrailerAllowXHoursToUnload\",\n            \"requirementValue\": \"5\"\n          },\n          {\n            \"requirementType\": \"Inside\",\n            \"requirementValue\": \"true\"\n          }\n        ],\n        \"openDateTimeUtc\": \"2026-06-15T08:00:00Z\",\n        \"closeDateTimeUtc\": \"2026-06-15T18:00:00Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-15T10:00:00Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-15T12:00:00Z\",\n        \"referenceNumbers\": null,\n        \"stopNotes\": null\n      }\n    ],\n    \"commodities\": [\n      {\n        \"description\": \"Packages\",\n        \"poNumber\": null,\n        \"packagingType\": \"Pallet\",\n        \"quantity\": 100,\n        \"palletCount\": 5,\n        \"weightUnit\": \"Pounds\",\n        \"weight\": 500,\n        \"lengthUnit\": \"Inches\",\n        \"length\": 100,\n        \"height\": 50,\n        \"width\": 100,\n        \"freightClass\": null,\n        \"nmfcNumber\": null,\n        \"nmfcSubNumber\": null,\n        \"cargoValue\": 1000,\n        \"stackable\": false,\n        \"temperatureUnit\": null,\n        \"temperatureSetting\": null,\n        \"preCoolTemperature\": null,\n        \"minimumTemperature\": null,\n        \"maximumTemperature\": null,\n        \"pickUpStopNumber\": 1,\n        \"deliveryStopNumber\": 2,\n        \"hazMatProperties\": {\n          \"hazMat\": true,\n          \"hazMatClass\": 3,\n          \"phoneNumber\": \"(123)456-7890\"\n        }\n      }\n    ],\n    \"spotQuoteId\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ca5cce7-2921-49a9-ac78-b18f923a809d",
+          "name": "Get load build status",
+          "request": {
+            "name": "Get load build status",
+            "description": {
+              "content": "Allows Shippers to retrieve the current load build status for a previously submitted request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Loads",
+                ":loadRequestId",
+                "buildstatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "loadRequestId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b990537a-12ae-4edb-bfc0-423913904d8b",
+              "name": "The load build status was successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadRequestId",
+                    "buildstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loadRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loadId\": 123456,\n  \"status\": \"Completed\",\n  \"message\": \"Load built successfully\",\n  \"trackingUri\": \"https://tracking.coyote.com?id=M6W8E9rVIDRZrGXTyObKpd3XHfMrfADfgH0OF3CXyhM%3D\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04aee347-27d6-47e9-979a-989c9861e6c7",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadRequestId",
+                    "buildstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loadRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "657aa754-c8ab-4c88-956a-69066902fd1e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadRequestId",
+                    "buildstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loadRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8df5f211-f63f-4fdd-93ec-36ea7c01e9f3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadRequestId",
+                    "buildstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loadRequestId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97672711-833b-4b22-8b56-4c5cfda13a62",
+          "name": "Cancel a load",
+          "request": {
+            "name": "Cancel a load",
+            "description": {
+              "content": "Allows Shippers to cancel a load that was previously submitted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Loads",
+                ":loadId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "loadId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21114257-614e-47f0-a28d-52b88ee3067b",
+              "name": "The load was successfully cancelled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0fe2268-fc07-49e2-b3a3-d4ddfa06f5cd",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b594142e-a938-4acf-9a0f-7de144a48802",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2adb54c5-b537-4c46-b7bf-6e570704cd22",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dafd4c8-f059-4897-a59f-42f833ce1df3",
+          "name": "Search loads",
+          "request": {
+            "name": "Search loads",
+            "description": {
+              "content": "Based on a given search term, Coyote will return a list of all loads that match on any of the below reference number types associated to your loads.\r\n```\r\nReferenceNumberType: \r\n    - \"PRONumber\"\r\n    - \"DeliveryNumber\"\r\n    - \"AppointmentConfirmation\"\r\n    - \"ProofOfDelivery\"\r\n    - \"Reference\"\r\n    - \"PoNumber\"\r\n    - \"OrderNumber\"\r\n    - \"CommercialInvoice\" \r\n    - \"ShipmentNumber\" \r\n    - \"MasterBillOfLading\" \r\n    - \"BillOfLading\" \r\n    - \"PickupNumber\"\r\n```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Loads",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "(Required) Requested search term"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a06bac06-33bc-40b2-bc10-26297881504f",
+              "name": "Loads successfully retrieved and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"loadId\": 19601171,\n    \"loadDate\": \"2026-06-13T13:33:48.4824219-05:00\",\n    \"loadStops\": [\n      {\n        \"sequence\": 1,\n        \"stopType\": \"Pick Up\",\n        \"facility\": {\n          \"name\": \"Printers Distributing Co., LLC\",\n          \"address\": {\n            \"line1\": \"270 Middle Road\",\n            \"line2\": \"\",\n            \"line3\": \"\",\n            \"cityName\": \"Dallas\",\n            \"countryCode\": \"USA\",\n            \"postalCode\": \"75221\",\n            \"stateProvinceCode\": \"TX\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 32.783,\n            \"longitude\": -96.8\n          }\n        }\n      },\n      {\n        \"sequence\": 2,\n        \"stopType\": \"Delivery\",\n        \"facility\": {\n          \"name\": \"Delivery Distributing Co., LLC\",\n          \"address\": {\n            \"line1\": \"3964 Shader Rd\",\n            \"line2\": \"\",\n            \"line3\": \"\",\n            \"cityName\": \"Orlando\",\n            \"countryCode\": \"USA\",\n            \"postalCode\": \"32808\",\n            \"stateProvinceCode\": \"FL\"\n          },\n          \"geoCoordinates\": {\n            \"latitude\": 28.546,\n            \"longitude\": -81.378\n          }\n        }\n      }\n    ],\n    \"trackingUrl\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aad3c7d9-625d-4bfc-821a-1a6b6a5462de",
+              "name": "Loads do not exist for given search term",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8ad9518-530d-4551-a95a-faa49fdc29d7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57ac56e8-e20d-4f29-ac5d-11aeeefe9d50",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Loads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demo.coyote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1777a1b8-d154-4117-af74-8a8ec72d1315",
+    "name": "CoyoteGO Associated Entities API Shipper - Shipment APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n\n\nContact Support:\n Name: API Management\n Email: apimanagement@coyote.com",
+      "type": "text/plain"
+    }
+  }
+}

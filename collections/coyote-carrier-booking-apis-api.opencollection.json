@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Carrier - Booking APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carrier - Booking APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a booking request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/Booking",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Carriers to submit a booking request with relevant load information."
+        },
+        {
+          "info": {
+            "name": "Get booking request status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Booking/:bookingRequestId/status",
+            "params": [
+              {
+                "name": "bookingRequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows Carriers to retrieve the current booking status for a previously submitted booking request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

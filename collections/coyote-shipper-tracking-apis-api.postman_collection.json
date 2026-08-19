@@ -1,0 +1,977 @@
+{
+  "item": [
+    {
+      "id": "3beccdec-ca73-4358-8a02-32e572bd05d3",
+      "name": "Shipper - Tracking APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3429cfc-ac40-4cc5-9aca-1d820665e145",
+          "name": "Gets all load stop details",
+          "request": {
+            "name": "Gets all load stop details",
+            "description": {
+              "content": "Allows Shippers to retrieve all load stop details for a given load, including facility information, \r\nas well as appointments, and tracking milestones.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Trackings",
+                ":loadId",
+                "stopdetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "loadId",
+                  "description": "(Required) The requested load Id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7d48043-a6fc-45b7-bbd2-2a2699a34168",
+              "name": "Successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "stopdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"proNumber\": \"PRONUMBER\",\n  \"loadStops\": [\n    {\n      \"milestone\": {\n        \"driverArrivalDateTimeUtc\": \"2026-06-13T18:38:48.5416537Z\",\n        \"trailerArriveDateTimeUtc\": \"2026-06-13T18:38:48.5416537Z\",\n        \"trailerLoadedDateTimeUtc\": \"2026-06-13T18:38:48.5416538Z\",\n        \"trailerEmptyDateTimeUtc\": \"2026-06-13T18:38:48.5416538Z\",\n        \"driverDepartureDateTimeUtc\": \"2026-06-13T18:38:48.5416538Z\"\n      },\n      \"sequence\": 1,\n      \"stopType\": \"Pickup\",\n      \"facility\": {\n        \"name\": \"Coyote Logistics\",\n        \"address\": {\n          \"line1\": \"2545 W Diversey Ave\",\n          \"line2\": null,\n          \"line3\": null,\n          \"postalCode\": \"60647\",\n          \"cityName\": \"Chicago\",\n          \"stateProvinceCode\": \"IL\",\n          \"countryCode\": \"USA\"\n        },\n        \"geoCoordinates\": {\n          \"latitude\": 41.931674,\n          \"longitude\": -87.691939\n        }\n      },\n      \"appointment\": {\n        \"facilityOpenDateTimeUtc\": \"2026-06-14T18:33:48.5416535Z\",\n        \"facilityCloseDateTimeUtc\": \"2026-06-14T18:33:48.5416534Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-13T18:38:48.5416528Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-13T19:13:48.5416534Z\"\n      }\n    },\n    {\n      \"milestone\": {\n        \"driverArrivalDateTimeUtc\": \"2026-06-14T18:33:48.5416548Z\",\n        \"trailerArriveDateTimeUtc\": \"2026-06-14T18:33:48.5416548Z\",\n        \"trailerLoadedDateTimeUtc\": \"2026-06-14T18:33:48.5416549Z\",\n        \"trailerEmptyDateTimeUtc\": \"2026-06-14T18:33:48.5416549Z\",\n        \"driverDepartureDateTimeUtc\": \"2026-06-14T18:33:48.5416548Z\"\n      },\n      \"sequence\": 2,\n      \"stopType\": \"Delivery\",\n      \"facility\": {\n        \"name\": \"Coyote Logistics\",\n        \"address\": {\n          \"line1\": \"1515 Wazee St\",\n          \"line2\": null,\n          \"line3\": null,\n          \"postalCode\": \"80202\",\n          \"cityName\": \"Denver\",\n          \"stateProvinceCode\": \"CO\",\n          \"countryCode\": \"USA\"\n        },\n        \"geoCoordinates\": {\n          \"latitude\": 41.931674,\n          \"longitude\": -87.691939\n        }\n      },\n      \"appointment\": {\n        \"facilityOpenDateTimeUtc\": \"2026-06-14T18:33:48.5416545Z\",\n        \"facilityCloseDateTimeUtc\": \"2026-06-14T18:33:48.5416545Z\",\n        \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.5416544Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.5416544Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dec9269-1d72-45af-93c7-e6efcb976407",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "stopdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bdf37bda-c848-4ffc-a7d0-389e237f8ef7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "stopdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "114d69c9-4948-46b1-af16-df1b78af3073",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "stopdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5feb915d-27e5-4721-9842-bed9cd8fe1d2",
+              "name": "Temporarily unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "stopdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4cd083d-4be2-4411-98d8-1fd51bd563c9",
+          "name": "Gets load tracking summary",
+          "request": {
+            "name": "Gets load tracking summary",
+            "description": {
+              "content": "Allows Shippers to retrieve a tracking summary view for a given load, including the latest location update, \r\nnext stop details, and estimated arrival.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "Trackings",
+                ":loadId",
+                "summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "loadId",
+                  "description": "(Required) The requested load Id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33d86c34-1949-4358-82d2-a1ca6cea3a8e",
+              "name": "Successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"proNumber\": \"PRONUMBER\",\n  \"latestLocationStatus\": {\n    \"address\": {\n      \"line1\": \"2545 W Diversey Ave\",\n      \"line2\": null,\n      \"line3\": null,\n      \"postalCode\": \"60647\",\n      \"cityName\": \"Chicago\",\n      \"stateProvinceCode\": \"IL\",\n      \"countryCode\": \"USA\"\n    },\n    \"timestampUtc\": \"2026-06-13T18:33:48.5456031Z\",\n    \"geoCoordinates\": {\n      \"latitude\": 41.931674,\n      \"longitude\": -87.691939\n    }\n  },\n  \"nextStop\": {\n    \"sequence\": 2,\n    \"stopType\": \"Delivery\",\n    \"facility\": {\n      \"name\": \"Coyote Logistics\",\n      \"address\": {\n        \"line1\": \"2545 W Diversey Ave\",\n        \"line2\": null,\n        \"line3\": null,\n        \"postalCode\": \"60647\",\n        \"cityName\": \"Chicago\",\n        \"stateProvinceCode\": \"IL\",\n        \"countryCode\": \"USA\"\n      },\n      \"geoCoordinates\": {\n        \"latitude\": 41.931674,\n        \"longitude\": -87.691939\n      }\n    },\n    \"appointment\": {\n      \"facilityOpenDateTimeUtc\": \"2026-06-14T18:33:48.5456037Z\",\n      \"facilityCloseDateTimeUtc\": \"2026-06-14T18:33:48.5456036Z\",\n      \"appointmentStartDateTimeUtc\": \"2026-06-13T18:38:48.5456034Z\",\n      \"appointmentEndDateTimeUtc\": \"2026-06-13T19:13:48.5456036Z\"\n    }\n  },\n  \"estimatedArrivalDateTimeUtc\": \"2026-06-13T18:43:48.5456018Z\",\n  \"nextStopDistance\": {\n    \"value\": 10,\n    \"unit\": \"Miles\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4741bd52-4549-4fd3-9593-4ed739398ce9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "617ecfa3-25a1-471e-ae41-06b67e8e997f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfd8a1f8-8dcb-45b0-a17c-e1af02c1a62b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e755bb55-4d35-448e-b17b-9f1149710268",
+              "name": "Temporarily unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "Trackings",
+                    ":loadId",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load Id."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32ef8776-e723-4da6-8d55-681f403f2649",
+          "name": "Gets all tracking updates for a given load",
+          "request": {
+            "name": "Gets all tracking updates for a given load",
+            "description": {
+              "content": "Allows Shippers to retrieve all location updates for a given load.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "LocationStatuses",
+                ":loadId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "loadId",
+                  "description": "(Required) The requested load ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5217505a-7652-45e6-9386-74151e4acdee",
+              "name": "The tracking updates were successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"loadId\": 12345,\n    \"address\": {\n      \"line1\": \"2545 W Diversey Ave\",\n      \"line2\": null,\n      \"city\": \"Chicago\",\n      \"postalCode\": \"60647\",\n      \"state\": \"IL\",\n      \"countryCode\": \"USA\"\n    },\n    \"geoCoordinates\": {\n      \"latitude\": 41.9316,\n      \"longitude\": -87.6921\n    },\n    \"timestamp\": \"2026-06-13T18:33:48.487995Z\"\n  },\n  {\n    \"loadId\": 12345,\n    \"address\": {\n      \"line1\": \"1515 Wazee St\",\n      \"line2\": null,\n      \"city\": \"Denver\",\n      \"postalCode\": \"80202\",\n      \"state\": \"CO\",\n      \"countryCode\": \"USA\"\n    },\n    \"geoCoordinates\": {\n      \"latitude\": 39.734,\n      \"longitude\": -104.935\n    },\n    \"timestamp\": \"2026-06-11T18:33:48.4879955Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1bfe182-41b9-4060-b1e0-9f48033e9ba3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "037732f6-7dba-4cbd-aa34-8efd025e3300",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f07f2670-0925-439b-b597-344dbc7f6e31",
+              "name": "The tracking updates do not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7106a81d-8796-4e27-adda-31e924fce6fc",
+          "name": "Gets the latest tracking update for a given load",
+          "request": {
+            "name": "Gets the latest tracking update for a given load",
+            "description": {
+              "content": "Allows Shippers to retrieve the most recent location updates for a given load.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "LocationStatuses",
+                ":loadId",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "loadId",
+                  "description": "(Required) The requested load ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5ca6fa3-acd5-41cc-8063-5c49e1bdabc5",
+              "name": "The tracking update was successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loadId\": 12345,\n  \"address\": {\n    \"line1\": \"2545 W Diversey Ave\",\n    \"line2\": null,\n    \"city\": \"Chicago\",\n    \"postalCode\": \"60647\",\n    \"state\": \"IL\",\n    \"countryCode\": \"USA\"\n  },\n  \"geoCoordinates\": {\n    \"latitude\": 41.9316,\n    \"longitude\": -87.6921\n  },\n  \"timestamp\": \"2026-06-13T18:33:48.4892069Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87c16c73-9a85-4f97-9ffa-cb010d036398",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b80a3f04-0646-4de6-982c-9486cb3f799f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5edd302-b82a-49f6-8f8e-715a85692b69",
+              "name": "The tracking update does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "LocationStatuses",
+                    ":loadId",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demo.coyote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4adb3c8d-673b-4799-8e4a-9ccd95ddbf38",
+    "name": "CoyoteGO Associated Entities API Shipper - Tracking APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n\n\nContact Support:\n Name: API Management\n Email: apimanagement@coyote.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,599 @@
+{
+  "item": [
+    {
+      "id": "9639611e-2b27-48d9-b127-458a8da7720b",
+      "name": "Carrier - Available Load APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b191c95-c8ad-4b16-a0d1-d3af0d79239a",
+          "name": "Gets available load details",
+          "request": {
+            "name": "Gets available load details",
+            "description": {
+              "content": "Allows Carriers to retrieve all the current details for a given load, assuming the provided load is still available.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "AvailableLoads",
+                ":loadId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "loadId",
+                  "description": "(Required) The requested load id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba0cf8a7-3555-4e37-93f1-3686500fabe9",
+              "name": "Load successfully retrieved and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loadId\": 194536334,\n  \"orderNumber\": null,\n  \"loadDetails\": {\n    \"rate\": {\n      \"value\": 654,\n      \"currencyType\": \"USD\"\n    },\n    \"mode\": \"TL\",\n    \"equipment\": {\n      \"equipmentHeight\": {\n        \"value\": 0,\n        \"unit\": \"Feet\"\n      },\n      \"equipmentLength\": {\n        \"value\": 53,\n        \"unit\": \"Feet\"\n      },\n      \"equipmentType\": \"V\",\n      \"equipmentWidth\": {\n        \"value\": 20,\n        \"unit\": \"Feet\"\n      },\n      \"equipmentAttributes\": {\n        \"foodGrade\": true,\n        \"paperGrade\": false,\n        \"preCoolRequired\": false,\n        \"liftGate\": false,\n        \"palletJack\": false,\n        \"airRide\": false,\n        \"trailerXYearsOrNewer\": 0,\n        \"xLoadLocks\": 0,\n        \"xLoadBars\": 0,\n        \"xLoadStraps\": 0,\n        \"xSideboards\": 0,\n        \"eTrack\": false,\n        \"chains\": false,\n        \"noRollDoor\": false,\n        \"rollDoorAllowed\": false,\n        \"noReefer\": false,\n        \"noLiftGate\": false,\n        \"doubleTrailer\": false,\n        \"tripleTrailer\": false,\n        \"loadOutTrailer\": false,\n        \"towAway\": false,\n        \"lightweightEquipment\": false,\n        \"scaleUpToXPounds\": 0,\n        \"scaleUpToXKilograms\": 0,\n        \"tandemSlide\": false,\n        \"downloadableReefer\": false,\n        \"spaceSaverReefer\": false,\n        \"translucentTop\": false,\n        \"duraplate\": false,\n        \"ventedVan\": false,\n        \"functionalAirChute\": false,\n        \"trailerMustHaveAllWoodFloors\": false,\n        \"xlCode\": false\n      },\n      \"genericAttributes\": null\n    },\n    \"loadDistance\": {\n      \"value\": 1500,\n      \"unit\": \"Miles\"\n    },\n    \"weight\": {\n      \"value\": 1800,\n      \"unit\": \"Pounds\"\n    },\n    \"temperatureSettings\": {\n      \"preCoolTemperature\": null,\n      \"maximumTemperature\": {\n        \"value\": 12,\n        \"unit\": \"Fahrenheit\"\n      },\n      \"minimumTemperature\": {\n        \"value\": 20,\n        \"unit\": \"Fahrenheit\"\n      }\n    },\n    \"loadAttributes\": {\n      \"airRide\": false,\n      \"blind\": false,\n      \"bondedCarrier\": false,\n      \"borderCrossingByCoyote\": false,\n      \"borderCrossingByCustomer\": false,\n      \"coyoteGo\": false,\n      \"crossBorderMexico\": false,\n      \"ctpat\": false,\n      \"disasterRelief\": false,\n      \"doubleBlind\": false,\n      \"doubleTrailer\": false,\n      \"drayage\": false,\n      \"duraplate\": false,\n      \"englishSpeaking\": false,\n      \"exitPass\": false,\n      \"fast\": false,\n      \"fdaClearanceRequired\": false,\n      \"floodRelief\": false,\n      \"govt\": false,\n      \"guaranteed\": false,\n      \"haccp\": false,\n      \"hazmatEndorsement\": false,\n      \"hvhr\": false,\n      \"hvhrPlus\": false,\n      \"intraMexico\": false,\n      \"liquor\": false,\n      \"neec\": false,\n      \"noCameraPhonePhotosOfPaperwork\": false,\n      \"overDimension\": false,\n      \"palletJack\": false,\n      \"partialLoad\": false,\n      \"pipOrPep\": false,\n      \"powerOnly\": false,\n      \"ppe\": false,\n      \"protectFromFreeze\": false,\n      \"repairReceiptRequiredForBreakdowns\": false,\n      \"seal\": true,\n      \"secondaryBorderInspection\": false,\n      \"tankerEndorsement\": false,\n      \"tcr\": false,\n      \"team\": false,\n      \"techTrackingRequired\": false,\n      \"tradeShow\": false,\n      \"trailerControl\": false,\n      \"transloadByCoyote\": false,\n      \"transloadByCustomer\": false,\n      \"tripleTrailer\": false,\n      \"twic\": false,\n      \"uiia\": false\n    },\n    \"genericAttributes\": null\n  },\n  \"stops\": [\n    {\n      \"sequence\": 1,\n      \"stopType\": \"Pickup\",\n      \"facility\": {\n        \"name\": null,\n        \"address\": {\n          \"line1\": \"16005 WAHRMAN ST\",\n          \"line2\": null,\n          \"line3\": null,\n          \"postalCode\": \"48174-9725\",\n          \"cityName\": \"Romulus\",\n          \"stateProvinceCode\": \"OH\",\n          \"countryCode\": \"US\"\n        },\n        \"geoCoordinates\": {\n          \"latitude\": 40.246281,\n          \"longitude\": -82.868742\n        },\n        \"timeZoneOffset\": \"-04:00:00\"\n      },\n      \"appointment\": {\n        \"facilityOpenDateTimeUtc\": null,\n        \"facilityCloseDateTimeUtc\": null,\n        \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4280298Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4280305Z\"\n      },\n      \"stopDetails\": {\n        \"commodities\": [\n          {\n            \"description\": \"Cans\",\n            \"weight\": {\n              \"value\": 123,\n              \"unit\": \"Pounds\"\n            }\n          },\n          {\n            \"description\": \"Bottles\",\n            \"weight\": {\n              \"value\": 100,\n              \"unit\": \"Pounds\"\n            }\n          }\n        ],\n        \"stopAttributes\": {\n          \"blind\": false,\n          \"closedToeShoes\": false,\n          \"detentionAuthFormRequired\": false,\n          \"driverAssist\": false,\n          \"dropAndHook\": true,\n          \"dropTrailerAllowXHoursToUnload\": 0,\n          \"dropTrailerRequired\": false,\n          \"earPlugs\": false,\n          \"englishSpeaking\": false,\n          \"escortOrTwicRequired\": false,\n          \"exitPass\": false,\n          \"government\": false,\n          \"hardHat\": false,\n          \"inOutTimesWSignature\": false,\n          \"insideDelivery\": false,\n          \"insidePickup\": false,\n          \"legalScaleOnSite\": false,\n          \"liftgateDelivery\": false,\n          \"liftgatePickup\": false,\n          \"limitedAccessDeliveryAirport\": false,\n          \"limitedAccessDeliveryChurch\": false,\n          \"limitedAccessDeliveryConstructionSite\": false,\n          \"limitedAccessDeliveryFarm\": false,\n          \"limitedAccessDeliveryMilitaryBase\": false,\n          \"limitedAccessDeliveryMineSite\": false,\n          \"limitedAccessDeliveryMiniStorage\": false,\n          \"limitedAccessDeliveryOther\": false,\n          \"limitedAccessDeliveryPrison\": false,\n          \"limitedAccessDeliveryRemoteGovt\": false,\n          \"limitedAccessDeliverySchool\": false,\n          \"limitedAccessPickupAirport\": false,\n          \"limitedAccessPickupChurch\": false,\n          \"limitedAccessPickupConstructionSite\": false,\n          \"limitedAccessPickupFarm\": false,\n          \"limitedAccessPickupMilitaryBase\": false,\n          \"limitedAccessPickupMineSite\": false,\n          \"limitedAccessPickupMiniStorage\": false,\n          \"limitedAccessPickupOther\": false,\n          \"limitedAccessPickupPrison\": false,\n          \"limitedAccessPickupRemoteGovt\": false,\n          \"limitedAccessPickupSchool\": false,\n          \"liquorPermit\": false,\n          \"loadedToLegalWeight\": false,\n          \"longPants\": false,\n          \"longSleeves\": false,\n          \"lumperReceiptRequired\": false,\n          \"mustCheckInAsCoyote\": false,\n          \"mustProvideAndApplySeal\": false,\n          \"mustSecureLoad\": false,\n          \"needCoyoteApprovalToUseLumperService\": false,\n          \"noAnimals\": false,\n          \"noDetention\": false,\n          \"noEarlyDeliveries\": false,\n          \"noLoadLocksOrStraps\": false,\n          \"noSameDayReschedules\": false,\n          \"notAllowedOnDock\": false,\n          \"noTankTops\": false,\n          \"noTrailerDetentionOrLayover\": false,\n          \"noWorkIns\": false,\n          \"onSiteParkingAvailable\": false,\n          \"overnightParkingAvailable\": false,\n          \"payLumperWCashTCheck\": false,\n          \"preLoadDropTrailerXHoursInAdvance\": 0,\n          \"prePaidLumperService\": false,\n          \"residentialDelivery\": false,\n          \"residentialPickup\": false,\n          \"safetyGlasses\": false,\n          \"safetyVest\": false,\n          \"scaleEmpty\": false,\n          \"scaleHeavy\": false,\n          \"secureYard\": false,\n          \"sortAndSegregateDelivery\": false,\n          \"sortAndSegregatePickup\": false,\n          \"spanishSpeaking\": false,\n          \"steelToeShoes\": false,\n          \"strictAppt\": false,\n          \"tradeshowDelivery\": false,\n          \"tradeshowPickup\": false,\n          \"trailerInspectionFormRequired\": false,\n          \"twic\": false,\n          \"twicRequiredNoEscorts\": false,\n          \"uiia\": false,\n          \"unpackDetrash\": false,\n          \"usCitizen\": false,\n          \"validUSCommercialDriversLicenseHardcopy\": false,\n          \"xTankOfFuelAtShipper\": 0\n        },\n        \"stopNotes\": \"This is the sample stop note\",\n        \"workType\": \"AssistCheck\",\n        \"genericAttributes\": null\n      }\n    },\n    {\n      \"sequence\": 2,\n      \"stopType\": \"Delivery\",\n      \"facility\": {\n        \"name\": null,\n        \"address\": {\n          \"line1\": \"131 State Route 3\",\n          \"line2\": null,\n          \"line3\": null,\n          \"postalCode\": \"43074\",\n          \"cityName\": \"Sunbury\",\n          \"stateProvinceCode\": \"OH\",\n          \"countryCode\": \"US\"\n        },\n        \"geoCoordinates\": {\n          \"latitude\": 41.246281,\n          \"longitude\": -81.868742\n        },\n        \"timeZoneOffset\": \"-05:00:00\"\n      },\n      \"appointment\": {\n        \"facilityOpenDateTimeUtc\": null,\n        \"facilityCloseDateTimeUtc\": null,\n        \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4280338Z\",\n        \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4280338Z\"\n      },\n      \"stopDetails\": {\n        \"commodities\": [\n          {\n            \"description\": \"Cans\",\n            \"weight\": {\n              \"value\": 133,\n              \"unit\": \"Pounds\"\n            }\n          },\n          {\n            \"description\": \"Bottles\",\n            \"weight\": {\n              \"value\": 100,\n              \"unit\": \"Pounds\"\n            }\n          }\n        ],\n        \"stopAttributes\": {\n          \"blind\": false,\n          \"closedToeShoes\": false,\n          \"detentionAuthFormRequired\": false,\n          \"driverAssist\": false,\n          \"dropAndHook\": true,\n          \"dropTrailerAllowXHoursToUnload\": 0,\n          \"dropTrailerRequired\": false,\n          \"earPlugs\": false,\n          \"englishSpeaking\": false,\n          \"escortOrTwicRequired\": false,\n          \"exitPass\": false,\n          \"government\": false,\n          \"hardHat\": false,\n          \"inOutTimesWSignature\": false,\n          \"insideDelivery\": false,\n          \"insidePickup\": false,\n          \"legalScaleOnSite\": false,\n          \"liftgateDelivery\": false,\n          \"liftgatePickup\": false,\n          \"limitedAccessDeliveryAirport\": false,\n          \"limitedAccessDeliveryChurch\": false,\n          \"limitedAccessDeliveryConstructionSite\": false,\n          \"limitedAccessDeliveryFarm\": false,\n          \"limitedAccessDeliveryMilitaryBase\": false,\n          \"limitedAccessDeliveryMineSite\": false,\n          \"limitedAccessDeliveryMiniStorage\": false,\n          \"limitedAccessDeliveryOther\": false,\n          \"limitedAccessDeliveryPrison\": false,\n          \"limitedAccessDeliveryRemoteGovt\": false,\n          \"limitedAccessDeliverySchool\": false,\n          \"limitedAccessPickupAirport\": false,\n          \"limitedAccessPickupChurch\": false,\n          \"limitedAccessPickupConstructionSite\": false,\n          \"limitedAccessPickupFarm\": false,\n          \"limitedAccessPickupMilitaryBase\": false,\n          \"limitedAccessPickupMineSite\": false,\n          \"limitedAccessPickupMiniStorage\": false,\n          \"limitedAccessPickupOther\": false,\n          \"limitedAccessPickupPrison\": false,\n          \"limitedAccessPickupRemoteGovt\": false,\n          \"limitedAccessPickupSchool\": false,\n          \"liquorPermit\": false,\n          \"loadedToLegalWeight\": false,\n          \"longPants\": false,\n          \"longSleeves\": false,\n          \"lumperReceiptRequired\": false,\n          \"mustCheckInAsCoyote\": false,\n          \"mustProvideAndApplySeal\": false,\n          \"mustSecureLoad\": false,\n          \"needCoyoteApprovalToUseLumperService\": false,\n          \"noAnimals\": false,\n          \"noDetention\": false,\n          \"noEarlyDeliveries\": false,\n          \"noLoadLocksOrStraps\": false,\n          \"noSameDayReschedules\": false,\n          \"notAllowedOnDock\": false,\n          \"noTankTops\": false,\n          \"noTrailerDetentionOrLayover\": false,\n          \"noWorkIns\": false,\n          \"onSiteParkingAvailable\": false,\n          \"overnightParkingAvailable\": false,\n          \"payLumperWCashTCheck\": false,\n          \"preLoadDropTrailerXHoursInAdvance\": 0,\n          \"prePaidLumperService\": false,\n          \"residentialDelivery\": false,\n          \"residentialPickup\": false,\n          \"safetyGlasses\": false,\n          \"safetyVest\": false,\n          \"scaleEmpty\": false,\n          \"scaleHeavy\": false,\n          \"secureYard\": false,\n          \"sortAndSegregateDelivery\": false,\n          \"sortAndSegregatePickup\": false,\n          \"spanishSpeaking\": false,\n          \"steelToeShoes\": false,\n          \"strictAppt\": false,\n          \"tradeshowDelivery\": false,\n          \"tradeshowPickup\": false,\n          \"trailerInspectionFormRequired\": false,\n          \"twic\": false,\n          \"twicRequiredNoEscorts\": false,\n          \"uiia\": false,\n          \"unpackDetrash\": false,\n          \"usCitizen\": false,\n          \"validUSCommercialDriversLicenseHardcopy\": false,\n          \"xTankOfFuelAtShipper\": 0\n        },\n        \"stopNotes\": \"This is the sample stop note\",\n        \"workType\": \"NoTouch\",\n        \"genericAttributes\": null\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94b71450-676e-4c2d-b3ca-0433d5a7869d",
+              "name": "Load does not exist or is not available anymore",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c13bc89-9739-46c0-b1b2-95ef5bcfff87",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b96c99db-8260-4126-982b-238b82fb73d3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8a4ddc0-9f13-417a-8d23-e23f43d32a00",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    ":loadId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "loadId",
+                      "description": "(Required) The requested load id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "315da52f-a6b8-47ba-bdd6-542f0acb2d0f",
+          "name": "Search available loads",
+          "request": {
+            "name": "Search available loads",
+            "description": {
+              "content": "Allows Carriers to search for available loads with a set of query inputs. Coyote will return the list of all available loads that match the inputs provided in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "AvailableLoads",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Requested page"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Requested page size"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"equipmentType\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"origin\": {\n    \"location\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    \"deadheadRadius\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"<dateTime>\",\n      \"appointmentEndDateTime\": \"<dateTime>\"\n    }\n  },\n  \"destination\": {\n    \"location\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    \"deadheadRadius\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"<string>\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"<dateTime>\",\n      \"appointmentEndDateTime\": \"<dateTime>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12859586-b405-4ac2-a8b4-9c3ca9538323",
+              "name": "Loads successfully retrieved and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"location\": {\n      \"latitude\": 41.9316,\n      \"longitude\": -87.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T14:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"destination\": {\n    \"location\": {\n      \"latitude\": 42.9316,\n      \"longitude\": -88.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T18:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"equipmentType\": \"V\",\n  \"mode\": \"TL_LTL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loads\": [\n    {\n      \"loadId\": 194536334,\n      \"orderNumber\": null,\n      \"loadDetails\": {\n        \"rate\": {\n          \"value\": 654,\n          \"currencyType\": \"USD\"\n        },\n        \"mode\": \"TL\",\n        \"equipment\": {\n          \"equipmentHeight\": {\n            \"value\": 0,\n            \"unit\": \"Feet\"\n          },\n          \"equipmentLength\": {\n            \"value\": 53,\n            \"unit\": \"Feet\"\n          },\n          \"equipmentType\": \"V\",\n          \"equipmentWidth\": {\n            \"value\": 20,\n            \"unit\": \"Feet\"\n          },\n          \"equipmentAttributes\": {\n            \"foodGrade\": true,\n            \"paperGrade\": false,\n            \"preCoolRequired\": false,\n            \"liftGate\": false,\n            \"palletJack\": false,\n            \"airRide\": false,\n            \"trailerXYearsOrNewer\": 0,\n            \"xLoadLocks\": 0,\n            \"xLoadBars\": 0,\n            \"xLoadStraps\": 0,\n            \"xSideboards\": 0,\n            \"eTrack\": false,\n            \"chains\": false,\n            \"noRollDoor\": false,\n            \"rollDoorAllowed\": false,\n            \"noReefer\": false,\n            \"noLiftGate\": false,\n            \"doubleTrailer\": false,\n            \"tripleTrailer\": false,\n            \"loadOutTrailer\": false,\n            \"towAway\": false,\n            \"lightweightEquipment\": false,\n            \"scaleUpToXPounds\": 0,\n            \"scaleUpToXKilograms\": 0,\n            \"tandemSlide\": false,\n            \"downloadableReefer\": false,\n            \"spaceSaverReefer\": false,\n            \"translucentTop\": false,\n            \"duraplate\": false,\n            \"ventedVan\": false,\n            \"functionalAirChute\": false,\n            \"trailerMustHaveAllWoodFloors\": false,\n            \"xlCode\": false\n          },\n          \"genericAttributes\": null\n        },\n        \"loadDistance\": {\n          \"value\": 1500,\n          \"unit\": \"Miles\"\n        },\n        \"weight\": {\n          \"value\": 1800,\n          \"unit\": \"Pounds\"\n        },\n        \"temperatureSettings\": {\n          \"preCoolTemperature\": null,\n          \"maximumTemperature\": {\n            \"value\": 12,\n            \"unit\": \"Fahrenheit\"\n          },\n          \"minimumTemperature\": {\n            \"value\": 20,\n            \"unit\": \"Fahrenheit\"\n          }\n        },\n        \"loadAttributes\": {\n          \"airRide\": false,\n          \"blind\": false,\n          \"bondedCarrier\": false,\n          \"borderCrossingByCoyote\": false,\n          \"borderCrossingByCustomer\": false,\n          \"coyoteGo\": false,\n          \"crossBorderMexico\": false,\n          \"ctpat\": false,\n          \"disasterRelief\": false,\n          \"doubleBlind\": false,\n          \"doubleTrailer\": false,\n          \"drayage\": false,\n          \"duraplate\": false,\n          \"englishSpeaking\": false,\n          \"exitPass\": false,\n          \"fast\": false,\n          \"fdaClearanceRequired\": false,\n          \"floodRelief\": false,\n          \"govt\": false,\n          \"guaranteed\": false,\n          \"haccp\": false,\n          \"hazmatEndorsement\": false,\n          \"hvhr\": false,\n          \"hvhrPlus\": false,\n          \"intraMexico\": false,\n          \"liquor\": false,\n          \"neec\": false,\n          \"noCameraPhonePhotosOfPaperwork\": false,\n          \"overDimension\": false,\n          \"palletJack\": false,\n          \"partialLoad\": false,\n          \"pipOrPep\": false,\n          \"powerOnly\": false,\n          \"ppe\": false,\n          \"protectFromFreeze\": false,\n          \"repairReceiptRequiredForBreakdowns\": false,\n          \"seal\": true,\n          \"secondaryBorderInspection\": false,\n          \"tankerEndorsement\": false,\n          \"tcr\": false,\n          \"team\": false,\n          \"techTrackingRequired\": false,\n          \"tradeShow\": false,\n          \"trailerControl\": false,\n          \"transloadByCoyote\": false,\n          \"transloadByCustomer\": false,\n          \"tripleTrailer\": false,\n          \"twic\": false,\n          \"uiia\": false\n        },\n        \"genericAttributes\": null\n      },\n      \"stops\": [\n        {\n          \"sequence\": 1,\n          \"stopType\": \"Pickup\",\n          \"facility\": {\n            \"name\": null,\n            \"address\": {\n              \"line1\": \"16005 WAHRMAN ST\",\n              \"line2\": null,\n              \"line3\": null,\n              \"postalCode\": \"48174-9725\",\n              \"cityName\": \"Romulus\",\n              \"stateProvinceCode\": \"OH\",\n              \"countryCode\": \"US\"\n            },\n            \"geoCoordinates\": {\n              \"latitude\": 40.246281,\n              \"longitude\": -82.868742\n            },\n            \"timeZoneOffset\": \"-04:00:00\"\n          },\n          \"appointment\": {\n            \"facilityOpenDateTimeUtc\": null,\n            \"facilityCloseDateTimeUtc\": null,\n            \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.4337724Z\",\n            \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.4337725Z\"\n          },\n          \"stopDetails\": null\n        },\n        {\n          \"sequence\": 2,\n          \"stopType\": \"Delivery\",\n          \"facility\": {\n            \"name\": null,\n            \"address\": {\n              \"line1\": \"131 State Route 3\",\n              \"line2\": null,\n              \"line3\": null,\n              \"postalCode\": \"43074\",\n              \"cityName\": \"Sunbury\",\n              \"stateProvinceCode\": \"OH\",\n              \"countryCode\": \"US\"\n            },\n            \"geoCoordinates\": {\n              \"latitude\": 41.246281,\n              \"longitude\": -81.868742\n            },\n            \"timeZoneOffset\": \"-05:00:00\"\n          },\n          \"appointment\": {\n            \"facilityOpenDateTimeUtc\": null,\n            \"facilityCloseDateTimeUtc\": null,\n            \"appointmentStartDateTimeUtc\": \"2026-06-14T18:33:48.433773Z\",\n            \"appointmentEndDateTimeUtc\": \"2026-06-14T18:33:48.433773Z\"\n          },\n          \"stopDetails\": null\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"limit\": 1,\n    \"offset\": 1,\n    \"totalCount\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1f7e614-c0e0-443d-a929-88f4a90aea82",
+              "name": "Loads do not exist or are not available anymore",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"location\": {\n      \"latitude\": 41.9316,\n      \"longitude\": -87.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T14:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"destination\": {\n    \"location\": {\n      \"latitude\": 42.9316,\n      \"longitude\": -88.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T18:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"equipmentType\": \"V\",\n  \"mode\": \"TL_LTL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a293cf83-18f8-4d9c-bf87-439c51107865",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"location\": {\n      \"latitude\": 41.9316,\n      \"longitude\": -87.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T14:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"destination\": {\n    \"location\": {\n      \"latitude\": 42.9316,\n      \"longitude\": -88.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T18:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"equipmentType\": \"V\",\n  \"mode\": \"TL_LTL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "819a6170-e66f-4080-8eff-9de579c46204",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"location\": {\n      \"latitude\": 41.9316,\n      \"longitude\": -87.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T14:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"destination\": {\n    \"location\": {\n      \"latitude\": 42.9316,\n      \"longitude\": -88.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T18:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"equipmentType\": \"V\",\n  \"mode\": \"TL_LTL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c0dd1c8-2910-435e-9b9d-a4e2a34688f2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "AvailableLoads",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"location\": {\n      \"latitude\": 41.9316,\n      \"longitude\": -87.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T14:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"destination\": {\n    \"location\": {\n      \"latitude\": 42.9316,\n      \"longitude\": -88.6921\n    },\n    \"deadheadRadius\": {\n      \"value\": 120,\n      \"unit\": \"Miles\"\n    },\n    \"appointment\": {\n      \"appointmentStartDateTime\": \"2026-06-12T18:00:00-05:00\",\n      \"appointmentEndDateTime\": \"2026-06-13T12:00:00-05:00\"\n    }\n  },\n  \"equipmentType\": \"V\",\n  \"mode\": \"TL_LTL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demo.coyote.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8205aa2d-2422-4407-88f9-fa8f370afe6d",
+    "name": "CoyoteGO Associated Entities API Carrier - Available Load APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n\n\nContact Support:\n Name: API Management\n Email: apimanagement@coyote.com",
+      "type": "text/plain"
+    }
+  }
+}

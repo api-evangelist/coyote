@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Shipper - Quoting APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipper - Quoting APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets a TL Spot Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/SpotQuotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Shippers to retrieve a Truckload quote. Given a set of shipment attributes as input, Coyote will send back a \r\nquote with a spot quote ID (“spotQuoteId”). This quote includes fuel, unless otherwise specified at the time of integration, \r\nand will be valid for 5 hours. If you want to proceed with the quote and book a shipment, use our load build request endpoint.\\\r\n*Note: Truckload spot quotes are currently unsupported in Europe.*"
+        },
+        {
+          "info": {
+            "name": "Gets an LTL Spot Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/LTLSpotQuotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Shippers to retrieve a Less-Than-Truckload quote. Given a set of shipment attributes as input, Coyote will \r\nsend back an LTL quote with an LTL spot quote ID (“ltlSpotQuoteId”). This quote includes the list of carriers and \r\ntheir respective quotes and is valid for 7 days. If you want to proceed with the quote and book a shipment, \r\nuse our load build request endpoint and specify the Carrier Quote ID.\\\r\n*Note: Less-than-Truckload spot quotes are currently unsupported in Europe.\\\r\nSame day"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

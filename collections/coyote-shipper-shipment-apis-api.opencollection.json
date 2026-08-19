@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API Shipper - Shipment APIs API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipper - Shipment APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a load request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demo.coyote.com/api/v1/Loads",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows Shippers to submit load build requests with relevant load information, including a Spot Quote ID. \\\r\n*Note: Including a Spot Quote ID is currently unsupported in Europe.*"
+        },
+        {
+          "info": {
+            "name": "Get load build status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Loads/:loadRequestId/buildstatus",
+            "params": [
+              {
+                "name": "loadRequestId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows Shippers to retrieve the current load build status for a previously submitted request."
+        },
+        {
+          "info": {
+            "name": "Cancel a load",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.demo.coyote.com/api/v1/Loads/:loadId",
+            "params": [
+              {
+                "name": "loadId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows Shippers to cancel a load that was previously submitted."
+        },
+        {
+          "info": {
+            "name": "Search loads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/Loads/search",
+            "params": [
+              {
+                "name": "searchTerm",
+                "value": "",
+                "type": "query",
+                "description": "Requested search term"
+              }
+            ]
+          },
+          "docs": "Based on a given search term, Coyote will return a list of all loads that match on any of the below reference number types associated to your loads.\r\n```\r\nReferenceNumberType: \r\n    - \"PRONumber\"\r\n    - \"DeliveryNumber\"\r\n    - \"AppointmentConfirmation\"\r\n    - \"ProofOfDelivery\"\r\n    - \"Reference\"\r\n    - \"PoNumber\"\r\n    - \"OrderNumber\"\r\n    - \"CommercialInvoice\" \r\n    - \"ShipmentNumber\" \r\n    - \"MasterBillOfLading\" \r\n    - \"BillOfLading\" \r\n    - \"PickupNumber\"\r\n```"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoyoteGO Associated Entities API API",
+    "version": "v0.1.1.2549"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Associated Entities API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get associated entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.demo.coyote.com/api/v1/AssociatedEntities"
+          },
+          "docs": "Allows Coyote's Carrier and Shipper partners to retrieve all associated entities to their account that can be transacted on behalf of via our API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
