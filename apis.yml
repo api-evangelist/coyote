@@ -203,6 +203,9 @@ apis:
   - type: OpenAPI
     url: openapi/coyote-shipper-tracking-apis-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/coyote-capability-edges.yml
+    name: Coyote Logistics Business Capability Map
 
   - type: AgenticAccess
     url: agentic-access/coyote-agentic-access.yml
