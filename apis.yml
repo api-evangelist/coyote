@@ -38,18 +38,18 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/coyote.png
 tags:
-  - Freight Brokerage
+  - freight brokerage
   - Logistics
   - Truckload
   - LTL
-  - Less-Than-Truckload
+  - less-than-truckload
   - Shipping
-  - Supply Chain
+  - supply chain
   - freight quotes
-  - Shipment Tracking
-  - Load Management
+  - shipment tracking
+  - load management
   - 3PL
-  - Customs Brokerage
+  - customs brokerage
   - carrier API
   - shipper API
 tags_raw:
@@ -89,10 +89,10 @@ apis:
   - freight quotes
   - Truckload
   - LTL
-  - Shipment Tracking
-  - Load Management
-  - Carriers
-  - Shippers
+  - shipment tracking
+  - load management
+  - carriers
+  - shippers
   - Authentication
   - REST
   tags_raw:
@@ -203,6 +203,11 @@ apis:
   - type: OpenAPI
     url: openapi/coyote-shipper-tracking-apis-api-openapi.yml
 common:
+  - type: ParentCompany
+    url: https://apis.io/providers/rxo/
+    name: RXO
+    x-relationship: acquired
+    x-evidence: "Originally founded in 2006 and acquired by UPS in 2015, Coyote was subsequently acquired by RXO in 2024."
   - type: CapabilityMap
     url: capabilities/coyote-capability-edges.yml
     name: Coyote Logistics Business Capability Map
