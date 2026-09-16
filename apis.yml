@@ -1,16 +1,16 @@
 aid: coyote
 name: Coyote Logistics
-description: >
-  Coyote Logistics is a global third-party logistics (3PL) provider and freight brokerage
-  platform, now part of RXO, offering REST APIs for truckload capacity, less-than-truckload
-  (LTL) shipping, freight quoting, shipment tracking, load management, customs brokerage,
-  and supply chain visibility. Originally founded in 2006 and acquired by UPS in 2015, Coyote
-  was subsequently acquired by RXO in 2024. The CoyoteGO API platform serves both shippers
-  and carriers, providing real-time freight quotes, live tracking updates, and load booking
-  capabilities. The API uses OAuth 2.0 client credentials flow and is backed by a network
-  of 100,000 carriers serving 15,000 customers. Integration is available at no additional
-  cost for shippers and carriers working with Coyote, with native connectors to leading
-  TMS, WMS, and ERP systems.
+description: 'Coyote Logistics is a global third-party logistics (3PL) provider and freight brokerage
+  platform, now part of RXO, offering REST APIs for truckload capacity, less-than-truckload (LTL) shipping,
+  freight quoting, shipment tracking, load management, customs brokerage, and supply chain visibility.
+  Originally founded in 2006 and acquired by UPS in 2015, Coyote was subsequently acquired by RXO in 2024.
+  The CoyoteGO API platform serves both shippers and carriers, providing real-time freight quotes, live
+  tracking updates, and load booking capabilities. The API uses OAuth 2.0 client credentials flow and
+  is backed by a network of 100,000 carriers serving 15,000 customers. Integration is available at no
+  additional cost for shippers and carriers working with Coyote, with native connectors to leading TMS,
+  WMS, and ERP systems.
+
+  '
 type: Index
 deliveryModel:
   model: saas
@@ -34,56 +34,59 @@ accessModel:
   confidence: medium
   source:
   - plans
-  - {url: 'https://coyote.com/', status: 301, note: 'declared website redirects to https://rxo.com/ — a different registrable domain (coyote.com -> rxo.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
+  - url: https://coyote.com/
+    status: 301
+    note: declared website redirects to https://rxo.com/ — a different registrable domain (coyote.com
+      -> rxo.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/coyote.png
 tags:
-  - Freight Brokerage
-  - Logistics
-  - Truckload
-  - LTL
-  - Less-Than-Truckload
-  - Shipping
-  - Supply Chain
-  - freight quotes
-  - Shipment Tracking
-  - Load Management
-  - 3PL
-  - Customs Brokerage
-  - carrier API
-  - shipper API
+- Freight Brokerage
+- Logistics
+- Truckload
+- LTL
+- Less-Than-Truckload
+- Shipping
+- Supply Chain
+- freight quotes
+- Shipment Tracking
+- Load Management
+- 3PL
+- Customs Brokerage
+- carrier API
+- shipper API
 tags_raw:
-  - freight brokerage
-  - logistics
-  - truckload
-  - LTL
-  - less-than-truckload
-  - shipping
-  - supply chain
-  - freight quotes
-  - shipment tracking
-  - load management
-  - 3PL
-  - customs brokerage
-  - carrier API
-  - shipper API
+- freight brokerage
+- logistics
+- truckload
+- LTL
+- less-than-truckload
+- shipping
+- supply chain
+- freight quotes
+- shipment tracking
+- load management
+- 3PL
+- customs brokerage
+- carrier API
+- shipper API
 url: https://raw.githubusercontent.com/api-evangelist/coyote/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
-
 apis:
 - aid: coyote:coyotego-api
   name: CoyoteGO API
-  description: >
-    The primary REST API for Coyote Logistics enabling shippers and carriers to integrate freight operations
-    directly into their TMS, WMS, ERP, or accounting systems. Provides real-time freight quotes for truckload
-    and LTL shipments, live shipment tracking updates, load search and booking for carriers, shipment
-    data management, bill of lading generation, billing and invoice retrieval, and document submission.
-    Authentication uses OAuth 2.0 client credentials flow; credentials are provisioned by a Coyote sales
-    representative or the integrations team. A sandbox environment is available at api-sandbox.coyote.com
+  description: 'The primary REST API for Coyote Logistics enabling shippers and carriers to integrate
+    freight operations directly into their TMS, WMS, ERP, or accounting systems. Provides real-time freight
+    quotes for truckload and LTL shipments, live shipment tracking updates, load search and booking for
+    carriers, shipment data management, bill of lading generation, billing and invoice retrieval, and
+    document submission. Authentication uses OAuth 2.0 client credentials flow; credentials are provisioned
+    by a Coyote sales representative or the integrations team. A sandbox environment is available at api-sandbox.coyote.com
     for testing before going live.
+
+    '
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -116,9 +119,9 @@ apis:
   - type: Sandbox
     url: https://api-sandbox.coyote.com
 - aid: coyote:coyote-associated-entities-api-api
-  name: Coyote Logistics Associated Entities API API
-  description: >-
-    The Associated Entities API API from Coyote Logistics — 1 operation(s) for associated entities api.
+  name: Coyote Logistics Associated Entities API
+  description: The Associated Entities API API from Coyote Logistics — 1 operation(s) for associated entities
+    api.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -128,9 +131,8 @@ apis:
     url: openapi/coyote-associated-entities-api-api-openapi.yml
 - aid: coyote:coyote-carrier-available-load-apis-api
   name: Coyote Logistics Carrier - Available Load APIs API
-  description: >-
-    The Carrier - Available Load APIs API from Coyote Logistics — 2 operation(s) for carrier - available
-    load apis.
+  description: The Carrier - Available Load APIs API from Coyote Logistics — 2 operation(s) for carrier
+    - available load apis.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -140,8 +142,8 @@ apis:
     url: openapi/coyote-carrier-available-load-apis-api-openapi.yml
 - aid: coyote:coyote-carrier-booking-apis-api
   name: Coyote Logistics Carrier - Booking APIs API
-  description: >-
-    The Carrier - Booking APIs API from Coyote Logistics — 2 operation(s) for carrier - booking apis.
+  description: The Carrier - Booking APIs API from Coyote Logistics — 2 operation(s) for carrier - booking
+    apis.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -151,8 +153,8 @@ apis:
     url: openapi/coyote-carrier-booking-apis-api-openapi.yml
 - aid: coyote:coyote-carrier-offer-apis-api
   name: Coyote Logistics Carrier - Offer APIs API
-  description: >-
-    The Carrier - Offer APIs API from Coyote Logistics — 4 operation(s) for carrier - offer apis.
+  description: The Carrier - Offer APIs API from Coyote Logistics — 4 operation(s) for carrier - offer
+    apis.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -172,8 +174,8 @@ apis:
     url: openapi/coyote-document-apis-api-openapi.yml
 - aid: coyote:coyote-shipper-quoting-apis-api
   name: Coyote Logistics Shipper - Quoting APIs API
-  description: >-
-    The Shipper - Quoting APIs API from Coyote Logistics — 2 operation(s) for shipper - quoting apis.
+  description: The Shipper - Quoting APIs API from Coyote Logistics — 2 operation(s) for shipper - quoting
+    apis.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -183,8 +185,8 @@ apis:
     url: openapi/coyote-shipper-quoting-apis-api-openapi.yml
 - aid: coyote:coyote-shipper-shipment-apis-api
   name: Coyote Logistics Shipper - Shipment APIs API
-  description: >-
-    The Shipper - Shipment APIs API from Coyote Logistics — 4 operation(s) for shipper - shipment apis.
+  description: The Shipper - Shipment APIs API from Coyote Logistics — 4 operation(s) for shipper - shipment
+    apis.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -194,8 +196,8 @@ apis:
     url: openapi/coyote-shipper-shipment-apis-api-openapi.yml
 - aid: coyote:coyote-shipper-tracking-apis-api
   name: Coyote Logistics Shipper - Tracking APIs API
-  description: >-
-    The Shipper - Tracking APIs API from Coyote Logistics — 4 operation(s) for shipper - tracking apis.
+  description: The Shipper - Tracking APIs API from Coyote Logistics — 4 operation(s) for shipper - tracking
+    apis.
   humanURL: https://api2-dev.coyote.com/
   baseURL: https://api.coyote.com
   tags:
@@ -204,52 +206,41 @@ apis:
   - type: OpenAPI
     url: openapi/coyote-shipper-tracking-apis-api-openapi.yml
 common:
-  - type: ParentCompany
-    url: https://apis.io/providers/rxo/
-    name: RXO
-    x-relationship: acquired
-    x-evidence: "Originally founded in 2006 and acquired by UPS in 2015, Coyote was subsequently acquired by RXO in 2024."
-  - type: CapabilityMap
-    url: capabilities/coyote-capability-edges.yml
-    name: Coyote Logistics Business Capability Map
-
-  - type: AgenticAccess
-    url: agentic-access/coyote-agentic-access.yml
-  - type: DomainSecurity
-    url: security/coyote-domain-security.yml
-  - type: Website
-    url: https://coyote.com/
-
-  - type: Documentation
-    url: https://api2-dev.coyote.com/
-
-  - type: GitHubOrganization
-    url: https://github.com/coyote-team
-
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/coyote-logistics
-
-  - type: Blog
-    url: https://coyote.com/resources/
-
-  - type: Pricing
-    url: https://coyote.com/technology/
-
-  - type: StatusPage
-    url: https://tracking.coyote.com/
-
-  - type: X
-    url: https://x.com/CoyoteLogistics
-
-  - type: Plans
-    url: plans/coyote-plans-pricing.yml
-
-  - type: RateLimits
-    url: rate-limits/coyote-rate-limits.yml
-
-  - type: FinOps
-    url: finops/coyote-finops.yml
-
+- type: ParentCompany
+  url: https://apis.io/providers/rxo/
+  name: RXO
+  x-relationship: acquired
+  x-evidence: Originally founded in 2006 and acquired by UPS in 2015, Coyote was subsequently acquired
+    by RXO in 2024.
+- type: CapabilityMap
+  url: capabilities/coyote-capability-edges.yml
+  name: Coyote Logistics Business Capability Map
+- type: AgenticAccess
+  url: agentic-access/coyote-agentic-access.yml
+- type: DomainSecurity
+  url: security/coyote-domain-security.yml
+- type: Website
+  url: https://coyote.com/
+- type: Documentation
+  url: https://api2-dev.coyote.com/
+- type: GitHubOrganization
+  url: https://github.com/coyote-team
+- type: LinkedIn
+  url: https://www.linkedin.com/company/coyote-logistics
+- type: Blog
+  url: https://coyote.com/resources/
+- type: Pricing
+  url: https://coyote.com/technology/
+- type: StatusPage
+  url: https://tracking.coyote.com/
+- type: X
+  url: https://x.com/CoyoteLogistics
+- type: Plans
+  url: plans/coyote-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/coyote-rate-limits.yml
+- type: FinOps
+  url: finops/coyote-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
