@@ -95,7 +95,7 @@ apis:
   - LTL
   - Shipment Tracking
   - Load Management
-  - Carriers
+  - Carrier
   - Shippers
   - Authentication
   - REST
