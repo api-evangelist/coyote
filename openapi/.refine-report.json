@@ -1,14 +1,7 @@
 {
   "provider": "coyote",
   "sources": [
-    "coyote-associated-entities-api-api-openapi.yml",
-    "coyote-carrier-available-load-apis-api-openapi.yml",
-    "coyote-carrier-booking-apis-api-openapi.yml",
-    "coyote-carrier-offer-apis-api-openapi.yml",
-    "coyote-document-apis-api-openapi.yml",
-    "coyote-shipper-quoting-apis-api-openapi.yml",
-    "coyote-shipper-shipment-apis-api-openapi.yml",
-    "coyote-shipper-tracking-apis-api-openapi.yml"
+    "_original/openapi.json"
   ],
   "outputs": [
     "coyote-associated-entities-api-api-openapi.yml",
@@ -23,6 +16,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "openapi.json: declared missing tag: Associated Entities API",
+    "openapi.json: declared missing tag: Carrier - Available Load APIs",
+    "openapi.json: declared missing tag: Carrier - Booking APIs",
+    "openapi.json: declared missing tag: Carrier - Offer APIs",
+    "openapi.json: declared missing tag: Document APIs",
+    "openapi.json: declared missing tag: Shipper - Quoting APIs",
+    "openapi.json: declared missing tag: Shipper - Shipment APIs",
+    "openapi.json: declared missing tag: Shipper - Tracking APIs",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "coyote-associated-entities-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-carrier-available-load-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-carrier-booking-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-carrier-offer-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-document-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-shipper-quoting-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-shipper-shipment-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "coyote-shipper-tracking-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

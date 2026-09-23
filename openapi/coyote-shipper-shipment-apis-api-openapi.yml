@@ -1,7 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: CoyoteGO Associated Entities API Shipper - Shipment APIs API
-  description: "# Introduction\r\n\r\nWelcome to CoyoteGO's API Documentation. Carriers can use our APIs to search for and book themselves on available loads and \r\nsubmit or retrieve load related documents. Shippers can access instant Truckload and Less-than-Truckload quotes, build loads, \r\nand retrieve real time tracking updates.\r\n\r\nIf you're an existing Coyote Carrier or Shipper, and want to utilize the API, you can request an API key through your \r\nCoyote sales rep or by emailing apimanagement@coyote.com.\r\n\r\n__North American Partners__: By accessing or using the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs,\r\nyou are agreeing to the [Coyote North American API Terms of Use](https://www.coyote.com/terms-privacy/#api).\r\n\r\n__European Partners__: Your access and use of the CoyoteGO APIs or the API Technical Documentation for the CoyoteGO APIs is \r\nsubject to your signed [Coyote European API Agreement](https://coyote.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC8nwKw53LddjQC3fsNIKa4hPi7iJT2vNmxbbeN2ePV-SI-nKqSjzcUifUXT0oyVdM*)\r\n\r\n## Authentication\r\n\r\nOnce you've received your API key, you can now access the sandbox environment where you can begin to work with the endpoints.\r\n\r\nTo retrieve a token, POST to api.coyote.com/connect/token, specifying the following token request parameters. Token requests must be form-urlencoded.\r\n\r\nclient_id (provided by integrations team)  \r\nclient_secret (provided by integrations team)  \r\ngrant_type (client_credentials)   \r\n\r\nExample:\r\n\r\n```\r\nPOST /connect/token\r\n\r\n    client_id=client1&\r\n    client_secret=api_key&\r\n    grant_type=client_credentials&\r\n```\r\n\r\nPass your token as a bearer token in an Authorization header.\r\n\r\nOf note:\r\nThe API is organized around REST. All requests should be made over SSL. All API request and response bodies are encoded in JSON. \r\n\r\nTo test your requests and responses, use api-sandbox.coyote.com with your sandbox API key.\r\n\r\n**NOTE:** *We are migrating to a persistent testing environment that will respond with real responses instead of mock data. We will be notifying shippers as we move them over to this environment. \r\nIf provided with a Demo API key please use **api.demo.coyote.com** for testing the APIs.*\r\n"
+  title: CoyoteGO Shipper - Shipment APIs API
+  description: '# Introduction
+
+
+    Welcome to CoyoteGO''s API Documentation.'
   contact:
     name: API Management
     email: apimanagement@coyote.com
@@ -24,7 +27,9 @@ paths:
       tags:
       - Shipper - Shipment APIs
       summary: Submit a load request
-      description: "Allows Shippers to submit load build requests with relevant load information, including a Spot Quote ID. \\\r\n*Note: Including a Spot Quote ID is currently unsupported in Europe.*"
+      description: 'Allows Shippers to submit load build requests with relevant load information, including a Spot Quote ID. \
+
+        *Note: Including a Spot Quote ID is currently unsupported in Europe.*'
       requestBody:
         content:
           application/json:
@@ -155,6 +160,8 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: postApiV1Loads
+      x-operation-id-source: derived
   /api/v1/Loads/{loadRequestId}/buildstatus:
     get:
       tags:
@@ -166,8 +173,9 @@ paths:
         in: path
         required: true
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: The load build status was successfully retrieved
@@ -186,6 +194,8 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: getApiV1LoadsByLoadRequestIdBuildstatus
+      x-operation-id-source: derived
   /api/v1/Loads/{loadId}:
     delete:
       tags:
@@ -208,12 +218,44 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: deleteApiV1LoadsByLoadId
+      x-operation-id-source: derived
   /api/v1/Loads/search:
     get:
       tags:
       - Shipper - Shipment APIs
       summary: Search loads
-      description: "Based on a given search term, Coyote will return a list of all loads that match on any of the below reference number types associated to your loads.\r\n```\r\nReferenceNumberType: \r\n    - \"PRONumber\"\r\n    - \"DeliveryNumber\"\r\n    - \"AppointmentConfirmation\"\r\n    - \"ProofOfDelivery\"\r\n    - \"Reference\"\r\n    - \"PoNumber\"\r\n    - \"OrderNumber\"\r\n    - \"CommercialInvoice\" \r\n    - \"ShipmentNumber\" \r\n    - \"MasterBillOfLading\" \r\n    - \"BillOfLading\" \r\n    - \"PickupNumber\"\r\n```"
+      description: 'Based on a given search term, Coyote will return a list of all loads that match on any of the below reference number types associated to your loads.
+
+        ```
+
+        ReferenceNumberType:
+
+        - "PRONumber"
+
+        - "DeliveryNumber"
+
+        - "AppointmentConfirmation"
+
+        - "ProofOfDelivery"
+
+        - "Reference"
+
+        - "PoNumber"
+
+        - "OrderNumber"
+
+        - "CommercialInvoice"
+
+        - "ShipmentNumber"
+
+        - "MasterBillOfLading"
+
+        - "BillOfLading"
+
+        - "PickupNumber"
+
+        ```'
       parameters:
       - name: searchTerm
         in: query
@@ -272,45 +314,10 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: getApiV1LoadsSearch
+      x-operation-id-source: derived
 components:
   schemas:
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.GeoCoordinates:
-      type: object
-      properties:
-        latitude:
-          type: number
-          description: Latitude
-          format: double
-          nullable: true
-        longitude:
-          type: number
-          description: Longitude
-          format: double
-          nullable: true
-      additionalProperties: false
-      description: Geo coordinates
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadEquipmentRequirement:
-      type: object
-      properties:
-        requirementType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadEquipmentRequirementType'
-        requirementValue:
-          type: string
-          description: Requirement value
-          nullable: true
-      additionalProperties: false
-      description: Load equipment requirement
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Load:
-      required:
-      - loadDetail
-      type: object
-      properties:
-        customer:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Customer'
-        loadDetail:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadDetail'
-      additionalProperties: false
-      description: Load information
     Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.TrackingAddress:
       required:
       - cityName
@@ -324,13 +331,15 @@ components:
           type: string
           description: Line 1 (It must be 3-50 characters.)
         line2:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Line 2 (It must be 50 characters or less.)
-          nullable: true
         line3:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Line 3
-          nullable: true
         postalCode:
           type: string
           description: Postal Code
@@ -345,396 +354,35 @@ components:
           description: Country Code
       additionalProperties: false
       description: Address
-    Coyote.Systems.ExternalApi.Contracts.Models.HazMatClass:
-      enum:
-      - N3
-      - N8
-      - N9
-      - NotApplicable
-      - N2PT1
-      - N2PT2
-      - N4PT1
-      - N4PT2
-      - N5PT1
-      - N6PT1P2
-      - N6PT1P3
-      - N1PT4
-      - N1PT5
-      - N1PT6
-      type: string
-      description: Hazmat class
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequirement:
-      type: object
-      properties:
-        requirementType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadRequirementType'
-        requirementValue:
-          type: string
-          description: Requirement value
-          nullable: true
-      additionalProperties: false
-      description: ''
-    Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit:
-      enum:
-      - Fahrenheit
-      - Celsius
-      type: string
-      description: Temperature Units
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.Address:
-      type: object
-      properties:
-        line1:
-          type: string
-          description: Line 1
-          nullable: true
-        line2:
-          type: string
-          description: Line 2
-          nullable: true
-        line3:
-          type: string
-          description: Line 3
-          nullable: true
-        cityName:
-          type: string
-          description: City name
-          nullable: true
-        countryCode:
-          type: string
-          description: Country code
-          nullable: true
-        postalCode:
-          type: string
-          description: Postal code
-          nullable: true
-        stateProvinceCode:
-          type: string
-          description: State or province code
-          nullable: true
-      additionalProperties: false
-      description: Address
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadStopRequirementType:
-      enum:
-      - DropTrailerRequired
-      - DropAndHook
-      - DropTrailerAllowXHoursToUnload
-      - PreloadDropTrailerXHoursInAdvance
-      - Blind
-      - Government
-      - TWIC
-      - EscortOrTWICRequired
-      - UIIA
-      - LiquorPermit
-      - StrictAppt
-      - NoWorkIns
-      - NoEarlyDeliveries
-      - NoSameDayReschedules
-      - XRescheduleFee
-      - XLateFee
-      - ScaleEmpty
-      - ScaleHeavy
-      - XTankOfFuelAtShipper
-      - LoadedToLegalWeight
-      - NotAllowedOnDock
-      - MustCheckinAsCoyote
-      - NoLoadLocksOrStraps
-      - MustSecureLoad
-      - MustProvideAndApplySeal
-      - ExitPass
-      - EnglishSpeaking
-      - SpanishSpeaking
-      - USCitizen
-      - ValidUSCommercialDriversLicenseHardcopy
-      - OnsiteParkingAvailable
-      - OvernightParkingAvailable
-      - LegalScaleOnSite
-      - SecureYard
-      - HardHat
-      - SafetyGlasses
-      - EarPlugs
-      - LongPants
-      - LongSleeves
-      - ClosedToeShoes
-      - SteelToeShoes
-      - SafetyVest
-      - NoTankTops
-      - NoAnimalsAllowed
-      - PayLumperWCashTCheck
-      - LumperReceiptRequired
-      - NeedCoyoteApprovalToUseLumperService
-      - PrepaidLumperService
-      - LumperReceiptRequiredWithinXHours
-      - TrailerDetentionAfterXDays
-      - NoTrailerDetentionOrLayover
-      - DetentionAuthFormRequired
-      - TrailerInspectionFormRequired
-      - Liftgate
-      - Residential
-      - LimitedAccess
-      - SortAndSegregate
-      - Inside
-      - Tradeshow
-      - UnpackDetrash
-      - ScaleTicketMustBeSubmittedWithPaperwork
-      - CarrierCannotContactFacility
-      - WeightIsApproximate
-      - PieceCountIsApproximate
-      - DriverBlockAndBraceProduct
-      - MustConfirmAllPosMatchRateCon
-      - CleanCriminalRecordRequired
-      - FacemaskRequired
-      - NoOnsiteParking
-      - NoOvernightParking
-      - SafetyVideoRequired
-      - WrittenSafetyTestRequired
-      - PaperworkRequiredWithinXHours
-      - CarrierNotifyBeforeArrival
-      - AppointmentRequired
-      - DoNotStack
-      - PalletExchange
-      - Fcfs
-      type: string
-      description: Load stop requirements
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadCommodity:
-      required:
-      - cargoValue
-      - description
-      - packagingType
-      - quantity
-      - weight
-      type: object
-      properties:
-        description:
-          type: string
-          description: Item Description (Description must be 100 characters or less.)
-        poNumber:
-          type: string
-          description: PO Number
-          nullable: true
-        packagingType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.PackagingType'
-        quantity:
-          type: integer
-          description: Number of units
-          format: int32
-        palletCount:
-          type: integer
-          description: "Number of pallets relevant to commodity item\r\n\r\n**Required for LTL**"
-          format: int32
-        weightUnit:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightUnitType'
-        weight:
-          type: number
-          description: "Pallet weight in lbs(default) if not specified\r\n\r\n**Required for LTL**"
-          format: double
-        lengthUnit:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LengthUnitType'
-        length:
-          type: number
-          description: "Pallet length in inches\r\n\r\n**Required for LTL**"
-          format: double
-        height:
-          type: number
-          description: "Pallet height in inches\r\n\r\n**Required for LTL**"
-          format: double
-        width:
-          type: number
-          description: "Pallet width in inches\r\n\r\n**Required for LTL**"
-          format: double
-        freightClass:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass'
-        nmfcNumber:
-          type: integer
-          description: NMFC Number
-          format: int32
-          nullable: true
-        nmfcSubNumber:
-          type: integer
-          description: NMFC Sub number
-          format: int32
-          nullable: true
-        cargoValue:
-          type: number
-          description: Cargo value
-          format: double
-        stackable:
-          type: boolean
-          description: Stackable
-        temperatureUnit:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit'
-        temperatureSetting:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureSettingType'
-        preCoolTemperature:
-          type: number
-          description: PreCool temperature if required
-          format: double
-          nullable: true
-        minimumTemperature:
-          type: number
-          description: Minimum temperature setting
-          format: double
-          nullable: true
-        maximumTemperature:
-          type: number
-          description: Maximum temperature setting
-          format: double
-          nullable: true
-        pickUpStopNumber:
-          type: integer
-          description: Pick up stop number for commodity
-          format: int32
-        deliveryStopNumber:
-          type: integer
-          description: Delivery stop number for commodity
-          format: int32
-        hazMatProperties:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.HazMatProperties'
-      additionalProperties: false
-      description: Commodity
     Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.Facility:
       type: object
       properties:
         name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Name
-          nullable: true
         address:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.Address'
         geoCoordinates:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.GeoCoordinates'
       additionalProperties: false
       description: Load stop facility
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.StopType:
-      enum:
-      - Pickup
-      - Delivery
-      type: string
-      description: Stop Types
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.ReferenceNumber:
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.HazMatProperties:
       type: object
       properties:
-        referenceNumberType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_MultipleNumberType'
-        referenceNumberValue:
-          type: string
-          description: Reference number value. Can be alphanumeric (50 characters limit)
-          nullable: true
+        hazMat:
+          type: boolean
+          description: HazMat
+        hazMatClass:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.HazMatClass'
+        phoneNumber:
+          type:
+          - string
+          - 'null'
+          description: PhoneNumber
       additionalProperties: false
-      description: Reference Numbers
-    Coyote.Systems.ExternalApi.Contracts.Models.Mode:
-      enum:
-      - TL
-      - LTL
-      - IMDL
-      type: string
-      description: Load Modes
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Customer:
-      type: object
-      properties:
-        referenceNumbers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.ReferenceNumber'
-          description: List of reference numbers
-          nullable: true
-        customerId:
-          type: integer
-          description: Customer Id
-          format: int32
-      additionalProperties: false
-      description: Customer information
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequestStatus:
-      type: object
-      properties:
-        loadId:
-          type: integer
-          description: Coyote Load Id
-          format: int32
-        status:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuildStatus'
-        message:
-          type: string
-          description: Success/Failure message
-          nullable: true
-        trackingUri:
-          type: string
-          description: Tracking Uri
-          nullable: true
-      additionalProperties: false
-      description: Load status response
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass:
-      enum:
-      - Undefined
-      - N50
-      - N55
-      - N60
-      - N65
-      - N70
-      - N77PT5
-      - N85
-      - N92PT5
-      - N100
-      - N110
-      - N125
-      - N150
-      - N175
-      - N200
-      - N250
-      - N300
-      - N400
-      - N500
-      type: string
-      description: FreightClass
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Facility:
-      required:
-      - address
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the facility (It must be 50 characters or less.)
-        address:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.TrackingAddress'
-        geoCoordinates:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.GeoCoordinates'
-        facilityContact:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Contact'
-      additionalProperties: false
-      description: Facility
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadSearchResult:
-      type: object
-      properties:
-        loadId:
-          type: integer
-          description: Coyote load Id
-          format: int32
-        loadDate:
-          type: string
-          description: Load date
-          format: date-time
-        loadStops:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadStop'
-          description: Load stops
-          nullable: true
-        trackingUrl:
-          type: string
-          description: Tracking Url
-          format: uri
-          nullable: true
-      additionalProperties: false
-      description: Load search response
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_LengthUnitType:
-      enum:
-      - Inches
-      - Meters
-      - Centimeters
-      - Millimeters
-      - Feet
-      type: string
-      description: Length Units
+      description: HazMat Properties
     Coyote.Systems.ExternalApi.Contracts.Models.LoadRequirementType:
       enum:
       - Guaranteed
@@ -776,6 +424,354 @@ components:
       - TransitViaEurotunnel
       type: string
       description: Load requirement type
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass:
+      enum:
+      - Undefined
+      - N50
+      - N55
+      - N60
+      - N65
+      - N70
+      - N77PT5
+      - N85
+      - N92PT5
+      - N100
+      - N110
+      - N125
+      - N150
+      - N175
+      - N200
+      - N250
+      - N300
+      - N400
+      - N500
+      type: string
+      description: FreightClass
+    Coyote.Systems.ExternalApi.Contracts.Models.HazMatClass:
+      enum:
+      - N3
+      - N8
+      - N9
+      - NotApplicable
+      - N2PT1
+      - N2PT2
+      - N4PT1
+      - N4PT2
+      - N5PT1
+      - N6PT1P2
+      - N6PT1P3
+      - N1PT4
+      - N1PT5
+      - N1PT6
+      type: string
+      description: Hazmat class
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.GeoCoordinates:
+      type: object
+      properties:
+        latitude:
+          type:
+          - number
+          - 'null'
+          description: Latitude
+          format: double
+        longitude:
+          type:
+          - number
+          - 'null'
+          description: Longitude
+          format: double
+      additionalProperties: false
+      description: Geo coordinates
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.Address:
+      type: object
+      properties:
+        line1:
+          type:
+          - string
+          - 'null'
+          description: Line 1
+        line2:
+          type:
+          - string
+          - 'null'
+          description: Line 2
+        line3:
+          type:
+          - string
+          - 'null'
+          description: Line 3
+        cityName:
+          type:
+          - string
+          - 'null'
+          description: City name
+        countryCode:
+          type:
+          - string
+          - 'null'
+          description: Country code
+        postalCode:
+          type:
+          - string
+          - 'null'
+          description: Postal code
+        stateProvinceCode:
+          type:
+          - string
+          - 'null'
+          description: State or province code
+      additionalProperties: false
+      description: Address
+    Coyote.Systems.ExternalApi.Contracts.Models.Mode:
+      enum:
+      - TL
+      - LTL
+      - IMDL
+      type: string
+      description: Load Modes
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightUnitType:
+      enum:
+      - Pounds
+      type: string
+      description: Weight Units
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.StopType:
+      enum:
+      - Pickup
+      - Delivery
+      type: string
+      description: Stop Types
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Load:
+      required:
+      - loadDetail
+      type: object
+      properties:
+        customer:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Customer'
+        loadDetail:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadDetail'
+      additionalProperties: false
+      description: Load information
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadStop:
+      type: object
+      properties:
+        sequence:
+          type: integer
+          description: Stop sequence
+          format: int32
+        stopType:
+          type:
+          - string
+          - 'null'
+          description: Stop type
+        facility:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.Facility'
+      additionalProperties: false
+      description: Load stop
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadDetail:
+      required:
+      - commodities
+      - equipmentLength
+      - equipmentType
+      - mode
+      - stops
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Mode'
+        equipmentType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
+        equipmentLength:
+          type: integer
+          description: Equipment length
+          format: int32
+        requirements:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequirement'
+          description: Load requirements
+        equipmentRequirements:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadEquipmentRequirement'
+          description: Load equipment requirements
+        stops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStop'
+          description: List of load stops
+        commodities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadCommodity'
+          description: List of commodities
+        spotQuoteId:
+          type:
+          - string
+          - 'null'
+          description: "Spot Quote ID retrieved from Spot Quote requests API. For Truck Loads(TL) use the SpotQuoteId returned in TL Spot Quote request. For \nLess Than Truck Loads(LTL) use the CarrierQuoteId returned in LTL Spot Quote request."
+      additionalProperties: false
+      description: Load Details
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadEquipmentRequirement:
+      type: object
+      properties:
+        requirementType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadEquipmentRequirementType'
+        requirementValue:
+          type:
+          - string
+          - 'null'
+          description: Requirement value
+      additionalProperties: false
+      description: Load equipment requirement
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStopRequirement:
+      type: object
+      properties:
+        requirementType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadStopRequirementType'
+        requirementValue:
+          type:
+          - string
+          - 'null'
+          description: Stop requirement value
+      additionalProperties: false
+      description: Load stop requirement
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadCommodity:
+      required:
+      - cargoValue
+      - description
+      - packagingType
+      - quantity
+      - weight
+      type: object
+      properties:
+        description:
+          type: string
+          description: Item Description (Description must be 100 characters or less.)
+        poNumber:
+          type:
+          - string
+          - 'null'
+          description: PO Number
+        packagingType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.PackagingType'
+        quantity:
+          type: integer
+          description: Number of units
+          format: int32
+        palletCount:
+          type: integer
+          description: 'Number of pallets relevant to commodity item
+
+
+            **Required for LTL**'
+          format: int32
+        weightUnit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightUnitType'
+        weight:
+          type: number
+          description: 'Pallet weight in lbs(default) if not specified
+
+
+            **Required for LTL**'
+          format: double
+        lengthUnit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LengthUnitType'
+        length:
+          type: number
+          description: 'Pallet length in inches
+
+
+            **Required for LTL**'
+          format: double
+        height:
+          type: number
+          description: 'Pallet height in inches
+
+
+            **Required for LTL**'
+          format: double
+        width:
+          type: number
+          description: 'Pallet width in inches
+
+
+            **Required for LTL**'
+          format: double
+        freightClass:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass'
+        nmfcNumber:
+          type:
+          - integer
+          - 'null'
+          description: NMFC Number
+          format: int32
+        nmfcSubNumber:
+          type:
+          - integer
+          - 'null'
+          description: NMFC Sub number
+          format: int32
+        cargoValue:
+          type: number
+          description: Cargo value
+          format: double
+        stackable:
+          type: boolean
+          description: Stackable
+        temperatureUnit:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit'
+        temperatureSetting:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.TemperatureSettingType'
+        preCoolTemperature:
+          type:
+          - number
+          - 'null'
+          description: PreCool temperature if required
+          format: double
+        minimumTemperature:
+          type:
+          - number
+          - 'null'
+          description: Minimum temperature setting
+          format: double
+        maximumTemperature:
+          type:
+          - number
+          - 'null'
+          description: Maximum temperature setting
+          format: double
+        pickUpStopNumber:
+          type: integer
+          description: Pick up stop number for commodity
+          format: int32
+        deliveryStopNumber:
+          type: integer
+          description: Delivery stop number for commodity
+          format: int32
+        hazMatProperties:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.HazMatProperties'
+      additionalProperties: false
+      description: Commodity
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Customer:
+      type: object
+      properties:
+        referenceNumbers:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.ReferenceNumber'
+          description: List of reference numbers
+        customerId:
+          type: integer
+          description: Customer Id
+          format: int32
+      additionalProperties: false
+      description: Customer information
     Coyote.Systems.ExternalApi.Contracts.Models.PackagingType:
       enum:
       - NotApplicable
@@ -877,93 +873,104 @@ components:
       - IntermediateBulkContainers
       type: string
       description: Packaging types
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadDetail:
-      required:
-      - commodities
-      - equipmentLength
-      - equipmentType
-      - mode
-      - stops
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.ReferenceNumber:
       type: object
       properties:
-        mode:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Mode'
-        equipmentType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
-        equipmentLength:
-          type: integer
-          description: Equipment length
-          format: int32
-        requirements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequirement'
-          description: Load requirements
-          nullable: true
-        equipmentRequirements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadEquipmentRequirement'
-          description: Load equipment requirements
-          nullable: true
-        stops:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStop'
-          description: List of load stops
-        commodities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadCommodity'
-          description: List of commodities
-        spotQuoteId:
-          type: string
-          description: "Spot Quote ID retrieved from Spot Quote requests API. For Truck Loads(TL) use the SpotQuoteId returned in TL Spot Quote request. For \r\nLess Than Truck Loads(LTL) use the CarrierQuoteId returned in LTL Spot Quote request."
-          nullable: true
+        referenceNumberType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_MultipleNumberType'
+        referenceNumberValue:
+          type:
+          - string
+          - 'null'
+          description: Reference number value. Can be alphanumeric (50 characters limit)
       additionalProperties: false
-      description: Load Details
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_WeightUnitType:
+      description: Reference Numbers
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadSearchResult:
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: Coyote load Id
+          format: int32
+        loadDate:
+          type: string
+          description: Load date
+          format: date-time
+        loadStops:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadStop'
+          description: Load stops
+        trackingUrl:
+          type:
+          - string
+          - 'null'
+          description: Tracking Url
+          format: uri
+      additionalProperties: false
+      description: Load search response
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuildStatus:
       enum:
-      - Pounds
+      - InProgress
+      - Completed
+      - Failed
       type: string
-      description: Weight Units
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_MultipleNumberType:
+      description: Load build status
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType:
       enum:
-      - Reference
-      - OrderNumber
-      - BillOfLading
-      - CommercialInvoice
-      - MasterBOLNumber
-      - PoNumber
-      - ProNumber
-      - ShipmentNumber
+      - V
+      - R
       type: string
-      description: Multiple number types
+      description: Equipment Type
     Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Contact:
       type: object
       properties:
         name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Contact Name (It must be 50 characters or less.)
-          nullable: true
         phoneNumberCountryCode:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Phone number country code
-          nullable: true
         phoneNumber:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Phone number
-          nullable: true
         phoneNumberExtension:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Phone number extension
-          nullable: true
         email:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Contact email address
-          nullable: true
       additionalProperties: false
       description: Contact details
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Facility:
+      required:
+      - address
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the facility (It must be 50 characters or less.)
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.TrackingAddress'
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.GeoCoordinates'
+        facilityContact:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Contact'
+      additionalProperties: false
+      description: Facility
     Coyote.Systems.ExternalApi.Contracts.Models.LoadEquipmentRequirementType:
       enum:
       - FoodGrade
@@ -1000,51 +1007,148 @@ components:
       - XlCode
       type: string
       description: Load Equipment requirement types
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadStopRequirementType:
+      enum:
+      - DropTrailerRequired
+      - DropAndHook
+      - DropTrailerAllowXHoursToUnload
+      - PreloadDropTrailerXHoursInAdvance
+      - Blind
+      - Government
+      - TWIC
+      - EscortOrTWICRequired
+      - UIIA
+      - LiquorPermit
+      - StrictAppt
+      - NoWorkIns
+      - NoEarlyDeliveries
+      - NoSameDayReschedules
+      - XRescheduleFee
+      - XLateFee
+      - ScaleEmpty
+      - ScaleHeavy
+      - XTankOfFuelAtShipper
+      - LoadedToLegalWeight
+      - NotAllowedOnDock
+      - MustCheckinAsCoyote
+      - NoLoadLocksOrStraps
+      - MustSecureLoad
+      - MustProvideAndApplySeal
+      - ExitPass
+      - EnglishSpeaking
+      - SpanishSpeaking
+      - USCitizen
+      - ValidUSCommercialDriversLicenseHardcopy
+      - OnsiteParkingAvailable
+      - OvernightParkingAvailable
+      - LegalScaleOnSite
+      - SecureYard
+      - HardHat
+      - SafetyGlasses
+      - EarPlugs
+      - LongPants
+      - LongSleeves
+      - ClosedToeShoes
+      - SteelToeShoes
+      - SafetyVest
+      - NoTankTops
+      - NoAnimalsAllowed
+      - PayLumperWCashTCheck
+      - LumperReceiptRequired
+      - NeedCoyoteApprovalToUseLumperService
+      - PrepaidLumperService
+      - LumperReceiptRequiredWithinXHours
+      - TrailerDetentionAfterXDays
+      - NoTrailerDetentionOrLayover
+      - DetentionAuthFormRequired
+      - TrailerInspectionFormRequired
+      - Liftgate
+      - Residential
+      - LimitedAccess
+      - SortAndSegregate
+      - Inside
+      - Tradeshow
+      - UnpackDetrash
+      - ScaleTicketMustBeSubmittedWithPaperwork
+      - CarrierCannotContactFacility
+      - WeightIsApproximate
+      - PieceCountIsApproximate
+      - DriverBlockAndBraceProduct
+      - MustConfirmAllPosMatchRateCon
+      - CleanCriminalRecordRequired
+      - FacemaskRequired
+      - NoOnsiteParking
+      - NoOvernightParking
+      - SafetyVideoRequired
+      - WrittenSafetyTestRequired
+      - PaperworkRequiredWithinXHours
+      - CarrierNotifyBeforeArrival
+      - AppointmentRequired
+      - DoNotStack
+      - PalletExchange
+      - Fcfs
+      type: string
+      description: Load stop requirements
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_LengthUnitType:
+      enum:
+      - Inches
+      - Meters
+      - Centimeters
+      - Millimeters
+      - Feet
+      type: string
+      description: Length Units
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_MultipleNumberType:
+      enum:
+      - Reference
+      - OrderNumber
+      - BillOfLading
+      - CommercialInvoice
+      - MasterBOLNumber
+      - PoNumber
+      - ProNumber
+      - ShipmentNumber
+      type: string
+      description: Multiple number types
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequestStatus:
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: Coyote Load Id
+          format: int32
+        status:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuildStatus'
+        message:
+          type:
+          - string
+          - 'null'
+          description: Success/Failure message
+        trackingUri:
+          type:
+          - string
+          - 'null'
+          description: Tracking Uri
+      additionalProperties: false
+      description: Load status response
+    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadRequirement:
+      type: object
+      properties:
+        requirementType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadRequirementType'
+        requirementValue:
+          type:
+          - string
+          - 'null'
+          description: Requirement value
+      additionalProperties: false
+      description: ''
     Coyote.Systems.ExternalApi.Contracts.Models.TemperatureSettingType:
       enum:
       - Continuous
       - Cycle
       type: string
       description: Temperature settings
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuildStatus:
-      enum:
-      - InProgress
-      - Completed
-      - Failed
-      type: string
-      description: Load build status
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStopRequirement:
-      type: object
-      properties:
-        requirementType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadStopRequirementType'
-        requirementValue:
-          type: string
-          description: Stop requirement value
-          nullable: true
-      additionalProperties: false
-      description: Load stop requirement
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType:
-      enum:
-      - V
-      - R
-      type: string
-      description: Equipment Type
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.LoadStop:
-      type: object
-      properties:
-        sequence:
-          type: integer
-          description: Stop sequence
-          format: int32
-        stopType:
-          type: string
-          description: Stop type
-          nullable: true
-        facility:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadSearch.Facility'
-      additionalProperties: false
-      description: Load stop
     Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStop:
       required:
       - facility
@@ -1061,57 +1165,56 @@ components:
         facility:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.Facility'
         stopRequirements:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.LoadStopRequirement'
           description: Stop requirements
-          nullable: true
         openDateTimeUtc:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Facility open date/time in UTC
           format: date-time
-          nullable: true
         closeDateTimeUtc:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Facility close date/time in UTC
           format: date-time
-          nullable: true
         appointmentStartDateTimeUtc:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Appointment open date/time in UTC
           format: date-time
-          nullable: true
         appointmentEndDateTimeUtc:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Appointment close date/time in UTC
           format: date-time
-          nullable: true
         referenceNumbers:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: Reference numbers
-          nullable: true
         stopNotes:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Stop notes - special instructions relevant to stop (2500 characters limit)
-          nullable: true
       additionalProperties: false
       description: Load stop
-    Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.HazMatProperties:
-      type: object
-      properties:
-        hazMat:
-          type: boolean
-          description: HazMat
-        hazMatClass:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.HazMatClass'
-        phoneNumber:
-          type: string
-          description: PhoneNumber
-          nullable: true
-      additionalProperties: false
-      description: HazMat Properties
+    Coyote.Systems.ExternalApi.Contracts.Models.TemperatureUnit:
+      enum:
+      - Fahrenheit
+      - Celsius
+      type: string
+      description: Temperature Units
     Coyote.Systems.ExternalApi.Contracts.Models.LoadBuilding.GeoCoordinates:
       required:
       - latitude
