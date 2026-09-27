@@ -101,28 +101,31 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Coyote.Systems.ExternalApi.Contracts.Models.Documents.DocumentRequest:
-      required:
-      - document
-      - documentType
-      - extensionType
-      - loadId
-      type: object
-      properties:
-        loadId:
-          type: integer
-          description: The requested load ID.
-          format: int32
-        document:
-          type: string
-          description: Document byte array
-          format: byte
-        documentType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentType'
-        extensionType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType'
-      additionalProperties: false
-      description: Document Request
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType:
+      enum:
+      - Undefined
+      - Pdf
+      - Txt
+      - Tif
+      - Tiff
+      - Bmp
+      - Dib
+      - Gif
+      - Jpeg
+      - Jpg
+      - Jpe
+      - Jfif
+      - Png
+      - Doc
+      - Docx
+      - Rtf
+      - Mht
+      - Htm
+      - Html
+      - Xml
+      - Zip
+      type: string
+      description: Document Extension Type
     Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentType:
       enum:
       - Undefined
@@ -154,28 +157,25 @@ components:
       - PackingList
       type: string
       description: Document Type
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType:
-      enum:
-      - Undefined
-      - Pdf
-      - Txt
-      - Tif
-      - Tiff
-      - Bmp
-      - Dib
-      - Gif
-      - Jpeg
-      - Jpg
-      - Jpe
-      - Jfif
-      - Png
-      - Doc
-      - Docx
-      - Rtf
-      - Mht
-      - Htm
-      - Html
-      - Xml
-      - Zip
-      type: string
-      description: Document Extension Type
+    Coyote.Systems.ExternalApi.Contracts.Models.Documents.DocumentRequest:
+      required:
+      - document
+      - documentType
+      - extensionType
+      - loadId
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: The requested load ID.
+          format: int32
+        document:
+          type: string
+          description: Document byte array
+          format: byte
+        documentType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentType'
+        extensionType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType'
+      additionalProperties: false
+      description: Document Request

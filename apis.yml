@@ -46,7 +46,6 @@ tags:
 - Logistics
 - Truckload
 - LTL
-- Less-Than-Truckload
 - Shipping
 - Supply Chain
 - freight quotes
@@ -71,6 +70,7 @@ tags_raw:
 - customs brokerage
 - carrier API
 - shipper API
+- Less-Than-Truckload
 url: https://raw.githubusercontent.com/api-evangelist/coyote/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-09-16'
