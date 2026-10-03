@@ -232,37 +232,73 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.Accessorial:
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements:
       type: object
       properties:
-        chargeDescription:
+        appointmentRequired:
+          type: boolean
+          description: Appointment Required
+        carrierNotifyBeforeArrival:
+          type: boolean
+          description: Carrier Notify Before Arrival
+        insideStop:
+          type: boolean
+          description: Stop requires Inside Pickup or Delivery
+        residentialStop:
+          type: boolean
+          description: Residential Stop
+        tradeshowStop:
+          type: boolean
+          description: Trade show Stop
+        liftGateStop:
+          type: boolean
+          description: Stop requires Lift Gate
+        sortSegregate:
+          type: boolean
+          description: Stop requires Sort and Segregate
+        limitedAccessType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType'
+      additionalProperties: false
+      description: Destination stop requirements
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem:
+      type: object
+      properties:
+        rateCode:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.RateCode'
+        description:
           type:
           - string
           - 'null'
-          description: Accessorial charge description
-        amount:
+          description: Rate code description
+        unitRate:
           type: number
-          description: Accessorial charge amount
+          description: Unit amount of the rate line item.
           format: double
+        units:
+          type: number
+          description: Number of Units
+          format: double
+        totalRate:
+          type: number
+          description: Total amount of the rate line item.
+          format: double
+        currency:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_Currency'
       additionalProperties: false
-      description: Accessorial
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType:
+      description: Rate line item that make up the quote
+    Coyote.Systems.ExternalApi.Contracts.Models.RateCode:
       enum:
-      - Undefined
-      - USD
-      - CAD
-      - MXN
-      - ARS
-      - BRL
-      - CLP
-      - COP
-      - VEF
-      - EUR
-      - GBP
-      - HUF
-      - PLN
+      - Unknown
+      - FlatRate
+      - FuelSurcharge
       type: string
-      description: Currency Type
+      description: 'Charge codes: FR = FlatRate, 405 = FuelSurCharge, PM = PerMile'
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType:
+      enum:
+      - V
+      - R
+      type: string
+      description: Equipment Type
     Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData:
       required:
       - cityName
@@ -285,64 +321,12 @@ components:
           description: Postal Code
       additionalProperties: false
       description: City, State and Postal Code required
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements:
-      type: object
-      properties:
-        insideStop:
-          type: boolean
-          description: Stop requires Inside Pickup or Delivery
-        residentialStop:
-          type: boolean
-          description: Residential Stop
-        tradeshowStop:
-          type: boolean
-          description: Trade show Stop
-        liftGateStop:
-          type: boolean
-          description: Stop requires Lift Gate
-        sortSegregate:
-          type: boolean
-          description: Stop requires Sort and Segregate
-        limitedAccessType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType'
-      additionalProperties: false
-      description: Origin stop requirements
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData:
-      required:
-      - cityName
-      - postalCode
-      - stateCode
-      type: object
-      properties:
-        cityName:
-          type: string
-          description: City
-        stateCode:
-          type: string
-          description: State
-        countryCode:
-          type:
-          - string
-          - 'null'
-          description: Country (optional)
-        postalCode:
-          type: string
-          description: Postal Code
-      additionalProperties: false
-      description: City, State and Postal Code required
-    Coyote.Systems.ExternalApi.Contracts.Models.RateCode:
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_Currency:
       enum:
-      - Unknown
-      - FlatRate
-      - FuelSurcharge
+      - USD
+      - CAD
       type: string
-      description: 'Charge codes: FR = FlatRate, 405 = FuelSurCharge, PM = PerMile'
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType:
-      enum:
-      - V
-      - R
-      type: string
-      description: Equipment Type
+      description: Currency types
     Coyote.Systems.ExternalApi.Contracts.Models.Spot.CarrierQuote:
       type: object
       properties:
@@ -403,51 +387,184 @@ components:
           description: Accessorials
       additionalProperties: false
       description: Carrier Quote
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuoteRequest:
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_CurrencyType:
+      enum:
+      - Undefined
+      - USD
+      - CAD
+      - MXN
+      - ARS
+      - BRL
+      - CLP
+      - COP
+      - VEF
+      - EUR
+      - GBP
+      - HUF
+      - PLN
+      type: string
+      description: Currency Type
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuoteRequest:
       required:
-      - commodities
+      - customerShipmentId
       - destination
-      - equipmentType
+      - equipmentTypeId
       - origin
-      - pickupDate
+      - pickUpDateUTC
       type: object
       properties:
-        origin:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData'
-        pickupDate:
-          type: string
-          description: Shipment Pickup Date
-          format: date-time
-        originRequirements:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements'
-        destination:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData'
-        destinationRequirements:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements'
-        equipmentType:
+        equipmentTypeId:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
-        commodities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.Commodity'
-          description: Commodities
-        guaranteedShipment:
-          type: boolean
-          description: Guaranteed Shipment
-        protectFromFreeze:
-          type: boolean
-          description: Protect From Freeze
+        origin:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        pickUpDateUTC:
+          type: string
+          description: Load Pickup Date UTC
+          format: date-time
+        minTemperature:
+          type:
+          - number
+          - 'null'
+          description: Minimum Temperature (required if Equipment Type = R)
+          format: double
+        maxTemperature:
+          type:
+          - number
+          - 'null'
+          description: Maximum Temperature (required if Equipment Type = R)
+          format: double
+        weight:
+          type:
+          - number
+          - 'null'
+          description: Weight
+          format: double
+        commodity:
+          type:
+          - string
+          - 'null'
+          description: Commodity
+        equipmentLength:
+          type:
+          - number
+          - 'null'
+          description: Equipment Length
+          format: double
+        isHazmat:
+          type:
+          - boolean
+          - 'null'
+          description: Load is Hazmat __(currently unsupported)__
+        isDropTrailer:
+          type:
+          - boolean
+          - 'null'
+          description: Load Requires Drop Trailer __(currently unsupported)__
+        customerShipmentId:
+          type: string
+          description: Shipment ID
       additionalProperties: false
-      description: LTL Rate Request
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements:
+      description: Spot Quote Request
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass:
+      enum:
+      - Undefined
+      - N50
+      - N55
+      - N60
+      - N65
+      - N70
+      - N77PT5
+      - N85
+      - N92PT5
+      - N100
+      - N110
+      - N125
+      - N150
+      - N175
+      - N200
+      - N250
+      - N300
+      - N400
+      - N500
+      type: string
+      description: FreightClass
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.Accessorial:
       type: object
       properties:
-        appointmentRequired:
-          type: boolean
-          description: Appointment Required
-        carrierNotifyBeforeArrival:
-          type: boolean
-          description: Carrier Notify Before Arrival
+        chargeDescription:
+          type:
+          - string
+          - 'null'
+          description: Accessorial charge description
+        amount:
+          type: number
+          description: Accessorial charge amount
+          format: double
+      additionalProperties: false
+      description: Accessorial
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuote:
+      type: object
+      properties:
+        spotQuoteId:
+          type: integer
+          description: SpotQuoteId - Specify this ID as the LoadDetail.SpotQuoteId to build a load using the loads endpoint.
+          format: int32
+        customerShipmentId:
+          type:
+          - string
+          - 'null'
+          description: CustomerShipmentId
+        origin:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
+        equipmentTypeId:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
+        pickUpDateUTC:
+          type: string
+          description: PickupDateUTC
+          format: date-time
+        validUntilUtc:
+          type: string
+          description: ValidUntilUtc
+          format: date-time
+        totalRate:
+          type: number
+          description: 'TotalRate
+
+            __Total rate includes fuel__'
+          format: double
+        rateLineItems:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem'
+          description: List of rate items that make up the total rate for this quote
+      additionalProperties: false
+      description: SpotQuote
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuote:
+      type: object
+      properties:
+        ltlSpotQuoteId:
+          type:
+          - string
+          - 'null'
+          description: LTL Spot Quote request Id
+        carrierQuotes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.CarrierQuote'
+          description: Carrier Quotes
+      additionalProperties: false
+      description: LTL Rate Response
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements:
+      type: object
+      properties:
         insideStop:
           type: boolean
           description: Stop requires Inside Pickup or Delivery
@@ -466,7 +583,30 @@ components:
         limitedAccessType:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType'
       additionalProperties: false
-      description: Destination stop requirements
+      description: Origin stop requirements
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData:
+      required:
+      - cityName
+      - postalCode
+      - stateCode
+      type: object
+      properties:
+        cityName:
+          type: string
+          description: City
+        stateCode:
+          type: string
+          description: State
+        countryCode:
+          type:
+          - string
+          - 'null'
+          description: Country (optional)
+        postalCode:
+          type: string
+          description: Postal Code
+      additionalProperties: false
+      description: City, State and Postal Code required
     Coyote.Systems.ExternalApi.Contracts.Models.Enums_LimitedAccessType:
       enum:
       - Undefined
@@ -537,179 +677,39 @@ components:
           description: Is the commodity stackable
       additionalProperties: false
       description: Commodity
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuote:
-      type: object
-      properties:
-        ltlSpotQuoteId:
-          type:
-          - string
-          - 'null'
-          description: LTL Spot Quote request Id
-        carrierQuotes:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.CarrierQuote'
-          description: Carrier Quotes
-      additionalProperties: false
-      description: LTL Rate Response
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuote:
-      type: object
-      properties:
-        spotQuoteId:
-          type: integer
-          description: SpotQuoteId - Specify this ID as the LoadDetail.SpotQuoteId to build a load using the loads endpoint.
-          format: int32
-        customerShipmentId:
-          type:
-          - string
-          - 'null'
-          description: CustomerShipmentId
-        origin:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
-        destination:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
-        equipmentTypeId:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
-        pickUpDateUTC:
-          type: string
-          description: PickupDateUTC
-          format: date-time
-        validUntilUtc:
-          type: string
-          description: ValidUntilUtc
-          format: date-time
-        totalRate:
-          type: number
-          description: 'TotalRate
-
-            __Total rate includes fuel__'
-          format: double
-        rateLineItems:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem'
-          description: List of rate items that make up the total rate for this quote
-      additionalProperties: false
-      description: SpotQuote
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_Currency:
-      enum:
-      - USD
-      - CAD
-      type: string
-      description: Currency types
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.RateItem:
-      type: object
-      properties:
-        rateCode:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.RateCode'
-        description:
-          type:
-          - string
-          - 'null'
-          description: Rate code description
-        unitRate:
-          type: number
-          description: Unit amount of the rate line item.
-          format: double
-        units:
-          type: number
-          description: Number of Units
-          format: double
-        totalRate:
-          type: number
-          description: Total amount of the rate line item.
-          format: double
-        currency:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_Currency'
-      additionalProperties: false
-      description: Rate line item that make up the quote
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_FreightClass:
-      enum:
-      - Undefined
-      - N50
-      - N55
-      - N60
-      - N65
-      - N70
-      - N77PT5
-      - N85
-      - N92PT5
-      - N100
-      - N110
-      - N125
-      - N150
-      - N175
-      - N200
-      - N250
-      - N300
-      - N400
-      - N500
-      type: string
-      description: FreightClass
-    Coyote.Systems.ExternalApi.Contracts.Models.Spot.SpotQuoteRequest:
+    Coyote.Systems.ExternalApi.Contracts.Models.Spot.LTLSpotQuoteRequest:
       required:
-      - customerShipmentId
+      - commodities
       - destination
-      - equipmentTypeId
+      - equipmentType
       - origin
-      - pickUpDateUTC
+      - pickupDate
       type: object
       properties:
-        equipmentTypeId:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
         origin:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
-        destination:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LocationData'
-        pickUpDateUTC:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData'
+        pickupDate:
           type: string
-          description: Load Pickup Date UTC
+          description: Shipment Pickup Date
           format: date-time
-        minTemperature:
-          type:
-          - number
-          - 'null'
-          description: Minimum Temperature (required if Equipment Type = R)
-          format: double
-        maxTemperature:
-          type:
-          - number
-          - 'null'
-          description: Maximum Temperature (required if Equipment Type = R)
-          format: double
-        weight:
-          type:
-          - number
-          - 'null'
-          description: Weight
-          format: double
-        commodity:
-          type:
-          - string
-          - 'null'
-          description: Commodity
-        equipmentLength:
-          type:
-          - number
-          - 'null'
-          description: Equipment Length
-          format: double
-        isHazmat:
-          type:
-          - boolean
-          - 'null'
-          description: Load is Hazmat __(currently unsupported)__
-        isDropTrailer:
-          type:
-          - boolean
-          - 'null'
-          description: Load Requires Drop Trailer __(currently unsupported)__
-        customerShipmentId:
-          type: string
-          description: Shipment ID
+        originRequirements:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.OriginRequirements'
+        destination:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.LtlLocationData'
+        destinationRequirements:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.DestinationRequirements'
+        equipmentType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_EquipmentType'
+        commodities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Spot.Commodity'
+          description: Commodities
+        guaranteedShipment:
+          type: boolean
+          description: Guaranteed Shipment
+        protectFromFreeze:
+          type: boolean
+          description: Protect From Freeze
       additionalProperties: false
-      description: Spot Quote Request
+      description: LTL Rate Request

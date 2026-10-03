@@ -225,6 +225,28 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          description: Offer id
+        loadId:
+          type: integer
+          description: Available load Id
+          format: int32
+        amount:
+          type: number
+          description: Offer amount
+          format: double
+        currency:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType'
+        status:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus'
+      additionalProperties: false
+      description: Offer details
     Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest:
       required:
       - amount
@@ -249,6 +271,17 @@ components:
           format: uri
       additionalProperties: false
       description: Offer request
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType:
+      enum:
+      - Undefined
+      - USD
+      - CAD
+      - MXN
+      - EUR
+      - GBP
+      - PLN
+      type: string
+      description: Currency Type
     Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus:
       enum:
       - Unknown
@@ -262,36 +295,3 @@ components:
       - Invalid
       type: string
       description: Offer status
-    Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferDetails:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          description: Offer id
-        loadId:
-          type: integer
-          description: Available load Id
-          format: int32
-        amount:
-          type: number
-          description: Offer amount
-          format: double
-        currency:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType'
-        status:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus'
-      additionalProperties: false
-      description: Offer details
-    Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType:
-      enum:
-      - Undefined
-      - USD
-      - CAD
-      - MXN
-      - EUR
-      - GBP
-      - PLN
-      type: string
-      description: Currency Type
