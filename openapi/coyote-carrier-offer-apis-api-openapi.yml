@@ -247,6 +247,17 @@ components:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus'
       additionalProperties: false
       description: Offer details
+    Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType:
+      enum:
+      - Undefined
+      - USD
+      - CAD
+      - MXN
+      - EUR
+      - GBP
+      - PLN
+      type: string
+      description: Currency Type
     Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferRequest:
       required:
       - amount
@@ -271,17 +282,6 @@ components:
           format: uri
       additionalProperties: false
       description: Offer request
-    Coyote.Systems.ExternalApi.Contracts.Models.Offer.CurrencyType:
-      enum:
-      - Undefined
-      - USD
-      - CAD
-      - MXN
-      - EUR
-      - GBP
-      - PLN
-      type: string
-      description: Currency Type
     Coyote.Systems.ExternalApi.Contracts.Models.Offer.OfferStatus:
       enum:
       - Unknown

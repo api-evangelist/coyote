@@ -101,37 +101,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentType:
-      enum:
-      - Undefined
-      - VendorInvoice
-      - BillOfLading
-      - ProofOfDelivery
-      - LumperTicket
-      - ScaleTicket
-      - InGateTicket
-      - OutGateTicket
-      - Miscellaneous
-      - AccessorialAgreement
-      - RateConfirmation
-      - LoadTender
-      - Invoice
-      - CustomsDocuments
-      - InvoiceWithPaperwork
-      - DetentionLoading
-      - DetentionUnloading
-      - PalletReceipt
-      - SpotApproval
-      - EquipmentOrderedNotUsed
-      - CMR
-      - DemurrageLoading
-      - DemurrageUnloading
-      - ExitPass
-      - BalanceDue
-      - BalanceDueWithPaperwork
-      - PackingList
-      type: string
-      description: Document Type
     Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType:
       enum:
       - Undefined
@@ -179,3 +148,34 @@ components:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentExtensionType'
       additionalProperties: false
       description: Document Request
+    Coyote.Systems.ExternalApi.Contracts.Models.Enums_DocumentType:
+      enum:
+      - Undefined
+      - VendorInvoice
+      - BillOfLading
+      - ProofOfDelivery
+      - LumperTicket
+      - ScaleTicket
+      - InGateTicket
+      - OutGateTicket
+      - Miscellaneous
+      - AccessorialAgreement
+      - RateConfirmation
+      - LoadTender
+      - Invoice
+      - CustomsDocuments
+      - InvoiceWithPaperwork
+      - DetentionLoading
+      - DetentionUnloading
+      - PalletReceipt
+      - SpotApproval
+      - EquipmentOrderedNotUsed
+      - CMR
+      - DemurrageLoading
+      - DemurrageUnloading
+      - ExitPass
+      - BalanceDue
+      - BalanceDueWithPaperwork
+      - PackingList
+      type: string
+      description: Document Type
