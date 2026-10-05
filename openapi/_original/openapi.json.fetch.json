@@ -1,0 +1,12 @@
+{
+ "url": "https://api.coyote.com/swagger/v1/swagger.json",
+ "requested_url": "https://api.coyote.com/swagger/v1/swagger.json",
+ "status": 200,
+ "content_type": "application/json;charset=utf-8",
+ "bytes": 322175,
+ "sha256": "7f02ac2581f3c625ddae566db61763cf6250f7f7d71c7e2230f67dacdcd4f9b5",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
