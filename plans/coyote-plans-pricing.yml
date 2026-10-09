@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-06-13 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-06-13'
 specification: API Commons Plans
 specificationVersion: '0.1'
 provider: Coyote Logistics
@@ -101,3 +106,28 @@ notes: >
   searches) are approximate operational figures cited on the developer portal homepage
   as of 2026-06-13. Contact 877-6-COYOTE or the integrations team for access.
   Source: https://api2-dev.coyote.com/ reviewed 2026-06-13.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Shipper Integration
+    access: free
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Carrier Integration
+    access: free
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: enterprise
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
