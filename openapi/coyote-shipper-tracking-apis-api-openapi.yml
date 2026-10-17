@@ -329,53 +329,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates:
-      type: object
-      properties:
-        latitude:
-          type: number
-          description: Latitude
-          format: double
-        longitude:
-          type: number
-          description: Longitude
-          format: double
-      additionalProperties: false
-      description: GeoCoordinates
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStopProgress:
-      type: object
-      properties:
-        milestone:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Milestone'
-        sequence:
-          type: integer
-          description: Sequence
-          format: int32
-        stopType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
-        facility:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility'
-        appointment:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment'
-      additionalProperties: false
-      description: Load Stop
-    Coyote.Systems.ExternalApi.Contracts.Models.StopType:
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit:
       enum:
-      - None
-      - Pickup
-      - Delivery
-      - ContainerDepotOrigin
-      - ContainerDepotTermination
-      - OriginRamp
-      - DestinationRamp
-      - OriginPort
-      - DestinationPort
-      - OriginAirport
-      - DestinationAirport
-      - CrossDock
+      - Miles
+      - Kilometers
       type: string
-      description: Stop Types
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Summary:
+      description: Distance Unit
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.StopDetail:
       type: object
       properties:
         proNumber:
@@ -383,35 +343,15 @@ components:
           - string
           - 'null'
           description: ProNumber (LTL)
-        latestLocationStatus:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Location'
-        nextStop:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStop'
-        estimatedArrivalDateTimeUtc:
+        loadStops:
           type:
-          - string
+          - array
           - 'null'
-          description: ETA DateTime in Utc
-          format: date-time
-        nextStopDistance:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Distance'
+          items:
+            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStopProgress'
+          description: Load Stops
       additionalProperties: false
-      description: Summary
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Location:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress'
-        timestampUtc:
-          type:
-          - string
-          - 'null'
-          description: Timestamp in Utc
-          format: date-time
-        geoCoordinates:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
-      additionalProperties: false
-      description: Location
+      description: Stop Detail
     Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Address:
       type: object
       properties:
@@ -447,29 +387,57 @@ components:
           description: Country Code
       additionalProperties: false
       description: Address
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.StopDetail:
+    Coyote.Systems.ExternalApi.Contracts.Models.StopType:
+      enum:
+      - None
+      - Pickup
+      - Delivery
+      - ContainerDepotOrigin
+      - ContainerDepotTermination
+      - OriginRamp
+      - DestinationRamp
+      - OriginPort
+      - DestinationPort
+      - OriginAirport
+      - DestinationAirport
+      - CrossDock
+      type: string
+      description: Stop Types
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Milestone:
       type: object
       properties:
-        proNumber:
+        driverArrivalDateTimeUtc:
           type:
           - string
           - 'null'
-          description: ProNumber (LTL)
-        loadStops:
+          description: Driver Arrival DateTime in Utc
+          format: date-time
+        trailerArriveDateTimeUtc:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStopProgress'
-          description: Load Stops
+          description: Trailer Arrive DateTime in Utc
+          format: date-time
+        trailerLoadedDateTimeUtc:
+          type:
+          - string
+          - 'null'
+          description: Trailer Loaded DateTime in Utc
+          format: date-time
+        trailerEmptyDateTimeUtc:
+          type:
+          - string
+          - 'null'
+          description: Trailer Empty DateTime in Utc
+          format: date-time
+        driverDepartureDateTimeUtc:
+          type:
+          - string
+          - 'null'
+          description: Driver Departure DateTime in Utc
+          format: date-time
       additionalProperties: false
-      description: Stop Detail
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit:
-      enum:
-      - Miles
-      - Kilometers
-      type: string
-      description: Distance Unit
+      description: Milestone
     Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Distance:
       type: object
       properties:
@@ -481,21 +449,38 @@ components:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Unit'
       additionalProperties: false
       description: Distance to Next Stop
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStop:
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Location:
       type: object
       properties:
-        sequence:
-          type: integer
-          description: Sequence
-          format: int32
-        stopType:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
-        facility:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility'
-        appointment:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment'
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress'
+        timestampUtc:
+          type:
+          - string
+          - 'null'
+          description: Timestamp in Utc
+          format: date-time
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
       additionalProperties: false
-      description: Load Stop
+      description: Location
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LocationStatus:
+      type: object
+      properties:
+        loadId:
+          type: integer
+          description: Load
+          format: int32
+        address:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Address'
+        geoCoordinates:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
+        timestamp:
+          type: string
+          description: Timestamp
+          format: date-time
+      additionalProperties: false
+      description: Location Status
     Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress:
       type: object
       properties:
@@ -536,23 +521,87 @@ components:
           description: Country Code
       additionalProperties: false
       description: Address
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LocationStatus:
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStop:
       type: object
       properties:
-        loadId:
+        sequence:
           type: integer
-          description: Load
+          description: Sequence
           format: int32
+        stopType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
+        facility:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility'
+        appointment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment'
+      additionalProperties: false
+      description: Load Stop
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Summary:
+      type: object
+      properties:
+        proNumber:
+          type:
+          - string
+          - 'null'
+          description: ProNumber (LTL)
+        latestLocationStatus:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Location'
+        nextStop:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStop'
+        estimatedArrivalDateTimeUtc:
+          type:
+          - string
+          - 'null'
+          description: ETA DateTime in Utc
+          format: date-time
+        nextStopDistance:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Distance'
+      additionalProperties: false
+      description: Summary
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.LoadStopProgress:
+      type: object
+      properties:
+        milestone:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Milestone'
+        sequence:
+          type: integer
+          description: Sequence
+          format: int32
+        stopType:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.StopType'
+        facility:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility'
+        appointment:
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment'
+      additionalProperties: false
+      description: Load Stop
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          description: Name
         address:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Address'
+          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress'
         geoCoordinates:
           $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
-        timestamp:
-          type: string
-          description: Timestamp
-          format: date-time
       additionalProperties: false
-      description: Location Status
+      description: Facility
+    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: Latitude
+          format: double
+        longitude:
+          type: number
+          description: Longitude
+          format: double
+      additionalProperties: false
+      description: GeoCoordinates
     Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Appointment:
       type: object
       properties:
@@ -582,52 +631,3 @@ components:
           format: date-time
       additionalProperties: false
       description: Appointment
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Facility:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-          description: Name
-        address:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.TrackingAddress'
-        geoCoordinates:
-          $ref: '#/components/schemas/Coyote.Systems.ExternalApi.Contracts.Models.Tracking.GeoCoordinates'
-      additionalProperties: false
-      description: Facility
-    Coyote.Systems.ExternalApi.Contracts.Models.Tracking.Milestone:
-      type: object
-      properties:
-        driverArrivalDateTimeUtc:
-          type:
-          - string
-          - 'null'
-          description: Driver Arrival DateTime in Utc
-          format: date-time
-        trailerArriveDateTimeUtc:
-          type:
-          - string
-          - 'null'
-          description: Trailer Arrive DateTime in Utc
-          format: date-time
-        trailerLoadedDateTimeUtc:
-          type:
-          - string
-          - 'null'
-          description: Trailer Loaded DateTime in Utc
-          format: date-time
-        trailerEmptyDateTimeUtc:
-          type:
-          - string
-          - 'null'
-          description: Trailer Empty DateTime in Utc
-          format: date-time
-        driverDepartureDateTimeUtc:
-          type:
-          - string
-          - 'null'
-          description: Driver Departure DateTime in Utc
-          format: date-time
-      additionalProperties: false
-      description: Milestone
