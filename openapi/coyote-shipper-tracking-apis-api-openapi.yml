@@ -631,3 +631,9 @@ components:
           format: date-time
       additionalProperties: false
       description: Appointment
+x-provenance:
+  method: harvested
+  publisher: Coyote Logistics
+  source: https://api.coyote.com/swagger/v1/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
